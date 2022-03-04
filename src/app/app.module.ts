@@ -11,7 +11,10 @@ import { OktaAuth } from '@okta/okta-auth-js';
 const oktaAuth = new OktaAuth({
   issuer: 'https://dev-7824301.okta.com/oauth2/default',
   clientId: '0oa41j4h92rnKJ2Xr5d7',
-  redirectUri: window.location.origin + '/login/callback'
+  redirectUri: `${window.location.origin}/login/callback`,
+  pkce: true,
+  scopes: ['openid'],
+  postLogoutRedirectUri: window.location.origin,
 });
 
 
@@ -26,7 +29,7 @@ const oktaAuth = new OktaAuth({
     HttpClientModule,
     OktaAuthModule
   ],
-  providers: [],
+  providers: [{ provide: OKTA_CONFIG, useValue: {oktaAuth}}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { OktaAuthModule, OKTA_CONFIG } from '@okta/okta-angular';
 import { OktaAuth } from '@okta/okta-auth-js';
+import { OktaUserComponent } from './components/okta-user/okta-user.component';
 
 const oktaAuth = new OktaAuth({
   issuer: 'https://dev-7824301.okta.com/oauth2/default',
@@ -21,7 +22,8 @@ const oktaAuth = new OktaAuth({
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent
+    UserComponent,
+    OktaUserComponent
   ],
   imports: [
     BrowserModule,

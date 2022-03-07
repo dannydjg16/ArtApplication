@@ -3,6 +3,11 @@
   <a routerLink="/users">Users</a>
 </nav>
 
+<nav>
+  <a routerLink="/usera">OktaUser</a>
+</nav>
+
+
 
 <ng-container *ngIf="(isAuthenticated$ | async) === false; else signout">
   <button (click)="signIn()"> Sign in </button>
@@ -12,4 +17,5 @@
   <button (click)="signOut()">Sign out</button>
 </ng-template>
 
+<app-okta-user></app-okta-user>
 <router-outlet></router-outlet>

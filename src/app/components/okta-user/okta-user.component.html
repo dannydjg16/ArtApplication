@@ -5,4 +5,18 @@
         Hello {{name}}!
     </p>
     <h1>Danny</h1>
+
+    <ng-container *ngIf="(isAuthenticated$ | async) === false;">
+        <h1>Dani g</h1>
+        <button> AUTH BUTTON </button>
+        
+    </ng-container>
+
+    <ng-container *ngIf="(isAuthenticated$ | async) === false; else signout">
+        <button (click)="signIn()"> Sign in </button>
+      </ng-container>
+      
+      <ng-template #signout>
+        <button (click)="signOut()">Sign out</button>
+      </ng-template>
 </div>

@@ -6,8 +6,7 @@ import { OktaCallbackComponent } from '@okta/okta-angular';
 
 const routes: Routes = [
   { path: 'users', component: UserComponent },
-  { path: 'login/callback', component: OktaCallbackComponent },
-  { path: 'usera', component: OktaCallbackComponent },
+  { path: 'login/callback', component: OktaCallbackComponent }
 ];
 
 @NgModule({

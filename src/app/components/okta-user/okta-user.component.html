@@ -1,41 +1,9 @@
 <div class="profile-card">
-    <h1>Avi</h1>
     <div class="shield"></div>
+
     <p *ngIf="name$ | async as name">
-        Hello {{name}}!
-    </p>
-    <h1>Danny</h1>
-
-    <ng-container *ngIf="(isAuthenticated$ | async) === true;">
-        <h1>Dani g</h1>
-        <button> AUTH BUTTON </button>
-        
-    </ng-container>
-
-    <ng-container *ngIf="(isAuthenticated$ | async) === false; else signout">
-        <button (click)="signIn()"> Sign in </button>
-      </ng-container>
-      
-      <ng-template #signout>
-        <button (click)="signOut()">Sign out</button>
-      </ng-template>
-
-      <p *ngIf="name$ | async as name">
         Hello {{name}}!
     </p>
 
 </div>
 
-
-<p *ngIf="AuthStateHere | async ">
-    Hello AuthST:  {{AuthStateHere.idToken?.claims.name}!
-</p>
-
-
-
-<button (click)="conLog()"> consoleLog </button>
-
-
-<p *ngIf="name">
-    Hello {{name}}!
-</p>

@@ -24,35 +24,15 @@ export class OktaUserComponent implements OnInit {
   constructor(private _router: Router, private _oktaStateService: OktaAuthStateService, @Inject(OKTA_AUTH) private _oktaAuth: OktaAuth) { }
 
   public ngOnInit(): void {
-    // this.isAuthenticated$ = this._oktaStateService.authState$.pipe(
-    //   filter((s: AuthState) => !!s),
-    //   map((s: AuthState) => s.isAuthenticated ?? false)
-    // );
-
-   // this._oktaStateService.authState$.subscribe(a =>  this.setName(a.idToken?.claims.name!));
-
-    // this._oktaAuth.getUser().then(u => this.setName(u.|| 'aaaaaaaa'));
-    // this._oktaStateService.authState$.pipe(a => a.subscribe())
-
-
-
-    // this.AuthStateHere = this._oktaStateService.authState$.pipe(
-    //   filter((authState: AuthState) => !!authState && !!authState.isAuthenticated),
-    //   map((authState: AuthState) => authState ?? 'joe')
-    // );
+    this.isAuthenticated$ = this._oktaStateService.authState$.pipe(
+      filter((s: AuthState) => !!s),
+      map((s: AuthState) => s.isAuthenticated ?? false),
+    );
 
     this.name$ = this._oktaStateService.authState$.pipe(
       filter((authState: AuthState) => !!authState && !!authState.isAuthenticated),
-      map((authState: AuthState) => authState.accessToken?.claims.sub ?? 'kj')
+      map((authState: AuthState) => authState.accessToken?.claims.sub ?? 'Okta-User-Component')
     );
-  }
-
-  public conLog(){
-    console.log(this.name$);
-  }
-
-  private async setName(str: string) {
-    this.name = str;
   }
 
   public async signIn() : Promise<void> {

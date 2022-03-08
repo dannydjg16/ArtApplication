@@ -43,7 +43,7 @@ export class OktaUserComponent implements OnInit {
 
     this.name$ = this._oktaStateService.authState$.pipe(
       filter((authState: AuthState) => !!authState && !!authState.isAuthenticated),
-      map((authState: AuthState) => authState.idToken!.claims.name! ?? 'kj')
+      map((authState: AuthState) => authState.accessToken?.claims.sub ?? 'kj')
     );
   }
 

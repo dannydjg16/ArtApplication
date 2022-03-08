@@ -6,7 +6,7 @@
     </p>
     <h1>Danny</h1>
 
-    <ng-container *ngIf="(isAuthenticated$ | async) === false;">
+    <ng-container *ngIf="(isAuthenticated$ | async) === true;">
         <h1>Dani g</h1>
         <button> AUTH BUTTON </button>
         
@@ -19,4 +19,23 @@
       <ng-template #signout>
         <button (click)="signOut()">Sign out</button>
       </ng-template>
+
+      <p *ngIf="name$ | async as name">
+        Hello {{name}}!
+    </p>
+
 </div>
+
+
+<p *ngIf="AuthStateHere | async ">
+    Hello AuthST:  {{AuthStateHere.idToken?.claims.name}!
+</p>
+
+
+
+<button (click)="conLog()"> consoleLog </button>
+
+
+<p *ngIf="name">
+    Hello {{name}}!
+</p>

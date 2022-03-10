@@ -7,8 +7,6 @@
   <a routerLink="/usera">OktaUser</a>
 </nav>
 
-
-
 <ng-container *ngIf="(isAuthenticated$ | async) === false; else signout">
   <button (click)="signIn()"> Sign in </button>
 </ng-container>

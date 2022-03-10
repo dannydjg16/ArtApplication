@@ -1,9 +1,26 @@
 <div class="profile-card">
+    <h1>Avi</h1>
     <div class="shield"></div>
-
     <p *ngIf="name$ | async as name">
+        Hello {{name}}!
+    </p>
+    <h1>Danny</h1>
+
+    <ng-container *ngIf="(isAuthenticated$ | async) === true;">
+        <h1>Dani g</h1>
+        <button> AUTH BUTTON </button>
+        
+    </ng-container>
+
+      <p *ngIf="name$ | async as name">
         Hello {{name}}!
     </p>
 
 </div>
 
+
+
+
+<p *ngIf="name$ | async as name">
+    Hello {{name}}!
+</p>

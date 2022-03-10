@@ -18,4 +18,11 @@ export class UserService {
     };
     return this.http.get<User[]>(`${this.baseUrl}`, { headers: headers })
   }
+
+  getUserByEmail(email: string | undefined): Observable<User>{
+    const headers = {
+      Accept: 'application/json'
+    };
+    return this.http.get<User>(`${this.baseUrl}/email/${email}`, { headers: headers })
+  }
 }

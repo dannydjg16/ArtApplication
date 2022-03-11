@@ -6,10 +6,8 @@
 </ng-container>
 
 <ng-template #signout>
+  <app-auth-nav></app-auth-nav>
   <button (click)="signOut()">Sign out</button>
 </ng-template>
 
-
-
-<app-okta-user></app-okta-user>
 <router-outlet></router-outlet>

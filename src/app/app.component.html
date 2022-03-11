@@ -1,13 +1,7 @@
 <h1>{{title}}</h1>
-<nav>
-  <a routerLink="/users">Users</a>
-</nav>
-
-<nav>
-  <a routerLink="/usera">OktaUser</a>
-</nav>
 
 <ng-container *ngIf="(isAuthenticated$ | async) === false; else signout">
+  <app-no-auth-nav></app-no-auth-nav>
   <button (click)="signIn()"> Sign in </button>
 </ng-container>
 

@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { OktaAuthModule, OKTA_CONFIG, OktaCallbackComponent } from '@okta/okta-angular';
 import { OktaAuth } from '@okta/okta-auth-js';
 import { OktaUserComponent } from './components/okta-user/okta-user.component';
+import { NoAuthNavComponent } from './components/no-auth-nav/no-auth-nav.component';
 
 const oktaAuth = new OktaAuth({
   issuer: 'https://dev-7824301.okta.com/oauth2/default',
@@ -23,7 +24,8 @@ const oktaAuth = new OktaAuth({
   declarations: [
     AppComponent,
     UserComponent,
-    OktaUserComponent
+    OktaUserComponent,
+    NoAuthNavComponent
   ],
   imports: [
     BrowserModule,

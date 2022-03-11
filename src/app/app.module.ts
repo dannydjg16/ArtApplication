@@ -11,6 +11,7 @@ import { OktaUserComponent } from './components/okta-user/okta-user.component';
 import { NoAuthNavComponent } from './components/no-auth-nav/no-auth-nav.component';
 import { AuthNavComponent } from './components/auth-nav/auth-nav.component';
 
+
 const oktaAuth = new OktaAuth({
   issuer: 'https://dev-7824301.okta.com/oauth2/default',
   clientId: '0oa41j4h92rnKJ2Xr5d7',

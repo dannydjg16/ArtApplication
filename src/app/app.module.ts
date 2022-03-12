@@ -10,6 +10,7 @@ import { OktaAuth } from '@okta/okta-auth-js';
 import { OktaUserComponent } from './components/okta-user/okta-user.component';
 import { NoAuthNavComponent } from './components/no-auth-nav/no-auth-nav.component';
 import { AuthNavComponent } from './components/auth-nav/auth-nav.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 
 const oktaAuth = new OktaAuth({
@@ -34,7 +35,8 @@ const oktaAuth = new OktaAuth({
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    OktaAuthModule
+    OktaAuthModule,
+    MDBBootstrapModule.forRoot()
   ],
   providers: [{ provide: OKTA_CONFIG, useValue: {oktaAuth}}],
   bootstrap: [AppComponent]

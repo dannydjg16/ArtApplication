@@ -11,6 +11,7 @@ import { OktaUserComponent } from './components/okta-user/okta-user.component';
 import { NoAuthNavComponent } from './components/no-auth-nav/no-auth-nav.component';
 import { AuthNavComponent } from './components/auth-nav/auth-nav.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 const oktaAuth = new OktaAuth({
@@ -29,7 +30,8 @@ const oktaAuth = new OktaAuth({
     UserComponent,
     OktaUserComponent,
     NoAuthNavComponent,
-    AuthNavComponent
+    AuthNavComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

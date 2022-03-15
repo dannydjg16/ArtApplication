@@ -41,6 +41,16 @@ export class ArtistService {
     
     const id = typeof artist === 'number' ? artist : artist.id;
 
-    return this.http.put(`${this.baseUrl}/artist/${id}`, artist, { headers: headers } );
+    return this.http.put(`${this.baseUrl}/artists/${id}`, artist, { headers: headers });
+  }
+
+  deleteArtist(artist: Artist | number): Observable<Artist> {
+    const headers = {
+      Accept: 'application/json'
+    };
+
+    const id = typeof artist === 'number' ? artist : artist.id;
+
+    return this.http.delete<Artist>(`${this.baseUrl}/artists/${id}`, { headers: headers});
   }
 }

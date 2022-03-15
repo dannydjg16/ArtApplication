@@ -16,13 +16,47 @@ export class UserService {
     const headers = {
       Accept: 'application/json'
     };
+
     return this.http.get<User[]>(`${this.baseUrl}`, { headers: headers })
+  }
+
+  getUserById(id: number | undefined): Observable<User>{
+    const headers = {
+      Accept: 'application/json'
+    };
+
+    return this.http.get<User>(`${this.baseUrl}/${id}`, { headers: headers })
   }
 
   getUserByEmail(email: string | undefined): Observable<User>{
     const headers = {
       Accept: 'application/json'
     };
+
     return this.http.get<User>(`${this.baseUrl}/email/${email}`, { headers: headers })
+  }
+
+  addUser(user: User) {
+    const headers = {
+      Accept: 'application/json'
+    };
+
+    return this.http.post(`${this.baseUrl}`, user, { headers: headers});
+  }
+
+  editUser(id: number, user: User) {
+    const headers = {
+      Accept: 'application/json'
+    };
+
+    return this.http.put(`${this.baseUrl}/${id}`, user, { headers: headers});
+  }
+
+  deleteUserById(id: number) {
+    const headers = {
+      Accept: 'application/json'
+    };
+
+    return this.http.delete(`${this.baseUrl}/${id}`, { headers: headers});
   }
 }

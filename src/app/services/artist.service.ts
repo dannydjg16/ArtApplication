@@ -8,15 +8,39 @@ import Artist from '../interfaces/artist';
   providedIn: 'root'
 })
 export class ArtistService {
+
   private baseUrl = `${environment.baseUrl}/artists`;
+
   constructor(private http: HttpClient) { }
 
   getArtists(): Observable<Artist[]> {
     const headers = {
       Accept: 'application/json'
     };
-    return this.http.get<Artist[]>(`${this.baseUrl}`, { headers: headers })
+    return this.http.get<Artist[]>(`${this.baseUrl}`, { headers: headers });
   }
 
-  
+  getAnArtist(id: number): Observable<Artist> {
+    const headers = {
+      Accept: 'application/json'
+    };
+    return this.http.get<Artist>(`${this.baseUrl}/${id}`, { headers: headers });
+  }
+
+  addArtist(artist: Artist) {
+    const headers = {
+      Accept: 'application/json'
+    };
+    return this.http.post(`${this.baseUrl}`, artist, {headers: headers});
+  }
+
+  editArtist(artist: Artist | number): Observable<any> {
+    const headers = {
+      Accept: 'application/json'
+    };
+    
+    const id = typeof artist === 'number' ? artist : artist.id;
+
+    return this.http.put(`${this.baseUrl}/artist/${id}`, artist, { headers: headers } );
+  }
 }

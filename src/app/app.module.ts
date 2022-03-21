@@ -12,6 +12,7 @@ import { NoAuthNavComponent } from './components/no-auth-nav/no-auth-nav.compone
 import { AuthNavComponent } from './components/auth-nav/auth-nav.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FooterComponent } from './components/footer/footer.component';
+import { GeneralGalleryComponent } from './general-gallery/general-gallery.component';
 
 
 const oktaAuth = new OktaAuth({
@@ -31,7 +32,8 @@ const oktaAuth = new OktaAuth({
     OktaUserComponent,
     NoAuthNavComponent,
     AuthNavComponent,
-    FooterComponent
+    FooterComponent,
+    GeneralGalleryComponent
   ],
   imports: [
     BrowserModule,

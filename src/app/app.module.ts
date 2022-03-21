@@ -15,6 +15,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { GeneralGalleryComponent } from './components/general-gallery/general-gallery.component';
 import { UserGalleryComponent } from './components/user-gallery/user-gallery.component';
 import { GalleryCardComponent } from './components/gallery-card/gallery-card.component';
+import { IsAuthComponent } from './components/is-auth/is-auth.component';
+import { NotAuthComponent } from './components/not-auth/not-auth.component';
 
 
 const oktaAuth = new OktaAuth({
@@ -37,7 +39,9 @@ const oktaAuth = new OktaAuth({
     FooterComponent,
     GeneralGalleryComponent,
     UserGalleryComponent,
-    GalleryCardComponent
+    GalleryCardComponent,
+    IsAuthComponent,
+    NotAuthComponent
   ],
   imports: [
     BrowserModule,

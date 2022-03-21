@@ -14,6 +14,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FooterComponent } from './components/footer/footer.component';
 import { GeneralGalleryComponent } from './general-gallery/general-gallery.component';
 import { UserGalleryComponent } from './user-gallery/user-gallery.component';
+import { GalleryCardComponent } from './gallery-card/gallery-card.component';
 
 
 const oktaAuth = new OktaAuth({
@@ -35,7 +36,8 @@ const oktaAuth = new OktaAuth({
     AuthNavComponent,
     FooterComponent,
     GeneralGalleryComponent,
-    UserGalleryComponent
+    UserGalleryComponent,
+    GalleryCardComponent
   ],
   imports: [
     BrowserModule,

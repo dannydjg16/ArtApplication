@@ -9,6 +9,8 @@ export default interface Artwork{
     description: string;
     likes: number;
     locationNow: number;
+    artistID: number;
+    mediumID: number;
 
     artist: Artist;
     medium: ArtType;

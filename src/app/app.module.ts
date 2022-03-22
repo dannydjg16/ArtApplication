@@ -17,6 +17,7 @@ import { UserGalleryComponent } from './components/user-gallery/user-gallery.com
 import { GalleryCardComponent } from './components/gallery-card/gallery-card.component';
 import { IsAuthComponent } from './components/is-auth/is-auth.component';
 import { NotAuthComponent } from './components/not-auth/not-auth.component';
+import { AddArtComponent } from './components/add-art/add-art.component';
 
 
 const oktaAuth = new OktaAuth({
@@ -41,7 +42,8 @@ const oktaAuth = new OktaAuth({
     UserGalleryComponent,
     GalleryCardComponent,
     IsAuthComponent,
-    NotAuthComponent
+    NotAuthComponent,
+    AddArtComponent
   ],
   imports: [
     BrowserModule,

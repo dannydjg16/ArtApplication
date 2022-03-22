@@ -1,1 +1,8 @@
 <p>general-gallery works!</p>
+
+
+<ng-container *ngIf="(artworkss.length);">
+    <p *ngFor="let artwork of artworkss">
+        {{artwork.title}}
+    </p>
+</ng-container>

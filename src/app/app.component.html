@@ -1,13 +1,10 @@
-<h1>{{title}}</h1>
 
 <ng-container *ngIf="(isAuthenticated$ | async) === false; else signout">
   <app-not-auth></app-not-auth>
-  <button (click)="signIn()"> Sign in </button>
 </ng-container>
 
 <ng-template #signout>
   <app-is-auth></app-is-auth>
-  <button (click)="signOut()">Sign out</button>
 </ng-template>
 
 

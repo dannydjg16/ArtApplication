@@ -1,10 +1,8 @@
-<p>general-gallery works!</p>
-
+<a routerLink="/addwork">Add Work</a>
 
 <ng-container *ngIf="(artworkss.length);">
     <p *ngFor="let artwork of artworkss">
         <img src={{artwork.fileName}}  height="200" width="200" alt="...">
         {{artwork.title}}
     </p>
-
 </ng-container>

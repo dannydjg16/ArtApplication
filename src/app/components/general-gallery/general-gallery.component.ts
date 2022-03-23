@@ -26,8 +26,4 @@ export class GeneralGalleryComponent implements OnInit {
   
     this._artworkService.getArtworks().subscribe(aws => this.artworkss = aws);
   }
-
-
-
-
 }

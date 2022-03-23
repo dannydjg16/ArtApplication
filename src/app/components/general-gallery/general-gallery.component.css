@@ -1,3 +1,20 @@
 h2 {
     text-align: center;
 }
+
+body {
+    background: #a89c9c;
+  }
+  
+.banner {
+    background: #a770ef;
+    background: -webkit-linear-gradient(to right, #a770ef, #cf8bf3, #fdb99b);
+    background: linear-gradient(to right, #a770ef, #cf8bf3, #fdb99b);
+}
+
+.divClass {
+    background: #3b3049;
+}
+
+
+

@@ -34,11 +34,10 @@ export class ArtworkService {
       Accept: 'application/json',
     };
 
-    return this.http.post(`${this.baseUrl}`, artWork, { headers: headers})
-    // .pipe(catchError((err) => {
-    //   console.error(err);
-    //   throw err;
-    // }));;
+    return this.http.post(`${this.baseUrl}`, artWork, { headers: headers}).pipe(catchError((err) => {
+      console.error(err);
+      throw err;
+    }));;
   } 
 
   editArtwork(id: number, artWork: Artwork) {

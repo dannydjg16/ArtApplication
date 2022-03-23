@@ -3,17 +3,23 @@ h2 {
 }
 
 body {
-    background: #a89c9c;
+    background: #dfdede;
   }
   
 .banner {
-    background: #a770ef;
-    background: -webkit-linear-gradient(to right, #a770ef, #cf8bf3, #fdb99b);
-    background: linear-gradient(to right, #a770ef, #cf8bf3, #fdb99b);
+    background: #ffffff;
+    right: 30%;
+    text-align: left;
+    width: 40%;
 }
 
 .divClass {
-    background: #3b3049;
+    background: #cbcacc;
+}
+
+.cardDiv {
+    border-width: 5px;
+    border-color: white;
 }
 
 

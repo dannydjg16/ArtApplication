@@ -2,6 +2,7 @@
 <h2>Universal Gallery</h2>
 <ng-container *ngIf="(artworkss.length);">
     <p *ngFor="let artwork of artworkss">
+        <app-gallery-card [theArtwork] = "artwork"></app-gallery-card>
         <img src={{artwork.fileName}}  height="200" width="200" alt="...">
         {{artwork.title}}
     </p>

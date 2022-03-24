@@ -1,1 +1,42 @@
-<p>add-artist works!</p>
+<form id="addArtForm">
+    <h2>Add An Artist</h2>
+    <!-- 2 column grid layout with text inputs for the first and last names -->
+    <div class="row mb-4">
+        Picutre Goes here
+    </div>
+
+    <!-- Title input -->
+    <div class="form-outline mb-4">
+        <input #title type="text" id="form6Example3" class="form-control" placeholder="Name" />
+    </div>
+
+    <!-- File URL input -->
+    <div class="form-outline mb-4">
+        <input #url type="text" id="form6Example4" class="form-control" placeholder="Artist Picture URL" />
+    </div>
+
+    <!-- Location Born input -->
+    <div class="form-outline mb-4">
+        <input #url type="text" id="form6Example4" class="form-control" placeholder="Location of Birth"/>
+    </div>    
+
+    <!-- Year Born input -->
+    <div class="form-outline mb-4">
+        <input #url type="text" id="form6Example4" class="form-control" placeholder="Year of Birth" />
+    </div>
+
+    <!-- Year Died input -->
+    <div class="form-outline mb-4">
+        <input #url type="text" id="form6Example4" class="form-control" placeholder="Year of Death" />
+    </div>
+
+    <!-- Description input -->
+    <div class="form-outline mb-4">
+        <textarea #description class="form-control" id="form6Example7" rows="4" placeholder="Biography"></textarea>
+    </div>
+
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-primary btn-block mb-4" id="addButton"
+        (click)="add(title.value, url.value, year.value, description.value, artist.value, medium.value, location.value)">Add
+        Artist</button>
+</form>

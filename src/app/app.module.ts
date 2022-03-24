@@ -19,6 +19,7 @@ import { IsAuthComponent } from './components/is-auth/is-auth.component';
 import { NotAuthComponent } from './components/not-auth/not-auth.component';
 import { AddArtComponent } from './components/add-art/add-art.component';
 import { AddArtistComponent } from './components/add-artist/add-artist.component';
+import { ArtTypeComponent } from './components/art-type/art-type.component';
 
 
 const oktaAuth = new OktaAuth({
@@ -45,7 +46,8 @@ const oktaAuth = new OktaAuth({
     IsAuthComponent,
     NotAuthComponent,
     AddArtComponent,
-    AddArtistComponent
+    AddArtistComponent,
+    ArtTypeComponent
   ],
   imports: [
     BrowserModule,

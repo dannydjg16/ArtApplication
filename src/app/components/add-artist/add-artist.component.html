@@ -5,9 +5,9 @@
         Picutre Goes here
     </div>
 
-    <!-- Title input -->
+    <!-- Name input -->
     <div class="form-outline mb-4">
-        <input #title type="text" id="form6Example3" class="form-control" placeholder="Name" />
+        <input #name type="text" id="form6Example3" class="form-control" placeholder="Name" />
     </div>
 
     <!-- File URL input -->
@@ -17,26 +17,26 @@
 
     <!-- Location Born input -->
     <div class="form-outline mb-4">
-        <input #url type="text" id="form6Example4" class="form-control" placeholder="Location of Birth"/>
+        <input #bornPlace type="text" id="form6Example4" class="form-control" placeholder="Location of Birth"/>
     </div>    
 
     <!-- Year Born input -->
     <div class="form-outline mb-4">
-        <input #url type="text" id="form6Example4" class="form-control" placeholder="Year of Birth" />
+        <input #bornYear type="text" id="form6Example4" class="form-control" placeholder="Year of Birth" />
     </div>
 
     <!-- Year Died input -->
     <div class="form-outline mb-4">
-        <input #url type="text" id="form6Example4" class="form-control" placeholder="Year of Death" />
+        <input #diedYear type="text" id="form6Example4" class="form-control" placeholder="Year of Death" />
     </div>
 
     <!-- Biography input -->
     <div class="form-outline mb-4">
-        <textarea #description class="form-control" id="form6Example7" rows="4" placeholder="Biography"></textarea>
+        <textarea #biography class="form-control" id="form6Example7" rows="4" placeholder="Biography"></textarea>
     </div>
 
     <!-- Submit button -->
     <button type="submit" class="btn btn-primary btn-block mb-4" id="addButton"
-        (click)="add(title.value, url.value, year.value, description.value, artist.value, medium.value, location.value)">Add
+        (click)="add(name.value, url.value, bornPlace.value, bornYear.value, diedYear.value, biography.value)">Add
         Artist</button>
 </form>

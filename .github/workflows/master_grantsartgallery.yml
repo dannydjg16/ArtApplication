@@ -23,7 +23,7 @@ jobs:
           include-prerelease: true
 
       - name: Build with ng
-        run: npx ng build --ng
+        run: npx ng build ../ --configuration Release
 
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp

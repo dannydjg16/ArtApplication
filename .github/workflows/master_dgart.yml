@@ -25,13 +25,19 @@ jobs:
         run: |
           npm install
           npm run build --prod
-        working directory: .
 
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v2
+      - name: 'Run Azure webapp deploy action using publish profile credentials'
+        uses: azure/webapps-deploy@v2
         with:
-          name: node-app
-          path: .
+          app-name: node-rn
+          publish-profile: ${{ secrets.azureWebAppPublishProfile }}
+        
+
+      # - name: Upload artifact for deployment job
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: node-app
+      #     path: .
 
   deploy:
     runs-on: ubuntu-latest

@@ -1,4 +1,3 @@
 .cardDiv {
-    border-width: 1px;
-    border-color: white;
+    border: 2px solid white;
 }

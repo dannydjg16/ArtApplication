@@ -1,0 +1,9 @@
+.underLine {
+    margin-top: 5%;
+    /* border-bottom: 1px solid black; */
+}
+
+.welcomeDiv {
+    text-align: center;
+    padding: 20%;
+}

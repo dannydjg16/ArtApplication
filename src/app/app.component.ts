@@ -12,10 +12,15 @@ import { filter, map, Observable } from 'rxjs';
 
 
 export class AppComponent implements OnInit {
-  title = 'Art Application';
+  title = 'DGArt';
   public isAuthenticated$!: Observable<boolean>;
 
-  constructor(private _router: Router, private _oktaStateService: OktaAuthStateService, @Inject(OKTA_AUTH) private _oktaAuth: OktaAuth) { }
+  constructor(private _router: Router, private _oktaStateService: OktaAuthStateService, @Inject(OKTA_AUTH) private _oktaAuth: OktaAuth) {
+    this.isAuthenticated$ = this._oktaStateService.authState$.pipe(
+      filter((s: AuthState) => !!s),
+      map((s: AuthState) => s.isAuthenticated ?? false)
+    );
+   }
 
   public ngOnInit(): void {
     this.isAuthenticated$ = this._oktaStateService.authState$.pipe(

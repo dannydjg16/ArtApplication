@@ -11,15 +11,21 @@ body {
     right: 30%;
     text-align: left;
     width: 40%;
+    display: inline;
 }
 
 .divClass {
     background: #cbcacc;
 }
 
-.cardDiv {
-    border-width: 5px;
-    border-color: white;
+
+
+.display-1 {
+    display: inline;
+}
+
+.end {
+    float: right;
 }
 
 

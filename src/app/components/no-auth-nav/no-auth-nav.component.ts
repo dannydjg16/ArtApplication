@@ -17,7 +17,7 @@ export class NoAuthNavComponent implements OnInit {
 
   public async signIn() : Promise<void> {
     await this._oktaAuth.signInWithRedirect().then(
-      _ => this._router.navigate(['/profile'])
+      _ => this._router.navigate(['/'])
     );
   }
 }

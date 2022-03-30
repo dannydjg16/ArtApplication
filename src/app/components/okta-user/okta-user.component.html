@@ -9,14 +9,16 @@
     </ng-container>
 
       <p *ngIf="name$ | async as name">
-        Hello {{name}}!
+        Hello There {{name}}!
     </p>
 
 </div>
 
-
+<p *ngIf="email$">
+    Hello Mr. {{email$}}!
+</p>
 
 
 <p *ngIf="fullName$">
-    Hello {{fullName$}}!
+    Hello There {{fullName$}}!
 </p>

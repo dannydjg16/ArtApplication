@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import Artist from '../interfaces/artist';
 
@@ -32,7 +32,11 @@ export class ArtistService {
     const headers = {
       Accept: 'application/json'
     };
-    return this.http.post(`${this.baseUrl}`, artist, {headers: headers});
+    
+    return this.http.post(`${this.baseUrl}`, artist, {headers: headers}).pipe(catchError((err) => {
+      console.error(err);
+      throw err;
+    }));
   }
 
   editArtist(artist: Artist | number): Observable<any> {

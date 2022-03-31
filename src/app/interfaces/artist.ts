@@ -8,5 +8,4 @@ export default interface Artist{
     pictureURL: string;
     born: string;
     died: string;
-    artworks: Artwork[];
 }

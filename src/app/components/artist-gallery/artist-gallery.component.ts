@@ -16,7 +16,7 @@ export class ArtistGalleryComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this._artistService.getArtists().subscribe(ats => this.artists = ats);
+    this._artistService.getArtists().subscribe(arts => this.artists = arts);
   }
 
 }

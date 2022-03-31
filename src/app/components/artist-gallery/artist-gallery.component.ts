@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { OktaAuthStateService } from '@okta/okta-angular';
+import Artist from 'src/app/interfaces/artist';
+import { ArtistService } from 'src/app/services/artist.service';
 
 @Component({
   selector: 'app-artist-gallery',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArtistGalleryComponent implements OnInit {
 
-  constructor() { }
+  public artists!: Artist[];
+
+  constructor(private _oktaStateService: OktaAuthStateService, private _artistService: ArtistService) { }
 
   ngOnInit(): void {
+
+    this._artistService.getArtists().subscribe(ats => this.artists = ats);
   }
 
 }

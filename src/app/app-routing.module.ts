@@ -5,6 +5,7 @@ import { OktaCallbackComponent } from '@okta/okta-angular';
 import { AddArtComponent } from './components/add-art/add-art.component';
 import { GeneralGalleryComponent } from './components/general-gallery/general-gallery.component';
 import { AddArtistComponent } from './components/add-artist/add-artist.component';
+import { ArtistGalleryComponent } from './components/artist-gallery/artist-gallery.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'addwork', component: AddArtComponent },
   { path: 'gallery', component: GeneralGalleryComponent },
   { path: 'addartist', component: AddArtistComponent },
+  { path: 'artists', component: ArtistGalleryComponent}
 ];
 
 @NgModule({

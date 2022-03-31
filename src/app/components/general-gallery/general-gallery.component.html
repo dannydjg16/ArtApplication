@@ -6,13 +6,13 @@
       <div class="row py-5">
         <div class="col-lg-12 mx-auto">
           <div class="text-white shadow-sm rounded banner">
-            <h1 class="display-1">Universal Gallery<p class="end">: All of the most liked works</p></h1>
+            <h1 class="display-1">Universal Gallery</h1>
           </div>
         </div>
       </div>
  
   
-      <div *ngIf="(artworkss.length);" class="row cardDiv">
+      <div  class="row cardDiv">
         <div *ngFor="let artwork of artworkss">
             <app-gallery-card [theArtwork] = "artwork"></app-gallery-card>
         </div>

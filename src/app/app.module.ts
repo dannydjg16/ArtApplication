@@ -20,6 +20,7 @@ import { NotAuthComponent } from './components/not-auth/not-auth.component';
 import { AddArtComponent } from './components/add-art/add-art.component';
 import { AddArtistComponent } from './components/add-artist/add-artist.component';
 import { ArtTypeComponent } from './components/art-type/art-type.component';
+import { ArtistGalleryComponent } from './components/artist-gallery/artist-gallery.component';
 
 
 const oktaAuth = new OktaAuth({
@@ -47,7 +48,8 @@ const oktaAuth = new OktaAuth({
     NotAuthComponent,
     AddArtComponent,
     AddArtistComponent,
-    ArtTypeComponent
+    ArtTypeComponent,
+    ArtistGalleryComponent
   ],
   imports: [
     BrowserModule,

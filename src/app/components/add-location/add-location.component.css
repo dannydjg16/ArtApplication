@@ -1,0 +1,16 @@
+#addLocationForm {
+    margin: 30px;
+    margin-left: 18%;
+    margin-right: 18%;
+}
+
+#addButton {
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 2%;
+}
+
+.form-outline {
+    margin-top: 2%;
+}

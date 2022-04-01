@@ -1,1 +1,27 @@
+<form id="addLocationForm">
+    <h2>Add A Location</h2>
+    <!-- 2 column grid layout with text inputs for the first and last names -->
+    <div class="row mb-4">
+        Picture Goes here
+    </div>
 
+    <!-- Name input -->
+    <div class="form-outline mb-4">
+        <input #name type="text" id="form6Example3" class="form-control" placeholder="Location Name" />
+    </div>
+
+    <!-- Location URL input -->
+    <div class="form-outline mb-4">
+        <input #url type="text" id="form6Example4" class="form-control" placeholder="Location URL" />
+    </div>
+
+    <!-- Description input -->
+    <div class="form-outline mb-4">
+        <input #description type="text" id="form6Example4" class="form-control" placeholder="Description"/>
+    </div>    
+
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-primary btn-block mb-4" id="addButton"
+        (click)="add(name.value, url.value, bornPlace.value, bornYear.value, diedYear.value, biography.value)">Add
+        Location</button>
+</form>

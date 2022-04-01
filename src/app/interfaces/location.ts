@@ -7,7 +7,4 @@ export default interface Location{
     locationName: string;
     description: string;
     locationURL: string;
-
-    type: LocationType;
-    artworks: Artwork[];
 }

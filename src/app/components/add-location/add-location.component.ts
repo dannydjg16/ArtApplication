@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocationService } from 'src/app/services/location.service';
 
 @Component({
   selector: 'app-add-location',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddLocationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _locationService: LocationService) { }
 
   ngOnInit(): void {
   }
 
+  add(locationName: string, description: string, locationURL: string) {
+    const location = {
+      locationName: locationName, description: description, locationURL: locationURL
+    }
+
+    this._locationService.addLocation(location as unknown as Location).subscribe(data => {
+      console.log(data);
+    });
+  }
 }

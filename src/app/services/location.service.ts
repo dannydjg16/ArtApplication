@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -33,7 +33,10 @@ export class LocationService {
       Accept: 'application/json',
     };
 
-    return this.http.post(`${this.baseUrl}`, location, { headers: headers});
+    return this.http.post(`${this.baseUrl}`, location, { headers: headers}).pipe(catchError((err) => {
+      console.error(err);
+      throw err;
+    }));;;
   }
 
   editLocation(id: number, location: Location) {

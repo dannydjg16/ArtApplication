@@ -1,3 +1,7 @@
 #acctButton{
     margin-right: 5px;
 }
+
+.navLink:hover {
+    text-decoration: underline;
+}

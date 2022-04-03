@@ -18,7 +18,10 @@ export class ArtworkService {
       Accept: 'application/json',
     };
 
-    return this.http.get<Artwork[]>(`${this.baseUrl}`, { headers: headers })
+    return this.http.get<Artwork[]>(`${this.baseUrl}`, { headers: headers }).pipe(catchError((err) => {
+      console.error(err);
+      throw err;
+    }));
   }
 
   getArtorkById(id: number): Observable<Artwork> {
@@ -26,7 +29,10 @@ export class ArtworkService {
       Accept: 'application/json',
     };
 
-    return this.http.get<Artwork>(`${this.baseUrl}/${id}`, { headers: headers })
+    return this.http.get<Artwork>(`${this.baseUrl}/${id}`, { headers: headers }).pipe(catchError((err) => {
+      console.error(err);
+      throw err;
+    }));
   }
 
   addArtwork(artWork: Artwork) {
@@ -37,7 +43,7 @@ export class ArtworkService {
     return this.http.post(`${this.baseUrl}`, artWork, { headers: headers}).pipe(catchError((err) => {
       console.error(err);
       throw err;
-    }));;
+    }));
   } 
 
   editArtwork(id: number, artWork: Artwork) {
@@ -45,7 +51,10 @@ export class ArtworkService {
       Accept: 'application/json',
     };
 
-    return this.http.put(`${this.baseUrl}/${id}`, artWork, { headers: headers})
+    return this.http.put(`${this.baseUrl}/${id}`, artWork, { headers: headers}).pipe(catchError((err) => {
+      console.error(err);
+      throw err;
+    }));
   } 
 
   deleteArtwork(id: number) {
@@ -53,6 +62,9 @@ export class ArtworkService {
       Accept: 'application/json',
     };
 
-    return this.http.delete(`${this.baseUrl}/${id}`, { headers: headers});
+    return this.http.delete(`${this.baseUrl}/${id}`, { headers: headers}).pipe(catchError((err) => {
+      console.error(err);
+      throw err;
+    }));
   }
 }

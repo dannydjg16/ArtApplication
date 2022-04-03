@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import  User  from '../interfaces/user';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment'
-import { Observable } from 'rxjs';
+import { catchError, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +41,10 @@ export class UserService {
       Accept: 'application/json'
     };
 
-    return this.http.post(`${this.baseUrl}`, user, { headers: headers});
+    return this.http.post(`${this.baseUrl}`, user, { headers: headers}).pipe(catchError((err) => {
+      console.error(err);
+      throw err;
+    }));
   }
 
   editUser(id: number, user: User) {
@@ -49,7 +52,10 @@ export class UserService {
       Accept: 'application/json'
     };
 
-    return this.http.put(`${this.baseUrl}/${id}`, user, { headers: headers});
+    return this.http.put(`${this.baseUrl}/${id}`, user, { headers: headers}).pipe(catchError((err) => {
+      console.error(err);
+      throw err;
+    }));
   }
 
   deleteUserById(id: number) {
@@ -57,6 +63,9 @@ export class UserService {
       Accept: 'application/json'
     };
 
-    return this.http.delete(`${this.baseUrl}/${id}`, { headers: headers});
+    return this.http.delete(`${this.baseUrl}/${id}`, { headers: headers}).pipe(catchError((err) => {
+      console.error(err);
+      throw err;
+    }));
   }
 }

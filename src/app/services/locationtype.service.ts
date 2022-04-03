@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
 import LocationType from '../interfaces/locationtype';
 
@@ -18,7 +18,10 @@ export class LocationTypeService {
       Accept: 'application/json',
     }
 
-    return this.http.get<LocationType[]>(`${this.baseUrl}`, { headers: headers});
+    return this.http.get<LocationType[]>(`${this.baseUrl}`, { headers: headers}).pipe(catchError((err) => {
+      console.error(err);
+      throw err;
+    }));
   }
 
   addLocationType(locationType: LocationType) {
@@ -26,6 +29,9 @@ export class LocationTypeService {
       Accept: 'application/json',
     };
 
-    return this.http.post(`${this.baseUrl}`, locationType, { headers: headers});
+    return this.http.post(`${this.baseUrl}`, locationType, { headers: headers}).pipe(catchError((err) => {
+      console.error(err);
+      throw err;
+    }));
   }
 }

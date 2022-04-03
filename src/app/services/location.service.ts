@@ -17,7 +17,10 @@ export class LocationService {
       Accept: 'application/json',
     };
 
-    return this.http.get<Location[]>(`${this.baseUrl}`, { headers: headers })
+    return this.http.get<Location[]>(`${this.baseUrl}`, { headers: headers }).pipe(catchError((err) => {
+      console.error(err);
+      throw err;
+    }));
   }
 
   getLocationById(id: number): Observable<Location> {
@@ -25,7 +28,10 @@ export class LocationService {
       Accept: 'application/json',
     };
 
-    return this.http.get<Location>(`${this.baseUrl}/${id}`, { headers: headers })
+    return this.http.get<Location>(`${this.baseUrl}/${id}`, { headers: headers }).pipe(catchError((err) => {
+      console.error(err);
+      throw err;
+    }));
   }
 
   addLocation(location: Location) {
@@ -36,7 +42,7 @@ export class LocationService {
     return this.http.post(`${this.baseUrl}`, location, { headers: headers}).pipe(catchError((err) => {
       console.error(err);
       throw err;
-    }));;;
+    }));
   }
 
   editLocation(id: number, location: Location) {
@@ -44,6 +50,9 @@ export class LocationService {
       Accept: 'application/json',
     }
 
-    return this.http.put(`${this.baseUrl}/${id}`, location, { headers: headers});
+    return this.http.put(`${this.baseUrl}/${id}`, location, { headers: headers}).pipe(catchError((err) => {
+      console.error(err);
+      throw err;
+    }));
   }
 }

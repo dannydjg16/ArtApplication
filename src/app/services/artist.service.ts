@@ -18,14 +18,20 @@ export class ArtistService {
       Accept: 'application/json'
     };
 
-    return this.http.get<Artist[]>(`${this.baseUrl}`, { headers: headers });
+    return this.http.get<Artist[]>(`${this.baseUrl}`, { headers: headers }).pipe(catchError((err) => {
+      console.error(err);
+      throw err;
+    }));
   }
 
   getAnArtist(id: number): Observable<Artist> {
     const headers = {
       Accept: 'application/json'
     };
-    return this.http.get<Artist>(`${this.baseUrl}/${id}`, { headers: headers });
+    return this.http.get<Artist>(`${this.baseUrl}/${id}`, { headers: headers }).pipe(catchError((err) => {
+      console.error(err);
+      throw err;
+    }));
   }
 
   addArtist(artist: Artist) {
@@ -46,7 +52,10 @@ export class ArtistService {
     
     const id = typeof artist === 'number' ? artist : artist.id;
 
-    return this.http.put(`${this.baseUrl}/${id}`, artist, { headers: headers });
+    return this.http.put(`${this.baseUrl}/${id}`, artist, { headers: headers }).pipe(catchError((err) => {
+      console.error(err);
+      throw err;
+    }));
   }
 
   deleteArtist(artist: Artist | number): Observable<Artist> {
@@ -56,6 +65,9 @@ export class ArtistService {
 
     const id = typeof artist === 'number' ? artist : artist.id;
 
-    return this.http.delete<Artist>(`${this.baseUrl}/${id}`, { headers: headers});
+    return this.http.delete<Artist>(`${this.baseUrl}/${id}`, { headers: headers}).pipe(catchError((err) => {
+      console.error(err);
+      throw err;
+    }));
   }
 }

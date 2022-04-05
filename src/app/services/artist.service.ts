@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { OktaAuth } from '@okta/okta-auth-js';
 import { catchError, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import Artist from '../interfaces/artist';
@@ -11,10 +12,12 @@ export class ArtistService {
 
   private baseUrl = `${environment.baseUrl}/artists`;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private _oktaAuth: OktaAuth) { }
 
   getArtists(): Observable<Artist[]> {
+    const accessToken = this._oktaAuth.getAccessToken();
     const headers = {
+      Authorization: 'Bearer ' + accessToken,
       Accept: 'application/json'
     };
 
@@ -25,7 +28,9 @@ export class ArtistService {
   }
 
   getAnArtist(id: number): Observable<Artist> {
+    const accessToken = this._oktaAuth.getAccessToken();
     const headers = {
+      Authorization: 'Bearer ' + accessToken,
       Accept: 'application/json'
     };
     return this.http.get<Artist>(`${this.baseUrl}/${id}`, { headers: headers }).pipe(catchError((err) => {
@@ -35,7 +40,9 @@ export class ArtistService {
   }
 
   addArtist(artist: Artist) {
+    const accessToken = this._oktaAuth.getAccessToken();
     const headers = {
+      Authorization: 'Bearer ' + accessToken,
       Accept: 'application/json'
     };
     
@@ -46,7 +53,9 @@ export class ArtistService {
   }
 
   editArtist(artist: Artist | number): Observable<any> {
+    const accessToken = this._oktaAuth.getAccessToken();
     const headers = {
+      Authorization: 'Bearer ' + accessToken,
       Accept: 'application/json'
     };
     
@@ -59,7 +68,9 @@ export class ArtistService {
   }
 
   deleteArtist(artist: Artist | number): Observable<Artist> {
+    const accessToken = this._oktaAuth.getAccessToken();
     const headers = {
+      Authorization: 'Bearer ' + accessToken,
       Accept: 'application/json'
     };
 

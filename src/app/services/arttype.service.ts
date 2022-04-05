@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
+import { OKTA_AUTH } from '@okta/okta-angular';
 import { OktaAuth } from '@okta/okta-auth-js';
 import { catchError, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -12,7 +13,7 @@ export class ArttypeService {
 
   private baseUrl = `${environment.baseUrl}/arttype`;
 
-  constructor(private http: HttpClient, private _oktaAuth: OktaAuth) { }
+  constructor(private http: HttpClient, @Inject(OKTA_AUTH) private _oktaAuth: OktaAuth) { }
 
   getArtTypes(): Observable<ArtType[]> {
     const accessToken = this._oktaAuth.getAccessToken();

@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import  User  from '../interfaces/user';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment'
 import { catchError, Observable } from 'rxjs';
 import { OktaAuth } from '@okta/okta-auth-js';
+import { OKTA_AUTH } from '@okta/okta-angular';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ import { OktaAuth } from '@okta/okta-auth-js';
 export class UserService {
   private baseUrl = `${environment.baseUrl}/users`;
 
-  constructor(private http: HttpClient, private _oktaAuth: OktaAuth) { }
+  constructor(private http: HttpClient, @Inject(OKTA_AUTH)private _oktaAuth: OktaAuth) { }
 
   getUsers(): Observable<User[]>{
     const accessToken = this._oktaAuth.getAccessToken();

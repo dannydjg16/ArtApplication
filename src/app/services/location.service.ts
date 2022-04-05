@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { OktaAuth } from '@okta/okta-auth-js';
 import { catchError, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -10,10 +11,12 @@ export class LocationService {
   
   private baseUrl = `${environment.baseUrl}/locations`;
   
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private _oktaAuth: OktaAuth) { }
 
   getLocations(name?: string): Observable<Location[]> {
+    const accessToken = this._oktaAuth.getAccessToken();
     const headers = {
+      Authorization: 'Bearer ' + accessToken,
       Accept: 'application/json',
     };
 
@@ -24,7 +27,9 @@ export class LocationService {
   }
 
   getLocationById(id: number): Observable<Location> {
+    const accessToken = this._oktaAuth.getAccessToken();
     const headers = {
+      Authorization: 'Bearer ' + accessToken,
       Accept: 'application/json',
     };
 
@@ -35,7 +40,9 @@ export class LocationService {
   }
 
   addLocation(location: Location) {
+    const accessToken = this._oktaAuth.getAccessToken();
     const headers = {
+      Authorization: 'Bearer ' + accessToken,
       Accept: 'application/json',
     };
 
@@ -46,7 +53,9 @@ export class LocationService {
   }
 
   editLocation(id: number, location: Location) {
+    const accessToken = this._oktaAuth.getAccessToken();
     const headers = {
+      Authorization: 'Bearer ' + accessToken,
       Accept: 'application/json',
     }
 

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { OktaAuth } from '@okta/okta-auth-js';
 import { catchError, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import Artwork from '../interfaces/artwork';
@@ -11,10 +12,12 @@ export class ArtworkService {
   
   private baseUrl = `${environment.baseUrl}/artwork`;
   
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private _oktaAuth: OktaAuth) { }
 
   getArtworks(title?: string): Observable<Artwork[]> {
+    const accessToken = this._oktaAuth.getAccessToken();
     const headers = {
+      Authorization: 'Bearer ' + accessToken,
       Accept: 'application/json',
     };
 
@@ -25,7 +28,9 @@ export class ArtworkService {
   }
 
   getArtorkById(id: number): Observable<Artwork> {
+    const accessToken = this._oktaAuth.getAccessToken();
     const headers = {
+      Authorization: 'Bearer ' + accessToken,
       Accept: 'application/json',
     };
 
@@ -36,7 +41,9 @@ export class ArtworkService {
   }
 
   addArtwork(artWork: Artwork) {
+    const accessToken = this._oktaAuth.getAccessToken();
     const headers = {
+      Authorization: 'Bearer ' + accessToken,
       Accept: 'application/json',
     };
 
@@ -47,7 +54,9 @@ export class ArtworkService {
   } 
 
   editArtwork(id: number, artWork: Artwork) {
+    const accessToken = this._oktaAuth.getAccessToken();
     const headers = {
+      Authorization: 'Bearer ' + accessToken,
       Accept: 'application/json',
     };
 
@@ -58,7 +67,9 @@ export class ArtworkService {
   } 
 
   deleteArtwork(id: number) {
+    const accessToken = this._oktaAuth.getAccessToken();
     const headers = {
+      Authorization: 'Bearer ' + accessToken,
       Accept: 'application/json',
     };
 

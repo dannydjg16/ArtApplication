@@ -3,6 +3,7 @@ import  User  from '../interfaces/user';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment'
 import { catchError, Observable } from 'rxjs';
+import { OktaAuth } from '@okta/okta-auth-js';
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +11,12 @@ import { catchError, Observable } from 'rxjs';
 export class UserService {
   private baseUrl = `${environment.baseUrl}/users`;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private _oktaAuth: OktaAuth) { }
 
   getUsers(): Observable<User[]>{
+    const accessToken = this._oktaAuth.getAccessToken();
     const headers = {
+      Authorization: 'Bearer ' + accessToken,
       Accept: 'application/json'
     };
 
@@ -21,7 +24,9 @@ export class UserService {
   }
 
   getUserById(id: number | undefined): Observable<User>{
+    const accessToken = this._oktaAuth.getAccessToken();
     const headers = {
+      Authorization: 'Bearer ' + accessToken,
       Accept: 'application/json'
     };
 
@@ -29,7 +34,9 @@ export class UserService {
   }
 
   getUserByEmail(email: string | undefined): Observable<User>{
+    const accessToken = this._oktaAuth.getAccessToken();
     const headers = {
+      Authorization: 'Bearer ' + accessToken,
       Accept: 'application/json'
     };
 
@@ -37,7 +44,9 @@ export class UserService {
   }
 
   addUser(user: User) {
+    const accessToken = this._oktaAuth.getAccessToken();
     const headers = {
+      Authorization: 'Bearer ' + accessToken,
       Accept: 'application/json'
     };
 
@@ -48,7 +57,9 @@ export class UserService {
   }
 
   editUser(id: number, user: User) {
+    const accessToken = this._oktaAuth.getAccessToken();
     const headers = {
+      Authorization: 'Bearer ' + accessToken,
       Accept: 'application/json'
     };
 
@@ -59,7 +70,9 @@ export class UserService {
   }
 
   deleteUserById(id: number) {
+    const accessToken = this._oktaAuth.getAccessToken();
     const headers = {
+      Authorization: 'Bearer ' + accessToken,
       Accept: 'application/json'
     };
 

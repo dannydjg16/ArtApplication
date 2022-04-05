@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { OktaAuth } from '@okta/okta-auth-js';
 import { catchError, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
 import LocationType from '../interfaces/locationtype';
@@ -11,10 +12,12 @@ export class LocationTypeService {
 
   private baseUrl = `${environment.baseUrl}/locationtype`;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private _oktaAuth: OktaAuth) { }
 
   getLocationTypes(): Observable<LocationType[]> {
+    const accessToken = this._oktaAuth.getAccessToken();
     const headers = {
+      Authorization: 'Bearer ' + accessToken,
       Accept: 'application/json',
     }
 
@@ -25,7 +28,9 @@ export class LocationTypeService {
   }
 
   addLocationType(locationType: LocationType) {
+    const accessToken = this._oktaAuth.getAccessToken();
     const headers = {
+      Authorization: 'Bearer ' + accessToken,
       Accept: 'application/json',
     };
 

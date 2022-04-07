@@ -13,10 +13,10 @@ export class AddLocationComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  add(locationName: string, description: string, locationURL: string) {
+  add(locationName: string, description: string, locationURL: string, locationTypeID: string) {
     const location = {
-      locationName: locationName, description: description, locationURL: locationURL
-    }
+      locationName: locationName, description: description, locationURL: locationURL, locationTypeID: locationTypeID
+    };
 
     this._locationService.addLocation(location as unknown as Location).subscribe(data => {
       console.log(data);

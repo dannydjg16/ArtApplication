@@ -15,13 +15,18 @@
         <input #url type="text" id="form6Example4" class="form-control" placeholder="Location URL" />
     </div>
 
+    <!-- Location URL input -->
+    <div class="form-outline mb-4">
+        <input #locationType type="text" id="form6Example4" class="form-control" placeholder="Location Type" />
+    </div>
+
     <!-- Description input -->
     <div class="form-outline mb-4">
-        <input #description type="text" id="form6Example4" class="form-control" placeholder="Description"/>
-    </div>    
+        <textarea #description class="form-control" id="form6Example7" rows="4" placeholder="Description"></textarea>
+    </div>
 
     <!-- Submit button -->
     <button type="submit" class="btn btn-primary btn-block mb-4" id="addButton"
-        (click)="add(name.value, url.value, description.value)">Add
+        (click)="add(name.value, url.value, description.value, locationType.value)">Add
         Location</button>
 </form>

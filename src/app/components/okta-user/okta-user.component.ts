@@ -36,7 +36,6 @@ export class OktaUserComponent implements OnInit {
     // This is an easy way to get email 
     this._oktaStateService.authState$.subscribe(as => this.email$ = as.accessToken?.claims.sub!);
 
-
     // This is email
     this.name$ = this._oktaStateService.authState$.pipe(
       filter((authState: AuthState) => !!authState && !!authState.isAuthenticated),

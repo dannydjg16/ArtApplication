@@ -1,32 +1,35 @@
-<form id="addLocationForm">
-    <h2>Add A Location</h2>
-    <!-- 2 column grid layout with text inputs for the first and last names -->
-    <div class="row mb-4">
-        Picture Goes here
-    </div>
+<ng-container *ngIf="(isAuthenticated$ | async) === true;">
+    <form id="addLocationForm">
+        <h2>Add A Location</h2>
+        <!-- 2 column grid layout with text inputs for the first and last names -->
+        <div class="row mb-4">
+            Picture Goes here
+        </div>
 
-    <!-- Name input -->
-    <div class="form-outline mb-4">
-        <input #name type="text" id="form6Example3" class="form-control" placeholder="Location Name" />
-    </div>
+        <!-- Name input -->
+        <div class="form-outline mb-4">
+            <input #name type="text" id="form6Example3" class="form-control" placeholder="Location Name" />
+        </div>
 
-    <!-- Location URL input -->
-    <div class="form-outline mb-4">
-        <input #url type="text" id="form6Example4" class="form-control" placeholder="Location URL" />
-    </div>
+        <!-- Location URL input -->
+        <div class="form-outline mb-4">
+            <input #url type="text" id="form6Example4" class="form-control" placeholder="Location URL" />
+        </div>
 
-    <!-- LocationTypeID input -->
-    <div class="form-outline mb-4">
-        <input #locationType type="number" id="form6Example6" class="form-control" placeholder="Location Type" />
-    </div>
+        <!-- LocationTypeID input -->
+        <div class="form-outline mb-4">
+            <input #locationType type="number" id="form6Example6" class="form-control" placeholder="Location Type" />
+        </div>
 
-    <!-- Description input -->
-    <div class="form-outline mb-4">
-        <textarea #description class="form-control" id="form6Example7" rows="4" placeholder="Description"></textarea>
-    </div>
+        <!-- Description input -->
+        <div class="form-outline mb-4">
+            <textarea #description class="form-control" id="form6Example7" rows="4"
+                placeholder="Description"></textarea>
+        </div>
 
-    <!-- Submit button -->
-    <button type="submit" class="btn btn-primary btn-block mb-4" id="addButton"
-        (click)="add(name.value, url.value, description.value, locationType.value)">Add
-        Location</button>
-</form>
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4" id="addButton"
+            (click)="add(name.value, url.value, description.value, locationType.value)">Add
+            Location</button>
+    </form>
+</ng-container>

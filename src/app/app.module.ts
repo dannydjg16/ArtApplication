@@ -25,6 +25,7 @@ import { ArtistCardComponent } from './components/artist-card/artist-card.compon
 import { AddLocationComponent } from './components/add-location/add-location.component';
 import { PostActionsComponent } from './components/post-actions/post-actions.component';
 import { LocationGalleryComponent } from './components/location-gallery/location-gallery.component';
+import { LocationCardComponent } from './components/location-card/location-card.component';
 
 
 const oktaAuth = new OktaAuth({
@@ -57,7 +58,8 @@ const oktaAuth = new OktaAuth({
     ArtistCardComponent,
     AddLocationComponent,
     PostActionsComponent,
-    LocationGalleryComponent
+    LocationGalleryComponent,
+    LocationCardComponent
   ],
   imports: [
     BrowserModule,

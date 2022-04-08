@@ -13,7 +13,6 @@ import { ArtworkService } from 'src/app/services/artwork.service';
 export class GeneralGalleryComponent implements OnInit {
 
   public isAuthenticated$!: Observable<boolean>;
-  public artworks$!: Observable<Artwork[]>
   public artworkss!: Artwork[];
 
   constructor(private _oktaStateService: OktaAuthStateService, private _artworkService: ArtworkService) { }

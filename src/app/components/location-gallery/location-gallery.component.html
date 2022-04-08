@@ -1,3 +1,5 @@
+<ng-container *ngIf="(isAuthenticated$ | async) === true;">
+
 <body>
     <div class="container-fluid">
         <div class="px-lg-5">
@@ -9,7 +11,7 @@
                     <div class="text-white shadow-sm rounded banner">
                         <h1 class="display-1">Locations</h1>
                     </div>
-                    
+
                 </div>
 
             </div>
@@ -25,3 +27,5 @@
         </div>
     </div>
 </body>
+
+</ng-container>

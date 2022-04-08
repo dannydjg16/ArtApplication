@@ -14,7 +14,6 @@ import { Router } from '@angular/router';
 export class UserComponent implements OnInit {
 
   public isAuthenticated$!: Observable<boolean>;
-
   users: User[] | null = null;
 
   constructor(private userService: UserService, private _router: Router, private _oktaStateService: OktaAuthStateService, @Inject(OKTA_AUTH) private _oktaAuth: OktaAuth) { }

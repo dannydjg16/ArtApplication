@@ -7,5 +7,5 @@ export default interface Location{
     locationName: string;
     description: string;
     locationURL: string;
-    locationTypeID: string;
+    typeID: string;
 }

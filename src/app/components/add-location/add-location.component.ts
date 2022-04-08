@@ -15,7 +15,7 @@ export class AddLocationComponent implements OnInit {
 
   add(locationName: string, locationURL: string, description: string, locationTypeID: string) {
     const location = {
-      locationName: locationName, locationURL: locationURL, description: description, locationTypeID: locationTypeID
+      locationName: locationName, locationURL: locationURL, description: description, typeID:  Number(locationTypeID)
     };
 
     this._locationService.addLocation(location as unknown as Location).subscribe(data => {

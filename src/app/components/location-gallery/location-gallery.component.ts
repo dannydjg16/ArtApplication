@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { OktaAuthStateService } from '@okta/okta-angular';
+import { LocationService } from 'src/app/services/location.service';
 
 @Component({
   selector: 'app-location-gallery',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LocationGalleryComponent implements OnInit {
 
-  constructor() { }
+  public locations!: Location[];
+
+  constructor(private _oktaAuthService: OktaAuthStateService, private _locationService: LocationService) { }
 
   ngOnInit(): void {
-  }
 
+    this._locationService.getLocations().subscribe(locs => this.locations = locs);
+  }
 }

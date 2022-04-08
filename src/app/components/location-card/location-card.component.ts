@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-location-card',
@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LocationCardComponent implements OnInit {
 
+  @Input() theLocation : any;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
 }
+
+

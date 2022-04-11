@@ -1,5 +1,7 @@
 .postAction {
-    border-top: 1px solid black;
+    border-bottom: 1px solid black;
     background-color: white;
-    max-height: 120x;
+    height: 30px;
+    text-align: center;
+    cursor: pointer;
 }

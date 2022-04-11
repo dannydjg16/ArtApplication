@@ -1,22 +1,27 @@
 .cardDiv {
     border: 1px solid darkgray;
     margin: 1px;
+    margin-top: 0px;
     padding: 1px;
     padding-top: 6px;
     border-radius: 10px;
     overflow: scroll;
-    height: 400px;
+    max-height: 400px;
     margin-bottom: 10px;
     margin-left: 5px;
-    max-width: 175;
+    max-width: 275px;
     position: relative;
 }
 
+h5 {
+    border-top: 1px solid darkgray;
+    border-bottom: 1px solid darkgray;
+}
 .card {
     margin: 0 auto;
 }
 
 app-post-actions {
-    position: static;
-    bottom: 0;
+    position: relative;
+    bottom: 0px;
 }

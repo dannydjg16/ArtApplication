@@ -14,12 +14,17 @@ import { Router } from '@angular/router';
 export class UserComponent implements OnInit {
 
   public isAuthenticated$!: Observable<boolean>;
+  public user!: User;
   users: User[] | null = null;
 
   constructor(private userService: UserService, private _router: Router, private _oktaStateService: OktaAuthStateService, @Inject(OKTA_AUTH) private _oktaAuth: OktaAuth) { }
 
   ngOnInit(): void {
     this.userService.getUsers().subscribe(users => this.users = users);
+
+    // Getting the user from db using okta email and setting user var equal to that user
+    this._oktaStateService.authState$.subscribe(as => this.userService.getUserByEmail(as.accessToken?.claims.sub!).subscribe(u => this.user = u));
+
 
     this.isAuthenticated$ = this._oktaStateService.authState$.pipe(
       filter((s: AuthState) => !!s),

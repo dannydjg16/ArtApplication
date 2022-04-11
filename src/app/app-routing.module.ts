@@ -16,7 +16,8 @@ const routes: Routes = [
   { path: 'gallery', component: GeneralGalleryComponent },
   { path: 'addartist', component: AddArtistComponent },
   { path: 'artists', component: ArtistGalleryComponent },
-  { path: 'addlocation', component: AddLocationComponent }
+  { path: 'addlocation', component: AddLocationComponent },
+  { path: 'profile', component: UserComponent }
 ];
 
 @NgModule({

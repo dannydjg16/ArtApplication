@@ -26,7 +26,4 @@ export class UserComponent implements OnInit {
       map((s: AuthState) => s.isAuthenticated ?? false)
     );
   }
-
-  
-
 }

@@ -28,6 +28,29 @@ export class LikeService {
     }));
   }
 
+  likePost(artID: number, userID: number) {
+    const accessToken = this._oktaAuth.getAccessToken();
+    const headers = {
+      Authorization: 'Bearer ' + accessToken,
+      Accept: 'application/json',
+    };
 
-  
+    return this.http.post(`${this.baseUrl}/${artID}/user/${userID}`, { headers: headers}).pipe(catchError((err) => {
+      console.error(err);
+      throw err;
+    }));
+  }
+
+  unlikePost(artID: number, userID: number) {
+    const accessToken = this._oktaAuth.getAccessToken();
+    const headers = {
+      Authorization: 'Bearer ' + accessToken,
+      Accept: 'application/json',
+    };
+
+    return this.http.delete(`${this.baseUrl}/${artID}/user/${userID}`, { headers: headers}).pipe(catchError((err) => {
+      console.error(err);
+      throw err;
+    }));
+  }
 }

@@ -14,8 +14,8 @@
 }
 
 h5 {
-    border-top: 1px solid darkgray;
-    border-bottom: 1px solid darkgray;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
 }
 .card {
     margin: 0 auto;
@@ -24,4 +24,16 @@ h5 {
 app-post-actions {
     position: relative;
     bottom: 0px;
+}
+
+.card-title {
+    text-align: center;
+}
+
+.card-text {
+    text-align: center;
+}
+
+.card-img-top {
+    border-radius: 10px;
 }

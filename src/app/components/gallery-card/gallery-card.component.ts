@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class GalleryCardComponent implements OnInit {
 
   @Input() theArtwork : any;
+  @Input() theUser: any;
 
   constructor() { }
 

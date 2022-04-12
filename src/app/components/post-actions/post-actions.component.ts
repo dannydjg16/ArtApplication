@@ -16,6 +16,7 @@ export class PostActionsComponent implements OnInit {
   }
 
   public LikeOrUnlikePost() {
+    
   }
 
 }

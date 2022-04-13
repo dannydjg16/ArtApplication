@@ -1,13 +1,16 @@
-<body>
-    <ng-container *ngIf="(isAuthenticated$ | async) === true;" class="bodyContainer">
-        <div>
-            <img src="https://st4.depositphotos.com/1012074/20946/v/450/depositphotos_209469984-stock-illustration-flat-isolated-vector-illustration-icon.jpg"
-                alt="..." width="130" class="rounded mb-2 img-thumbnail">
-            <span>
-                <h4 class="mt-0 mb-0">{{user.name}} <a href="#" class="btn small">Edit profile</a></h4>
-            </span>
-            <p class="small mb-4"> <i class="fa fa-map-marker mr-2"></i>{{user.fromLocation}}</p>
-        </div>
-        <app-user-gallery></app-user-gallery>
-    </ng-container>
+<body *ngIf="(isAuthenticated$ | async) === true;" class="bodyContainer">
+    <a href="#" class="btn small editProfile">Edit Profile</a> 
+    <div class="profileDetails">
+        <img src="https://st4.depositphotos.com/1012074/20946/v/450/depositphotos_209469984-stock-illustration-flat-isolated-vector-illustration-icon.jpg"
+            alt="..." width="130" class="rounded mb-2 img-thumbnail">
+
+        <h4 class="mt-0 mb-0">{{user.name}}</h4>
+        <p class="small mb-4"> {{user.fromLocation}}</p>
+
+
+    </div>
+
+    <app-user-gallery></app-user-gallery>
 </body>
+<!-- 
+<a href="#" class="btn small">Edit profile</a> -->

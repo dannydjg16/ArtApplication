@@ -1,9 +1,29 @@
 body {
     margin-left: 10px;
+    width: 100%;
 }
 
+.profileDetails {
+    display: table;
+    margin-right: auto;
+    margin-left: auto;
+}
 
-.bodyContainer {
-    width: 60%;
-    margin: 0px auto;
+.mt-0 {
+    text-align: center;
+}
+
+.mb-4 { 
+    text-align: center;
+}
+
+.rounded {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+}
+
+.editProfile {
+    float: right;
 }

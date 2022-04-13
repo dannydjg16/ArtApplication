@@ -11,7 +11,7 @@ import Artwork from '../interfaces/artwork';
 })
 export class LikeService {
 
-  private baseUrl = `${environment.baseUrl}/artwork`;
+  private baseUrl = `${environment.baseUrl}/likes`;
 
   constructor(private http: HttpClient, @Inject(OKTA_AUTH) private _oktaAuth: OktaAuth) { }
 

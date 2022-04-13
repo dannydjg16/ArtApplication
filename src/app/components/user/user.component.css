@@ -26,4 +26,5 @@ body {
 
 .editProfile {
     float: right;
+    margin-right: 10px;
 }

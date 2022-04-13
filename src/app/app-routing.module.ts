@@ -7,6 +7,7 @@ import { GeneralGalleryComponent } from './components/general-gallery/general-ga
 import { AddArtistComponent } from './components/add-artist/add-artist.component';
 import { ArtistGalleryComponent } from './components/artist-gallery/artist-gallery.component';
 import { AddLocationComponent } from './components/add-location/add-location.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'addartist', component: AddArtistComponent },
   { path: 'artists', component: ArtistGalleryComponent },
   { path: 'addlocation', component: AddLocationComponent },
-  { path: 'profile', component: UserComponent }
+  { path: 'profile', component: UserComponent },
+  { path: 'editprofile', component: EditProfileComponent }
 ];
 
 @NgModule({

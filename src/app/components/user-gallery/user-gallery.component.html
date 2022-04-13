@@ -12,14 +12,14 @@
             </div>
           </div>
         </div>
-
-
-        <div class="row cardDiv">
-          <div *ngFor="let artwork of likedArtworks">
-            <app-gallery-card [theArtwork]="artwork"></app-gallery-card>
-          </div>
-        </div>
+      </div>
+    </div>
+    <div class="row cardDiv">
+      <div *ngFor="let artwork of likedArtworks">
+        <app-gallery-card [theArtwork]="artwork"></app-gallery-card>
       </div>
     </div>
   </body>
+
+
 </ng-container>

@@ -36,4 +36,11 @@ app-post-actions {
 
 .card-img-top {
     border-radius: 10px;
+    transition:transform 0.25s ease;
+}
+
+.card-img-top:hover {
+    -webkit-transform:scale(2.5); 
+    transform:scale(2.5);
+    overflow:visible;
 }

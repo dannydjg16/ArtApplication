@@ -26,6 +26,7 @@ import { AddLocationComponent } from './components/add-location/add-location.com
 import { PostActionsComponent } from './components/post-actions/post-actions.component';
 import { LocationGalleryComponent } from './components/location-gallery/location-gallery.component';
 import { LocationCardComponent } from './components/location-card/location-card.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 
 
 const oktaAuth = new OktaAuth({
@@ -59,7 +60,8 @@ const oktaAuth = new OktaAuth({
     AddLocationComponent,
     PostActionsComponent,
     LocationGalleryComponent,
-    LocationCardComponent
+    LocationCardComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,8 @@ body {
     margin-left: 10px;
 }
 
-.profile-header {
-    text-align: center;
+
+.bodyContainer {
+    width: 60%;
+    margin: 0px auto;
 }

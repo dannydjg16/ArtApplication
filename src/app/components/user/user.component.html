@@ -1,23 +1,13 @@
 <body>
-<ng-container *ngIf="(isAuthenticated$ | async) === true;" class="bodyContainer">
-    <div class="row py-5 px-4">
-        <div class="col-xl-4 col-md-6 col-sm-10 mx-auto">
-            <!-- Profile widget -->
-            <div class="bg-white shadow rounded overflow-hidden">
-                <div class="px-4 pt-0 pb-4 bg-dark">
-                    <div class="media align-items-end profile-header">
-                        <div class="profile mr-3"><img src="https://bootstrapious.com/i/snippets/sn-profile/teacher.jpg"
-                                alt="..." width="130" class="rounded mb-2 img-thumbnail"></div>
-                        <div class="media-body mb-5 text-white">
-                            <span><h4 class="mt-0 mb-0">{{user.name}} <a href="#" class="btn small">Edit profile</a></h4> </span>
-                            <p class="small mb-4"> <i class="fa fa-map-marker mr-2"></i>{{user.fromLocation}}</p>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- End profile widget -->
-            
+    <ng-container *ngIf="(isAuthenticated$ | async) === true;" class="bodyContainer">
+        <div>
+            <img src="https://st4.depositphotos.com/1012074/20946/v/450/depositphotos_209469984-stock-illustration-flat-isolated-vector-illustration-icon.jpg"
+                alt="..." width="130" class="rounded mb-2 img-thumbnail">
+            <span>
+                <h4 class="mt-0 mb-0">{{user.name}} <a href="#" class="btn small">Edit profile</a></h4>
+            </span>
+            <p class="small mb-4"> <i class="fa fa-map-marker mr-2"></i>{{user.fromLocation}}</p>
         </div>
-    </div>
-    <app-user-gallery></app-user-gallery>
-</ng-container>
+        <app-user-gallery></app-user-gallery>
+    </ng-container>
 </body>

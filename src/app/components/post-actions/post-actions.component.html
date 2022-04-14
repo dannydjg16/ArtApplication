@@ -1,3 +1,4 @@
 <div class="postAction">
-    <a onclick="">Add to Your Gallery</a>
+    <a *ngIf="(liked) != 1" onclick="">Add to Your Gallery</a>
+    <a *ngIf="(liked) == 1" onclick="">Remove From Gallery</a>
 </div>

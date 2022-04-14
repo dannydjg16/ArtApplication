@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { OktaAuthStateService } from '@okta/okta-angular';
 import { AuthState } from '@okta/okta-auth-js';
 import { filter, map, Observable } from 'rxjs';
@@ -15,6 +15,7 @@ export class UserGalleryComponent implements OnInit {
 
   public isAuthenticated$!: Observable<boolean>;
   public likedArtworks!: Artwork[];
+  
 
   constructor(private _oktaStateService: OktaAuthStateService, private _likeService: LikeService, private _userService: UserService) { }
 

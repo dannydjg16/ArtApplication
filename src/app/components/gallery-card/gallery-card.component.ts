@@ -9,6 +9,7 @@ export class GalleryCardComponent implements OnInit {
 
   @Input() theArtwork : any;
   @Input() theUser: any;
+  @Input() liked: any;
 
   constructor() { }
 

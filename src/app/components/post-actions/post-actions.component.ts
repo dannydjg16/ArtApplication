@@ -12,6 +12,7 @@ export class PostActionsComponent implements OnInit {
 
   @Input() theArtwork : any;
   @Input() theUser : any;
+  @Input() liked: any;
 
   constructor(private _likeService: LikeService) { }
 

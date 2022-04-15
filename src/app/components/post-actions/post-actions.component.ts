@@ -35,7 +35,7 @@ export class PostActionsComponent implements OnInit {
   }
 
   public UnlikePost(art: Artwork, user: User) {
-    this._likeService.likePost(art.id, user.id).subscribe(data => {
+    this._likeService.unlikePost(art.id, user.id).subscribe(data => {
       console.log(data);
     });
   }

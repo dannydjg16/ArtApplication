@@ -35,7 +35,7 @@ export class LikeService {
       Accept: 'application/json',
     };
 
-    return this.http.post(`${this.baseUrl}/${artID}/user/${userID}`, { headers: headers}).pipe(catchError((err) => {
+    return this.http.post(`${this.baseUrl}/${artID}/user/${userID}`, artID,{ headers: headers}).pipe(catchError((err) => {
       console.error(err);
       throw err;
     }));

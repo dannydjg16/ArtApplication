@@ -17,6 +17,7 @@ export class PostActionsComponent implements OnInit {
   constructor(private _likeService: LikeService) { }
 
   ngOnInit(): void {
+    console.log(this.theArtwork + this.theUser)
   }
 
   public LikePost(art: Artwork, user: User) {

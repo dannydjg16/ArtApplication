@@ -1,4 +1,4 @@
-<body *ngIf="(isAuthenticated$ | async) === true;" class="bodyContainer">
+<body *ngIf="user" class="bodyContainer">
     <a href="#" class="btn small editProfile" routerLink="/editprofile">Edit Profile</a>
     <div class="profileDetails">
         <img src="https://st4.depositphotos.com/1012074/20946/v/450/depositphotos_209469984-stock-illustration-flat-isolated-vector-illustration-icon.jpg"

@@ -1,4 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { OktaAuthStateService } from '@okta/okta-angular';
+import { AuthState } from '@okta/okta-auth-js';
+import { filter, map, Observable } from 'rxjs';
 import Artwork from 'src/app/interfaces/artwork';
 import User from 'src/app/interfaces/user';
 import { LikeService } from 'src/app/services/like.service';
@@ -10,14 +13,19 @@ import { LikeService } from 'src/app/services/like.service';
 })
 export class PostActionsComponent implements OnInit {
 
+  public isAuthenticated$!: Observable<boolean>;
+
   @Input() theArtwork : any;
   @Input() theUser : any;
   @Input() liked: any;
 
-  constructor(private _likeService: LikeService) { }
+  constructor(private _oktaStateService: OktaAuthStateService, private _likeService: LikeService) { }
 
   ngOnInit(): void {
-    console.log(this.theArtwork + this.theUser)
+    this.isAuthenticated$ = this._oktaStateService.authState$.pipe(
+      filter((s: AuthState) => !!s),
+      map((s: AuthState) => s.isAuthenticated ?? false)
+    );
   }
 
   public LikePost(art: Artwork, user: User) {

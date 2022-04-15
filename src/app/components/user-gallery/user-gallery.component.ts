@@ -15,7 +15,7 @@ export class UserGalleryComponent implements OnInit {
 
   public isAuthenticated$!: Observable<boolean>;
   public likedArtworks!: Artwork[];
-  
+  @Input() theUser : any;
 
   constructor(private _oktaStateService: OktaAuthStateService, private _likeService: LikeService, private _userService: UserService) { }
 

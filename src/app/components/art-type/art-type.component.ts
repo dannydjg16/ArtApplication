@@ -23,7 +23,6 @@ export class ArtTypeComponent implements OnInit {
     );
   }
 
-
   add(title: string, description: string) {
     const artType = {
       title: title, description: description

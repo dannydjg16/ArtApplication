@@ -28,10 +28,6 @@ export class EditProfileComponent implements OnInit {
     this.userService.editUser(userID, user as unknown as User).subscribe(data => {
       console.log(data);
     });
-
-    // this._artistService.addArtist(artist as unknown as Artist).subscribe(data => {
-    //   console.log(data);
-    // });
   }
 
   goBack(): void {

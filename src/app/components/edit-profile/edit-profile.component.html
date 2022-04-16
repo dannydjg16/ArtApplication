@@ -1,1 +1,38 @@
 <button (click)="goBack()" class="btn btn-primary">Go Back</button>
+
+
+<ng-container *ngIf="user">
+
+    <form id="editUserForm">
+        <h2>Edit Profile</h2>
+        <!-- 2 column grid layout with text inputs for the first and last names -->
+        <div class="row mb-4">
+            Picture Goes here
+        </div>
+
+        <!-- Name input -->
+        <div class="form-outline mb-4">
+            <textarea #name rows="1" type="text" id="form6Example4" class="form-control" placeholder="Name">{{user.name}}</textarea>
+        </div>
+
+        <!-- Profile Picture input -->
+        <div class="form-outline mb-4">
+            <textarea #url rows="1" type="text" id="form6Example4" class="form-control" placeholder="Profile Picture URL">{{user.profilePicURL}}</textarea>
+        </div>
+
+        <!-- FromLocation input -->
+        <div class="form-outline mb-4">
+            <textarea #fromLocation rows="1" type="text" id="form6Example4" class="form-control" placeholder="From">{{user.fromLocation}}</textarea>
+        </div>
+
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+            <textarea #email rows="1" type="text" id="form6Example4" class="form-control" placeholder="Email Address">{{user.email}}</textarea>
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4" id="editButton"
+            (click)="edit(user.id, name.value, email.value, fromLocation.value, url.value)">Add
+            Artist</button>
+    </form>
+</ng-container>

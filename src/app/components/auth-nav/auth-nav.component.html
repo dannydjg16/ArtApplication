@@ -1,22 +1,22 @@
-  <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark black ie-nav" [containerInside]="false">
-    <mdb-navbar-brand>
-      <a class="navbar-brand" routerLink="/"><b>Art Application</b></a>
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark black ie-nav" [containerInside]="false">
+  <mdb-navbar-brand>
+    <a class="navbar-brand" routerLink="/"><b>Art Application</b></a>
 
-      <a class="navbar-brand navLink" routerLink="/gallery">Art Gallery</a>
-      <a class="navbar-brand navLink" routerLink="/artists">See Artists</a>
-      <a class="navbar-brand navLink" >|</a>
-      <a class="navbar-brand navLink" routerLink="/addwork">Add Artwork</a> 
-      <a class="navbar-brand navLink" routerLink="/addartist">Add Artist</a>
-      <a class="navbar-brand navLink" routerLink="/addlocation">Add Location</a>
-      
-      <ul class="nav navbar-brand navbar-right" id="acctButton">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Account
-          <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="/profile">My Account</a></li>
-            <li><a href="#"(click)="signOut()">Sign Out</a></li>
-          </ul>
+    <a class="navbar-brand navLink" routerLink="/gallery">Art Gallery</a>
+    <a class="navbar-brand navLink" routerLink="/artists">See Artists</a>
+    <a class="navbar-brand navLink">|</a>
+    <a class="navbar-brand navLink" routerLink="/addwork">Add Artwork</a>
+    <a class="navbar-brand navLink" routerLink="/addartist">Add Artist</a>
+    <a class="navbar-brand navLink" routerLink="/addlocation">Add Location</a>
+
+    <ul class="nav navbar-brand navbar-right" id="acctButton">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Account
+        <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a href="/profile">My Account</a></li>
+        <li><a href="#" (click)="signOut()">Sign Out</a></li>
       </ul>
+    </ul>
 
-    </mdb-navbar-brand>
+  </mdb-navbar-brand>
 </mdb-navbar>

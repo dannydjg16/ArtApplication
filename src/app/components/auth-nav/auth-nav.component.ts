@@ -9,7 +9,7 @@ import { OktaAuth } from '@okta/okta-auth-js';
 })
 export class AuthNavComponent implements OnInit {
 
-  constructor( @Inject(OKTA_AUTH) private _oktaAuth: OktaAuth) { }
+  constructor(@Inject(OKTA_AUTH) private _oktaAuth: OktaAuth) { }
 
   ngOnInit(): void {
   }

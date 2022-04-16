@@ -14,7 +14,6 @@ export class AddArtistComponent implements OnInit {
 
   public isAuthenticated$!: Observable<boolean>;
 
-
   constructor(private _oktaStateService: OktaAuthStateService, private _artistService: ArtistService) { }
 
   ngOnInit(): void {
@@ -23,7 +22,6 @@ export class AddArtistComponent implements OnInit {
       map((s: AuthState) => s.isAuthenticated ?? false)
     );
   }
-
 
   add(name: string, url: string, bornLocation: string, born: string, died: string, biography: string) {
     const artist = {

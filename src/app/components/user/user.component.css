@@ -28,3 +28,7 @@ body {
     float: right;
     margin-right: 10px;
 }
+
+img {
+    border-radius: 200px;
+}

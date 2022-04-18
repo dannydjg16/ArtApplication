@@ -14,3 +14,19 @@
 .form-outline {
     margin-top: 2%;
 }
+
+.backBtn {
+    margin-left: 10px;
+}
+
+img {
+    border-radius: 200px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.picDiv {
+    text-align: center;
+}

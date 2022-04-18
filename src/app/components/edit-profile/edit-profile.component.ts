@@ -22,7 +22,7 @@ export class EditProfileComponent implements OnInit {
 
   edit(userID: number, name: string, email: string, fromLocation: string, profilePicURL: string) {
     const user = {
-      name: name, email: email, fromLocation: fromLocation, profilePicURL: profilePicURL
+      id: userID, name: name, email: email, fromLocation: fromLocation, profilePicURL: profilePicURL
     }
 
     this.userService.editUser(userID, user as unknown as User).subscribe(data => {

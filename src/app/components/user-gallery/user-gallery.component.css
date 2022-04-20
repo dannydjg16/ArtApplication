@@ -24,4 +24,14 @@ h3 {
     background: #cbcacc;
 }
 
+.noLikes {
+    margin-left: 10px;
+    margin-top: 20px;
+    margin-bottom: 300px;
+    width: 20%;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+}
+
 

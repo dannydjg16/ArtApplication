@@ -1,4 +1,4 @@
-<ng-container *ngIf="(isAuthenticated$ | async) === true;">
+<ng-container *ngIf="user">
 
     <form id="addArtForm">
         <h2>Add To Our Gallery</h2>
@@ -46,7 +46,7 @@
 
         <!-- Submit button -->
         <button type="submit" class="btn btn-primary btn-block mb-4" id="addButton"
-            (click)="add(title.value, url.value, year.value, description.value, artist.value, medium.value, location.value)">Add
+            (click)="add(title.value, url.value, year.value, description.value, artist.value, medium.value, location.value, user.id)">Add
             Artwork</button>
     </form>
 

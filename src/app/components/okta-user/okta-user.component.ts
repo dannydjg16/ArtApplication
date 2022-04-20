@@ -20,7 +20,9 @@ export class OktaUserComponent implements OnInit {
   public user$!: User;
   public email$!: string;
 
-  constructor(private _router: Router, private _oktaStateService: OktaAuthStateService, private userService: UserService) { }
+  constructor(private _router: Router, 
+              private _oktaStateService: OktaAuthStateService, 
+              private userService: UserService) { }
 
   public ngOnInit(): void {
     this.isAuthenticated$ = this._oktaStateService.authState$.pipe(

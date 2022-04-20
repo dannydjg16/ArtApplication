@@ -15,7 +15,8 @@ export class ArtistGalleryComponent implements OnInit {
   public isAuthenticated$!: Observable<boolean>;
   public artists!: Artist[];
 
-  constructor(private _oktaStateService: OktaAuthStateService, private _artistService: ArtistService) { }
+  constructor(private _oktaStateService: OktaAuthStateService, 
+              private _artistService: ArtistService) { }
 
   ngOnInit(): void {
     this.isAuthenticated$ = this._oktaStateService.authState$.pipe(

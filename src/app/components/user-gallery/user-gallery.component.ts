@@ -17,7 +17,9 @@ export class UserGalleryComponent implements OnInit {
   public likedArtworks!: Artwork[];
   @Input() theUser : any;
 
-  constructor(private _oktaStateService: OktaAuthStateService, private _likeService: LikeService, private _userService: UserService) { }
+  constructor(private _oktaStateService: OktaAuthStateService, 
+              private _likeService: LikeService, 
+              private _userService: UserService) { }
 
   ngOnInit(): void {
     this.isAuthenticated$ = this._oktaStateService.authState$.pipe(

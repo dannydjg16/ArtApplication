@@ -14,7 +14,8 @@ export class ArtTypeComponent implements OnInit {
 
   public isAuthenticated$!: Observable<boolean>;
 
-  constructor(private _oktaStateService: OktaAuthStateService, private _artTypeService: ArttypeService) { }
+  constructor(private _oktaStateService: OktaAuthStateService, 
+              private _artTypeService: ArttypeService) { }
 
   ngOnInit(): void {
     this.isAuthenticated$ = this._oktaStateService.authState$.pipe(

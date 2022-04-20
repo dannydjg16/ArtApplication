@@ -13,7 +13,8 @@ export class AddLocationComponent implements OnInit {
 
   public isAuthenticated$!: Observable<boolean>;
 
-  constructor(private _oktaStateService: OktaAuthStateService, private _locationService: LocationService) { }
+  constructor(private _oktaStateService: OktaAuthStateService, 
+              private _locationService: LocationService) { }
 
   ngOnInit(): void {
     this.isAuthenticated$ = this._oktaStateService.authState$.pipe(

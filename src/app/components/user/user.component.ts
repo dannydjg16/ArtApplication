@@ -16,7 +16,9 @@ export class UserComponent implements OnInit {
   public isAuthenticated$!: Observable<boolean>;
   public user!: User;
 
-  constructor(private userService: UserService, private _router: Router, private _oktaStateService: OktaAuthStateService) { }
+  constructor(private userService: UserService, 
+              private _router: Router, 
+              private _oktaStateService: OktaAuthStateService) { }
   
   ngOnInit(): void {
     // Getting the user from db using okta email and setting user var equal to that user

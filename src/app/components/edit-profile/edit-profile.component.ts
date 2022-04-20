@@ -13,7 +13,9 @@ export class EditProfileComponent implements OnInit {
 
   public user!: User;
 
-  constructor(private location: Location, private userService: UserService, private _oktaStateService: OktaAuthStateService) { }
+  constructor(private location: Location, 
+              private userService: UserService, 
+              private _oktaStateService: OktaAuthStateService) { }
 
   ngOnInit(): void {
     // Getting the user from db using okta email and setting user var equal to that user

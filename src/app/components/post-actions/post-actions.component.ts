@@ -19,7 +19,8 @@ export class PostActionsComponent implements OnInit {
   @Input() theUser : any;
   @Input() liked: any;
 
-  constructor(private _oktaStateService: OktaAuthStateService, private _likeService: LikeService) { }
+  constructor(private _oktaStateService: OktaAuthStateService, 
+              private _likeService: LikeService) { }
 
   ngOnInit(): void {
     this.isAuthenticated$ = this._oktaStateService.authState$.pipe(

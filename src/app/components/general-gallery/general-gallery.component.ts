@@ -18,7 +18,9 @@ export class GeneralGalleryComponent implements OnInit {
   public artworkss!: Artwork[];
   public signedInUser$!: User;
 
-  constructor(private _oktaStateService: OktaAuthStateService, private _artworkService: ArtworkService, private _userService: UserService) { }
+  constructor(private _oktaStateService: OktaAuthStateService, 
+              private _artworkService: ArtworkService, 
+              private _userService: UserService) { }
 
   ngOnInit(): void {
     this.isAuthenticated$ = this._oktaStateService.authState$.pipe(

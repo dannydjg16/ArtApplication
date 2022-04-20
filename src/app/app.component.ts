@@ -31,20 +31,25 @@ export class AppComponent implements OnInit {
     )
 
     this._oktaStateService.authState$.subscribe(as => {
+      this.updateAuthState(as.isAuthenticated!)
       if (this.isAuthenticated) {
-        this.userService.getUserByEmail(as.accessToken?.claims.sub!).subscribe(
-          () => 2+2,
-          err => this.userService.addUser({ id: 0, email: as.accessToken?.claims.sub!, name: as.accessToken?.claims.name!, fromLocation: '', profilePicURL:''}).subscribe(
+        this.userService.getUserByEmail(as.accessToken?.claims.sub!).subscribe({
+          next: (user) => console.log("success"),
+          error: (err) => this.userService.addUser({ id: 0, email: as.accessToken?.claims.sub!, name: as.accessToken?.claims.name!, fromLocation: '', profilePicURL:''}).subscribe(
             () => this._router.navigate(['/']),
             () => this._router.navigate(['/'])
-          ))
+          )})
       }
     });
   }
 
+  updateAuthState(isAuthenticated: boolean) {
+    this.isAuthenticated = isAuthenticated;
+  }
+
   public async signIn() : Promise<void> {
     await this._oktaAuth.signInWithRedirect().then(
-      _ => this._router.navigate(['/profile'])
+      _ => this._router.navigate(['/gallery'])
     );
   }
 

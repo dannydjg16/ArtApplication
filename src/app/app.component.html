@@ -1,4 +1,4 @@
-<ng-container *ngIf="(isAuthenticated$ | async) === false; else signout">
+<ng-container *ngIf="isAuthenticated === false; else signout">
   <app-not-auth></app-not-auth>
 </ng-container>
 

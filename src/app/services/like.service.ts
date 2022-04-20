@@ -13,7 +13,8 @@ export class LikeService {
 
   private baseUrl = `${environment.baseUrl}/likes`;
 
-  constructor(private http: HttpClient, @Inject(OKTA_AUTH) private _oktaAuth: OktaAuth) { }
+  constructor(private http: HttpClient, 
+              @Inject(OKTA_AUTH) private _oktaAuth: OktaAuth) { }
 
   getUsersLikes(id: number): Observable<Artwork[]> {
     const accessToken = this._oktaAuth.getAccessToken();

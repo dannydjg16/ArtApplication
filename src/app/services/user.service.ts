@@ -12,7 +12,8 @@ import { OKTA_AUTH } from '@okta/okta-angular';
 export class UserService {
   private baseUrl = `${environment.baseUrl}/users`;
 
-  constructor(private http: HttpClient, @Inject(OKTA_AUTH)private _oktaAuth: OktaAuth) { }
+  constructor(private http: HttpClient, 
+              @Inject(OKTA_AUTH)private _oktaAuth: OktaAuth) { }
 
   getUsers(): Observable<User[]>{
     const accessToken = this._oktaAuth.getAccessToken();

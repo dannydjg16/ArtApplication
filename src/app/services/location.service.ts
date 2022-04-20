@@ -12,7 +12,8 @@ export class LocationService {
   
   private baseUrl = `${environment.baseUrl}/locations`;
   
-  constructor(private http: HttpClient, @Inject(OKTA_AUTH) private _oktaAuth: OktaAuth) { }
+  constructor(private http: HttpClient, 
+              @Inject(OKTA_AUTH) private _oktaAuth: OktaAuth) { }
 
   getLocations(name?: string): Observable<Location[]> {
     const accessToken = this._oktaAuth.getAccessToken();

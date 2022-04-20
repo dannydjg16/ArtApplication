@@ -13,7 +13,8 @@ export class ArttypeService {
 
   private baseUrl = `${environment.baseUrl}/arttype`;
 
-  constructor(private http: HttpClient, @Inject(OKTA_AUTH) private _oktaAuth: OktaAuth) { }
+  constructor(private http: HttpClient, 
+              @Inject(OKTA_AUTH) private _oktaAuth: OktaAuth) { }
 
   getArtTypes(): Observable<ArtType[]> {
     const accessToken = this._oktaAuth.getAccessToken();

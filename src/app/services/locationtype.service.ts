@@ -13,7 +13,8 @@ export class LocationTypeService {
 
   private baseUrl = `${environment.baseUrl}/locationtype`;
 
-  constructor(private http: HttpClient, @Inject(OKTA_AUTH) private _oktaAuth: OktaAuth) { }
+  constructor(private http: HttpClient, 
+              @Inject(OKTA_AUTH) private _oktaAuth: OktaAuth) { }
 
   getLocationTypes(): Observable<LocationType[]> {
     const accessToken = this._oktaAuth.getAccessToken();

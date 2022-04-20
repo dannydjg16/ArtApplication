@@ -13,7 +13,8 @@ export class ArtworkService {
   
   private baseUrl = `${environment.baseUrl}/artwork`;
   
-  constructor(private http: HttpClient, @Inject(OKTA_AUTH) private _oktaAuth: OktaAuth) { }
+  constructor(private http: HttpClient, 
+              @Inject(OKTA_AUTH) private _oktaAuth: OktaAuth) { }
 
   getArtworks(title?: string): Observable<Artwork[]> {
     const accessToken = this._oktaAuth.getAccessToken();

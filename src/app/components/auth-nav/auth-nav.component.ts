@@ -14,7 +14,7 @@ export class AuthNavComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public async signOut(): Promise<void> {
-    await this._oktaAuth.signOut();
+  public signOut() {
+     this._oktaAuth.signOut();
   }
 }

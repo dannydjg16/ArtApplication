@@ -19,11 +19,6 @@ export class AppComponent implements OnInit {
   isAuthenticated = false;
 
   constructor(private _router: Router, private _oktaStateService: OktaAuthStateService, @Inject(OKTA_AUTH) private _oktaAuth: OktaAuth, private userService: UserService) {
-    this.isAuthenticated$ = this._oktaStateService.authState$.pipe(
-      filter((s: AuthState) => !!s),
-      map((s: AuthState) => s.isAuthenticated ?? false)
-    );
-
     this._oktaStateService.authState$.subscribe(
       s => this.isAuthenticated = s.isAuthenticated!
     );
@@ -33,12 +28,12 @@ export class AppComponent implements OnInit {
     this.isAuthenticated$ = this._oktaStateService.authState$.pipe(
       filter((s: AuthState) => !!s),
       map((s: AuthState) => s.isAuthenticated ?? false)
-    );
+    )
 
     this._oktaStateService.authState$.subscribe(as => {
       if (this.isAuthenticated) {
         this.userService.getUserByEmail(as.accessToken?.claims.sub!).subscribe(
-          a => a.name,
+          () => 2+2,
           err => this.userService.addUser({ id: 0, email: as.accessToken?.claims.sub!, name: as.accessToken?.claims.name!, fromLocation: '', profilePicURL:''}).subscribe(
             () => this._router.navigate(['/']),
             () => this._router.navigate(['/'])
@@ -55,5 +50,11 @@ export class AppComponent implements OnInit {
 
   public async signOut(): Promise<void> {
     await this._oktaAuth.signOut();
+  }
+
+  showGallery() {
+    if (this._router.url === '/') {
+      this._router.navigate(['/gallery']);
+    }
   }
 }

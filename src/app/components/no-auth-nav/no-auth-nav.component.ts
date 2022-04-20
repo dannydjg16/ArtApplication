@@ -15,9 +15,9 @@ export class NoAuthNavComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public async signIn() : Promise<void> {
-    await this._oktaAuth.signInWithRedirect().then(
-      _ => this._router.navigate(['/'])
+  public signIn() {
+    this._oktaAuth.signInWithRedirect().then(
+      _ => this._router.navigate(['/gallery'])
     );
   }
 }

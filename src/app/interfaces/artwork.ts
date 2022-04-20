@@ -11,4 +11,5 @@ export default interface Artwork{
     locationNow: number;
     artistID: number;
     mediumID: number;
+    artworkAdderId: number;
 }

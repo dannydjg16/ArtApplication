@@ -1,1 +1,11 @@
-<p>user-artwork-card works!</p>
+<div class="col-md-3 cardDiv">
+    <div class="card" style="width: 18rem;">
+        <app-post-actions [theArtwork]=theArtwork [theUser]=theUser [liked]=liked></app-post-actions>
+        <img class="card-img-top" src="{{theArtwork.fileName}}" alt="Card image cap"
+            style='height: 100%; width: 100%; object-fit: contain'>
+        <div class="card-body">
+            <h5 class="card-title">{{theArtwork.title}}</h5>
+            <p class="card-text">{{theArtwork.description}}</p>
+        </div>
+    </div>
+</div>

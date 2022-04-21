@@ -1,5 +1,8 @@
 <body *ngIf="user" class="bodyContainer">
-    <a href="#" class="btn small editProfile" routerLink="/editprofile">Edit Profile</a>
+    <div>
+        <a href="#" class="btn small editProfile" routerLink="/editprofile">Edit Profile</a>
+    </div>
+    
     <div class="profileDetails">
         <img src="{{user.profilePicURL}}"
             alt="..." width="130" class="rounded mb-2 img-thumbnail">

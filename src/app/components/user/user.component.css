@@ -29,6 +29,11 @@ body {
     margin-right: 10px;
 }
 
+.editGallery {
+    float: left;
+    margin-left: 10px;
+}
+
 img {
     border-radius: 200px;
 }

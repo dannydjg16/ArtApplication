@@ -25,6 +25,7 @@ export class AddArtComponent implements OnInit {
   public artists!: Artist[];
   public artTypes!: ArtType[];
   public locations!: Location[];
+  public artPicture!: string;
 
   constructor(private _oktaStateService: OktaAuthStateService, 
               private _artworkService: ArtworkService,
@@ -54,6 +55,10 @@ export class AddArtComponent implements OnInit {
     this._artworkService.addArtwork(artwork as unknown as Artwork).subscribe(data => {
       console.log(data);
     });
+  }
+
+  updateArtPicture(url: string) {
+    this.artPicture = url;
   }
 
 }

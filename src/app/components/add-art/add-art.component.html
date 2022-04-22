@@ -14,7 +14,7 @@
 
         <!-- File URL input -->
         <div class="form-outline mb-4">
-            <input #url type="text" id="form6Example4" class="form-control" placeholder="URL" />
+            <input #url type="text" id="form6Example4" class="form-control" placeholder="URL" (blur)="updateArtPicture(url.value)"/>
         </div>
 
         <!-- Year Created input -->

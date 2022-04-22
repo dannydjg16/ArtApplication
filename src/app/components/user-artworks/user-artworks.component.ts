@@ -18,8 +18,8 @@ export class UserArtworksComponent implements OnInit {
   @Input() theUser : any;
 
   constructor(private _oktaStateService: OktaAuthStateService, 
-    private _artworkService: ArtworkService, 
-    private _userService: UserService) { }
+              private _artworkService: ArtworkService, 
+              private _userService: UserService) { }
 
   ngOnInit(): void {
     this.isAuthenticated$ = this._oktaStateService.authState$.pipe(
@@ -28,7 +28,8 @@ export class UserArtworksComponent implements OnInit {
     );
 
     // Get the User from okta, from db, then get users added artworks
-    
+    this._oktaStateService.authState$.subscribe(as => this._userService.getUserByEmail(as.accessToken?.claims.sub!)
+    .subscribe(u => this._artworkService.getArtworksByAdder(u.id).subscribe(addedWorks => this.addedArtworks = addedWorks)));
   }
 
 }

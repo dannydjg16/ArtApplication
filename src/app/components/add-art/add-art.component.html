@@ -27,29 +27,23 @@
             <textarea #description class="form-control" id="form6Example7" rows="4"
                 placeholder="Description"></textarea>
         </div>
-
-        <!-- Artist ID input -->
+        
         <div class="form-outline mb-4">
+            <!-- Artist ID input -->
             <select #artist name="artists" id="artistsDropdown">
                 <option value="">Select An Artist</option>
                 <option *ngFor="let artist of artists" [value]="artist.id"> 
                     {{ artist.name }}
                 </option>
             </select>
-        </div>
-
-        <!-- Medium ID input -->
-        <div class="form-outline mb-4">
+            <!-- Medium ID input -->
             <select #medium name="arttypes" id="arttypesDropdown">
                 <option value="">Select A Medium</option>
                 <option *ngFor="let arttype of artTypes" [value]="arttype.id"> 
                     {{ arttype.name }}
                 </option>
             </select>
-        </div>
-
-        <!-- Location ID input -->
-        <div class="form-outline mb-4">
+            <!-- Location ID input -->
             <select #location name="locations" id="locationsDropdown">
                 <option value="">Select A Location</option>
                 <option *ngFor="let location of locations" [value]="location.id"> 
@@ -57,7 +51,6 @@
                 </option>
             </select>
         </div>
-
 
         <!-- Submit button -->
         <button type="submit" class="btn btn-primary btn-block mb-4" id="addButton"

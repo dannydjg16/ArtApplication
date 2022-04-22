@@ -14,3 +14,7 @@
 .form-outline {
     margin-top: 2%;
 }
+
+select {
+    margin: 10px;
+}

@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   public isAuthenticated$!: Observable<boolean>;
   public fullName$!: string;
   isAuthenticated = false;
+  
 
   constructor(private _router: Router, private _oktaStateService: OktaAuthStateService, @Inject(OKTA_AUTH) private _oktaAuth: OktaAuth, private userService: UserService) {
     this._oktaStateService.authState$.subscribe(

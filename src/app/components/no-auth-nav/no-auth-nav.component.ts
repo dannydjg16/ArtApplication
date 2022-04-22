@@ -16,8 +16,6 @@ export class NoAuthNavComponent implements OnInit {
   }
 
   public signIn() {
-    this._oktaAuth.signInWithRedirect().then(
-      _ => this._router.navigate(['/gallery'])
-    );
+    this._oktaAuth.signInWithRedirect();
   }
 }

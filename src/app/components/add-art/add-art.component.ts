@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { OktaAuthStateService } from '@okta/okta-angular';
 import { AuthState } from '@okta/okta-auth-js';
 import { filter, map, Observable } from 'rxjs';
+import Artist from 'src/app/interfaces/artist';
 import User from 'src/app/interfaces/user';
+import { ArtistService } from 'src/app/services/artist.service';
 import { ArtworkService } from 'src/app/services/artwork.service';
 import { UserService } from 'src/app/services/user.service';
 import  Artwork  from '../../interfaces/artwork';
@@ -16,10 +18,12 @@ export class AddArtComponent implements OnInit {
 
   public isAuthenticated$!: Observable<boolean>;
   public user!: User;
+  public artists!: Artist[];
 
   constructor(private _oktaStateService: OktaAuthStateService, 
               private _artworkService: ArtworkService,
-              private userService: UserService,) { }
+              private userService: UserService,
+              private _artistService: ArtistService) { }
 
   ngOnInit(): void {
     this.isAuthenticated$ = this._oktaStateService.authState$.pipe(
@@ -29,6 +33,7 @@ export class AddArtComponent implements OnInit {
 
     this._oktaStateService.authState$.subscribe(as => this.userService.getUserByEmail(as.accessToken?.claims.sub!).subscribe(u => this.user = u));
 
+    this._artistService.getArtists().subscribe(artists => this.artists = artists);
   }
 
   add(title: string, url: string, year: string, description: string, artist: string, medium: string, location: string, adder: number) {

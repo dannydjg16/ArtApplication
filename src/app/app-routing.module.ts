@@ -20,8 +20,7 @@ const routes: Routes = [
   { path: 'artists', component: ArtistGalleryComponent },
   { path: 'addlocation', component: AddLocationComponent },
   { path: 'profile', component: UserComponent },
-  { path: 'editprofile', component: EditProfileComponent },
-  { path: 'myartadds', component: UserArtworksComponent }
+  { path: 'editprofile', component: EditProfileComponent }
 ];
 
 @NgModule({

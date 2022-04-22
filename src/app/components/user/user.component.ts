@@ -15,10 +15,9 @@ export class UserComponent implements OnInit {
 
   public isAuthenticated$!: Observable<boolean>;
   public user!: User;
-  public gallery = 'adds';
+  public gallery = 'likes';
 
   constructor(private userService: UserService, 
-              private _router: Router, 
               private _oktaStateService: OktaAuthStateService) { }
   
   ngOnInit(): void {

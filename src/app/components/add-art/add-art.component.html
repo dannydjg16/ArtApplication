@@ -40,19 +40,30 @@
 
         <!-- Medium ID input -->
         <div class="form-outline mb-4">
-            <input #medium type="number" id="form6Example6" class="form-control" placeholder="Medium" />
+            <select #medium name="arttypes" id="arttypesDropdown">
+                <option value="">Select A Medium</option>
+                <option *ngFor="let arttype of artTypes" [value]="arttype.id"> 
+                    {{ arttype.name }}
+                </option>
+            </select>
         </div>
 
         <!-- Location ID input -->
         <div class="form-outline mb-4">
-            <input #location type="number" id="form6Example6" class="form-control" placeholder="Location" />
+            <select #location name="locations" id="locationsDropdown">
+                <option value="">Select A Location</option>
+                <option *ngFor="let location of locations" [value]="location.id"> 
+                    {{ location.locationName }}
+                </option>
+            </select>
         </div>
 
 
         <!-- Submit button -->
         <button type="submit" class="btn btn-primary btn-block mb-4" id="addButton"
             (click)="add(title.value, url.value, year.value, description.value, artist.value, medium.value, location.value, user.id)">Add
-            Artwork</button>
+            Artwork
+        </button>
     </form>
 
 </ng-container>

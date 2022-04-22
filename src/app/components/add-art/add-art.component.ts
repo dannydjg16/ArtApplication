@@ -11,6 +11,7 @@ import { ArtworkService } from 'src/app/services/artwork.service';
 import { LocationService } from 'src/app/services/location.service';
 import { UserService } from 'src/app/services/user.service';
 import  Artwork  from '../../interfaces/artwork';
+import  Location  from '../../interfaces/location';
 
 @Component({
   selector: 'app-add-art',
@@ -41,7 +42,7 @@ export class AddArtComponent implements OnInit {
     this._oktaStateService.authState$.subscribe(as => this.userService.getUserByEmail(as.accessToken?.claims.sub!).subscribe(u => this.user = u));
     this._artistService.getArtists().subscribe(artists => this.artists = artists);
     this._arttypeService.getArtTypes().subscribe(arttypes => this.artTypes = arttypes);
-    this._locationService.getLocations().subscribe(locations => this.locations = locations);
+    this._locationService.getLocations().subscribe(allLocations => this.locations = allLocations);
   }
 
   add(title: string, url: string, year: string, description: string, artist: string, medium: string, location: string, adder: number) {

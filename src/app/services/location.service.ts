@@ -4,6 +4,7 @@ import { OKTA_AUTH } from '@okta/okta-angular';
 import { OktaAuth } from '@okta/okta-auth-js';
 import { catchError, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import Location from '../interfaces/location';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class LocationService {
   constructor(private http: HttpClient, 
               @Inject(OKTA_AUTH) private _oktaAuth: OktaAuth) { }
 
-  getLocations(name?: string): Observable<Location[]> {
+  getLocations(): Observable<Location[]> {
     const accessToken = this._oktaAuth.getAccessToken();
     const headers = {
       Authorization: 'Bearer ' + accessToken,

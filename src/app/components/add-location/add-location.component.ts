@@ -3,6 +3,7 @@ import { OktaAuthStateService } from '@okta/okta-angular';
 import { AuthState } from '@okta/okta-auth-js';
 import { filter, map, Observable } from 'rxjs';
 import { LocationService } from 'src/app/services/location.service';
+import  Location  from '../../interfaces/location';
 
 @Component({
   selector: 'app-add-location',

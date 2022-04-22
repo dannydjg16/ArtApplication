@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="row cardDiv">
-      <div class="noLikes" *ngIf="likedArtworks.length === 0"><a routerLink="/gallery">- Add Art to Your Gallery! -</a></div>
+      <div class="noLikes" *ngIf="likedArtworks.length === 0"><button class="button-18" role="button" routerLink="/gallery">- Add Art to Your Gallery! -</button></div>
       
       <div *ngFor="let artwork of likedArtworks">
         

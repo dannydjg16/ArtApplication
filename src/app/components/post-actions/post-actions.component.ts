@@ -31,12 +31,14 @@ export class PostActionsComponent implements OnInit {
 
   public LikePost(art: Artwork, user: User) {
     this._likeService.likePost(art.id, user.id).subscribe(data => {
+      window.location.reload();
       console.log(data);
     });
   }
 
   public UnlikePost(art: Artwork, user: User) {
     this._likeService.unlikePost(art.id, user.id).subscribe(data => {
+      window.location.reload();
       console.log(data);
     });
   }

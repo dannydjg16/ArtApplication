@@ -18,3 +18,9 @@
 select {
     margin: 10px;
 }
+
+.artImage {
+    display: table;
+    margin-right: auto;
+    margin-left: auto;
+}

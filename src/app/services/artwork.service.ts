@@ -42,6 +42,19 @@ export class ArtworkService {
     }));
   }
 
+  getArtworksByAdder(adderID: number): Observable<Artwork[]> {
+    const accessToken = this._oktaAuth.getAccessToken();
+    const headers = {
+      Authorization: 'Bearer ' + accessToken,
+      Accept: 'application/json',
+    };
+
+    return this.http.get<Artwork[]>(`${this.baseUrl}/adder/${adderID}`, { headers: headers }).pipe(catchError((err) => {
+      console.error(err);
+      throw err;
+    }));
+  }
+
   addArtwork(artWork: Artwork) {
     const accessToken = this._oktaAuth.getAccessToken();
     const headers = {

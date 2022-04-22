@@ -15,6 +15,7 @@ export class UserComponent implements OnInit {
 
   public isAuthenticated$!: Observable<boolean>;
   public user!: User;
+  public gallery = 'adds';
 
   constructor(private userService: UserService, 
               private _router: Router, 
@@ -28,5 +29,13 @@ export class UserComponent implements OnInit {
       filter((s: AuthState) => !!s),
       map((s: AuthState) => s.isAuthenticated ?? false)
     );
+  }
+
+  showAdds(){
+    this.gallery = "adds"
+  }
+
+  showLikes(){
+    this.gallery = "likes"
   }
 }

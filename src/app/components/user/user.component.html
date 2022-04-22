@@ -1,6 +1,7 @@
 <body *ngIf="user" class="bodyContainer">
     <div>
-        <a href="#" class="btn small editGallery" routerLink="/myartadds">Edit Gallery</a>
+        <a *ngIf="gallery==='likes'" (click)="showAdds()" class="btn small editGallery">Show My Adds</a>
+        <a *ngIf="gallery==='adds'" (click)="showLikes()" class="btn small editGallery">Show My Likes</a>
         <a href="#" class="btn small editProfile" routerLink="/editprofile">Edit Profile</a>
     </div>
     
@@ -10,5 +11,7 @@
         <h4 class="mt-0 mb-0">{{user.name}}</h4>
         <p class="small mb-4"> {{user.fromLocation}}</p>
     </div>
-    <app-user-gallery [theUser]="user"></app-user-gallery>
+    <app-user-gallery *ngIf="gallery==='likes'" [theUser]="user"></app-user-gallery>
+    <app-user-artworks *ngIf="gallery==='adds'" [theUser]="user"></app-user-artworks>
+
 </body>

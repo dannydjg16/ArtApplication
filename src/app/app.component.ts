@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   public isAuthenticated$!: Observable<boolean>;
   public fullName$!: string;
   isAuthenticated = false;
-  
+
 
   constructor(private _router: Router, private _oktaStateService: OktaAuthStateService, @Inject(OKTA_AUTH) private _oktaAuth: OktaAuth, private userService: UserService) {
     this._oktaStateService.authState$.subscribe(
@@ -49,21 +49,5 @@ export class AppComponent implements OnInit {
 
   updateAuthState(isAuthenticated: boolean) {
     this.isAuthenticated = isAuthenticated;
-  }
-
-  public async signIn(): Promise<void> {
-    await this._oktaAuth.signInWithRedirect().then(
-      _ => this._router.navigate(['/gallery'])
-    );
-  }
-
-  public async signOut(): Promise<void> {
-    await this._oktaAuth.signOut();
-  }
-
-  showGallery() {
-    if (this._router.url === '/') {
-      this._router.navigate(['/gallery']);
-    }
   }
 }

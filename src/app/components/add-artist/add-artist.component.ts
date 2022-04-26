@@ -13,6 +13,7 @@ import { ArtistService } from 'src/app/services/artist.service';
 export class AddArtistComponent implements OnInit {
 
   public isAuthenticated$!: Observable<boolean>;
+  public artPictureURL = "https://cdn.pixabay.com/photo/2014/08/25/16/17/picture-frame-427233_960_720.jpg";
 
   constructor(private _oktaStateService: OktaAuthStateService, 
               private _artistService: ArtistService) { }
@@ -34,4 +35,7 @@ export class AddArtistComponent implements OnInit {
     });
   }
 
+  updateArtPicture(url: string) {
+    this.artPictureURL = url;
+  }
 }

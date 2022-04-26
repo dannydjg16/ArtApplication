@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { UserComponent } from './components/user/user.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { OktaAuthModule, OKTA_CONFIG, OktaCallbackComponent } from '@okta/okta-angular';
 import { OktaAuth } from '@okta/okta-auth-js';
-
 import { NoAuthNavComponent } from './components/no-auth-nav/no-auth-nav.component';
 import { AuthNavComponent } from './components/auth-nav/auth-nav.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';

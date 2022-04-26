@@ -16,7 +16,6 @@
       <div class="noLikes" *ngIf="likedArtworks.length === 0"><button class="button-18" role="button" routerLink="/gallery">Add Art to Your Gallery!</button></div>
       
       <div *ngFor="let artwork of likedArtworks">
-        
         <app-gallery-card [theArtwork]="artwork" [liked]="1" [theUser]="theUser"></app-gallery-card>
       </div>
     </div>

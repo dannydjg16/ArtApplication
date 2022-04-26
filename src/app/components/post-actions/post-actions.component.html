@@ -1,4 +1,5 @@
 <div class="postAction">
-    <a *ngIf="(liked) != 1" (click)="LikePost(theArtwork, theUser)">Add to Your Gallery</a>
+    <a *ngIf="(liked) == 3" routerLink="/">Edit Post</a>
+    <a *ngIf="(liked) == 2" (click)="LikePost(theArtwork, theUser)">Add to Your Gallery</a>
     <a *ngIf="(liked) == 1" (click)="UnlikePost(theArtwork, theUser)">Remove From Gallery</a>
 </div>

@@ -3,7 +3,6 @@ import { Location } from '@angular/common';
 import { UserService } from 'src/app/services/user.service';
 import { OktaAuthStateService } from '@okta/okta-angular';
 import User from 'src/app/interfaces/user';
-import { userInfo } from 'os';
 
 @Component({
   selector: 'app-edit-profile',

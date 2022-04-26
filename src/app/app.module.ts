@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { OktaAuthModule, OKTA_CONFIG, OktaCallbackComponent } from '@okta/okta-angular';
 import { OktaAuth } from '@okta/okta-auth-js';
-import { OktaUserComponent } from './components/okta-user/okta-user.component';
+
 import { NoAuthNavComponent } from './components/no-auth-nav/no-auth-nav.component';
 import { AuthNavComponent } from './components/auth-nav/auth-nav.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
@@ -46,7 +46,6 @@ const oktaAuth = new OktaAuth({
   declarations: [
     AppComponent,
     UserComponent,
-    OktaUserComponent,
     NoAuthNavComponent,
     AuthNavComponent,
     FooterComponent,

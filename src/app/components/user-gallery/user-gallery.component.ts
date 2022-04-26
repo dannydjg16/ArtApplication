@@ -31,5 +31,4 @@ export class UserGalleryComponent implements OnInit {
     this._oktaStateService.authState$.subscribe(as => this._userService.getUserByEmail(as.accessToken?.claims.sub!)
     .subscribe(u => this._likeService.getUsersLikes(u.id).subscribe(likes => this.likedArtworks = likes)));
   }
-
 }

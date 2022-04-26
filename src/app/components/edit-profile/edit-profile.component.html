@@ -6,8 +6,8 @@
         <h2>Edit Profile</h2>
         <!-- 2 column grid layout with text inputs for the first and last names -->
         <div class="row mb-4 picDiv">
-            <img src="{{user.profilePicURL}}"
-            alt="..." width="130" class="rounded img-thumbnail">
+            <img src="{{userPictureURL}}"
+            alt="Your Picture Here" width="130" class="rounded mb-2 img-thumbnail">
         </div>
 
         <!-- Name input -->
@@ -17,7 +17,7 @@
 
         <!-- Profile Picture input -->
         <div class="form-outline mb-4">
-            <textarea #url rows="3" type="text" id="form6Example4" class="form-control" placeholder="Profile Picture URL">{{user.profilePicURL}}</textarea>
+            <textarea #url rows="3" type="text" id="form6Example4" class="form-control" placeholder="Profile Picture URL: {{user.profilePicURL}}" (blur)="updateUserPicture(url.value)"></textarea>
         </div>
 
         <!-- FromLocation input -->

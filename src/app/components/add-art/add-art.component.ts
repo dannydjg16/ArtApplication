@@ -10,8 +10,8 @@ import { ArttypeService } from 'src/app/services/arttype.service';
 import { ArtworkService } from 'src/app/services/artwork.service';
 import { LocationService } from 'src/app/services/location.service';
 import { UserService } from 'src/app/services/user.service';
-import  Artwork  from '../../interfaces/artwork';
-import  Location  from '../../interfaces/location';
+import Artwork from '../../interfaces/artwork';
+import Location from '../../interfaces/location';
 
 @Component({
   selector: 'app-add-art',
@@ -27,12 +27,12 @@ export class AddArtComponent implements OnInit {
   public locations!: Location[];
   public artPictureURL = "https://cdn.pixabay.com/photo/2014/08/25/16/17/picture-frame-427233_960_720.jpg";
 
-  constructor(private _oktaStateService: OktaAuthStateService, 
-              private _artworkService: ArtworkService,
-              private userService: UserService,
-              private _artistService: ArtistService,
-              private _arttypeService: ArttypeService,
-              private _locationService: LocationService) { }
+  constructor(private _oktaStateService: OktaAuthStateService,
+    private _artworkService: ArtworkService,
+    private userService: UserService,
+    private _artistService: ArtistService,
+    private _arttypeService: ArttypeService,
+    private _locationService: LocationService) { }
 
   ngOnInit(): void {
     this.isAuthenticated$ = this._oktaStateService.authState$.pipe(
@@ -48,7 +48,7 @@ export class AddArtComponent implements OnInit {
 
   add(title: string, url: string, year: string, description: string, artist: string, medium: string, location: string, adder: number) {
     const artwork = {
-      title: title, filename: url, yearCreated: Number(year), description: description, locationNow: Number(location), 
+      title: title, filename: url, yearCreated: Number(year), description: description, locationNow: Number(location),
       artistID: Number(artist), mediumID: Number(medium), artworkAdderID: adder
     }
 
@@ -58,6 +58,6 @@ export class AddArtComponent implements OnInit {
   }
 
   updateArtPicture(url: string) {
-    this.artPictureURL = url;
+      this.artPictureURL = url;    
   }
 }

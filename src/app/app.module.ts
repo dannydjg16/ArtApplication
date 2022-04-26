@@ -29,6 +29,7 @@ import { LocationCardComponent } from './components/location-card/location-card.
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { UserArtworksComponent } from './components/user-artworks/user-artworks.component';
 import { UserArtworkCardComponent } from './components/user-artwork-card/user-artwork-card.component';
+import { EditArtworkComponent } from './components/edit-artwork/edit-artwork.component';
 
 
 const oktaAuth = new OktaAuth({
@@ -65,7 +66,8 @@ const oktaAuth = new OktaAuth({
     LocationCardComponent,
     EditProfileComponent,
     UserArtworksComponent,
-    UserArtworkCardComponent
+    UserArtworkCardComponent,
+    EditArtworkComponent
   ],
   imports: [
     BrowserModule,

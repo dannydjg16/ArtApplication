@@ -14,3 +14,9 @@
 .form-outline {
     margin-top: 2%;
 }
+
+.artistImage {
+    display: table;
+    margin-right: auto;
+    margin-left: auto;
+}

@@ -3,8 +3,9 @@
     <form id="addArtistForm">
         <h2>Add An Artist</h2>
         <!-- 2 column grid layout with text inputs for the first and last names -->
-        <div class="row mb-4">
-            Picture Goes here
+        <div class="artistImage">
+            <img src="{{artistPictureURL}}"
+            alt="Your Picture Here" width="130" class="rounded mb-2 img-thumbnail">
         </div>
 
         <!-- Name input -->
@@ -14,7 +15,7 @@
 
         <!-- File URL input -->
         <div class="form-outline mb-4">
-            <input #url type="text" id="form6Example4" class="form-control" placeholder="Artist Picture URL" />
+            <input #url type="text" id="form6Example4" class="form-control" placeholder="Artist Picture URL" (blur)="updateArtistPicture(url.value)" />
         </div>
 
         <!-- Location Born input -->

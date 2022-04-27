@@ -5,3 +5,7 @@
 .navLink:hover {
     text-decoration: underline;
 }
+
+.glyphicon-user {
+    margin-right: 2px;
+}

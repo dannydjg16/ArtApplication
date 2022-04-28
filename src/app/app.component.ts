@@ -41,7 +41,7 @@ export class AppComponent implements OnInit {
             error: (err) => this.userService.addUser({ id: 0, email: as.accessToken?.claims.sub!, name: as.accessToken?.claims.name!, fromLocation: '', profilePicURL: '' })
               .subscribe({
                 next: (a) => a,
-                error: (error) => 1 + 1
+                error: (error) => 1+1
               })
           })
       }

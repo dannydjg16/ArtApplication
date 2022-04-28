@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'addlocation', component: AddLocationComponent },
   { path: 'profile', component: UserComponent },
   { path: 'editprofile', component: EditProfileComponent },
-  { path: 'editart', component: EditArtworkComponent }
+  { path: 'editart/:id', component: EditArtworkComponent }
 ];
 
 @NgModule({

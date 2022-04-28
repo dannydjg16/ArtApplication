@@ -15,7 +15,7 @@ export class PostActionsComponent implements OnInit {
 
   public isAuthenticated$!: Observable<boolean>;
 
-  @Input() theArtwork : any;
+  @Input() theArtwork! : Artwork;
   @Input() theUser : any;
   @Input() liked: any;
 

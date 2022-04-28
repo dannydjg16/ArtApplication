@@ -10,7 +10,7 @@
     <a class="navbar-brand navLink" routerLink="/addlocation">Add Location</a>
 
     <ul class="nav navbar-brand navbar-right" id="acctButton">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Act.
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#" *ngIf="user"> {{user.name}}
         <span class="caret"></span></a>
       <ul class="dropdown-menu">
         <li><a href="/profile">My Account</a></li>

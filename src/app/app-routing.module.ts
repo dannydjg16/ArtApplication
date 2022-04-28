@@ -8,8 +8,6 @@ import { AddArtistComponent } from './components/add-artist/add-artist.component
 import { ArtistGalleryComponent } from './components/artist-gallery/artist-gallery.component';
 import { AddLocationComponent } from './components/add-location/add-location.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
-import { UserArtworksComponent } from './components/user-artworks/user-artworks.component';
-
 
 const routes: Routes = [
   { path: 'users', component: UserComponent },

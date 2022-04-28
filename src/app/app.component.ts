@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { OktaAuthStateService, OKTA_AUTH } from '@okta/okta-angular';
 import { AuthState, OktaAuth } from '@okta/okta-auth-js';
 import { filter, map, Observable } from 'rxjs';
+import User from './interfaces/user';
 import { UserService } from './services/user.service';
 
 @Component({
@@ -18,7 +19,6 @@ export class AppComponent implements OnInit {
   public fullName$!: string;
   isAuthenticated = false;
 
-
   constructor(private _router: Router, private _oktaStateService: OktaAuthStateService, @Inject(OKTA_AUTH) private _oktaAuth: OktaAuth, private userService: UserService) {
     this._oktaStateService.authState$.subscribe(
       s => this.isAuthenticated = s.isAuthenticated!
@@ -26,6 +26,7 @@ export class AppComponent implements OnInit {
   }
 
   public ngOnInit(): void {
+
     this.isAuthenticated$ = this._oktaStateService.authState$.pipe(
       filter((s: AuthState) => !!s),
       map((s: AuthState) => s.isAuthenticated ?? false)
@@ -40,7 +41,7 @@ export class AppComponent implements OnInit {
             error: (err) => this.userService.addUser({ id: 0, email: as.accessToken?.claims.sub!, name: as.accessToken?.claims.name!, fromLocation: '', profilePicURL: '' })
               .subscribe({
                 next: (a) => a,
-                error: (error) => 1+1
+                error: (error) => 1 + 1
               })
           })
       }

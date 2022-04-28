@@ -1,4 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { OktaAuthStateService, OKTA_AUTH } from '@okta/okta-angular';
 import { AuthState, OktaAuth } from '@okta/okta-auth-js';
 import { filter, map, Observable } from 'rxjs';
@@ -17,8 +18,8 @@ export class AuthNavComponent implements OnInit {
   public gallery = 'likes';
 
   constructor(@Inject(OKTA_AUTH) private _oktaAuth: OktaAuth,
-              private userService: UserService, 
-              private _oktaStateService: OktaAuthStateService) { }
+    private userService: UserService,
+    private _oktaStateService: OktaAuthStateService) { }
 
   ngOnInit(): void {
     this._oktaStateService.authState$.subscribe(as => this.userService.getUserByEmail(as.accessToken?.claims.sub!).subscribe(u => this.user = u));
@@ -29,7 +30,7 @@ export class AuthNavComponent implements OnInit {
     );
   }
 
-  public signOut() {
-     this._oktaAuth.signOut();
+  signOut() {
+    this._oktaAuth.signOut();
   }
 }

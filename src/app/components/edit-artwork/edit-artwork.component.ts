@@ -35,7 +35,7 @@ export class EditArtworkComponent implements OnInit {
     this._oktaStateService.authState$.subscribe(as => this.userService.getUserByEmail(as.accessToken?.claims.sub!).subscribe(u => this.user = u));
 
     // Set Artwork Picture
-    this._artworkService.getArtorkById(this.route.snapshot.params['id']).subscribe(aw => this.artworkToEdit = aw);
+    this._artworkService.getArtorkById(this.route.snapshot.params['id']).subscribe(aw => this.setArtworkAndURL(aw));
   }
 
   edit(title: string, url: string, year: string, description: string, artist: string, medium: string, location: string, adder: number) {

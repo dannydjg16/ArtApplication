@@ -35,4 +35,8 @@ export class EditArtworkComponent implements OnInit {
     this.sub.unsubscribe();
   }
 
+  edit(title: string, url: string, year: string, description: string, artist: string, medium: string, location: string, adder: number) {
+    
+  }
+
 }

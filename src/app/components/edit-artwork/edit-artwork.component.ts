@@ -8,6 +8,9 @@ import User from 'src/app/interfaces/user';
 import Location from '../../interfaces/location';
 import { ArtworkService } from 'src/app/services/artwork.service';
 import { UserService } from 'src/app/services/user.service';
+import { ArtistService } from 'src/app/services/artist.service';
+import { ArttypeService } from 'src/app/services/arttype.service';
+import { LocationService } from 'src/app/services/location.service';
 
 
 @Component({
@@ -29,7 +32,10 @@ export class EditArtworkComponent implements OnInit {
     private userService: UserService,
     private _oktaStateService: OktaAuthStateService,
     private _artworkService: ArtworkService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private _artistService: ArtistService,
+    private _arttypeService: ArttypeService,
+    private _locationService: LocationService) { }
 
   ngOnInit(): void {
     this._oktaStateService.authState$.subscribe(as => this.userService.getUserByEmail(as.accessToken?.claims.sub!).subscribe(u => this.user = u));

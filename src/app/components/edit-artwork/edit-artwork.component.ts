@@ -50,7 +50,7 @@ export class EditArtworkComponent implements OnInit {
   }
 
   edit(title: string, url: string, year: string, description: string, artist: string, medium: string, location: string, adder: number) {
-
+    
   }
 
   setArtworkAndURL(artwork: Artwork) {

@@ -1,1 +1,47 @@
-<p>edit-artist works!</p>
+<ng-container *ngIf="user">
+
+    <button routerLink="/artists" class="btn btn-primary backBtn">Go To Artists</button>
+
+    <form id="editUserForm">
+        <h2>Edit Profile</h2>
+        <!-- 2 column grid layout with text inputs for the first and last names -->
+        <div class="row mb-4 picDiv">
+            <img src="{{artistPictureURL}}" alt="Your Picture Here" width="130" class="rounded mb-2 img-thumbnail">
+        </div>
+
+        <!-- Name input -->
+        <div class="form-outline mb-4">
+            <input #name type="text" id="form6Example3" class="form-control" placeholder="Name" />
+        </div>
+
+        <!-- File URL input -->
+        <div class="form-outline mb-4">
+            <input #url type="text" id="form6Example4" class="form-control" placeholder="Artist Picture URL"
+                (blur)="updateArtistPicture(url.value)" />
+        </div>
+
+        <!-- Location Born input -->
+        <div class="form-outline mb-4">
+            <input #bornPlace type="text" id="form6Example4" class="form-control" placeholder="Location of Birth" />
+        </div>
+
+        <!-- Year Born input -->
+        <div class="form-outline mb-4">
+            <input #bornYear type="text" id="form6Example4" class="form-control" placeholder="Year of Birth" />
+        </div>
+
+        <!-- Year Died input -->
+        <div class="form-outline mb-4">
+            <input #diedYear type="text" id="form6Example4" class="form-control" placeholder="Year of Death" />
+        </div>
+
+        <!-- Biography input -->
+        <div class="form-outline mb-4">
+            <textarea #biography class="form-control" id="form6Example7" rows="4" placeholder="Biography"></textarea>
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4" id="editButton"
+            (click)="edit(name.value, url.value, bornPlace.value, bornYear.value, diedYear.value, biography.value)">Save Changes</button>
+    </form>
+</ng-container>

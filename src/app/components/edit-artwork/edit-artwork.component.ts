@@ -38,12 +38,13 @@ export class EditArtworkComponent implements OnInit {
     this._artworkService.getArtorkById(this.route.snapshot.params['id']).subscribe(aw => this.artworkToEdit = aw);
   }
 
-  ngOnDestroy() {
-    this.sub.unsubscribe();
-  }
-
   edit(title: string, url: string, year: string, description: string, artist: string, medium: string, location: string, adder: number) {
 
+  }
+
+  setArtworkAndURL(artwork: Artwork) {
+    this.artworkToEdit = artwork;
+    this.artPictureURL = artwork.fileName;
   }
 
   updateArtPicture(url: string) {

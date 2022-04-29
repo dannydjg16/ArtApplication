@@ -30,6 +30,7 @@ import { UserArtworkCardComponent } from './components/user-artwork-card/user-ar
 import { EditArtworkComponent } from './components/edit-artwork/edit-artwork.component';
 import { ViewArtworkComponent } from './components/view-artwork/view-artwork.component';
 import { EmptyURLComponent } from './components/empty-url/empty-url.component';
+import { EditArtistComponent } from './components/edit-artist/edit-artist.component';
 
 
 const oktaAuth = new OktaAuth({
@@ -68,7 +69,8 @@ const oktaAuth = new OktaAuth({
     UserArtworkCardComponent,
     EditArtworkComponent,
     ViewArtworkComponent,
-    EmptyURLComponent
+    EmptyURLComponent,
+    EditArtistComponent
   ],
   imports: [
     BrowserModule,

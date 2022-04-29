@@ -42,6 +42,11 @@ export class EditArtworkComponent implements OnInit {
 
     // Set Artwork Picture
     this._artworkService.getArtorkById(this.route.snapshot.params['id']).subscribe(aw => this.setArtworkAndURL(aw));
+
+    // Get arrays to populate for the select elements
+    this._artistService.getArtists().subscribe(artists => this.artists = artists);
+    this._arttypeService.getArtTypes().subscribe(arttypes => this.artTypes = arttypes);
+    this._locationService.getLocations().subscribe(allLocations => this.locations = allLocations);
   }
 
   edit(title: string, url: string, year: string, description: string, artist: string, medium: string, location: string, adder: number) {

@@ -14,7 +14,13 @@
 
         <!-- LocationTypeID input -->
         <div class="form-outline mb-4">
-            <input #locationType type="number" id="form6Example6" class="form-control" placeholder="Location Type" />
+            <!-- LocationType ID input -->
+            <select #locationtype name="locationtypes" id="locationtypesDropdown">
+                <option value="">Select A Location Type</option>
+                <option *ngFor="let locationtype of locationtypes" [value]="locationtype.id">
+                    {{ locationtype.name }}
+                </option>
+            </select>
         </div>
 
         <!-- Description input -->
@@ -25,7 +31,7 @@
 
         <!-- Submit button -->
         <button type="submit" class="btn btn-primary btn-block mb-4" id="addButton"
-            (click)="add(name.value, url.value, description.value, locationType.value)">Add
+            (click)="add(name.value, url.value, description.value, locationtype.value)">Add
             Location</button>
     </form>
 </ng-container>

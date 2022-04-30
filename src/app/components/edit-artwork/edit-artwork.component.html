@@ -11,24 +11,24 @@
 
         <!-- Title input -->
         <div class="form-outline mb-4">
-            <input #title type="text" id="form6Example3" class="form-control" placeholder="Title: {{artworkToEdit.title}}" />
+            <input #title type="text" id="form6Example3" class="form-control" placeholder="Title" value="{{artworkToEdit.title}}" />
         </div>
 
         <!-- File URL input -->
         <div class="form-outline mb-4">
-            <input #url type="text" id="form6Example4" class="form-control" placeholder="URL: {{artworkToEdit.fileName}}"
+            <input #url type="text" id="form6Example4" class="form-control" placeholder="URL: " value="{{artworkToEdit.fileName}}"
                 (blur)="updateArtPicture(url.value)" />
         </div>
 
         <!-- Year Created input -->
         <div class="form-outline mb-4">
-            <input #year type="number" id="form6Example6" class="form-control" placeholder="Year Created: {{artworkToEdit.yearCreated}}" />
+            <input #year type="number" id="form6Example6" class="form-control" placeholder="Year Created: " value="{{artworkToEdit.yearCreated}}" />
         </div>
 
         <!-- Description input -->
         <div class="form-outline mb-4">
             <textarea #description class="form-control" id="form6Example7" rows="4"
-                placeholder="Description: {{artworkToEdit.description}}"></textarea>
+                placeholder="Description: " value="{{artworkToEdit.description}}"></textarea>
         </div>
 
         <div class="form-outline mb-4">
@@ -56,7 +56,7 @@
         </div>
 
         <!-- Submit button -->
-        <button type="submit" class="btn btn-primary btn-block mb-4" id="addButton"
+        <button type="submit" class="btn btn-primary btn-block mb-4" id="editButton"
             (click)="edit(title.value, url.value, year.value, description.value, artist.value, medium.value, location.value, user.id)">Add
             Artwork
         </button>

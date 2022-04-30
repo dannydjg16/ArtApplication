@@ -35,4 +35,5 @@ select {
 
 .deleteBtn {
     float: right;
+    margin-right: 10px;
 }

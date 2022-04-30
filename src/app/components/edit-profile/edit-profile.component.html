@@ -12,22 +12,22 @@
 
         <!-- Name input -->
         <div class="form-outline mb-4">
-            <input #name rows="1" type="text" id="form6Example4" class="form-control" placeholder="Full Name: {{user.name}}">
+            <input #name rows="1" type="text" id="form6Example4" class="form-control" placeholder="Full Name:" value="{{user.name}}">
         </div>
 
         <!-- Profile Picture input -->
         <div class="form-outline mb-4">
-            <textarea #url rows="3" type="text" id="form6Example4" class="form-control" placeholder="Profile Picture URL: {{user.profilePicURL}}" (blur)="updateUserPicture(url.value)"></textarea>
+            <textarea #url rows="3" type="text" id="form6Example4" class="form-control" placeholder="Profile Picture URL:" value="{{user.profilePicURL}}" (blur)="updateUserPicture(url.value)"></textarea>
         </div>
 
         <!-- FromLocation input -->
         <div class="form-outline mb-4">
-            <textarea #fromLocation rows="1" type="text" id="form6Example4" class="form-control" placeholder="From: {{user.fromLocation}}"></textarea>
+            <textarea #fromLocation rows="1" type="text" id="form6Example4" class="form-control" placeholder="From:" value="{{user.fromLocation}}"></textarea>
         </div>
 
         <!-- Email input -->
         <div class="form-outline mb-4">
-            <textarea #email rows="1" type="text" id="form6Example4" class="form-control" placeholder="Email Address: {{user.email}}"></textarea>
+            <textarea #email rows="1" type="text" id="form6Example4" class="form-control" placeholder="Email Address:" value="{{user.email}}"></textarea>
         </div>
 
         <!-- Submit button -->

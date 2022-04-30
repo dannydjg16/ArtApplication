@@ -11,33 +11,33 @@
 
         <!-- Name input -->
         <div class="form-outline mb-4">
-            <input #name type="text" id="form6Example3" class="form-control" placeholder="Name: {{artist.name}}" />
+            <input #name type="text" id="form6Example3" class="form-control" placeholder="Name:" value="{{artist.name}}" />
         </div>
 
         <!-- File URL input -->
         <div class="form-outline mb-4">
-            <input #url type="text" id="form6Example4" class="form-control" placeholder="Artist Picture URL: {{ artist.pictureURL}}"
+            <input #url type="text" id="form6Example4" class="form-control" placeholder="Artist Picture URL: " value="{{ artist.pictureURL}}"
                 (blur)="updateArtistPicture(url.value)" />
         </div>
 
         <!-- Location Born input -->
         <div class="form-outline mb-4">
-            <input #bornPlace type="text" id="form6Example4" class="form-control" placeholder="Location of Birth: {{ artist.bornLocation}}" />
+            <input #bornPlace type="text" id="form6Example4" class="form-control" placeholder="Location of Birth:" value="{{ artist.bornLocation}}" />
         </div>
 
         <!-- Year Born input -->
         <div class="form-outline mb-4">
-            <input #bornYear type="text" id="form6Example4" class="form-control" placeholder="Year of Birth: {{artist.born}}" />
+            <input #bornYear type="text" id="form6Example4" class="form-control" placeholder="Year of Birth:" value="{{artist.born}}" />
         </div>
 
         <!-- Year Died input -->
         <div class="form-outline mb-4">
-            <input #diedYear type="text" id="form6Example4" class="form-control" placeholder="Year of Death: {{artist.died}}" />
+            <input #diedYear type="text" id="form6Example4" class="form-control" placeholder="Year of Death:" value="{{artist.died}}" />
         </div>
 
         <!-- Biography input -->
         <div class="form-outline mb-4">
-            <textarea #biography class="form-control" id="form6Example7" rows="4" placeholder="Biography: {{artist.biography}}"></textarea>
+            <textarea #biography class="form-control" id="form6Example7" rows="4" placeholder="Biography:" value="{{artist.biography}}"></textarea>
         </div>
 
         <!-- Submit button -->

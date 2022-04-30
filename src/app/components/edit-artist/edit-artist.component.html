@@ -6,38 +6,38 @@
         <h2>Edit Profile</h2>
         <!-- 2 column grid layout with text inputs for the first and last names -->
         <div class="row mb-4 picDiv">
-            <img src="{{artistPictureURL}}" alt="Your Picture Here" width="130" class="rounded mb-2 img-thumbnail">
+            <img src="{{artistPictureURL}}" alt="Artist Picture Here" width="130" class="rounded mb-2 img-thumbnail">
         </div>
 
         <!-- Name input -->
         <div class="form-outline mb-4">
-            <input #name type="text" id="form6Example3" class="form-control" placeholder="Name" />
+            <input #name type="text" id="form6Example3" class="form-control" placeholder="Name: {{artist.name}}" />
         </div>
 
         <!-- File URL input -->
         <div class="form-outline mb-4">
-            <input #url type="text" id="form6Example4" class="form-control" placeholder="Artist Picture URL"
+            <input #url type="text" id="form6Example4" class="form-control" placeholder="Artist Picture URL: {{ artist.pictureURL}}"
                 (blur)="updateArtistPicture(url.value)" />
         </div>
 
         <!-- Location Born input -->
         <div class="form-outline mb-4">
-            <input #bornPlace type="text" id="form6Example4" class="form-control" placeholder="Location of Birth" />
+            <input #bornPlace type="text" id="form6Example4" class="form-control" placeholder="Location of Birth: {{ artist.bornLocation}}" />
         </div>
 
         <!-- Year Born input -->
         <div class="form-outline mb-4">
-            <input #bornYear type="text" id="form6Example4" class="form-control" placeholder="Year of Birth" />
+            <input #bornYear type="text" id="form6Example4" class="form-control" placeholder="Year of Birth: {{artist.born}}" />
         </div>
 
         <!-- Year Died input -->
         <div class="form-outline mb-4">
-            <input #diedYear type="text" id="form6Example4" class="form-control" placeholder="Year of Death" />
+            <input #diedYear type="text" id="form6Example4" class="form-control" placeholder="Year of Death: {{artist.died}}" />
         </div>
 
         <!-- Biography input -->
         <div class="form-outline mb-4">
-            <textarea #biography class="form-control" id="form6Example7" rows="4" placeholder="Biography"></textarea>
+            <textarea #biography class="form-control" id="form6Example7" rows="4" placeholder="Biography: {{artist.biography}}"></textarea>
         </div>
 
         <!-- Submit button -->

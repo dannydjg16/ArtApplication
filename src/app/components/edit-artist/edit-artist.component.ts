@@ -33,7 +33,7 @@ export class EditArtistComponent implements OnInit {
 
     this._oktaStateService.authState$.subscribe(as => this._userService.getUserByEmail(as.accessToken?.claims.sub!).subscribe(u => this.user = u));
     
-    this._artistService.getAnArtist(this.route.snapshot.params['id']).subscribe(artist => this.artist = artist);
+    this._artistService.getAnArtist(this.route.snapshot.params['id']).subscribe(artist => this.setArtistAndURL(artist));
   }
 
   edit(name: string, url: string, bornLocation: string, born: string, died: string, biography: string) {
@@ -46,7 +46,7 @@ export class EditArtistComponent implements OnInit {
     });
   }
 
-  setArtworkAndURL(artist: Artist) {
+  setArtistAndURL(artist: Artist) {
     this.artist = artist;
     this.artistPictureURL = artist.pictureURL;
   }

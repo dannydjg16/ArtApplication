@@ -12,37 +12,37 @@
 
         <!-- Name input -->
         <div class="form-outline mb-4">
-            <input #name type="text" id="form6Example3" class="form-control" placeholder="Name:" value="{{artist.name}}" />
+            <input #name type="text" id="form6Example3" class="form-control" placeholder="Name:" [(ngModel)]="artist.name" />
         </div>
 
         <!-- File URL input -->
         <div class="form-outline mb-4">
-            <input #url type="text" id="form6Example4" class="form-control" placeholder="Artist Picture URL: " value="{{ artist.pictureURL}}"
+            <input #url type="text" id="form6Example4" class="form-control" placeholder="Artist Picture URL: " [(ngModel)]="artist.pictureURL"
                 (blur)="updateArtistPicture(url.value)" />
         </div>
 
         <!-- Location Born input -->
         <div class="form-outline mb-4">
-            <input #bornPlace type="text" id="form6Example4" class="form-control" placeholder="Location of Birth:" value="{{ artist.bornLocation}}" />
+            <input #bornPlace type="text" id="form6Example4" class="form-control" placeholder="Location of Birth:" [(ngModel)]="artist.bornLocation" />
         </div>
 
         <!-- Year Born input -->
         <div class="form-outline mb-4">
-            <input #bornYear type="text" id="form6Example4" class="form-control" placeholder="Year of Birth:" value="{{artist.born}}" />
+            <input #bornYear type="text" id="form6Example4" class="form-control" placeholder="Year of Birth:" [(ngModel)]="artist.born" />
         </div>
 
         <!-- Year Died input -->
         <div class="form-outline mb-4">
-            <input #diedYear type="text" id="form6Example4" class="form-control" placeholder="Year of Death:" value="{{artist.died}}" />
+            <input #diedYear type="text" id="form6Example4" class="form-control" placeholder="Year of Death:" [(ngModel)]="artist.died" />
         </div>
 
         <!-- Biography input -->
         <div class="form-outline mb-4">
-            <textarea #biography class="form-control" id="form6Example7" rows="4" placeholder="Biography:" value="{{artist.biography}}"></textarea>
+            <textarea #biography class="form-control" id="form6Example7" rows="4" placeholder="Biography:" [(ngModel)]="artist.biography"></textarea>
         </div>
 
         <!-- Submit button -->
-        <button type="submit" class="btn btn-primary btn-block mb-4" id="editButton"
-            (click)="edit(name.value, url.value, bornPlace.value, bornYear.value, diedYear.value, biography.value)">Save Changes</button>
+        <button type="submit" class="btn btn-primary btn-block mb-4" id="editButton" *ngIf="artist"
+            (click)="editArtist(artist)">Save Changes</button>
     </form>
 </ng-container>

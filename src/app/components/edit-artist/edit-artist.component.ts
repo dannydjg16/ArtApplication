@@ -36,11 +36,7 @@ export class EditArtistComponent implements OnInit {
     this._artistService.getAnArtist(this.route.snapshot.params['id']).subscribe(artist => this.setArtistAndURL(artist));
   }
 
-  edit(name: string, url: string, bornLocation: string, born: string, died: string, biography: string) {
-    const artist = {
-      name: name, pictureURL: url, bornLocation: bornLocation, born: born, died: died, biography: biography
-    }
-
+  editArtist(artist: Artist) {
     this._artistService.editArtist(artist as unknown as Artist).subscribe(data => {
       console.log(data);
     });

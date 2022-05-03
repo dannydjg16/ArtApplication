@@ -31,6 +31,7 @@ import { EditArtworkComponent } from './components/edit-artwork/edit-artwork.com
 import { ViewArtworkComponent } from './components/view-artwork/view-artwork.component';
 import { EmptyURLComponent } from './components/empty-url/empty-url.component';
 import { EditArtistComponent } from './components/edit-artist/edit-artist.component';
+import { FormsModule } from '@angular/forms';
 
 
 const oktaAuth = new OktaAuth({
@@ -77,6 +78,7 @@ const oktaAuth = new OktaAuth({
     AppRoutingModule,
     HttpClientModule,
     OktaAuthModule,
+    FormsModule,
     MDBBootstrapModule.forRoot()
   ],
   providers: [{ provide: OKTA_CONFIG, useValue: {oktaAuth}}],

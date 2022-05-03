@@ -40,3 +40,9 @@ h5 {
     transform:scale(1.5);
     overflow:visible;
 }
+
+.postAction {
+    height: 30px;
+    text-align: center;
+    cursor: pointer;
+}

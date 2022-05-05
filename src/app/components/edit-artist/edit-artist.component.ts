@@ -50,4 +50,8 @@ export class EditArtistComponent implements OnInit {
   updateArtistPicture(url: string) {
     this.artistPictureURL = url;
   }
+
+  deleteArtist() {
+    
+  }
 }

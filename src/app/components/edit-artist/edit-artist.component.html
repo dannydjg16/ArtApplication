@@ -1,7 +1,7 @@
 <ng-container *ngIf="user">
 
     <button routerLink="/artists" class="btn btn-primary backBtn">Go To Artists</button>
-    <button  class="btn btn-primary deleteBtn">Delete Account</button>
+    <button class="btn btn-primary deleteBtn" (click)="deleteArtist()">Delete Artist</button>
 
     <div id="editArtistForm">
         <h2>Edit Artist</h2>

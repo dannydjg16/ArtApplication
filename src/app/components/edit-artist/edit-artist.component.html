@@ -3,7 +3,7 @@
     <button routerLink="/artists" class="btn btn-primary backBtn">Go To Artists</button>
     <button  class="btn btn-primary deleteBtn">Delete Account</button>
 
-    <form id="editArtistForm">
+    <div id="editArtistForm">
         <h2>Edit Artist</h2>
         <!-- 2 column grid layout with text inputs for the first and last names -->
         <div class="row mb-4 picDiv">
@@ -13,7 +13,6 @@
         <!-- Name input -->
         <div class="form-outline mb-4">
             <input #name type="text" id="form6Example3" class="form-control" placeholder="Name:" [(ngModel)]="artist.name" value=/> 
-            <textarea class="form-control" id="textAreaExample" rows="1" [(ngModel)]="artist.name" name="artistName">{{artist.name}}</textarea>
         </div>
 
         <!-- File URL input -->
@@ -45,5 +44,5 @@
         <!-- Submit button -->
         <button type="submit" class="btn btn-primary btn-block mb-4" id="editButton" *ngIf="artist"
             (click)="editArtist(artist)">Save Changes</button>
-    </form>
+    </div>
 </ng-container>

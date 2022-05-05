@@ -12,7 +12,8 @@
 
         <!-- Name input -->
         <div class="form-outline mb-4">
-            <input #name type="text" id="form6Example3" class="form-control" placeholder="Name:" [(ngModel)]="artist.name" />
+            <input #name type="text" id="form6Example3" class="form-control" placeholder="Name:" [(ngModel)]="artist.name" value=/> 
+            <textarea class="form-control" id="textAreaExample" rows="1" [(ngModel)]="artist.name" name="artistName">{{artist.name}}</textarea>
         </div>
 
         <!-- File URL input -->

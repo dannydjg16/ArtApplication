@@ -22,14 +22,9 @@ export class EditProfileComponent implements OnInit {
   ngOnInit(): void {
     // Getting the user from db using okta email and setting user var equal to that user
     this._oktaStateService.authState$.subscribe(as => this.userService.getUserByEmail(as.accessToken?.claims.sub!).subscribe(u => this.setUser(u)));
-  
   }
 
-  edit(userID: number, name: string, email: string, fromLocation: string, profilePicURL: string) {
-    const user = {
-      id: userID, name: name, email: email, fromLocation: fromLocation, profilePicURL: profilePicURL
-    }
-
+  edit(userID: number, user: User) {
     this.userService.editUser(userID, user as unknown as User).subscribe(data => {
       console.log(data);
     });

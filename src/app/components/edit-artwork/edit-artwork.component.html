@@ -12,7 +12,7 @@
 
         <!-- Title input -->
         <div class="form-outline mb-4">
-            <input #title type="text" id="form6Example3" class="form-control" placeholder="Title" [(ngModel)]="{{artworkToEdit.title}}" />
+            <input #title type="text" id="form6Example3" class="form-control" placeholder="Title:" [(ngModel)]="{{artworkToEdit.title}}" />
         </div>
 
         <!-- File URL input -->
@@ -23,7 +23,7 @@
 
         <!-- Year Created input -->
         <div class="form-outline mb-4">
-            <input #year type="number" id="form6Example6" class="form-control" placeholder="Year Created: " [(ngModel)]="{{artworkToEdit.yearCreated}}" />
+            <input type="number" id="form6Example6" class="form-control" placeholder="Year Created: " [(ngModel)]="{{artworkToEdit.yearCreated}}" />
         </div>
 
         <!-- Description input -->
@@ -57,8 +57,8 @@
         </div>
 
         <!-- Submit button -->
-        <button type="submit" class="btn btn-primary btn-block mb-4" id="editButton"
-            (click)="edit(title.value, url.value, year.value, description.value, artist.value, medium.value, location.value, user.id)">Add
+        <button type="submit" class="btn btn-primary btn-block mb-4" id="editButton" *ngIf="artworkToEdit"
+            (click)="edit(artworkToEdit.id, artworkToEdit)">Edit
             Artwork
         </button>
     </div>

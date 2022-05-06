@@ -6,7 +6,7 @@ export default interface Location{
     locationName: string;
     description: string;
     locationURL: string;
-    typeID: string;
+    typeID: number;
 }
 
 // Change typeID to a number

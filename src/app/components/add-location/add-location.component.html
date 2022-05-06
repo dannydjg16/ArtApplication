@@ -21,7 +21,7 @@
         <!-- LocationTypeID input -->
         <div class="form-outline mb-4">
             <select #locationtype name="locationtypes" id="locationtypesDropdown">
-                <option value="">Select A Location Type</option>
+                <option value="locationtype.name">Select A Location Type</option>
                 <option *ngFor="let locationtype of locationtypes" [value]="locationtype.id">
                     {{ locationtype.name }}
                 </option>

@@ -30,9 +30,9 @@ export class AddLocationComponent implements OnInit {
     this._locationtypeService.getLocationTypes().subscribe(loctyps => this.locationtypes = loctyps);
   }
 
-  add(locationName: string, locationURL: string, description: string, locationTypeID: number) {
+  add(locationName: string, locationURL: string, description: string, locationTypeID: string) {
     const location = {
-      locationName: locationName, locationURL: locationURL, description: description, typeID:  locationTypeID
+      locationName: locationName, locationURL: locationURL, description: description, typeID:  Number(locationTypeID)
     };
 
     this._locationService.addLocation(location as unknown as Location).subscribe(data => {

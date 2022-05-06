@@ -6,6 +6,6 @@ export default interface Artist{
     bornLocation: string;
     biography: string;
     pictureURL: string;
-    born: string;
-    died: string;
+    born: number;
+    died: number;
 }

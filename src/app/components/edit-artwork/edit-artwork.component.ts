@@ -49,7 +49,7 @@ export class EditArtworkComponent implements OnInit {
     this._locationService.getLocations().subscribe(allLocations => this.locations = allLocations);
   }
 
-  edit(artworkID: number, artwork: Artwork) {
+  edit() {
     this._artworkService.editArtwork(this.artworkToEdit.id, this.artworkToEdit).subscribe(data => {
       console.log(data);
     });;

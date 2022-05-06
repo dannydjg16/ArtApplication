@@ -11,6 +11,7 @@ import User from 'src/app/interfaces/user';
 })
 export class EditProfileComponent implements OnInit {
 
+  public signedIn!: User;
   public user!: User;
   public userPictureURL = "https://thepowerofthedream.org/wp-content/uploads/2015/09/generic-profile-picture-300x300.jpg";
 
@@ -24,8 +25,8 @@ export class EditProfileComponent implements OnInit {
     this._oktaStateService.authState$.subscribe(as => this.userService.getUserByEmail(as.accessToken?.claims.sub!).subscribe(u => this.setUser(u)));
   }
 
-  edit(userID: number, user: User) {
-    this.userService.editUser(userID, user as unknown as User).subscribe(data => {
+  edit(user: User) {
+    this.userService.editUser(user as unknown as User).subscribe(data => {
       console.log(data);
     });
   }
@@ -33,6 +34,7 @@ export class EditProfileComponent implements OnInit {
   setUser(user: User){
     this.user = user;
     this.userPictureURL = user.profilePicURL;
+    this.signedIn = user
   }
 
   goBack(): void {

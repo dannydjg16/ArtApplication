@@ -58,14 +58,14 @@ export class UserService {
     }));
   }
 
-  editUser(id: number, user: User) {
+  editUser(user: User) {
     const accessToken = this._oktaAuth.getAccessToken();
     const headers = {
       Authorization: 'Bearer ' + accessToken,
       Accept: 'application/json'
     };
 
-    return this.http.put(`${this.baseUrl}/${id}`, user, { headers: headers}).pipe(catchError((err) => {
+    return this.http.put(`${this.baseUrl}/${user.id}`, user, { headers: headers}).pipe(catchError((err) => {
       console.error(err);
       throw err;
     }));

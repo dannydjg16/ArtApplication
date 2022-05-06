@@ -2,7 +2,7 @@
 
     <button (click)="goBack()" class="btn btn-primary backBtn">Go Back</button>
 
-    <form id="editUserForm">
+    <div id="editUserForm">
         <h2>Edit Profile</h2>
         <!-- 2 column grid layout with text inputs for the first and last names -->
         <div class="row mb-4 picDiv">
@@ -12,26 +12,27 @@
 
         <!-- Name input -->
         <div class="form-outline mb-4">
-            <input #name rows="1" type="text" id="form6Example4" class="form-control" placeholder="Full Name:" [(ngModel)]="{{user.name}}">
+            <input #name rows="1" type="text" id="form6Example4" class="form-control" placeholder="Full Name: " [(ngModel)]="user.name">
         </div>
 
         <!-- Profile Picture input -->
         <div class="form-outline mb-4">
-            <textarea #url rows="3" type="text" id="form6Example4" class="form-control" placeholder="Profile Picture URL:" [(ngModel)]="{{user.profilePicURL}}" (blur)="updateUserPicture(url.value)"></textarea>
+            <textarea #url rows="3" type="text" id="form6Example4" class="form-control" placeholder="Profile Picture URL: " [(ngModel)]="user.profilePicURL" (blur)="updateUserPicture(url.value)"></textarea>
         </div>
 
         <!-- FromLocation input -->
         <div class="form-outline mb-4">
-            <textarea #fromLocation rows="1" type="text" id="form6Example4" class="form-control" placeholder="From:" [(ngModel)]="{{user.fromLocation}}"></textarea>
+            <textarea #fromLocation rows="1" type="text" id="form6Example4" class="form-control" placeholder="From: " [(ngModel)]="user.fromLocation"></textarea>
         </div>
 
         <!-- Email input -->
         <div class="form-outline mb-4">
-            <textarea #email rows="1" type="text" id="form6Example4" class="form-control" placeholder="Email Address:" [(ngModel)]="{{user.email}}"></textarea>
+            <textarea #email rows="1" type="text" id="form6Example4" class="form-control" placeholder="Email Address: " [(ngModel)]="user.email"></textarea>
         </div>
 
         <!-- Submit button -->
-        <button type="submit" class="btn btn-primary btn-block mb-4" id="editButton"
-            (click)="edit(user.id, user)">Save Changes</button>
-    </form>
+        <button type="submit" class="btn btn-primary btn-block mb-4" id="editButton" 
+            (click)="edit(user)">Save Changes
+        </button>
+    </div>
 </ng-container>

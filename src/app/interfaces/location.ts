@@ -8,3 +8,5 @@ export default interface Location{
     locationURL: string;
     typeID: string;
 }
+
+// Change typeID to a number

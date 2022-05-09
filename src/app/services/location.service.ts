@@ -55,14 +55,14 @@ export class LocationService {
     }));
   }
 
-  editLocation(id: number, location: Location) {
+  editLocation(location: Location) {
     const accessToken = this._oktaAuth.getAccessToken();
     const headers = {
       Authorization: 'Bearer ' + accessToken,
       Accept: 'application/json',
     }
 
-    return this.http.put(`${this.baseUrl}/${id}`, location, { headers: headers}).pipe(catchError((err) => {
+    return this.http.put(`${this.baseUrl}/${location.id}`, location, { headers: headers}).pipe(catchError((err) => {
       console.error(err);
       throw err;
     }));

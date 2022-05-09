@@ -68,14 +68,14 @@ export class ArtworkService {
     }));
   } 
 
-  editArtwork(id: number, artWork: Artwork) {
+  editArtwork(artWork: Artwork) {
     const accessToken = this._oktaAuth.getAccessToken();
     const headers = {
       Authorization: 'Bearer ' + accessToken,
       Accept: 'application/json',
     };
 
-    return this.http.put(`${this.baseUrl}/${id}`, artWork, { headers: headers}).pipe(catchError((err) => {
+    return this.http.put(`${this.baseUrl}/${artWork.id}`, artWork, { headers: headers}).pipe(catchError((err) => {
       console.error(err);
       throw err;
     }));

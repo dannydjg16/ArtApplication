@@ -32,6 +32,7 @@ import { ViewArtworkComponent } from './components/view-artwork/view-artwork.com
 import { EmptyURLComponent } from './components/empty-url/empty-url.component';
 import { EditArtistComponent } from './components/edit-artist/edit-artist.component';
 import { FormsModule } from '@angular/forms';
+import { EditLocationComponent } from './components/edit-location/edit-location.component';
 
 
 const oktaAuth = new OktaAuth({
@@ -71,7 +72,8 @@ const oktaAuth = new OktaAuth({
     EditArtworkComponent,
     ViewArtworkComponent,
     EmptyURLComponent,
-    EditArtistComponent
+    EditArtistComponent,
+    EditLocationComponent
   ],
   imports: [
     BrowserModule,

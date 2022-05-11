@@ -26,4 +26,10 @@ export class EditLocationComponent implements OnInit {
     this._locationService.getLocationById(this.route.snapshot.params['id']).subscribe(loc => this.locaitonToEdit = loc);
   }
 
+  edit() {
+    this._locationService.editLocation(this.locaitonToEdit).subscribe(data => {
+      console.log(data);
+    });;
+  }
+
 }

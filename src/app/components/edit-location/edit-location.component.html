@@ -1,1 +1,42 @@
-<p>edit-location works!</p>
+<ng-container *ngIf="user">
+
+    <button routerLink="/profile" class="btn btn-primary backBtn">Go Back</button>
+    <button class="btn btn-primary deleteBtn">Delete Location</button>
+
+    <div id="editLocationForm" *ngIf="locationToEdit">
+        <h2>Edit Location</h2>
+
+        <!-- Name input -->
+        <div class="form-outline mb-4">
+            <input #title type="text" id="form6Example3" class="form-control" placeholder="Name:"
+                [(ngModel)]="locationToEdit.locationName" />
+        </div>
+
+        <!-- Location URL input -->
+        <div class="form-outline mb-4">
+            <input #url type="text" id="form6Example4" class="form-control" placeholder="URL: "
+                [(ngModel)]="locationToEdit.locationURL" />
+        </div>
+
+        <!-- Description input -->
+        <div class="form-outline mb-4">
+            <textarea #description class="form-control" id="form6Example7" rows="4" placeholder="Description: "
+                [(ngModel)]="locationToEdit.description"></textarea>
+        </div>
+
+        <!-- LocationTypeID input -->
+        <div class="form-outline mb-4">
+            <select #locationtype name="locationtypes" id="locationtypesDropdown">
+                <option [(ngModel)]="locationToEdit.id">Select A Location Type</option>
+                <option *ngFor="let locationtype of locationtypes" [(ngModel)]="locationToEdit.id">
+                    {{ locationtype.name }}
+                </option>
+            </select>
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4" id="editButton" (click)="edit()">Edit
+            Location
+        </button>
+    </div>
+</ng-container>

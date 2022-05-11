@@ -12,12 +12,12 @@
 
         <!-- Title input -->
         <div class="form-outline mb-4">
-            <input #title type="text" id="form6Example3" class="form-control" placeholder="Title:" [(ngModel)]="artworkToEdit.title" />
+            <input type="text" id="form6Example3" class="form-control" placeholder="Title:" [(ngModel)]="artworkToEdit.title" />
         </div>
 
         <!-- File URL input -->
         <div class="form-outline mb-4">
-            <input #url type="text" id="form6Example4" class="form-control" placeholder="URL: " [(ngModel)]="artworkToEdit.fileName"
+            <input type="text" id="form6Example4" class="form-control" placeholder="URL: " [(ngModel)]="artworkToEdit.fileName"
                 (blur)="updateArtPicture(url.value)" />
         </div>
 
@@ -28,27 +28,27 @@
 
         <!-- Description input -->
         <div class="form-outline mb-4">
-            <textarea #description class="form-control" id="form6Example7" rows="4"
+            <textarea class="form-control" id="form6Example7" rows="4"
                 placeholder="Description: " [(ngModel)]="artworkToEdit.description"></textarea>
         </div>
 
         <div class="form-outline mb-4">
             <!-- Artist ID input -->
-            <select #artist name="artists" id="artistsDropdown">
+            <select name="artists" id="artistsDropdown">
                 <option value="artworkToEdit.artistID">Select An Artist</option>
                 <option *ngFor="let artist of artists" [(ngModel)]="artist.id">
                     {{ artist.name }}
                 </option>
             </select>
             <!-- Medium ID input -->
-            <select #medium name="arttypes" id="arttypesDropdown">
+            <select name="arttypes" id="arttypesDropdown">
                 <option [(ngModel)]="artworkToEdit.mediumID">Select A Medium</option>
                 <option *ngFor="let arttype of artTypes" [(ngModel)]="arttype.id">
                     {{ arttype.name }}
                 </option>
             </select>
             <!-- Location ID input -->
-            <select #location name="locations" id="locationsDropdown">
+            <select name="locations" id="locationsDropdown">
                 <option [(ngModel)]="artworkToEdit.locationNow">Select A Location</option>
                 <option *ngFor="let location of locations" [(ngModel)]="location.id">
                     {{ location.locationName }}

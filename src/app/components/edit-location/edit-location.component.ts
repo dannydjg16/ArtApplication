@@ -31,5 +31,4 @@ export class EditLocationComponent implements OnInit {
       console.log(data);
     });;
   }
-
 }

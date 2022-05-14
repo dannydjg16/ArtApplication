@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class LocationCardComponent implements OnInit {
 
   @Input() theLocation : any;
+  @Input() liked: any;
 
   constructor() { }
 

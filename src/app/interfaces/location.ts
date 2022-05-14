@@ -8,3 +8,6 @@ export default interface Location{
     locationURL: string;
     typeID: number;
 }
+
+// Add A type here and set it all the ay back from SQL. Actually do have a LocationType object on 
+//    Location domain model so will use that 

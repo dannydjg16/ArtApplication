@@ -1,1 +1,12 @@
-<p>location-card works!</p>
+<div class=" col-md-3 cardDiv">
+    <div class="card" style="width: 18rem;">
+      <div class="postAction">
+        <a routerLink="/editartist/{{theArtist.id}}">Edit Artist</a>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{theLocation.locationName}}</h5>
+        <p class="card-text">{{theLocation.locationURL}}</p>
+        <p class="card-text">{{theLocation.description}}</p>
+      </div>
+    </div>
+  </div>

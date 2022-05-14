@@ -9,7 +9,6 @@ export class LocationCardComponent implements OnInit {
 
   @Input() theLocation : any;
   @Input() liked: any;
-  @Input() theUser: any;
 
   constructor() { }
 

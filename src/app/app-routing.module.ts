@@ -10,6 +10,7 @@ import { AddLocationComponent } from './components/add-location/add-location.com
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { EditArtworkComponent } from './components/edit-artwork/edit-artwork.component';
 import { EditArtistComponent } from './components/edit-artist/edit-artist.component';
+import { EditLocationComponent } from './components/edit-location/edit-location.component';
 
 const routes: Routes = [
   { path: 'users', component: UserComponent },
@@ -22,7 +23,8 @@ const routes: Routes = [
   { path: 'profile', component: UserComponent },
   { path: 'editprofile', component: EditProfileComponent },
   { path: 'editart/:id', component: EditArtworkComponent },
-  { path: 'editartist/:id', component: EditArtistComponent }
+  { path: 'editartist/:id', component: EditArtistComponent },
+  { path: 'editlocation/:id', component: EditLocationComponent }
 ];
 
 @NgModule({

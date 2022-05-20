@@ -13,7 +13,7 @@
         </div>
       </div>
       <div class="row cardDiv">
-        <div class="noArtAdds" *ngIf="addedArtworks.length === 0"><a routerLink="/addwork">Add Art to Your Gallery!</a></div>
+        <div class="noArtAdds" *ngIf="addedArtworks?.length === 0"><a routerLink="/addwork">Add Art to Your Gallery!</a></div>
         
         <div *ngFor="let artwork of addedArtworks">
           

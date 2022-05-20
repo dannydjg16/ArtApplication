@@ -17,6 +17,11 @@ h5 {
     border-top: 1px solid black;
     border-bottom: 1px solid black;
 }
+
+.aClass {
+    float: left;
+}
+
 .card {
     margin: 0 auto;
 }
@@ -32,6 +37,7 @@ app-post-actions {
 
 .card-text {
     text-align: center;
+    clear: auto;
 }
 
 .card-img-top {

@@ -15,7 +15,7 @@ import { UserService } from 'src/app/services/user.service';
 export class EditLocationComponent implements OnInit {
 
   public user!: User;
-  locaitonToEdit!: Location;
+  locationToEdit!: Location;
   route: any;
   public locationtypes!: LocationType[];
 
@@ -28,12 +28,12 @@ export class EditLocationComponent implements OnInit {
   ngOnInit(): void {
     this._oktaStateService.authState$.subscribe(as => this.userService.getUserByEmail(as.accessToken?.claims.sub!).subscribe(u => this.user = u));
 
-    this._locationService.getLocationById(this.route.snapshot.params['id']).subscribe(loc => this.locaitonToEdit = loc);
+    this._locationService.getLocationById(this.route.snapshot.params['id']).subscribe(loc => this.locationToEdit = loc);
     this._locationtypeService.getLocationTypes().subscribe(loctyps => this.locationtypes = loctyps);
   }
 
   edit() {
-    this._locationService.editLocation(this.locaitonToEdit).subscribe(data => {
+    this._locationService.editLocation(this.locationToEdit).subscribe(data => {
       console.log(data);
     });;
   }

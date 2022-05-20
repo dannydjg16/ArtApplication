@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { OktaAuthStateService } from '@okta/okta-angular';
 import Location from 'src/app/interfaces/location';
 import LocationType from 'src/app/interfaces/locationtype';
@@ -16,14 +17,14 @@ export class EditLocationComponent implements OnInit {
 
   public user!: User;
   locationToEdit!: Location;
-  route: any;
   public locationtypes!: LocationType[];
 
 
   constructor(private userService: UserService,
               private _oktaStateService: OktaAuthStateService,
               private _locationService: LocationService,
-              private _locationtypeService: LocationTypeService) { }
+              private _locationtypeService: LocationTypeService,
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this._oktaStateService.authState$.subscribe(as => this.userService.getUserByEmail(as.accessToken?.claims.sub!).subscribe(u => this.user = u));

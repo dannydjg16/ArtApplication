@@ -21,8 +21,8 @@
         <!-- LocationTypeID input -->
         <div class="form-outline mb-4">
             <select #locationtype name="locationtypes" id="locationtypesDropdown" required>
-                <option disabled [ngValue]="locationToEdit.typeID">Select A Location Type</option>
-                <option *ngFor="let locationtype of locationtypes" [ngValue]="locationToEdit.typeID">
+                <option disabled >Select A Location Type</option>
+                <option *ngFor="let locationtype of locationtypes" >
                     {{ locationtype.name }}
                 </option>
             </select>

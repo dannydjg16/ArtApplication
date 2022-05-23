@@ -39,4 +39,11 @@ export class AddLocationTypeComponent implements OnInit {
     });
   }
 
+  showAddForm() {
+    if(this.addingLocation == true) {
+      this.addingLocation = false;
+    } else {
+      this.addingLocation = true;
+    }
+  }
 }

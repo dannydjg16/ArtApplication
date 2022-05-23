@@ -3,7 +3,7 @@
     <form id="addForm">
 
         <!-- Title input -->
-        <div class="form-outline mb-4" *ngIf="addingLocation">
+        <div class="form-outline mb-4 addDiv" *ngIf="addingLocation">
             <input #title type="text" id="form6Example3" class="form-control" placeholder="Location Type Title" />
             <!-- Submit button -->
             <button type="submit" class="btn btn-primary" id="addButton" (click)="add(title.value)">Add

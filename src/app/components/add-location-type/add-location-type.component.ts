@@ -16,6 +16,7 @@ export class AddLocationTypeComponent implements OnInit {
 
   public user!: User;
   public locationTypes!: LocationType[];
+  addingLocation = false;
 
   constructor(private _oktaStateService: OktaAuthStateService,
               private _ltService: LocationTypeService,

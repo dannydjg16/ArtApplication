@@ -1,7 +1,6 @@
 <ng-container *ngIf="user">
-
+    <a (click)="showAddForm()">Add Location Type</a>
     <form id="addForm">
-        <a (click)="showAddForm()">Add Location Type</a>
 
         <!-- Title input -->
         <div class="form-outline mb-4" *ngIf="addingLocation">

@@ -37,6 +37,7 @@
                     {{ artist.name }}
                 </option>
             </select>
+            <a class="addToSelect" href="#" routerLink="/addlocation">Add Artist</a>
             <!-- Medium ID input -->
             <select #medium name="arttypes" id="arttypesDropdown">
                 <option value="">Select A Medium</option>
@@ -44,6 +45,7 @@
                     {{ arttype.name }}
                 </option>
             </select>
+            <a class="addToSelect" href="#" routerLink="/">Add Medium</a>
             <!-- Location ID input -->
             <select #location name="locations" id="locationsDropdown">
                 <option value="">Select A Location</option>
@@ -51,6 +53,7 @@
                     {{ location.locationName }}
                 </option>
             </select>
+            <a class="addToSelect" href="#" routerLink="/addlocation">Add Location</a>
         </div>
 
         <!-- Submit button -->

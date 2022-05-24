@@ -24,3 +24,7 @@ select {
     margin-right: auto;
     margin-left: auto;
 }
+
+.addToSelect {
+    margin-right: 12px;
+}

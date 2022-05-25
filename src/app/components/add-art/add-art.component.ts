@@ -26,6 +26,7 @@ export class AddArtComponent implements OnInit {
   public artTypes!: ArtType[];
   public locations!: Location[];
   public artPictureURL = "https://cdn.pixabay.com/photo/2014/08/25/16/17/picture-frame-427233_960_720.jpg";
+  public whatToAdd = "None"
 
   constructor(private _oktaStateService: OktaAuthStateService,
     private _artworkService: ArtworkService,
@@ -59,5 +60,21 @@ export class AddArtComponent implements OnInit {
 
   updateArtPicture(url: string) {
       this.artPictureURL = url;    
+  }
+
+  componentForAdding() {
+
+  }
+
+  popUpArtist() {
+
+  }
+
+  popUpArtType() {
+
+  }
+
+  popUpLocation() {
+    
   }
 }

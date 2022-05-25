@@ -62,12 +62,6 @@ export class AddArtComponent implements OnInit {
       this.artPictureURL = url;    
   }
 
-  componentForAdding() {
-    this.popUpArtist();
-    this.popUpLocation();
-    this.popUpMedium();
-  }
-
   popUpArtist() {
     if (this.whatToAdd == "Artist") {
       this.whatToAdd = "None"

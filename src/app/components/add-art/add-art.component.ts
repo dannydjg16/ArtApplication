@@ -63,18 +63,32 @@ export class AddArtComponent implements OnInit {
   }
 
   componentForAdding() {
-
+    this.popUpArtist();
+    this.popUpLocation();
+    this.popUpMedium();
   }
 
   popUpArtist() {
-
+    if (this.whatToAdd == "Artist") {
+      this.whatToAdd = "None"
+    } else {
+      this.whatToAdd = "Artist"
+    }
   }
 
-  popUpArtType() {
-
+  popUpMedium() {
+    if (this.whatToAdd == "Medium") {
+      this.whatToAdd = "None"
+    } else {
+      this.whatToAdd = "Medium"
+    }
   }
 
   popUpLocation() {
-    
+    if (this.whatToAdd == "Location") {
+      this.whatToAdd = "None"
+    } else {
+      this.whatToAdd = "Location"
+    }
   }
 }

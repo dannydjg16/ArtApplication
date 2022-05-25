@@ -37,7 +37,7 @@
                     {{ artist.name }}
                 </option>
             </select>
-            <a class="addToSelect" href="#" (click)="componentForAdding()" routerLink="/addlocation">Add Artist</a>
+            <a class="addToSelect" href="#" (click)="componentForAdding()">Add Artist</a>
             <app-add-artist *ngIf="whatToAdd=='Artist'"></app-add-artist>
             <!-- Medium ID input -->
             <select #medium name="arttypes" id="arttypesDropdown">
@@ -46,7 +46,7 @@
                     {{ arttype.name }}
                 </option>
             </select>
-            <a class="addToSelect" href="#" (click)="componentForAdding()" routerLink="/">Add Medium</a> 
+            <a class="addToSelect" href="#" (click)="componentForAdding()">Add Medium</a> 
             <app-add-art-type *ngIf="whatToAdd=='Medium'"></app-add-art-type>
             <!-- Location ID input -->
             <select #location name="locations" id="locationsDropdown">
@@ -55,7 +55,7 @@
                     {{ location.locationName }}
                 </option>
             </select>
-            <a class="addToSelect" href="#" (click)="componentForAdding()" routerLink="/addlocation">Add Location</a>
+            <a class="addToSelect" href="#" (click)="componentForAdding()">Add Location</a>
             <app-add-location *ngIf="whatToAdd=='Location'"></app-add-location>
         </div>
 

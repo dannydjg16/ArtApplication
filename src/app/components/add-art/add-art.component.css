@@ -29,3 +29,10 @@ select {
     margin-right: 12px;
     cursor: pointer;
 }
+
+.addDiv {
+    border-top: dashed 1px black;
+    margin-top: 10px;
+    border-bottom: dashed 1px black;
+    margin-bottom: 1px;
+}

@@ -30,6 +30,7 @@
         </div>
         
         <div class="form-outline mb-4">
+
             <!-- Artist ID input -->
             <select #artist name="artists" id="artistsDropdown">
                 <option value="">Select An Artist</option>
@@ -38,7 +39,10 @@
                 </option>
             </select>
             <a class="addToSelect" (click)="popUpArtist()">Add Artist</a>
-            <app-add-artist *ngIf="whatToAdd=='Artist'"></app-add-artist>
+            <div class="addDiv" *ngIf="whatToAdd=='Artist'"> 
+                <app-add-artist></app-add-artist>
+            </div>
+
             <!-- Medium ID input -->
             <select #medium name="arttypes" id="arttypesDropdown">
                 <option value="">Select A Medium</option>
@@ -47,7 +51,10 @@
                 </option>
             </select>
             <a class="addToSelect" (click)="popUpMedium()">Add Medium</a> 
-            <app-add-art-type *ngIf="whatToAdd=='Medium'"></app-add-art-type>
+            <div class="addDiv" *ngIf="whatToAdd=='Medium'"> 
+                <app-add-art-type></app-add-art-type>
+            </div>
+
             <!-- Location ID input -->
             <select #location name="locations" id="locationsDropdown">
                 <option value="">Select A Location</option>
@@ -56,7 +63,11 @@
                 </option>
             </select>
             <a class="addToSelect" (click)="popUpLocation()">Add Location</a>
-            <app-add-location *ngIf="whatToAdd=='Location'"></app-add-location>
+            <div class="addDiv" *ngIf="whatToAdd=='Location'"> 
+                <app-add-location></app-add-location>
+            </div>
+            
+
         </div>
 
         <!-- Submit button -->

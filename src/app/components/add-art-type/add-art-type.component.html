@@ -1,1 +1,21 @@
-<p>add-art-type works!</p>
+<ng-container *ngIf="user">
+    <form id="addForm">
+
+        <h2>Add A Location</h2>
+
+        <!-- Title input -->
+        <div class="form-outline mb-4 container">
+            <input #title type="text" id="form6Example3" class="form-control" placeholder="Location Type Title" />
+
+            <textarea #description class="form-control" id="form6Example7" rows="4"
+            placeholder="Description"></textarea>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary" id="addButton" (click)="add(title.value, description.value)">
+                Add
+            </button>
+        </div>
+
+    </form>
+
+</ng-container>

@@ -1,38 +1,24 @@
 <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark black ie-nav" [containerInside]="false">
   <mdb-navbar-brand>
-    <a class="navbar-brand" routerLink="/gallery"><b>DGArt</b></a>
+    <a class="appName" routerLink="/gallery"><b>DGArt</b></a>
     
-    <ul class="nav navbar-brand">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#"> View Content
-        <span class="caret"></span></a>
-      <ul class="dropdown-menu">
-        <li><a routerLink="/gallery">Art Gallery</a></li>
-        <li><a routerLink="/artists">Artists Gallery</a></li>
-        <li><a routerLink="/locations">Art Locations</a></li>
-      </ul>
-    </ul>
+    <div class="dropdown">
+      <button class="dropbtn">View Content <span class="caret"></span></button>
+      <div class="dropdown-content">
+        <a routerLink="/gallery">Art Gallery</a>
+        <a routerLink="/artists">Artists Gallery</a>
+        <a routerLink="/locations">Art Locations</a>
+      </div>
+    </div>
 
-    <a class="navbar-brand navLink">|</a>
+    <a class="splitBars">||</a>
 
-    <ul class="nav navbar-brand">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Add Content
-        <span class="caret"></span></a>
-      <ul class="dropdown-menu ">
-        <li><a routerLink="/addwork">Add Artwork</a></li>
-        <li><a routerLink="/addartist">Add Artist</a></li>
-        <li><a routerLink="/addlocation">Add Location</a></li>
-      </ul>
-    </ul>
-
-
-    <div class="nav navbar-brand" ngbDropdown #myDrop="ngbDropdown">
-      <button type="button" class="btn btn-outline-primary me-2 dropdown-toggle" data-toggle="dropdown" id="dropdownManual" ngbDropdownAnchor (focus)="myDrop.open()" autoClose="false">
-        View Content <span class="caret"></span>
-      </button>
-      <div ngbDropdownMenu aria-labelledby="dropdownManual">
-        <li><a routerLink="/addwork">Add Artwork</a></li>
-        <li><a routerLink="/addartist">Add Artist</a></li>
-        <li><a routerLink="/addlocation">Add Location</a></li>
+    <div class="dropdown">
+      <button class="dropbtn">Add Content <span class="caret"></span></button>
+      <div class="dropdown-content">
+       <a routerLink="/addwork">Add Artwork</a>
+        <a routerLink="/addartist">Add Artist</a>
+       <a routerLink="/addlocation">Add Location</a>
       </div>
     </div>
 
@@ -44,6 +30,5 @@
         <li><a href="#" (click)="signOut()">Sign Out</a></li>
       </ul>
     </ul>
-
   </mdb-navbar-brand>
 </mdb-navbar>

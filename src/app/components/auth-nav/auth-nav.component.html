@@ -23,6 +23,16 @@
         <li><a routerLink="/addlocation">Add Location</a></li>
       </ul>
     </ul>
+<!-- 
+
+    <div class="d-inline-block" ngbDropdown #myDrop="ngbDropdown">
+      <button type="button" class="btn btn-outline-primary me-2" id="dropdownManual" ngbDropdownAnchor (focus)="myDrop.open()">Toggle dropdown</button>
+      <div ngbDropdownMenu aria-labelledby="dropdownManual">
+        <button ngbDropdownItem>Action - 1</button>
+        <button ngbDropdownItem>Another Action</button>
+        <button ngbDropdownItem>Something else is here</button>
+      </div>
+    </div> -->
 
     <ul class="nav navbar-brand navbar-right" id="acctButton">
       <a class="dropdown-toggle" data-toggle="dropdown" href="#" *ngIf="user"> {{user.name}}

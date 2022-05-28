@@ -10,8 +10,8 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/cdk": "~13.2.0",
     "@angular/animations": "~13.2.0",
+    "@angular/cdk": "~13.2.0",
     "@angular/common": "~13.2.0",
     "@angular/compiler": "~13.2.0",
     "@angular/core": "~13.2.0",
@@ -24,6 +24,7 @@
     "angular-bootstrap-md": "^12.2.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
+    "underscore": "^1.13.3",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
@@ -32,6 +33,7 @@
     "@angular/compiler-cli": "~13.2.0",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
+    "@types/underscore": "^1.11.4",
     "jasmine-core": "~4.0.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",

@@ -12,6 +12,7 @@ import { LocationService } from 'src/app/services/location.service';
 import { UserService } from 'src/app/services/user.service';
 import Artwork from '../../interfaces/artwork';
 import Location from '../../interfaces/location';
+import * as _ from 'underscore';
 
 @Component({
   selector: 'app-add-art',
@@ -22,7 +23,7 @@ export class AddArtComponent implements OnInit {
 
   public isAuthenticated$!: Observable<boolean>;
   public user!: User;
-  public artists!: Artist[];
+  public artists: any[] = [];
   public artTypes!: ArtType[];
   public locations!: Location[];
   public artPictureURL = "https://cdn.pixabay.com/photo/2014/08/25/16/17/picture-frame-427233_960_720.jpg";
@@ -42,7 +43,11 @@ export class AddArtComponent implements OnInit {
     );
 
     this._oktaStateService.authState$.subscribe(as => this.userService.getUserByEmail(as.accessToken?.claims.sub!).subscribe(u => this.user = u));
-    this._artistService.getArtists().subscribe(artists => this.artists = artists);
+    this._artistService.getArtists().subscribe(artists => this.artists = artists.sort(function(x,y) {
+      if (x.name < y.name) return -1;
+      if (x.name > y.name) return 1;
+      return 0;
+    }));
     this._arttypeService.getArtTypes().subscribe(arttypes => this.artTypes = arttypes);
     this._locationService.getLocations().subscribe(allLocations => this.locations = allLocations);
   }

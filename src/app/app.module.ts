@@ -35,6 +35,7 @@ import { FormsModule } from '@angular/forms';
 import { EditLocationComponent } from './components/edit-location/edit-location.component';
 import { AddLocationTypeComponent } from './components/add-location-type/add-location-type.component';
 import { AddArtTypeComponent } from './components/add-art-type/add-art-type.component';
+import { NgbDropdown, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 const oktaAuth = new OktaAuth({
@@ -85,7 +86,8 @@ const oktaAuth = new OktaAuth({
     HttpClientModule,
     OktaAuthModule,
     FormsModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    NgbDropdownModule
   ],
   providers: [{ provide: OKTA_CONFIG, useValue: {oktaAuth}}],
   bootstrap: [AppComponent]

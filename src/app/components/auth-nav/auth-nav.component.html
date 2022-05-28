@@ -23,16 +23,18 @@
         <li><a routerLink="/addlocation">Add Location</a></li>
       </ul>
     </ul>
-<!-- 
 
-    <div class="d-inline-block" ngbDropdown #myDrop="ngbDropdown">
-      <button type="button" class="btn btn-outline-primary me-2" id="dropdownManual" ngbDropdownAnchor (focus)="myDrop.open()">Toggle dropdown</button>
+
+    <div class="nav navbar-brand" ngbDropdown #myDrop="ngbDropdown">
+      <button type="button" class="btn btn-outline-primary me-2 dropdown-toggle" data-toggle="dropdown" id="dropdownManual" ngbDropdownAnchor (focus)="myDrop.open()" autoClose="false">
+        View Content <span class="caret"></span>
+      </button>
       <div ngbDropdownMenu aria-labelledby="dropdownManual">
-        <button ngbDropdownItem>Action - 1</button>
-        <button ngbDropdownItem>Another Action</button>
-        <button ngbDropdownItem>Something else is here</button>
+        <li><a routerLink="/addwork">Add Artwork</a></li>
+        <li><a routerLink="/addartist">Add Artist</a></li>
+        <li><a routerLink="/addlocation">Add Location</a></li>
       </div>
-    </div> -->
+    </div>
 
     <ul class="nav navbar-brand navbar-right" id="acctButton">
       <a class="dropdown-toggle" data-toggle="dropdown" href="#" *ngIf="user"> {{user.name}}

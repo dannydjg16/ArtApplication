@@ -17,10 +17,22 @@
 }
 
 .appName {
-    margin-right: 38%;
     margin-left: 5px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: x-large;
+    font-size: xx-large;
+    font-style: italic;
+    color: rgb(113, 75, 173);
+}
+
+.db1 {
+    display: block;
+    margin-left: 5px;
+    margin-right: auto;
+}
+.db2 {
+    display: block;
+    margin-left: auto;
+    margin-right: 5px;
 }
 
 /* Dropdown Button */

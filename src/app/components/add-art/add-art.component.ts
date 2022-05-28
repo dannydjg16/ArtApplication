@@ -12,7 +12,6 @@ import { LocationService } from 'src/app/services/location.service';
 import { UserService } from 'src/app/services/user.service';
 import Artwork from '../../interfaces/artwork';
 import Location from '../../interfaces/location';
-import * as _ from 'underscore';
 
 @Component({
   selector: 'app-add-art',

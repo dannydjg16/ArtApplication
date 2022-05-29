@@ -19,25 +19,25 @@ export class AppComponent implements OnInit {
   public fullName$!: string;
   isAuthenticated = false;
 
-  constructor(private _router: Router, private _oktaStateService: OktaAuthStateService, @Inject(OKTA_AUTH) private _oktaAuth: OktaAuth, private userService: UserService) {
+  constructor(private _router: Router, 
+              private _oktaStateService: OktaAuthStateService, 
+              @Inject(OKTA_AUTH) private _oktaAuth: OktaAuth, 
+              private userService: UserService) {
+
     this._oktaStateService.authState$.subscribe(
       s => this.isAuthenticated = s.isAuthenticated!
     );
+
   }
 
   public ngOnInit(): void {
-
-    this.isAuthenticated$ = this._oktaStateService.authState$.pipe(
-      filter((s: AuthState) => !!s),
-      map((s: AuthState) => s.isAuthenticated ?? false)
-    )
 
     this._oktaStateService.authState$.subscribe(as => {
       this.updateAuthState(as.isAuthenticated!)
       if (this.isAuthenticated) {
         this.userService.getUserByEmail(as.accessToken?.claims.sub!)
           .subscribe({
-            next: (user) => console.log("success"),
+            next: (user) => this.navigateToGallery(""),
             error: (err) => this.userService.addUser({ id: 0, email: as.accessToken?.claims.sub!, name: as.accessToken?.claims.name!, fromLocation: '', profilePicURL: '' })
               .subscribe({
                 next: (a) => a,
@@ -46,6 +46,11 @@ export class AppComponent implements OnInit {
           })
       }
     });
+    
+  }
+
+  navigateToGallery(userName: string) {
+    this._router.navigate(['gallery']);
   }
 
   updateAuthState(isAuthenticated: boolean) {

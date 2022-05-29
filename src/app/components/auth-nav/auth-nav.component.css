@@ -1,9 +1,6 @@
 #acctButton{
     margin-right: 5px;
-}
-
-.navLink:hover {
-    text-decoration: underline;
+    color: rgb(76, 51, 117);
 }
 
 .glyphicon-user {
@@ -18,10 +15,11 @@
 
 .appName {
     margin-left: 5px;
+    margin-right: 10px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: xx-large;
-    font-style: italic;
-    color: rgb(113, 75, 173);
+
+    color: rgb(76, 51, 117);
 }
 
 .db1 {
@@ -33,6 +31,10 @@
     display: block;
     margin-left: auto;
     margin-right: 5px;
+}
+
+.db3 {
+    color: rgb(76, 51, 117);
 }
 
 /* Dropdown Button */

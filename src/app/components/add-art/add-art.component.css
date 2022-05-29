@@ -9,6 +9,8 @@
     margin-left: 25%;
     margin-right: 25%;
     margin-top: 2%;
+    background-color: rgb(76, 51, 117);
+    border-color: black;
 }
 
 .form-outline {
@@ -35,4 +37,8 @@ select {
     margin-top: 10px;
     border-bottom: dashed 1px black;
     margin-bottom: 10px;
+}
+
+a {
+    color: rgb(76, 51, 117);;
 }

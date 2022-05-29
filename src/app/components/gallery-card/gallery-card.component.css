@@ -44,3 +44,7 @@ app-post-actions {
     transform:scale(1.5);
     overflow:visible;
 }
+
+.card-img-top:hover {
+    cursor: pointer;
+}

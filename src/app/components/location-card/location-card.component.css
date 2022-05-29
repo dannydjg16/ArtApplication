@@ -1,5 +1,5 @@
 .cardDiv {
-    border: 1px solid darkgray;
+    border: 1px solid rgb(0, 0, 0);
     margin: 1px;
     margin-top: 0px;
     padding: 1px;
@@ -52,4 +52,8 @@ app-post-actions {
 
 .postAction {
     text-align: center;
+}
+
+a {
+    color: rgb(76, 51, 117);
 }

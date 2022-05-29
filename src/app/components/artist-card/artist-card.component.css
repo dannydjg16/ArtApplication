@@ -1,5 +1,5 @@
 .cardDiv {
-    border: 1px solid darkgray;
+    border: 1px solid rgb(0, 0, 0);
     margin: 1px;
     margin-top: 0px;
     padding: 1px;
@@ -35,6 +35,10 @@ h5 {
     transition:transform 0.25s ease;
 }
 
+.card-img-top:hover {
+    cursor: pointer;
+}
+
 .card-img-top:active {
     -webkit-transform:scale(1.5); 
     transform:scale(1.5);
@@ -45,4 +49,8 @@ h5 {
     height: 30px;
     text-align: center;
     cursor: pointer;
+}
+
+a {
+    color: rgb(76, 51, 117);
 }

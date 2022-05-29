@@ -3,6 +3,10 @@ body {
     width: 100%;
 }
 
+a {
+    color: rgb(76, 51, 117);
+}
+
 .profileDetails {
     display: table;
     margin-right: auto;

@@ -16,9 +16,9 @@
     <div class="dropdown">
       <button class="dropbtn db2">Add Content <span class="caret"></span></button>
       <div class="dropdown-content">
-       <a routerLink="/addwork">Add Artwork</a>
+        <a routerLink="/addwork">Add Artwork</a>
         <a routerLink="/addartist">Add Artist</a>
-       <a routerLink="/addlocation">Add Location</a>
+        <a routerLink="/addlocation">Add Location</a>
       </div>
     </div>
 
@@ -27,7 +27,7 @@
       <button class="dropbtn db3">{{user.name}} <span class="caret"></span></button>
       <div class="dropdown-content">
         <a href="/profile">My Account</a>
-        <a href="#" (click)="signOut()">Sign Out</a>
+        <a (click)="signOut()" class="signOutLink">Sign Out</a>
       </div>
     </div>
 

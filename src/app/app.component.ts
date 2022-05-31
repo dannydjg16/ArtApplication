@@ -18,6 +18,7 @@ export class AppComponent implements OnInit {
   public isAuthenticated$!: Observable<boolean>;
   public fullName$!: string;
   isAuthenticated = false;
+  public user!: User;
 
   constructor(private _router: Router, 
               private _oktaStateService: OktaAuthStateService, 
@@ -37,7 +38,7 @@ export class AppComponent implements OnInit {
       if (this.isAuthenticated) {
         this.userService.getUserByEmail(as.accessToken?.claims.sub!)
           .subscribe({
-            next: (user) => user,
+            next: (user) => this.navigateToGallery(),
             error: (err) => this.userService.addUser({ id: 0, email: as.accessToken?.claims.sub!, name: as.accessToken?.claims.name!, fromLocation: '', profilePicURL: '' })
               .subscribe({
                 next: (a) => a,
@@ -49,8 +50,7 @@ export class AppComponent implements OnInit {
     
   }
 
-  navigateToGallery(userName: string) {
-
+  navigateToGallery() {
     this._router.navigate(['gallery']);
   }
 

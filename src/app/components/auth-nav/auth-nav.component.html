@@ -26,7 +26,7 @@
     <div class="dropdown navbar-right" id="acctButton" *ngIf="user">
       <button class="dropbtn db3">{{user.name}} <span class="caret"></span></button>
       <div class="dropdown-content">
-        <a href="/profile">My Account</a>
+        <a routerLink="/profile">My Account</a>
         <a (click)="signOut()" class="signOutLink">Sign Out</a>
       </div>
     </div>

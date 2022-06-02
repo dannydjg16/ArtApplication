@@ -1,8 +1,8 @@
 <body *ngIf="user" class="bodyContainer">
     <div>
-        <a *ngIf="gallery==='likes'" (click)="showAdds()" class="btn small editGallery">Show My Adds</a>
-        <a *ngIf="gallery==='adds'" (click)="showLikes()" class="btn small editGallery">Show My Likes</a>
-        <a href="#" class="btn small editProfile" routerLink="/editprofile">Edit Profile</a>
+        <a *ngIf="gallery==='likes'" (click)="showAdds()" class="editGallery">Show My Adds</a>
+        <a *ngIf="gallery==='adds'" (click)="showLikes()" class="editGallery">Show My Likes</a>
+        <a href="#" class="editProfile" routerLink="/editprofile">Edit Profile</a>
     </div>
     
     <div class="profileDetails">

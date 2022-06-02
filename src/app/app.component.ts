@@ -51,7 +51,9 @@ export class AppComponent implements OnInit {
   }
 
   navigateToGallery() {
-    this._router.navigate(['gallery']);
+    if (this._router.url === '/') {
+      this._router.navigate(['gallery']);
+    }
   }
 
   updateAuthState(isAuthenticated: boolean) {

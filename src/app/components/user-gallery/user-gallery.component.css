@@ -38,7 +38,7 @@ h3 {
 /* CSS */
 .button-18 {
     align-items: center;
-    background-color: #3292f1;
+    background-color: rgb(76, 51, 117);
     border: 0;
     border-radius: 100px;
     box-sizing: border-box;
@@ -67,7 +67,7 @@ h3 {
   
   .button-18:hover,
   .button-18:focus { 
-    background-color: #16437E;
+    background-color: rgb(96, 66, 145);
     color: #ffffff;
   }
   

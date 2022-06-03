@@ -38,26 +38,6 @@ select {
     margin-right: 10px;
 }
 
-button {
-    background-color: rgb(76, 51, 117);
-    border-color: black;
-}
-
-button:hover {
-    background-color: rgb(96, 66, 145);
-    border-color: black;
-}
-
-.btn:active {
-    background-color: rgb(144, 122, 180);
-    border-color: black;
-}
-
-button:focus {
-    background-color: rgb(144, 122, 180);
-    border-color: black;
-}
-
 
 
 

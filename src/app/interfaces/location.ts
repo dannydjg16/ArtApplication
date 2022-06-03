@@ -6,7 +6,7 @@ export default interface Location{
     locationName: string;
     description: string;
     locationUrl: string;
-    typeID: number;
+    typeId: number;
 }
 
 // Add A type here and set it all the ay back from SQL. Actually do have a LocationType object on 

@@ -33,7 +33,8 @@ export class EditLocationComponent implements OnInit {
     this._locationtypeService.getLocationTypes().subscribe(loctyps => this.locationtypes = loctyps);
   }
 
-  edit() {
+  edit(typeID: string) {
+    this.locationToEdit.typeId = +typeID
     this._locationService.editLocation(this.locationToEdit).subscribe(data => {
       console.log(data);
     });;

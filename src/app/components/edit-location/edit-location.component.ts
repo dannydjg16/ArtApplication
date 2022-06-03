@@ -15,9 +15,10 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class EditLocationComponent implements OnInit {
 
-  public user!: User;
+  user!: User;
   locationToEdit!: Location;
-  public locationtypes!: LocationType[];
+  locationtypes!: LocationType[];
+  locationType!: LocationType;
 
 
   constructor(private userService: UserService,
@@ -31,6 +32,7 @@ export class EditLocationComponent implements OnInit {
 
     this._locationService.getLocationById(this.route.snapshot.params['id']).subscribe(loc => this.locationToEdit = loc);
     this._locationtypeService.getLocationTypes().subscribe(loctyps => this.locationtypes = loctyps);
+    
   }
 
   edit(typeID: string) {

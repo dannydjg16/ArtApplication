@@ -37,6 +37,7 @@ export class EditLocationComponent implements OnInit {
     this.locationToEdit.typeId = +typeID
     this._locationService.editLocation(this.locationToEdit).subscribe(data => {
       console.log(data);
-    });;
+    },
+    err => console.log(err));;
   }
 }

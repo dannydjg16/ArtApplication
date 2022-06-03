@@ -17,16 +17,15 @@
             <textarea #description class="form-control" id="form6Example7" rows="4"
                 placeholder="Description"></textarea>
         </div>
-
+        
         <!-- LocationTypeID input -->
         <div class="form-outline mb-4">
-            <select #locationtype name="locationtypes" id="locationtypesDropdown" required>
+            <select #locationtype name="locationtypes" id="locationtypesDropdown">
                 <option value="">Select A Location Type</option>
-                <option *ngFor="let locationtype of locationtypes" value="locationtype.id">
+                <option *ngFor="let locationtype of locationtypes" [value]="locationtype.id">
                     {{ locationtype.name }}
                 </option>
             </select>
-            
             <app-add-location-type></app-add-location-type>
         </div>
 

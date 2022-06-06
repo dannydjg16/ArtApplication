@@ -55,5 +55,4 @@ export class AddLocationComponent implements OnInit {
       console.log(data)
     }
   }
-
 }

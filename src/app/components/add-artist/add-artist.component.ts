@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { OktaAuthStateService } from '@okta/okta-angular';
 import { AuthState } from '@okta/okta-auth-js';
 import { filter, map, Observable } from 'rxjs';
@@ -14,9 +15,11 @@ export class AddArtistComponent implements OnInit {
 
   public isAuthenticated$!: Observable<boolean>;
   public artistPictureURL = "https://cdn.pixabay.com/photo/2014/08/25/16/17/picture-frame-427233_960_720.jpg";
+  @Output() updateArtistsEvent = new EventEmitter<Object>();
 
   constructor(private _oktaStateService: OktaAuthStateService, 
-              private _artistService: ArtistService) { }
+              private _artistService: ArtistService,
+              private _router: Router) { }
 
   ngOnInit(): void {
     this.isAuthenticated$ = this._oktaStateService.authState$.pipe(
@@ -31,8 +34,16 @@ export class AddArtistComponent implements OnInit {
     }
 
     this._artistService.addArtist(artist as unknown as Artist).subscribe(data => {
-      console.log(data);
+      this.updateArtists(data);
     });
+  }
+
+  updateArtists(data: Object) {
+    if (this._router.url === '/addwork') {
+      this.updateArtistsEvent.emit(data)
+    } else {
+      console.log(data)
+    }
   }
 
   updateArtistPicture(url: string) {

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { OktaAuthStateService } from '@okta/okta-angular';
 import { AuthState } from '@okta/okta-auth-js';
 import { filter, map, Observable } from 'rxjs';
-import Artist from 'src/app/interfaces/artist';
 import ArtType from 'src/app/interfaces/arttype';
 import User from 'src/app/interfaces/user';
 import { ArtistService } from 'src/app/services/artist.service';
@@ -42,24 +41,24 @@ export class AddArtComponent implements OnInit {
     );
 
     this._oktaStateService.authState$.subscribe(as => this.userService.getUserByEmail(as.accessToken?.claims.sub!).subscribe(u => this.user = u));
-    this._artistService.getArtists().subscribe(artists => 
-      this.artists = artists.sort(function(x,y) {
-      if (x.name < y.name) return -1;
-      if (x.name > y.name) return 1;
-      return 0;
-    }) );
-    this._arttypeService.getArtTypes().subscribe(arttypes => 
-      this.artTypes = arttypes.sort(function(x,y) {
+    this._artistService.getArtists().subscribe(artists =>
+      this.artists = artists.sort(function (x, y) {
         if (x.name < y.name) return -1;
         if (x.name > y.name) return 1;
         return 0;
-      }) );
-    this._locationService.getLocations().subscribe(allLocations => 
-      this.locations = allLocations.sort(function(x,y) {
+      }));
+    this._arttypeService.getArtTypes().subscribe(arttypes =>
+      this.artTypes = arttypes.sort(function (x, y) {
+        if (x.name < y.name) return -1;
+        if (x.name > y.name) return 1;
+        return 0;
+      }));
+    this._locationService.getLocations().subscribe(allLocations =>
+      this.locations = allLocations.sort(function (x, y) {
         if (x.locationName < y.locationName) return -1;
         if (x.locationName > y.locationName) return 1;
         return 0;
-      }) );
+      }));
   }
 
   add(title: string, url: string, year: string, description: string, artist: string, medium: string, location: string, adder: number) {
@@ -74,31 +73,43 @@ export class AddArtComponent implements OnInit {
   }
 
   updateArtPicture(url: string) {
-      this.artPictureURL = url;    
+    this.artPictureURL = url;
   }
 
   // Updating Select for Locations when a new location is added
   updateLocations(data: Object) {
-    this._locationService.getLocations().subscribe(allLocations => 
-      this.locations = allLocations.sort(function(x,y) {
+    this._locationService.getLocations().subscribe(allLocations =>
+      this.locations = allLocations.sort(function (x, y) {
         if (x.locationName < y.locationName) return -1;
         if (x.locationName > y.locationName) return 1;
         return 0;
-      }) );
+      }));
     console.log(data);
   }
 
-  // Updating Select for Artists when a new artist added 
+  // Updating Select for Artists when a new artist is added 
   updateArtists(data: Object) {
-    this._artistService.getArtists().subscribe(artists => 
-      this.artists = artists.sort(function(x,y) {
-      if (x.name < y.name) return -1;
-      if (x.name > y.name) return 1;
-      return 0;
-    }) );
+    this._artistService.getArtists().subscribe(artists =>
+      this.artists = artists.sort(function (x, y) {
+        if (x.name < y.name) return -1;
+        if (x.name > y.name) return 1;
+        return 0;
+      }));
     console.log(data);
   }
 
+  // Updating Select for Art Types when a new art type is added 
+  updateArtTypes(data: Object) {
+    this._arttypeService.getArtTypes().subscribe(arttypes =>
+      this.artTypes = arttypes.sort(function (x, y) {
+        if (x.name < y.name) return -1;
+        if (x.name > y.name) return 1;
+        return 0;
+      }));
+    console.log(data);
+  }
+
+  // Show/Hide AddArtist
   popUpArtist() {
     if (this.whatToAdd == "Artist") {
       this.whatToAdd = "None"
@@ -107,6 +118,7 @@ export class AddArtComponent implements OnInit {
     }
   }
 
+  // Show/Hide AddMedium
   popUpMedium() {
     if (this.whatToAdd == "Medium") {
       this.whatToAdd = "None"
@@ -115,6 +127,7 @@ export class AddArtComponent implements OnInit {
     }
   }
 
+  // Show/Hide AddLocation
   popUpLocation() {
     if (this.whatToAdd == "Location") {
       this.whatToAdd = "None"

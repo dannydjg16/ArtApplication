@@ -52,7 +52,7 @@
             </select>
             <a class="addToSelect" (click)="popUpMedium()">Add Medium</a> 
             <div class="addDiv" *ngIf="whatToAdd=='Medium'"> 
-                <app-add-art-type></app-add-art-type>
+                <app-add-art-type (updateArtTypesEvent)="updateArtTypes($event)"></app-add-art-type>
             </div>
 
             <!-- Location ID input -->

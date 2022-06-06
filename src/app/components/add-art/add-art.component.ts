@@ -77,6 +77,7 @@ export class AddArtComponent implements OnInit {
       this.artPictureURL = url;    
   }
 
+  // Updating Select for Locations when a new location is added
   updateLocations(data: Object) {
     this._locationService.getLocations().subscribe(allLocations => 
       this.locations = allLocations.sort(function(x,y) {
@@ -84,6 +85,17 @@ export class AddArtComponent implements OnInit {
         if (x.locationName > y.locationName) return 1;
         return 0;
       }) );
+    console.log(data);
+  }
+
+  // Updating Select for Artists when a new artist added 
+  updateArtists(data: Object) {
+    this._artistService.getArtists().subscribe(artists => 
+      this.artists = artists.sort(function(x,y) {
+      if (x.name < y.name) return -1;
+      if (x.name > y.name) return 1;
+      return 0;
+    }) );
     console.log(data);
   }
 

@@ -40,7 +40,7 @@
             </select>
             <a class="addToSelect" (click)="popUpArtist()">Add Artist</a>
             <div class="addDiv" *ngIf="whatToAdd=='Artist'"> 
-                <app-add-artist></app-add-artist>
+                <app-add-artist (updateArtistsEvent)="updateArtists($event)"></app-add-artist>
             </div>
 
             <!-- Medium ID input -->

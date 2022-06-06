@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { OktaAuthStateService } from '@okta/okta-angular';
 import ArtType from 'src/app/interfaces/arttype';
 import User from 'src/app/interfaces/user';
 import { ArttypeService } from 'src/app/services/arttype.service';
-import { LocationTypeService } from 'src/app/services/locationtype.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -14,10 +14,12 @@ import { UserService } from 'src/app/services/user.service';
 export class AddArtTypeComponent implements OnInit {
 
   public user!: User;
+  @Output() updateArtTypesEvent = new EventEmitter<Object>();
 
   constructor(private _oktaStateService: OktaAuthStateService,
               private _atService: ArttypeService,
-              private userService: UserService,) { }
+              private userService: UserService,
+              private _router: Router) { }
 
   ngOnInit(): void {
     this._oktaStateService.authState$
@@ -26,14 +28,21 @@ export class AddArtTypeComponent implements OnInit {
   }
 
   add(name: string, description: string) {
-
     const arttype = {
       name: name,
       description: description
     }
 
     this._atService.addArtType(arttype as unknown as ArtType).subscribe(data => {
-      console.log(data);
+      this.updateArtists(data);
     });
+  }
+
+  updateArtists(data: Object) {
+    if (this._router.url === '/addwork') {
+      this.updateArtTypesEvent.emit(data)
+    } else {
+      console.log(data)
+    }
   }
 }

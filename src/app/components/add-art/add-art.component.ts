@@ -42,14 +42,24 @@ export class AddArtComponent implements OnInit {
     );
 
     this._oktaStateService.authState$.subscribe(as => this.userService.getUserByEmail(as.accessToken?.claims.sub!).subscribe(u => this.user = u));
-    this._artistService.getArtists().subscribe( artists => 
+    this._artistService.getArtists().subscribe(artists => 
       this.artists = artists.sort(function(x,y) {
       if (x.name < y.name) return -1;
       if (x.name > y.name) return 1;
       return 0;
     }) );
-    this._arttypeService.getArtTypes().subscribe(arttypes => this.artTypes = arttypes);
-    this._locationService.getLocations().subscribe(allLocations => this.locations = allLocations);
+    this._arttypeService.getArtTypes().subscribe(arttypes => 
+      this.artTypes = arttypes.sort(function(x,y) {
+        if (x.name < y.name) return -1;
+        if (x.name > y.name) return 1;
+        return 0;
+      }) );
+    this._locationService.getLocations().subscribe(allLocations => 
+      this.locations = allLocations.sort(function(x,y) {
+        if (x.locationName < y.locationName) return -1;
+        if (x.locationName > y.locationName) return 1;
+        return 0;
+      }) );
   }
 
   add(title: string, url: string, year: string, description: string, artist: string, medium: string, location: string, adder: number) {
@@ -68,7 +78,12 @@ export class AddArtComponent implements OnInit {
   }
 
   updateLocations(data: Object) {
-    this._locationService.getLocations().subscribe(allLocations => this.locations = allLocations);
+    this._locationService.getLocations().subscribe(allLocations => 
+      this.locations = allLocations.sort(function(x,y) {
+        if (x.locationName < y.locationName) return -1;
+        if (x.locationName > y.locationName) return 1;
+        return 0;
+      }) );
     console.log(data);
   }
 

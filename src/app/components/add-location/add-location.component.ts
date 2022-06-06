@@ -30,7 +30,12 @@ export class AddLocationComponent implements OnInit {
       map((s: AuthState) => s.isAuthenticated ?? false)
     );
 
-    this._locationtypeService.getLocationTypes().subscribe(loctyps => this.locationtypes = loctyps);
+    this._locationtypeService.getLocationTypes().subscribe(loctyps => 
+      this.locationtypes = loctyps.sort(function(x,y) {
+        if (x.name < y.name) return -1;
+        if (x.name > y.name) return 1;
+        return 0;
+      }) );
   }
 
   add(locationName: string, locationURL: string, description: string, locationTypeID: string) {

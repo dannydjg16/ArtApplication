@@ -67,6 +67,11 @@ export class AddArtComponent implements OnInit {
       this.artPictureURL = url;    
   }
 
+  updateLocations(data: Object) {
+    this._locationService.getLocations().subscribe(allLocations => this.locations = allLocations);
+    console.log(data);
+  }
+
   popUpArtist() {
     if (this.whatToAdd == "Artist") {
       this.whatToAdd = "None"

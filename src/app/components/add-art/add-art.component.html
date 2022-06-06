@@ -64,10 +64,9 @@
             </select>
             <a class="addToSelect" (click)="popUpLocation()">Add Location</a>
             <div class="addDiv" *ngIf="whatToAdd=='Location'"> 
-                <app-add-location></app-add-location>
+                <app-add-location (updateLocationsEvent)="updateLocations($event)"></app-add-location>
             </div>
             
-
         </div>
 
         <!-- Submit button -->

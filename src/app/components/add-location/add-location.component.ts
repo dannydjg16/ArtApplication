@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 import { OktaAuthStateService } from '@okta/okta-angular';
 import { AuthState } from '@okta/okta-auth-js';
 import { filter, map, Observable } from 'rxjs';
@@ -16,10 +17,12 @@ export class AddLocationComponent implements OnInit {
 
   public isAuthenticated$!: Observable<boolean>;
   public locationtypes!: LocationType[];
+  @Output() updateLocationsEvent = new EventEmitter<Object>();
 
   constructor(private _oktaStateService: OktaAuthStateService, 
               private _locationService: LocationService,
-              private _locationtypeService: LocationTypeService) { }
+              private _locationtypeService: LocationTypeService,
+              private _router: Router) { }
 
   ngOnInit(): void {
     this.isAuthenticated$ = this._oktaStateService.authState$.pipe(
@@ -36,7 +39,16 @@ export class AddLocationComponent implements OnInit {
     };
 
     this._locationService.addLocation(location as unknown as Location).subscribe(data => {
-      console.log(data);
+      this.updateLocations(data);
     });
   }
+
+  updateLocations(data: Object) {
+    if (this._router.url === '/addwork') {
+      this.updateLocationsEvent.emit(data)
+    } else {
+      console.log(data)
+    }
+  }
+
 }

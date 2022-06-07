@@ -1,1 +1,17 @@
-<p>view-artist works!</p>
+<body *ngIf="user" class="bodyContainer">
+    <div>
+        <!-- <a *ngIf="gallery==='likes'" (click)="showAdds()" class="editGallery">Show My Adds</a>
+        <a *ngIf="gallery==='adds'" (click)="showLikes()" class="editGallery">Show My Likes</a> -->
+        <a href="#" class="editProfile" routerLink="/editprofile">Edit Profile</a>
+    </div>
+    
+    <div class="profileDetails">
+        <img src="{{artist.pictureURL}}"
+            alt="..." width="130" class="rounded mb-2 img-thumbnail">
+        <h4 class="mt-0 mb-0">{{artist.name}}</h4>
+        <p class="small mb-4"> {{artist.bornLocation}}</p>
+    </div>
+    <!-- <app-user-gallery *ngIf="gallery==='likes'" [theUser]="user"></app-user-gallery>
+    <app-user-artworks *ngIf="gallery==='adds'" [theUser]="user"></app-user-artworks> -->
+
+</body>

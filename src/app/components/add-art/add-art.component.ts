@@ -89,12 +89,14 @@ export class AddArtComponent implements OnInit {
 
   // Updating Select for Artists when a new artist is added 
   updateArtists(data: Object) {
-    this._artistService.getArtists().subscribe(artists =>
+    this._artistService.getArtists().subscribe({next: artists =>
       this.artists = artists.sort(function (x, y) {
         if (x.name < y.name) return -1;
         if (x.name > y.name) return 1;
         return 0;
-      }));
+      })}), 
+      {error: console.log(data)},
+      {complete: window.confirm("Artist Added")}
     console.log(data);
   }
 

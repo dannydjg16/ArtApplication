@@ -1,10 +1,9 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import User from 'src/app/interfaces/user';
 import { filter, map, Observable } from 'rxjs';
-import { OktaAuthStateService, OKTA_AUTH } from '@okta/okta-angular';
-import { AuthState, OktaAuth } from '@okta/okta-auth-js';
-import { Router } from '@angular/router';
+import { OktaAuthStateService } from '@okta/okta-angular';
+import { AuthState } from '@okta/okta-auth-js';
 
 @Component({
   selector: 'app-user',

@@ -78,12 +78,14 @@ export class AddArtComponent implements OnInit {
 
   // Updating Select for Locations when a new location is added
   updateLocations(data: Object) {
-    this._locationService.getLocations().subscribe(allLocations =>
+    this._locationService.getLocations().subscribe({next: allLocations =>
       this.locations = allLocations.sort(function (x, y) {
         if (x.locationName < y.locationName) return -1;
         if (x.locationName > y.locationName) return 1;
         return 0;
-      }));
+      })}),
+      {error: console.log(data)},
+      {complete: window.confirm("Location Added")};
     console.log(data);
   }
 
@@ -96,18 +98,20 @@ export class AddArtComponent implements OnInit {
         return 0;
       })}), 
       {error: console.log(data)},
-      {complete: window.confirm("Artist Added")}
+      {complete: window.confirm("Artist Added")};
     console.log(data);
   }
 
   // Updating Select for Art Types when a new art type is added 
   updateArtTypes(data: Object) {
-    this._arttypeService.getArtTypes().subscribe(arttypes =>
+    this._arttypeService.getArtTypes().subscribe({next: arttypes =>
       this.artTypes = arttypes.sort(function (x, y) {
         if (x.name < y.name) return -1;
         if (x.name > y.name) return 1;
         return 0;
-      }));
+      })}),
+      {error: console.log(data)},
+      {complete: window.confirm("Art Type Added")};
     console.log(data);
   }
 

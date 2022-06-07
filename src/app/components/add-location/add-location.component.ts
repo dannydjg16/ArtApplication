@@ -50,12 +50,14 @@ export class AddLocationComponent implements OnInit {
 
   // Updating Select for Location Types when a new location type is added 
   updateLocationTypes(data: Object) {
-    this._locationtypeService.getLocationTypes().subscribe(loctyps => 
+    this._locationtypeService.getLocationTypes().subscribe({next: loctyps => 
       this.locationtypes = loctyps.sort(function(x,y) {
         if (x.name < y.name) return -1;
         if (x.name > y.name) return 1;
         return 0;
-      }) );
+      })}),
+      {error: console.log(data)},
+      {complete: window.confirm("Location Type Added")};;
     console.log(data);
   }
 

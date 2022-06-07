@@ -44,10 +44,22 @@ export class AddLocationComponent implements OnInit {
     };
 
     this._locationService.addLocation(location as unknown as Location).subscribe(data => {
-      this.updateLocations(data);
+      this.updateLocationTypes(data);
     });
   }
 
+  // Updating Select for Location Types when a new location type is added 
+  updateLocationTypes(data: Object) {
+    this._locationtypeService.getLocationTypes().subscribe(loctyps => 
+      this.locationtypes = loctyps.sort(function(x,y) {
+        if (x.name < y.name) return -1;
+        if (x.name > y.name) return 1;
+        return 0;
+      }) );
+    console.log(data);
+  }
+
+  // Output Event to AddArt Component
   updateLocations(data: Object) {
     if (this._router.url === '/addwork') {
       this.updateLocationsEvent.emit(data)

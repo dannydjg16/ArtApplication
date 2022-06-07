@@ -26,7 +26,7 @@
                     {{ locationtype.name }}
                 </option>
             </select>
-            <app-add-location-type></app-add-location-type>
+            <app-add-location-type (updateLocationTypesEvent)="updateLocationTypes($event)"></app-add-location-type>
         </div>
 
         <!-- Submit button -->

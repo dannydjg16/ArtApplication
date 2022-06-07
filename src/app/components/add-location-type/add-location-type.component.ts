@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { OktaAuthStateService } from '@okta/okta-angular';
 import { AuthState } from '@okta/okta-auth-js';
 import { filter, map, Observable } from 'rxjs';
@@ -17,10 +18,12 @@ export class AddLocationTypeComponent implements OnInit {
   public user!: User;
   public locationTypes!: LocationType[];
   addingLocation = false;
-
+  @Output() updateLocationTypesEvent = new EventEmitter<Object>();
+  
   constructor(private _oktaStateService: OktaAuthStateService,
               private _ltService: LocationTypeService,
-              private userService: UserService,) { }
+              private userService: UserService,
+              private _router: Router) { }
 
   ngOnInit(): void {
     this._oktaStateService.authState$
@@ -29,14 +32,21 @@ export class AddLocationTypeComponent implements OnInit {
   }
 
   add(name: string) {
-
     const locationType = {
       name: name
     }
 
     this._ltService.addLocationType(locationType as unknown as LocationType).subscribe(data => {
-      console.log(data);
+      this.updateLocationTypes(data);
     });
+  }
+
+  updateLocationTypes(data: Object) {
+    if (this._router.url === '/addwork' || this._router.url == 'addlocation') {
+      this.updateLocationTypesEvent.emit(data)
+    } else {
+      console.log(data)
+    }
   }
 
   showAddForm() {

@@ -12,6 +12,7 @@ import { EditArtworkComponent } from './components/edit-artwork/edit-artwork.com
 import { EditArtistComponent } from './components/edit-artist/edit-artist.component';
 import { EditLocationComponent } from './components/edit-location/edit-location.component';
 import { LocationGalleryComponent } from './components/location-gallery/location-gallery.component';
+import { ViewArtistComponent } from './components/view-artist/view-artist.component';
 
 const routes: Routes = [
   { path: 'users', component: UserComponent },
@@ -26,7 +27,8 @@ const routes: Routes = [
   { path: 'editart/:id', component: EditArtworkComponent },
   { path: 'editartist/:id', component: EditArtistComponent },
   { path: 'editlocation/:id', component: EditLocationComponent },
-  { path: 'locations', component: LocationGalleryComponent}
+  { path: 'locations', component: LocationGalleryComponent},
+  { path: 'viewartist', component: ViewArtistComponent }
 ];
 
 @NgModule({

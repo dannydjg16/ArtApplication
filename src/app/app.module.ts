@@ -13,7 +13,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { GeneralGalleryComponent } from './components/general-gallery/general-gallery.component';
 import { UserGalleryComponent } from './components/user-gallery/user-gallery.component';
 import { GalleryCardComponent } from './components/gallery-card/gallery-card.component';
-import { IsAuthComponent } from './components/is-auth/is-auth.component';
 import { NotAuthComponent } from './components/not-auth/not-auth.component';
 import { AddArtComponent } from './components/add-art/add-art.component';
 import { AddArtistComponent } from './components/add-artist/add-artist.component';
@@ -59,7 +58,6 @@ const oktaAuth = new OktaAuth({
     GeneralGalleryComponent,
     UserGalleryComponent,
     GalleryCardComponent,
-    IsAuthComponent,
     NotAuthComponent,
     AddArtComponent,
     AddArtistComponent,

@@ -1,6 +1,6 @@
 <ng-container *ngIf="user">
 
-    <button routerLink="/artists" class="btn btn-primary backBtn">Go To Artists</button>
+    <button routerLink="/artists" class="btn btn-primary backBtn" (click)="goBack()">Back</button>
     <button class="btn btn-primary deleteBtn" (click)="deleteArtist()">Delete Artist</button>
 
     <div id="editObjectForm" *ngIf="artist">

@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { OktaAuthStateService } from '@okta/okta-angular';
@@ -23,7 +24,8 @@ export class EditArtistComponent implements OnInit {
   constructor(private _oktaStateService: OktaAuthStateService, 
               private _artistService: ArtistService,
               private _userService: UserService,
-              private route: ActivatedRoute,) { }
+              private route: ActivatedRoute,
+              private location: Location) { }
 
   ngOnInit(): void {
     this.isAuthenticated$ = this._oktaStateService.authState$.pipe(
@@ -53,5 +55,9 @@ export class EditArtistComponent implements OnInit {
 
   deleteArtist() {
     
+  }
+
+  goBack() {
+    this.location.back();
   }
 }

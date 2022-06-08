@@ -1,18 +1,17 @@
 <body *ngIf="user" class="bodyContainer">
     <div>
-        <!-- <a *ngIf="gallery==='likes'" (click)="showAdds()" class="editGallery">Show My Adds</a>
-        <a *ngIf="gallery==='adds'" (click)="showLikes()" class="editGallery">Show My Likes</a> -->
         <a href="#" class="editArtist" routerLink="/editartist/{{artist.id}}">Edit Artist</a>
     </div>
 
-    <div class="artistInfo">
-        <div class="introDetails">
+    <div class="artistInfo" id="block_container">
+        <div class="introDetails" id="bloc1">
             <img src="{{artist.pictureURL}}" alt="..." width="130" class="rounded mb-2 img-thumbnail" id="picture">
-            <h4 class="mt-0 mb-0">{{artist.name}}</h4>
-            <p class="small mb-4"> {{artist.bornLocation}}</p>
+            <p class="small mb-4"><b>Born:</b> {{artist.bornLocation}}</p>
+            <p class="small mb-4"><b>Lived:</b> {{artist.born}}-{{artist.died}}</p>
         </div>
-        <div class="description">
-            <p class="small mb-4"> {{artist.bornLocation}}</p>
+        <div class="description" id="bloc2">
+            <h4 class="mt-0 mb-0 artistName"> {{artist.name}} </h4>
+            <p class="mb-4"> {{artist.biography}}</p>
         </div>
     </div>
     <!-- <app-user-gallery *ngIf="gallery==='likes'" [theUser]="user"></app-user-gallery>

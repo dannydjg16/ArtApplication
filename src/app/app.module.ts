@@ -36,6 +36,7 @@ import { AddLocationTypeComponent } from './components/add-location-type/add-loc
 import { AddArtTypeComponent } from './components/add-art-type/add-art-type.component';
 import { NgbDropdown, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { ViewArtistComponent } from './components/view-artist/view-artist.component';
+import { ArtistWorksComponent } from './components/artist-works/artist-works.component';
 
 
 const oktaAuth = new OktaAuth({
@@ -78,7 +79,8 @@ const oktaAuth = new OktaAuth({
     EditLocationComponent,
     AddLocationTypeComponent,
     AddArtTypeComponent,
-    ViewArtistComponent
+    ViewArtistComponent,
+    ArtistWorksComponent
   ],
   imports: [
     BrowserModule,

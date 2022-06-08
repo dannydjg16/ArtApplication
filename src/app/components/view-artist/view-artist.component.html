@@ -10,11 +10,9 @@
             <p class="small mb-4"><b>Lived:</b> {{artist.born}}-{{artist.died}}</p>
         </div>
         <div class="description" id="bloc2">
-            <h4 class="mt-0 mb-0 artistName"> {{artist.name}} </h4>
+            <h2 class="mt-0 mb-0 artistName"> {{artist.name}} </h2>
             <p class="mb-4"> {{artist.biography}}</p>
         </div>
     </div>
-    <!-- <app-user-gallery *ngIf="gallery==='likes'" [theUser]="user"></app-user-gallery>
-    <app-user-artworks *ngIf="gallery==='adds'" [theUser]="user"></app-user-artworks> -->
-
+    <app-artist-works [artist]="artist"></app-artist-works>
 </body>

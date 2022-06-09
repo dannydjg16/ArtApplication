@@ -27,6 +27,7 @@ export class EditArtworkComponent implements OnInit {
   public artists!: Artist[];
   public artTypes!: ArtType[];
   public locations!: Location[];
+  artworkLocation!: Location;
 
   constructor(
     private userService: UserService,
@@ -44,9 +45,24 @@ export class EditArtworkComponent implements OnInit {
     this._artworkService.getArtorkById(this.route.snapshot.params['id']).subscribe(aw => this.setArtworkAndURL(aw));
 
     // Get arrays to populate for the select elements
-    this._artistService.getArtists().subscribe(artists => this.artists = artists);
-    this._arttypeService.getArtTypes().subscribe(arttypes => this.artTypes = arttypes);
-    this._locationService.getLocations().subscribe(allLocations => this.locations = allLocations);
+    this._artistService.getArtists().subscribe(artists => 
+      this.artists = artists.sort(function (x, y) {
+        if (x.name < y.name) return -1;
+        if (x.name > y.name) return 1;
+        return 0;
+      }));
+    this._arttypeService.getArtTypes().subscribe(arttypes => 
+      this.artTypes = arttypes.sort(function (x, y) {
+        if (x.name < y.name) return -1;
+        if (x.name > y.name) return 1;
+        return 0;
+      }));
+    this._locationService.getLocations().subscribe(allLocations => 
+      this.locations = allLocations.sort(function (x, y) {
+        if (x.locationName < y.locationName) return -1;
+        if (x.locationName > y.locationName) return 1;
+        return 0;
+      }));
   }
 
   edit() {
@@ -63,4 +79,9 @@ export class EditArtworkComponent implements OnInit {
   updateArtPicture(url: string) {
     this.artPictureURL = url;
   }
+
+  // createLocationArray(locations: Location[]) {
+  //   this.locations = locations;
+  //   this.artworkLocation = 
+  // }
 }

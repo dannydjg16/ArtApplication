@@ -57,12 +57,7 @@ export class EditArtworkComponent implements OnInit {
         if (x.name > y.name) return 1;
         return 0;
       }));
-    this._locationService.getLocations().subscribe(allLocations => 
-      this.locations = allLocations.sort(function (x, y) {
-        if (x.locationName < y.locationName) return -1;
-        if (x.locationName > y.locationName) return 1;
-        return 0;
-      }));
+    this._locationService.getLocations().subscribe(allLocations => this.createLocationArray(allLocations));
   }
 
   edit() {
@@ -80,8 +75,13 @@ export class EditArtworkComponent implements OnInit {
     this.artPictureURL = url;
   }
 
-  // createLocationArray(locations: Location[]) {
-  //   this.locations = locations;
-  //   this.artworkLocation = 
-  // }
+  createLocationArray(locations: Location[]) {
+    this.locations = locations.sort(function (x, y) {
+      if (x.locationName < y.locationName) return -1;
+      if (x.locationName > y.locationName) return 1;
+      return 0;
+    });
+    this.artworkLocation = locations.find(location => location.id === this.artworkToEdit.locationNow)!;
+    this.locations = locations.filter(location => location !== this.artworkLocation);
+  }
 }

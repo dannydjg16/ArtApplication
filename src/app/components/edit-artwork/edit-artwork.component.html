@@ -48,7 +48,7 @@
                 </option>
             </select>
             <!-- Location ID input -->
-            <select name="locations" id="locationsDropdown" *ngIf="locations">
+            <select name="locations" id="locationsDropdown" *ngIf="artworkLocation">
                 <option ngDefaultControl [(ngModel)]="artworkToEdit.locationNow">Select A Location</option>
                 <option value="artworkLocation.id" selected>{{artworkLocation.locationName}}</option>
                 <option *ngFor="let location of locations" ngDefaultControl [(ngModel)]="location.id">

@@ -28,6 +28,8 @@ export class EditArtworkComponent implements OnInit {
   public artTypes!: ArtType[];
   public locations!: Location[];
   artworkLocation!: Location;
+  artworkArtist!: Artist;
+  artworkArttype!: ArtType;
 
   constructor(
     private userService: UserService,
@@ -42,22 +44,10 @@ export class EditArtworkComponent implements OnInit {
     this._oktaStateService.authState$.subscribe(as => this.userService.getUserByEmail(as.accessToken?.claims.sub!).subscribe(u => this.user = u));
 
     // Set Artwork Picture
-    this._artworkService.getArtorkById(this.route.snapshot.params['id']).subscribe(aw => this.setArtworkAndURL(aw));
+    this._artworkService.getArtworkById(this.route.snapshot.params['id']).subscribe(aw => this.setArtworkAndURL(aw));
 
-    // Get arrays to populate for the select elements
-    this._artistService.getArtists().subscribe(artists => 
-      this.artists = artists.sort(function (x, y) {
-        if (x.name < y.name) return -1;
-        if (x.name > y.name) return 1;
-        return 0;
-      }));
-    this._arttypeService.getArtTypes().subscribe(arttypes => 
-      this.artTypes = arttypes.sort(function (x, y) {
-        if (x.name < y.name) return -1;
-        if (x.name > y.name) return 1;
-        return 0;
-      }));
-    this._locationService.getLocations().subscribe(allLocations => this.createLocationArray(allLocations));
+    // Calling the method to create all select arrays.
+    this.createArrays();
   }
 
   edit() {
@@ -75,13 +65,56 @@ export class EditArtworkComponent implements OnInit {
     this.artPictureURL = url;
   }
 
+  // This method creates all of the Arrays for the Select stmts.
+  createArrays() {
+    this.getLocations();
+    this.getArtists();
+    this.getArttypes();
+  }
+
+    // Get locations then call the create array function
+  getLocations() {
+    this._artistService.getArtists().subscribe(artists => this.createArtistArray(artists));
+  }
   createLocationArray(locations: Location[]) {
     this.locations = locations.sort(function (x, y) {
       if (x.locationName < y.locationName) return -1;
       if (x.locationName > y.locationName) return 1;
       return 0;
     });
-    this.artworkLocation = locations.find(location => location.id === this.artworkToEdit.locationNow)!;
-    this.locations = locations.filter(location => location !== this.artworkLocation);
+    if (this.artworkToEdit) {
+      this.artworkLocation = locations.find(location => location.id === this.artworkToEdit.locationNow)!;
+      this.locations = locations.filter(location => location !== this.artworkLocation);
+    }
   }
+
+    // Get artists then call the create array function
+  getArtists() {
+        this._artistService.getArtists().subscribe(artists => this.createArtistArray(artists));
+  }
+  createArtistArray(artists: Artist[]) {
+    this.artists = artists.sort(function (x, y) {
+      if (x.name < y.name) return -1;
+      if (x.name > y.name) return 1;
+      return 0;
+    });
+    this.artworkArtist = artists.find(artist => artist.id === this.artworkToEdit.artistID)!;
+    this.artists = artists.filter(artist => artist.id !== this.artworkArtist.id);
+  }
+
+  // Get art types then call the create array function
+  getArttypes() {
+    this._arttypeService.getArtTypes().subscribe(arttypes => this.createArttypeArray(arttypes));
+  }
+  createArttypeArray(arttypes: ArtType[]) {
+    this.artTypes = arttypes.sort(function (x, y) {
+      if (x.name < y.name) return -1;
+      if (x.name > y.name) return 1;
+      return 0;
+    });
+    this.artworkArttype = arttypes.find(arttype => arttype.id === this.artworkToEdit.mediumID)!;
+    this.artTypes = arttypes.filter(arttype => arttype.id !== this.artworkArttype.id);
+  }
+
+
 }

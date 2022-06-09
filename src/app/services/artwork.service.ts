@@ -29,7 +29,7 @@ export class ArtworkService {
     }));
   }
 
-  getArtorkById(id: number): Observable<Artwork> {
+  getArtworkById(id: number): Observable<Artwork> {
     const accessToken = this._oktaAuth.getAccessToken();
     const headers = {
       Authorization: 'Bearer ' + accessToken,

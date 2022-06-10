@@ -26,9 +26,10 @@
 
         <!-- LocationTypeID input -->
         <div class="form-outline mb-4">
-            <select #locationtype name="locationtypes" id="locationtypesDropdown">
-                <option value="">Select A Location Type</option>
-                <option *ngFor="let locationtype of locationtypes" [value]="locationtype.id">
+            <select name="locationtypes" id="locationtypesDropdown" *ngIf="locationType">
+                <option ngDefaultControl [(ngModel)]="locationToEdit.typeId">Select A Location Type</option>
+                <option value="locationType.id" selected>{{locationType.name}}</option>
+                <option *ngFor="let locationtype of locationtypes" ngDefaultControl [(ngModel)]="locationtype.id">
                     {{ locationtype.name }}
                 </option>
             </select>
@@ -38,7 +39,7 @@
 
 
         <!-- Submit button -->
-        <button type="submit" class="btn btn-primary btn-block mb-4" id="editButton" (click)="edit(locationtype.value)">
+        <button type="submit" class="btn btn-primary btn-block mb-4" id="editButton" (click)="edit()">
             Save Changes
         </button>
     </div>

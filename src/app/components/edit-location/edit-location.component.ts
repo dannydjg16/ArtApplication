@@ -30,16 +30,33 @@ export class EditLocationComponent implements OnInit {
   ngOnInit(): void {
     this._oktaStateService.authState$.subscribe(as => this.userService.getUserByEmail(as.accessToken?.claims.sub!).subscribe(u => this.user = u));
 
-    this._locationService.getLocationById(this.route.snapshot.params['id']).subscribe(loc => this.locationToEdit = loc);
-    this._locationtypeService.getLocationTypes().subscribe(loctyps => this.locationtypes = loctyps);
-    
+    this._locationService.getLocationById(this.route.snapshot.params['id']).subscribe({
+      next: loc => this.locationToEdit = loc ,
+      error: () => null ,
+      complete: () => this.getLocationTypes()
+    });  
   }
 
-  edit(typeID: string) {
-    this.locationToEdit.typeId = +typeID
+  edit() {
     this._locationService.editLocation(this.locationToEdit).subscribe(data => {
       console.log(data);
-    },
-    err => console.log(err));;
+    });
+  }
+
+  // Get location types then call the create array function
+  getLocationTypes() {
+      this._locationtypeService.getLocationTypes().subscribe(locTypes => this.createLocationTypeArray(locTypes));
+  }
+  createLocationTypeArray(locationTypes: LocationType[]) {
+    this.locationtypes = locationTypes.sort(function (x, y) {
+      if (x.name < y.name) return -1;
+      if (x.name > y.name) return 1;
+      return 0;
+    });
+    if (this.locationToEdit) {
+      this.locationType = locationTypes.find(locType => locType.id === this.locationToEdit.id)!;
+      this.locationtypes = locationTypes.filter(locType => locType.id !== this.locationToEdit.id);
+    }
   }
 }
+

@@ -1,7 +1,7 @@
 import Artwork from './artwork';
 
 export default interface Artist{
-    id: number;
+    ID: number;
     name: string;
     bornLocation: string;
     biography: string;

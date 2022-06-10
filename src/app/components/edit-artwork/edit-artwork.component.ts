@@ -100,8 +100,8 @@ export class EditArtworkComponent implements OnInit {
       return 0;
     });
     if (this.artworkToEdit.artistId) {
-    this.artworkArtist = artists.find(artist => artist.id === this.artworkToEdit.artistId)!;
-    this.artists = artists.filter(artist => artist.id !== this.artworkArtist.id);
+    this.artworkArtist = artists.find(artist => artist.ID === this.artworkToEdit.artistId)!;
+    this.artists = artists.filter(artist => artist.ID !== this.artworkArtist.ID);
     }
   }
 

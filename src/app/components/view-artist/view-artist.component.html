@@ -3,7 +3,7 @@
         <a href="#" class="editArtist" *ngIf="artist" routerLink="/editartist/{{artist.id}}">Edit Artist</a>
     </div>
 
-    <div class="artistInfo" id="block_container">
+    <div class="artistInfo" id="block_container" *ngIf="artist">
         <div class="introDetails" id="bloc1">
             <img src="{{artist.pictureURL}}" alt="..." width="130" class="rounded mb-2 img-thumbnail" id="picture">
             <p class="small mb-4"><b>Born:</b> {{artist.bornLocation}}</p>

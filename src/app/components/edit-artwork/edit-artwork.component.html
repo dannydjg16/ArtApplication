@@ -34,15 +34,17 @@
 
         <div class="form-outline mb-4">
             <!-- Artist ID input -->
-            <select name="artists" id="artistsDropdown">
-                <option value="artworkToEdit.artistID">Select An Artist</option>
+            <select name="artists" id="artistsDropdown" *ngIf="artworkArtist">
+                <option value="artworkToEdit.artistId">Select An Artist</option>
+                <option value="artworkArtist.id" selected>{{artworkArtist.name}}</option>
                 <option *ngFor="let artist of artists" ngDefaultControl [(ngModel)]="artist.id">
                     {{ artist.name }}
                 </option>
             </select>
             <!-- Medium ID input -->
-            <select name="arttypes" id="arttypesDropdown">
-                <option ngDefaultControl [(ngModel)]="artworkToEdit.mediumID">Select A Medium</option>
+            <select name="arttypes" id="arttypesDropdown" *ngIf="artworkArttype">
+                <option ngDefaultControl [(ngModel)]="artworkToEdit.mediumId">Select A Medium</option>
+                <option value="artworkArttype.id" selected>{{artworkArttype.name}}</option>
                 <option *ngFor="let arttype of artTypes" ngDefaultControl [(ngModel)]="arttype.id">
                     {{ arttype.name }}
                 </option>

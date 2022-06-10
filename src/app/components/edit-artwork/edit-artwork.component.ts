@@ -44,10 +44,11 @@ export class EditArtworkComponent implements OnInit {
     this._oktaStateService.authState$.subscribe(as => this.userService.getUserByEmail(as.accessToken?.claims.sub!).subscribe(u => this.user = u));
 
     // Set Artwork Picture
-    this._artworkService.getArtworkById(this.route.snapshot.params['id']).subscribe(aw => this.setArtworkAndURL(aw));
-
-    // Calling the method to create all select arrays.
-    this.createArrays();
+    this._artworkService.getArtworkById(this.route.snapshot.params['id']).subscribe({
+      next: (aw) => this.setArtworkAndURL(aw),
+      error: () => null,
+      complete: () => this.createArrays()
+    })
   }
 
   edit() {
@@ -74,7 +75,7 @@ export class EditArtworkComponent implements OnInit {
 
     // Get locations then call the create array function
   getLocations() {
-    this._artistService.getArtists().subscribe(artists => this.createArtistArray(artists));
+    this._locationService.getLocations().subscribe(locations => this.createLocationArray(locations));
   }
   createLocationArray(locations: Location[]) {
     this.locations = locations.sort(function (x, y) {
@@ -82,7 +83,7 @@ export class EditArtworkComponent implements OnInit {
       if (x.locationName > y.locationName) return 1;
       return 0;
     });
-    if (this.artworkToEdit) {
+    if (this.artworkToEdit.locationNow) {
       this.artworkLocation = locations.find(location => location.id === this.artworkToEdit.locationNow)!;
       this.locations = locations.filter(location => location !== this.artworkLocation);
     }
@@ -98,8 +99,10 @@ export class EditArtworkComponent implements OnInit {
       if (x.name > y.name) return 1;
       return 0;
     });
-    this.artworkArtist = artists.find(artist => artist.id === this.artworkToEdit.artistID)!;
+    if (this.artworkToEdit.artistId) {
+    this.artworkArtist = artists.find(artist => artist.id === this.artworkToEdit.artistId)!;
     this.artists = artists.filter(artist => artist.id !== this.artworkArtist.id);
+    }
   }
 
   // Get art types then call the create array function
@@ -112,8 +115,10 @@ export class EditArtworkComponent implements OnInit {
       if (x.name > y.name) return 1;
       return 0;
     });
-    this.artworkArttype = arttypes.find(arttype => arttype.id === this.artworkToEdit.mediumID)!;
+    if (this.artworkToEdit.mediumId) {
+    this.artworkArttype = arttypes.find(arttype => arttype.id === this.artworkToEdit.mediumId)!;
     this.artTypes = arttypes.filter(arttype => arttype.id !== this.artworkArttype.id);
+    }
   }
 
 

@@ -1,6 +1,6 @@
 <body *ngIf="user" class="bodyContainer">
     <div>
-        <a href="#" class="editArtist" routerLink="/editartist/{{artist.id}}">Edit Artist</a>
+        <a href="#" class="editArtist" *ngIf="artist" routerLink="/editartist/{{artist.id}}">Edit Artist</a>
     </div>
 
     <div class="artistInfo" id="block_container">

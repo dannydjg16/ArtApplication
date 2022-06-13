@@ -4,7 +4,9 @@ import { OktaAuthStateService } from '@okta/okta-angular';
 import { AuthState } from '@okta/okta-auth-js';
 import { filter, map, Observable } from 'rxjs';
 import Artist from 'src/app/interfaces/artist';
+import User from 'src/app/interfaces/user';
 import { ArtistService } from 'src/app/services/artist.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-add-artist',
@@ -16,16 +18,20 @@ export class AddArtistComponent implements OnInit {
   public isAuthenticated$!: Observable<boolean>;
   public artistPictureURL = "https://cdn.pixabay.com/photo/2014/08/25/16/17/picture-frame-427233_960_720.jpg";
   @Output() updateArtistsEvent = new EventEmitter<Object>();
+  public user!: User;
 
   constructor(private _oktaStateService: OktaAuthStateService, 
               private _artistService: ArtistService,
-              private _router: Router) { }
+              private _router: Router,
+              private userService: UserService) { }
 
   ngOnInit(): void {
     this.isAuthenticated$ = this._oktaStateService.authState$.pipe(
       filter((s: AuthState) => !!s),
       map((s: AuthState) => s.isAuthenticated ?? false)
     );
+    this._oktaStateService.authState$.subscribe(as => this.userService.getUserByEmail(as.accessToken?.claims.sub!).subscribe(u => this.user = u));
+
   }
 
   add(name: string, url: string, bornLocation: string, born: string, died: string, biography: string, adder: number) {

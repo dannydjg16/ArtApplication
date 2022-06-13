@@ -28,9 +28,9 @@ export class AddArtistComponent implements OnInit {
     );
   }
 
-  add(name: string, url: string, bornLocation: string, born: string, died: string, biography: string) {
+  add(name: string, url: string, bornLocation: string, born: string, died: string, biography: string, adder: number) {
     const artist = {
-      name: name, pictureURL: url, bornLocation: bornLocation, born: born, died: died, biography: biography
+      name: name, pictureURL: url, bornLocation: bornLocation, born: born, died: died, biography: biography, artistAdderID: adder
     }
 
     this._artistService.addArtist(artist as unknown as Artist).subscribe(data => {

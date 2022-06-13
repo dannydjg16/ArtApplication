@@ -8,5 +8,5 @@ export default interface Artist{
     pictureURL: string;
     born: number;
     died: number;
-    ArtistAdderId: number;
+    artistAdderId: number;
 }

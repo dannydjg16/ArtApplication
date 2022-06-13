@@ -4,8 +4,10 @@ import { OktaAuthStateService } from '@okta/okta-angular';
 import { AuthState } from '@okta/okta-auth-js';
 import { filter, map, Observable } from 'rxjs';
 import LocationType from 'src/app/interfaces/locationtype';
+import User from 'src/app/interfaces/user';
 import { LocationService } from 'src/app/services/location.service';
 import { LocationTypeService } from 'src/app/services/locationtype.service';
+import { UserService } from 'src/app/services/user.service';
 import  Location  from '../../interfaces/location';
 
 @Component({
@@ -18,17 +20,21 @@ export class AddLocationComponent implements OnInit {
   public isAuthenticated$!: Observable<boolean>;
   public locationtypes!: LocationType[];
   @Output() updateLocationsEvent = new EventEmitter<Object>();
+  public user!: User;
 
   constructor(private _oktaStateService: OktaAuthStateService, 
               private _locationService: LocationService,
               private _locationtypeService: LocationTypeService,
-              private _router: Router) { }
+              private _router: Router,
+              private _userService: UserService) { }
 
   ngOnInit(): void {
     this.isAuthenticated$ = this._oktaStateService.authState$.pipe(
       filter((s: AuthState) => !!s),
       map((s: AuthState) => s.isAuthenticated ?? false)
     );
+
+    this._oktaStateService.authState$.subscribe(as => this._userService.getUserByEmail(as.accessToken?.claims.sub!).subscribe(u => this.user = u));
 
     this._locationtypeService.getLocationTypes().subscribe(loctyps => 
       this.locationtypes = loctyps.sort(function(x,y) {

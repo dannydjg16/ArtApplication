@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { OktaAuthStateService } from '@okta/okta-angular';
 import { AuthState } from '@okta/okta-auth-js';
 import { filter, map, Observable } from 'rxjs';
@@ -19,12 +19,13 @@ export class ArtistWorksComponent implements OnInit {
   public isAuthenticated$!: Observable<boolean>;
   public artworkss!: Artwork[];
   public signedInUser$!: User;
-  @Input() artist!: Artist;
+  @Input() worksOfArtist!: Artist;
 
   constructor(private _oktaStateService: OktaAuthStateService, 
               private _artworkService: ArtworkService, 
               private _userService: UserService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private _router: Router) { }
 
   ngOnInit(): void {
     this.isAuthenticated$ = this._oktaStateService.authState$.pipe(
@@ -36,6 +37,11 @@ export class ArtistWorksComponent implements OnInit {
     this._oktaStateService.authState$.subscribe(as => this._userService.getUserByEmail(as.accessToken?.claims.sub!).subscribe(u => this.signedInUser$ = u));
 
     this._artworkService.getArtworksByArtist(this.route.snapshot.params['id']).subscribe(aws => this.artworkss = aws);
+  }
+
+  addWorkOfArtist() {
+    var artistIdNumber = this.route.snapshot.params['id'];
+    this._router.navigate([`addwork/${artistIdNumber}`]);
   }
 
 }

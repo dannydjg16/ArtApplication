@@ -37,7 +37,7 @@
             <select name="artists" id="artistsDropdown" *ngIf="artworkArtist">
                 <option value="artworkToEdit.artistId">Select An Artist</option>
                 <option value="artworkArtist.id" selected>{{artworkArtist.name}}</option>
-                <option *ngFor="let artist of artists" ngDefaultControl [(ngModel)]="artist.Id">
+                <option *ngFor="let artist of artists" ngDefaultControl [(ngModel)]="artist.id">
                     {{ artist.name }}
                 </option>
             </select>

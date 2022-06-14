@@ -4,8 +4,7 @@
         <h2>Add To Our Gallery</h2>
         <!-- 2 column grid layout with text inputs for the first and last names -->
         <div class="artImage">
-            <img src="{{artPictureURL}}"
-            alt="Your Picture Here" width="270" class="rounded mb-2 img-thumbnail">
+            <img src="{{artPictureURL}}" alt="Your Picture Here" width="270" class="rounded mb-2 img-thumbnail">
         </div>
 
         <!-- Title input -->
@@ -15,7 +14,8 @@
 
         <!-- File URL input -->
         <div class="form-outline mb-4">
-            <input #url type="text" id="form6Example4" class="form-control" placeholder="URL" (blur)="updateArtPicture(url.value)"/>
+            <input #url type="text" id="form6Example4" class="form-control" placeholder="URL"
+                (blur)="updateArtPicture(url.value)" />
         </div>
 
         <!-- Year Created input -->
@@ -28,51 +28,60 @@
             <textarea #description class="form-control" id="form6Example7" rows="4"
                 placeholder="Description"></textarea>
         </div>
-        
+
         <div class="form-outline mb-4">
 
             <!-- Artist ID input -->
-            <select #artist name="artists" id="artistsDropdown">
+            <!-- <select #artist name="artists" id="artistsDropdown">
                 <option value="">Select An Artist</option>
                 <option *ngIf="artist" value="artist.id" selected>{{artist.name}}</option>
-                <option *ngFor="let artist of artists" [value]="artist.id"> 
+                <option *ngFor="let artist of artists" [value]="artist.id">
                     {{ artist.name }}
+                </option>
+            </select> -->
+
+            <!-- Artist ID input -->
+            <select #addartist name="artists" id="artistsDropdown" >
+                <option value="artist.id">Select An Artist</option>
+                <option value="artist.id" selected>{{artist.name}}</option>
+                <option *ngFor="let iArtist of artists" ngDefaultControl [(ngModel)]="iArtist.id">
+                    {{ iArtist.name }}
                 </option>
             </select>
             <a class="addToSelect" (click)="popUpArtist()">Add Artist</a>
-            <div class="addDiv" *ngIf="whatToAdd=='Artist'"> 
+            <div class="addDiv" *ngIf="whatToAdd=='Artist'">
                 <app-add-artist (updateArtistsEvent)="updateArtists($event)"></app-add-artist>
             </div>
 
             <!-- Medium ID input -->
             <select #medium name="arttypes" id="arttypesDropdown">
                 <option value="">Select A Medium</option>
-                <option *ngFor="let arttype of artTypes" [value]="arttype.id"> 
+                <option *ngFor="let arttype of artTypes" [value]="arttype.id">
                     {{ arttype.name }}
                 </option>
             </select>
-            <a class="addToSelect" (click)="popUpMedium()">Add Medium</a> 
-            <div class="addDiv" *ngIf="whatToAdd=='Medium'"> 
+            <a class="addToSelect" (click)="popUpMedium()">Add Medium</a>
+            <div class="addDiv" *ngIf="whatToAdd=='Medium'">
                 <app-add-art-type (updateArtTypesEvent)="updateArtTypes($event)"></app-add-art-type>
             </div>
 
             <!-- Location ID input -->
             <select #location name="locations" id="locationsDropdown">
                 <option value="">Select A Location</option>
-                <option *ngFor="let location of locations" [value]="location.id"> 
+                <option *ngFor="let location of locations" [value]="location.id">
                     {{ location.locationName }}
                 </option>
             </select>
             <a class="addToSelect" (click)="popUpLocation()">Add Location</a>
-            <div class="addDiv" *ngIf="whatToAdd=='Location'"> 
+            <div class="addDiv" *ngIf="whatToAdd=='Location'">
                 <app-add-location (updateLocationsEvent)="updateLocations($event)"></app-add-location>
             </div>
-            
+
         </div>
 
         <!-- Submit button -->
         <button type="submit" class="btn btn-primary btn-block mb-4" id="addButton"
-            (click)="add(title.value, url.value, year.value, description.value, artist.value, medium.value, location.value, user.id)">Add
+            (click)="add(title.value, url.value, year.value, description.value, addartist.value, medium.value, location.value, user.id)">Add
             Artwork
         </button>
     </form>

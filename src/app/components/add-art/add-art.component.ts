@@ -78,8 +78,8 @@ export class AddArtComponent implements OnInit {
       return 0;
     });
     if (this.route.snapshot.params['id']) {
-      this.artist = artists.find(artist => artist.id === this.route.snapshot.params['id'])!;
-      this.artists = artists.filter(artist => artist.id !== this.route.snapshot.params['id'])!;
+      this.artist = artists.find(artist => artist.id === +this.route.snapshot.params['id'])!;
+      this.artists = artists.filter(artist => artist.id !== +this.route.snapshot.params['id'])!;
     }
   }
 

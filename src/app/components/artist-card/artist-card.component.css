@@ -33,6 +33,7 @@ h5 {
 .card-img-top {
     border-radius: 10px;
     transition:transform 0.25s ease;
+    border: solid 1px black;
 }
 
 .card-img-top:hover {

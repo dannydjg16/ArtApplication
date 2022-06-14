@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { OktaAuthStateService } from '@okta/okta-angular';
 import { AuthState } from '@okta/okta-auth-js';
 import { filter, map, Observable } from 'rxjs';
+import Artist from 'src/app/interfaces/artist';
 import ArtType from 'src/app/interfaces/arttype';
 import User from 'src/app/interfaces/user';
 import { ArtistService } from 'src/app/services/artist.service';
@@ -22,6 +24,7 @@ export class AddArtComponent implements OnInit {
   public isAuthenticated$!: Observable<boolean>;
   public user!: User;
   public artists: any[] = [];
+  artist!: Artist;
   public artTypes!: ArtType[];
   public locations!: Location[];
   public artPictureURL = "https://cdn.pixabay.com/photo/2014/08/25/16/17/picture-frame-427233_960_720.jpg";
@@ -32,7 +35,8 @@ export class AddArtComponent implements OnInit {
     private userService: UserService,
     private _artistService: ArtistService,
     private _arttypeService: ArttypeService,
-    private _locationService: LocationService) { }
+    private _locationService: LocationService,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.isAuthenticated$ = this._oktaStateService.authState$.pipe(
@@ -41,12 +45,7 @@ export class AddArtComponent implements OnInit {
     );
 
     this._oktaStateService.authState$.subscribe(as => this.userService.getUserByEmail(as.accessToken?.claims.sub!).subscribe(u => this.user = u));
-    this._artistService.getArtists().subscribe(artists =>
-      this.artists = artists.sort(function (x, y) {
-        if (x.name < y.name) return -1;
-        if (x.name > y.name) return 1;
-        return 0;
-      }));
+    this._artistService.getArtists().subscribe(artists => this.setArtistArrayAndArtist(artists));
     this._arttypeService.getArtTypes().subscribe(arttypes =>
       this.artTypes = arttypes.sort(function (x, y) {
         if (x.name < y.name) return -1;
@@ -70,6 +69,18 @@ export class AddArtComponent implements OnInit {
     this._artworkService.addArtwork(artwork as unknown as Artwork).subscribe(data => {
       console.log(data);
     });
+  }
+
+  setArtistArrayAndArtist(artists: Artist[]) {
+    this.artists = artists.sort(function (x, y) {
+      if (x.name < y.name) return -1;
+      if (x.name > y.name) return 1;
+      return 0;
+    });
+    if (this.route.snapshot.params['id']) {
+      this.artist = artists.find(artist => artist.ID === this.route.snapshot.params['id'])!;
+      this.artists = artists.filter(artist => artist.ID !== this.route.snapshot.params['id'])!;
+    }
   }
 
   updateArtPicture(url: string) {

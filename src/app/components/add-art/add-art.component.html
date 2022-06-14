@@ -34,6 +34,7 @@
             <!-- Artist ID input -->
             <select #artist name="artists" id="artistsDropdown">
                 <option value="">Select An Artist</option>
+                <option *ngIf="artist" value="artist.id" selected>{{artist.name}}</option>
                 <option *ngFor="let artist of artists" [value]="artist.id"> 
                     {{ artist.name }}
                 </option>

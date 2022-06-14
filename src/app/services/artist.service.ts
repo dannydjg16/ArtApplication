@@ -61,7 +61,7 @@ export class ArtistService {
       Accept: 'application/json'
     };
     
-    const id = typeof artist === 'number' ? artist : artist.ID;
+    const id = typeof artist === 'number' ? artist : artist.Id;
 
     return this.http.put(`${this.baseUrl}/${id}`, artist, { headers: headers }).pipe(catchError((err) => {
       console.error(err);
@@ -76,7 +76,7 @@ export class ArtistService {
       Accept: 'application/json'
     };
 
-    const id = typeof artist === 'number' ? artist : artist.ID;
+    const id = typeof artist === 'number' ? artist : artist.Id;
 
     return this.http.delete<Artist>(`${this.baseUrl}/${id}`, { headers: headers}).pipe(catchError((err) => {
       console.error(err);

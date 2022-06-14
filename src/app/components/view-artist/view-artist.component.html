@@ -1,18 +1,18 @@
 <body *ngIf="user" class="bodyContainer">
     <div>
-        <a href="#" class="editArtist" *ngIf="artist" routerLink="/editartist/{{artist.ID}}">Edit Artist</a>
+        <a href="#" class="editArtist" *ngIf="viewArtist" [routerLink]="['/editartist', viewArtist.ID]">Edit Arst</a>
     </div>
 
-    <div class="artistInfo" id="block_container" *ngIf="artist">
+    <div class="artistInfo" id="block_container" *ngIf="viewArtist">
         <div class="introDetails" id="bloc1">
-            <img src="{{artist.pictureURL}}" alt="..." width="130" class="rounded mb-2 img-thumbnail" id="picture">
-            <p class="small mb-4"><b>Born:</b> {{artist.bornLocation}}</p>
-            <p class="small mb-4"><b>Lived:</b> {{artist.born}}-{{artist.died}}</p>
+            <img src="{{viewArtist.pictureURL}}" alt="..." width="130" class="rounded mb-2 img-thumbnail" id="picture">
+            <p class="small mb-4"><b>Born:</b> {{viewArtist.bornLocation}}</p>
+            <p class="small mb-4"><b>Lived:</b> {{viewArtist.born}}-{{viewArtist.died}}</p>
         </div>
         <div class="description" id="bloc2">
-            <h2 class="mt-0 mb-0 artistName"> {{artist.name}} </h2>
-            <p class="mb-4"> {{artist.biography}}</p>
+            <h2 class="mt-0 mb-0 artistName"> {{viewArtist.name}} </h2>
+            <p class="mb-4"> {{viewArtist.biography}}</p>
         </div>
     </div>
-    <app-artist-works [artist]="artist"></app-artist-works>
+    <app-artist-works *ngIf="viewArtist" [worksOfArtist]="viewArtist"></app-artist-works>
 </body>

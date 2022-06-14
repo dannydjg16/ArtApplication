@@ -32,16 +32,7 @@
         <div class="form-outline mb-4">
 
             <!-- Artist ID input -->
-            <!-- <select #artist name="artists" id="artistsDropdown">
-                <option value="">Select An Artist</option>
-                <option *ngIf="artist" value="artist.id" selected>{{artist.name}}</option>
-                <option *ngFor="let artist of artists" [value]="artist.id">
-                    {{ artist.name }}
-                </option>
-            </select> -->
-
-            <!-- Artist ID input -->
-            <select #addartist name="artists" id="artistsDropdown" >
+            <select #addartist name="artists" id="artistsDropdown">
                 <option value="artist.id">Select An Artist</option>
                 <option value="artist.id" selected>{{artist.name}}</option>
                 <option *ngFor="let iArtist of artists" ngDefaultControl [(ngModel)]="iArtist.id">

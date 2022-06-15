@@ -1,8 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { OktaAuthStateService, OKTA_AUTH } from '@okta/okta-angular';
-import { AuthState, OktaAuth } from '@okta/okta-auth-js';
-import { filter, map, Observable } from 'rxjs';
+import { OktaAuth } from '@okta/okta-auth-js';
+import { Observable } from 'rxjs';
 import User from './interfaces/user';
 import { UserService } from './services/user.service';
 

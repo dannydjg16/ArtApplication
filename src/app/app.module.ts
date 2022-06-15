@@ -4,7 +4,7 @@ import { AppComponent } from './app.component';
 import { UserComponent } from './components/user/user.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { OktaAuthModule, OKTA_CONFIG, OktaCallbackComponent } from '@okta/okta-angular';
+import { OktaAuthModule, OKTA_CONFIG } from '@okta/okta-angular';
 import { OktaAuth } from '@okta/okta-auth-js';
 import { NoAuthNavComponent } from './components/no-auth-nav/no-auth-nav.component';
 import { AuthNavComponent } from './components/auth-nav/auth-nav.component';
@@ -25,7 +25,6 @@ import { LocationGalleryComponent } from './components/location-gallery/location
 import { LocationCardComponent } from './components/location-card/location-card.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { UserArtworksComponent } from './components/user-artworks/user-artworks.component';
-import { UserArtworkCardComponent } from './components/user-artwork-card/user-artwork-card.component';
 import { EditArtworkComponent } from './components/edit-artwork/edit-artwork.component';
 import { ViewArtworkComponent } from './components/view-artwork/view-artwork.component';
 import { EmptyURLComponent } from './components/empty-url/empty-url.component';
@@ -34,7 +33,7 @@ import { FormsModule } from '@angular/forms';
 import { EditLocationComponent } from './components/edit-location/edit-location.component';
 import { AddLocationTypeComponent } from './components/add-location-type/add-location-type.component';
 import { AddArtTypeComponent } from './components/add-art-type/add-art-type.component';
-import { NgbDropdown, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { ViewArtistComponent } from './components/view-artist/view-artist.component';
 import { ArtistWorksComponent } from './components/artist-works/artist-works.component';
 
@@ -71,7 +70,6 @@ const oktaAuth = new OktaAuth({
     LocationCardComponent,
     EditProfileComponent,
     UserArtworksComponent,
-    UserArtworkCardComponent,
     EditArtworkComponent,
     ViewArtworkComponent,
     EmptyURLComponent,

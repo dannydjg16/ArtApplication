@@ -38,6 +38,10 @@ app-post-actions {
     border-radius: 10px;
     transition:transform 0.25s ease;
     border: solid 1px black;
+    box-shadow: -1px 1px #f3f3f3,
+                -2px 2px #f3f3f3,
+                -3px 3px #f3f3f3,
+                -4px 4px #f3f3f3
 }
 
 .card-img-top:active {

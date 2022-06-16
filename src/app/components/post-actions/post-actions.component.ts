@@ -19,14 +19,11 @@ export class PostActionsComponent implements OnInit {
   @Input() theUser : any;
   @Input() liked: any;
 
-  constructor(private _oktaStateService: OktaAuthStateService, 
+  constructor(
               private _likeService: LikeService) { }
 
   ngOnInit(): void {
-    this.isAuthenticated$ = this._oktaStateService.authState$.pipe(
-      filter((s: AuthState) => !!s),
-      map((s: AuthState) => s.isAuthenticated ?? false)
-    );
+
   }
 
   public LikePost(art: Artwork, user: User) {

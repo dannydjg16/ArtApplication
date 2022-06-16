@@ -54,8 +54,8 @@ export class EditLocationComponent implements OnInit {
       return 0;
     });
     if (this.locationToEdit) {
-      this.locationType = locationTypes.find(locType => locType.id === this.locationToEdit.id)!;
-      this.locationtypes = locationTypes.filter(locType => locType.id !== this.locationToEdit.id);
+      this.locationType = locationTypes.find(locType => locType.id === this.locationToEdit.typeId)!;
+      this.locationtypes = locationTypes.filter(locType => locType.id !== this.locationToEdit.typeId);
     }
   }
 }

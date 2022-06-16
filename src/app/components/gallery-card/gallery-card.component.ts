@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import Artwork from 'src/app/interfaces/artwork';
+import User from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-gallery-card',
@@ -8,12 +10,14 @@ import { Component, Input, OnInit } from '@angular/core';
 export class GalleryCardComponent implements OnInit {
 
   @Input() theArtwork : any;
-  @Input() theUser: any;
+  @Input() theUser!: User;
   @Input() liked: any;
+  @Input() usersLikes!: Artwork[];
+  hasUserLiked!: boolean;
 
   constructor() { }
 
   ngOnInit(): void {
-  }
 
+  }
 }

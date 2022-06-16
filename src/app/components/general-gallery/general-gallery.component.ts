@@ -5,6 +5,7 @@ import { filter, map, Observable } from 'rxjs';
 import Artwork from 'src/app/interfaces/artwork';
 import User from 'src/app/interfaces/user';
 import { ArtworkService } from 'src/app/services/artwork.service';
+import { LikeService } from 'src/app/services/like.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -17,10 +18,12 @@ export class GeneralGalleryComponent implements OnInit {
   public isAuthenticated$!: Observable<boolean>;
   public artworkss!: Artwork[];
   public signedInUser$!: User;
+  user!: User;
 
-  constructor(private _oktaStateService: OktaAuthStateService, 
-              private _artworkService: ArtworkService, 
-              private _userService: UserService) { }
+  constructor(private _oktaStateService: OktaAuthStateService,
+    private _artworkService: ArtworkService,
+    private _userService: UserService,
+    private _likeService: LikeService) { }
 
   ngOnInit(): void {
     this.isAuthenticated$ = this._oktaStateService.authState$.pipe(
@@ -28,9 +31,13 @@ export class GeneralGalleryComponent implements OnInit {
       map((s: AuthState) => s.isAuthenticated ?? false)
     );
 
-    // Getting the signed in user to pass to the gallery card to pass to the post action
-    this._oktaStateService.authState$.subscribe(as => this._userService.getUserByEmail(as.accessToken?.claims.sub!).subscribe(u => this.signedInUser$ = u));
-
+    this._oktaStateService.authState$.subscribe(as => this._userService.getUserByEmail(as.accessToken?.claims.sub!)
+      .subscribe({
+        next: (user) => this.user = user,
+        error: () => null,
+        complete: () => null
+      }));
+        
     this._artworkService.getArtworks().subscribe(aws => this.artworkss = aws);
   }
 }

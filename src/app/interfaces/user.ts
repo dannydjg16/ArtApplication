@@ -6,5 +6,5 @@ export default interface User{
     name: string;
     fromLocation: string;
     profilePicURL: string;
-    likes: Like[];
+    likes?: Like[];
 }

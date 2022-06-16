@@ -39,7 +39,7 @@ export class AppComponent implements OnInit {
         this.userService.getUserByEmail(as.accessToken?.claims.sub!)
           .subscribe({
             next: (user) => this.navigateToGallery(),
-            error: (err) => this.userService.addUser({ id: 0, email: as.accessToken?.claims.sub!, name: as.accessToken?.claims.name!, fromLocation: '', profilePicURL: '' })
+            error: (err) => this.userService.addUser({ id: 0, email: as.accessToken?.claims.sub!, name: as.accessToken?.claims.name!, fromLocation: '', profilePicURL: ''})
               .subscribe({
                 next: (a) => a,
                 error: (error) => 1+1

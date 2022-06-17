@@ -18,6 +18,12 @@ export class GalleryCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-
+    // if (this.theUser.likes?.length) {
+    //   for (var i=0; i<=this.theUser.likes!.length; i++) {
+    //     if (this.theUser.likes[i].artId == this.theArtwork.id) {
+    //       this.hasUserLiked = true;
+    //     }
+    //   }
+    // }
   }
 }

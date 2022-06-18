@@ -5,7 +5,6 @@ import { filter, map, Observable } from 'rxjs';
 import Artwork from 'src/app/interfaces/artwork';
 import User from 'src/app/interfaces/user';
 import { ArtworkService } from 'src/app/services/artwork.service';
-import { LikeService } from 'src/app/services/like.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -22,8 +21,7 @@ export class GeneralGalleryComponent implements OnInit {
 
   constructor(private _oktaStateService: OktaAuthStateService,
     private _artworkService: ArtworkService,
-    private _userService: UserService,
-    private _likeService: LikeService) { }
+    private _userService: UserService) { }
 
   ngOnInit(): void {
     this.isAuthenticated$ = this._oktaStateService.authState$.pipe(

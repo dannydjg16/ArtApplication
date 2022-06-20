@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { OktaAuthStateService } from '@okta/okta-angular';
 import Artwork from 'src/app/interfaces/artwork';
 import User from 'src/app/interfaces/user';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-gallery-card',
@@ -9,21 +11,31 @@ import User from 'src/app/interfaces/user';
 })
 export class GalleryCardComponent implements OnInit {
 
-  @Input() theArtwork : any;
+  @Input() theArtwork!: Artwork;
   @Input() theUser!: User;
   @Input() liked: any;
-  @Input() usersLikes!: Artwork[];
   hasUserLiked!: boolean;
+  user!: User;
 
-  constructor() { }
+  constructor(private _oktaStateService: OktaAuthStateService,
+              private _userService: UserService) { }
 
   ngOnInit(): void {
-    // if (this.theUser.likes?.length) {
-    //   for (var i=0; i<=this.theUser.likes!.length; i++) {
-    //     if (this.theUser.likes[i].artId == this.theArtwork.id) {
-    //       this.hasUserLiked = true;
-    //     }
-    //   }
-    // }
+    this._oktaStateService.authState$.subscribe(as => this._userService.getUserByEmail(as.accessToken?.claims.sub!)
+      .subscribe({
+        next: (user) => this.user = user,
+        error: () => null,
+        complete: () => this.checkIfUserLiked(this.user)
+      }));
+  }
+
+  checkIfUserLiked(user: User) {
+    if (this.user.likes?.length) {
+      for (var i = 0; i <= this.theUser.likes!.length; i++) {
+        if (this.user.likes[i].artId == this.theArtwork.id) {
+          this.hasUserLiked = true;
+        }
+      }
+    }
   }
 }

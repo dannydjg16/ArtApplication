@@ -1,4 +1,4 @@
-<div class="col-md-3 cardDiv">
+<div class="col-md-3 cardDiv" *ngIf=(theUser)>
   <div class="card" style="width: 18rem;">
     <app-post-actions *ngIf="hasUserLiked" [theArtwork]=theArtwork [theUser]=theUser [liked]=true></app-post-actions>
     <app-post-actions *ngIf="!hasUserLiked"[theArtwork]=theArtwork [theUser]=theUser [liked]=liked></app-post-actions>

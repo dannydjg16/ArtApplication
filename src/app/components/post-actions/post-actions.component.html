@@ -2,5 +2,5 @@
     <a *ngIf="(liked) == 3" routerLink="/editart/{{theArtwork.id}}">Edit Post</a>
     <a *ngIf="(liked) == 2" (click)="LikePost(theArtwork, theUser)">Add to Your Gallery</a>
     <a *ngIf="(liked) == 4" (click)="UnlikePost(theArtwork, theUser)">Remove From Gallery</a>
-    <a *ngIf="(liked) == true" (click)="UnlikePost(theArtwork, theUser)">Remove From the Gallery!</a>
+    <a *ngIf="(liked) == true" (click)="UnlikePost(theArtwork, theUser)">Remove From Your Gallery</a>
 </div>

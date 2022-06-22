@@ -1,6 +1,7 @@
 <ng-container *ngIf="(isAuthenticated$ | async) === true;">
 
   <body>
+
     <div class="container-fluid">
       <div class="px-lg-5">
         <div class="row py-5">
@@ -12,9 +13,12 @@
         </div>
       </div>
     </div>
+
     <div class="row cardDiv">
-      <div class="noLikes" *ngIf="likedArtworks?.length === 0"><button class="button-18 btn" role="button" routerLink="/gallery">Add Art to Your Gallery!</button></div>
-      
+      <div class="noLikes" *ngIf="likedArtworks?.length === 0">
+        <button class="button-18 btn" role="button" routerLink="/gallery">Add Art to Your Gallery!</button>
+      </div>
+
       <div *ngFor="let artwork of likedArtworks">
         <app-gallery-card [theArtwork]="artwork" [liked]="4" [theUser]="theUser"></app-gallery-card>
       </div>

@@ -21,11 +21,11 @@ export class ArtistWorksComponent implements OnInit {
   public signedInUser$!: User;
   @Input() worksOfArtist!: Artist;
 
-  constructor(private _oktaStateService: OktaAuthStateService, 
-              private _artworkService: ArtworkService, 
-              private _userService: UserService,
-              private route: ActivatedRoute,
-              private _router: Router) { }
+  constructor(private _oktaStateService: OktaAuthStateService,
+    private _artworkService: ArtworkService,
+    private _userService: UserService,
+    private route: ActivatedRoute,
+    private _router: Router) { }
 
   ngOnInit(): void {
     this.isAuthenticated$ = this._oktaStateService.authState$.pipe(
@@ -34,9 +34,12 @@ export class ArtistWorksComponent implements OnInit {
     );
 
     // Getting the signed in user to pass to the gallery card to pass to the post action
-    this._oktaStateService.authState$.subscribe(as => this._userService.getUserByEmail(as.accessToken?.claims.sub!).subscribe(u => this.signedInUser$ = u));
+    this._oktaStateService.authState$
+      .subscribe(as => this._userService.getUserByEmail(as.accessToken?.claims.sub!)
+        .subscribe(u => this.signedInUser$ = u));
 
-    this._artworkService.getArtworksByArtist(this.route.snapshot.params['id']).subscribe(aws => this.artworkss = aws);
+    this._artworkService.getArtworksByArtist(this.route.snapshot.params['id'])
+      .subscribe(aws => this.artworkss = aws);
   }
 
   addWorkOfArtist() {

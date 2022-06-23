@@ -37,5 +37,4 @@ export class ViewLocationComponent implements OnInit {
   navigateToWebsite(){
     window.location.assign(this.viewLocation.locationUrl);
   }
-
 }

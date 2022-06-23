@@ -34,8 +34,8 @@
             <!-- Artist ID input -->
             <select #addartist name="artists" id="artistsDropdown">
                 <option value="artist.id">Select An Artist</option>
-                <option value="artist.id" selected>{{artist.name}}</option>
-                <option *ngFor="let iArtist of artists" ngDefaultControl [(ngModel)]="iArtist.id">
+                <option *ngIf="artist" name="addFromArtist" value="artist.id" selected>{{artist.name}}</option>
+                <option *ngFor="let iArtist of artists" ngDefaultControl name="artistArrayLoop" [(ngModel)]="iArtist.id">
                     {{ iArtist.name }}
                 </option>
             </select>

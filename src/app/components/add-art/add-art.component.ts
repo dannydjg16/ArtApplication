@@ -84,7 +84,9 @@ export class AddArtComponent implements OnInit {
   }
 
   updateArtPicture(url: string) {
-    this.artPictureURL = url;
+    if (url){
+      this.artPictureURL = url;
+    }
   }
 
   // Updating Select for Locations when a new location is added

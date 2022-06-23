@@ -53,6 +53,8 @@ export class AddArtistComponent implements OnInit {
   }
 
   updateArtistPicture(url: string) {
-    this.artistPictureURL = url;
+    if (url){
+      this.artistPictureURL = url;
+    }
   }
 }

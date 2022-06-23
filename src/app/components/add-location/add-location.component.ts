@@ -50,7 +50,7 @@ export class AddLocationComponent implements OnInit {
     };
 
     this._locationService.addLocation(location as unknown as Location).subscribe(data => {
-      this.updateLocationTypes(data);
+      this.updateLocations(data);
     });
   }
 

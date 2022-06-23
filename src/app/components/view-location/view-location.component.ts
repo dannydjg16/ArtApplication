@@ -34,4 +34,8 @@ export class ViewLocationComponent implements OnInit {
       .subscribe(location => this.viewLocation = location);
   }
 
+  navigateToWebsite(){
+    window.location.assign(this.viewLocation.locationUrl);
+  }
+
 }

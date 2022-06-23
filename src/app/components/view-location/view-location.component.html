@@ -1,13 +1,13 @@
 <body *ngIf="user" class="bodyContainer">
     <div>
-        <!-- <a href="#" class="editLocation" *ngIf="viewLocation" [routerLink]="['/editlocation', viewLocation.id]">Edit Location</a> -->
+        <a href="#" class="editLocation" *ngIf="viewLocation" [routerLink]="['/editlocation', viewLocation.id]">Edit Location</a>
     </div>
 
     <div class="locationInfo" id="block_container" *ngIf="viewLocation">
         <div class="description" id="bloc2">
             <h2 class="mt-0 mb-0 locationName"> {{viewLocation.locationName}} </h2>
             <p class="mb-4"> {{viewLocation.description}}</p>
-            <a href="viewLocation.locationUrl"><p class="mb-4 website">View Website</p></a>
+            <a (click)="navigateToWebsite()"><p class="mb-4 website">View Website</p></a>
         </div>
     </div>
 

@@ -1,1 +1,17 @@
-<p>view-location works!</p>
+<body *ngIf="user" class="bodyContainer">
+    <div>
+        <!-- <a href="#" class="editLocation" *ngIf="viewLocation" [routerLink]="['/editlocation', viewLocation.id]">Edit Location</a> -->
+    </div>
+
+    <div class="locationInfo" id="block_container" *ngIf="viewLocation">
+        <div class="introDetails" id="bloc1">
+            <a href="viewLocation.locationUrl"><p class="small mb-4"><b>View Website</b></p></a>
+        </div>
+        <div class="description" id="bloc2">
+            <h2 class="mt-0 mb-0 locationName"> {{viewLocation.locationName}} </h2>
+            <p class="mb-4"> {{viewLocation.description}}</p>
+        </div>
+    </div>
+
+    <!-- <app-artist-works *ngIf="viewArtist" [worksOfArtist]="viewArtist"></app-artist-works> -->
+</body>

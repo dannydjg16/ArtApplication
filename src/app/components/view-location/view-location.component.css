@@ -55,3 +55,11 @@ a {
     margin-bottom: 25px;
 
 }
+
+.description {
+    padding-right: 10px;
+}
+
+.website {
+    text-decoration: underline;
+}

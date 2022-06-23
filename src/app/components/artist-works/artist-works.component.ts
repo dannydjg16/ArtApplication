@@ -17,7 +17,7 @@ import { UserService } from 'src/app/services/user.service';
 export class ArtistWorksComponent implements OnInit {
 
   public isAuthenticated$!: Observable<boolean>;
-  public artworkss!: Artwork[];
+  public artworkss: Artwork[] = [];
   public signedInUser$!: User;
   @Input() worksOfArtist!: Artist;
 

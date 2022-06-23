@@ -1,3 +1,4 @@
+<!-- This is the div to show if the user has NOT liked the artwork -->
 <div class="col-md-3 cardDiv" *ngIf=!hasUserLiked; else userLikedBlock>
   <div class="card" style="width: 18rem;">
     <app-post-actions *ngIf="hasUserLiked" [theArtwork]=theArtwork [theUser]=theUser [liked]=true></app-post-actions>
@@ -11,6 +12,8 @@
   </div>
 </div>
 
+
+<!-- This is the div to show if the user has liked the artwork -->
 <div class="col-md-3 cardDiv likedCard" *ngIf=hasUserLiked>
   <div class="card" style="width: 18rem;">
     <app-post-actions *ngIf="hasUserLiked" [theArtwork]=theArtwork [theUser]=theUser [liked]=true></app-post-actions>

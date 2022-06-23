@@ -46,5 +46,4 @@ export class ArtistWorksComponent implements OnInit {
     var artistIdNumber = this.route.snapshot.params['id'];
     this._router.navigate([`addwork/${artistIdNumber}`]);
   }
-
 }

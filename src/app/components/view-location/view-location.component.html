@@ -10,6 +10,6 @@
             <a (click)="navigateToWebsite()"><p class="mb-4 website">View Website</p></a>
         </div>
     </div>
-    <app-location-works [locationWorks]="viewLocation.artworks" [location]="viewLocation"></app-location-works>
+    <app-location-works *ngIf="viewLocation" [locationWorks]="viewLocation.artworks" [location]="viewLocation"></app-location-works>
     <!-- <app-artist-works *ngIf="viewArtist" [worksOfArtist]="viewArtist"></app-artist-works> -->
 </body>

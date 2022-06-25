@@ -63,7 +63,7 @@ export class AddArtComponent implements OnInit {
   add(title: string, url: string, year: string, description: string, artist: string, medium: string, location: string, adder: number) {
     const artwork = {
       title: title, filename: url, yearCreated: Number(year), description: description, locationNow: Number(location),
-      artistID: Number(artist), mediumID: Number(medium), artworkAdderID: adder
+      artistId: Number(artist), mediumID: Number(medium), artworkAdderID: adder
     }
 
     this._artworkService.addArtwork(artwork as unknown as Artwork).subscribe(data => {

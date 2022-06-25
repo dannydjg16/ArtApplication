@@ -12,4 +12,6 @@ export default interface Artwork{
     artistId: number;
     mediumId: number;
     artworkAdderId: number;
+
+    artist: Artist;
 }

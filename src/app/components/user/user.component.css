@@ -26,6 +26,10 @@ a {
     margin-left: auto;
     margin-right: auto;
     width: 25%;
+    height: auto; 
+    width: auto; 
+    max-width: 150px; 
+    max-height: 150px;
 }
 
 .editProfile {

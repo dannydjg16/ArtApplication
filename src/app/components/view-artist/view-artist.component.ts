@@ -27,7 +27,7 @@ export class ViewArtistComponent implements OnInit {
   ngOnInit(): void {
     this._oktaStateService.authState$
       .subscribe(as => this.userService.getUserByEmail(as.accessToken?.claims.sub!)
-        .subscribe(u => this.setArtistAndUser(u)))
+        .subscribe(u => this.setArtistAndUser(u)));
   }
 
   setArtistAndUser(user: User) {

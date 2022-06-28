@@ -1,3 +1,13 @@
+.form-outline {
+    margin-top: 2%;
+}
+
+.artistImage {
+    display: table;
+    margin-right: auto;
+    margin-left: auto;
+}
+
 #addArtistForm {
     margin: 30px;
     margin-left: 18%;
@@ -11,14 +21,4 @@
     margin-top: 2%;
     background-color: rgb(76, 51, 117);
     border-color: black;
-}
-
-.form-outline {
-    margin-top: 2%;
-}
-
-.artistImage {
-    display: table;
-    margin-right: auto;
-    margin-left: auto;
 }

@@ -1,24 +1,20 @@
+a {
+    color: rgb(76, 51, 117);;
+}
+
 #addArtForm {
     margin: 30px;
     margin-left: 18%;
     margin-right: 18%;
 }
 
-#addButton {
-    width: 50%;
-    margin-left: 25%;
-    margin-right: 25%;
-    margin-top: 2%;
-    background-color: rgb(76, 51, 117);
-    border-color: black;
+
+select {
+    margin-right: 10px;
 }
 
 .form-outline {
     margin-top: 2%;
-}
-
-select {
-    margin-right: 10px;
 }
 
 .artImage {
@@ -39,6 +35,11 @@ select {
     margin-bottom: 10px;
 }
 
-a {
-    color: rgb(76, 51, 117);;
+#addButton {
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 2%;
+    background-color: rgb(76, 51, 117);
+    border-color: black;
 }

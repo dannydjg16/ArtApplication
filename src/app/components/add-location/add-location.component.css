@@ -1,3 +1,16 @@
+select {
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+a {
+    color: rgb(76, 51, 117);;
+}
+
+.form-outline {
+    margin-top: 2%;
+}
+
 #addLocationForm {
     margin: 30px;
     margin-left: 18%;
@@ -11,17 +24,4 @@
     margin-top: 2%;
     background-color: rgb(76, 51, 117);
     border-color: black;
-}
-
-.form-outline {
-    margin-top: 2%;
-}
-
-select {
-    margin-bottom: 10px;
-    margin-right: 10px;
-}
-
-a {
-    color: rgb(76, 51, 117);;
 }

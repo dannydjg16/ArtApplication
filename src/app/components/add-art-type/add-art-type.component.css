@@ -1,3 +1,13 @@
+.container {
+    margin: 30px;
+    margin-right: 18%;
+    max-width: 100%;
+}
+
+.form-outline {
+    margin-top: 2px;
+}
+
 #addForm {
     margin: 30px;
     margin-right: 18%;
@@ -14,16 +24,6 @@
     margin: 30px;
     margin-right: 18%;
     border-right: 18%;
-}
-
-.container {
-    margin: 30px;
-    margin-right: 18%;
-    max-width: 100%;
-}
-
-.form-outline {
-    margin-top: 2px;
 }
 
 #addButton {

@@ -31,7 +31,7 @@ export class ViewArtworkComponent implements OnInit {
 
   setArtworkAndUser(user: User) {
     this.user = user
-    this._artworkService.getArtworkById(this.route.snapshot.params['id'])
+    this._artworkService.getFullArtworkById(this.route.snapshot.params['id'])
       .subscribe(artwork => this.setArtworkAndUrl(artwork));
   }
 

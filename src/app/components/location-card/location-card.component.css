@@ -33,6 +33,15 @@ app-post-actions {
 
 .card-title {
     text-align: center;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    margin-top: 5px;
+    cursor: pointer;
+    color: rgb(76, 51, 117);
+}
+
+.card-title:hover {
+    text-decoration: underline ;
 }
 
 .card-text {

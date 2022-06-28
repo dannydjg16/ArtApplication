@@ -1,13 +1,11 @@
 <div class=" col-md-3 cardDiv">
   <div class="card" style="width: 18rem;">
-    <div class="postAction">
-      <a routerLink="/viewlocation/{{theLocation.id}}">View Location</a>
-    </div>
     <div class="card-body">
-      <h5 class="card-title">{{theLocation.locationName}}</h5>
+      <p class="card-title" routerLink="/viewlocation/{{theLocation.id}}">{{theLocation.locationName}}</p>
       <p class="card-text">{{theLocation.description}}</p>
-      <a class="aClass" href="{{theLocation.locationUrl}}" target="_blank" rel="noopener noreferrer">-website-</a>
-
     </div>
+    <div class="postAction">
+      <a href="{{theLocation.locationUrl}}" target="_blank" rel="noopener noreferrer">Visit Website</a>
+</div>
   </div>
 </div>

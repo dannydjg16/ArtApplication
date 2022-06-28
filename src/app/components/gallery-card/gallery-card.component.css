@@ -1,3 +1,13 @@
+h5 {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+app-post-actions {
+    position: relative;
+    bottom: 0px;
+}
+
 .cardDiv {
     border: 1px solid rgb(0, 0, 0);
     margin: 1px;
@@ -17,21 +27,17 @@
     background-color: rgb(236, 236, 248);
 }
 
-h5 {
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-}
 .card {
     margin: 0 auto;
 }
 
-app-post-actions {
-    position: relative;
-    bottom: 0px;
-}
-
 .card-title {
     text-align: center;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    margin-top: 5px;
+    cursor: pointer;
+    color: rgb(76, 51, 117);
 }
 
 .card-text {
@@ -45,7 +51,7 @@ app-post-actions {
     box-shadow: -1px 1px #f3f3f3,
                 -2px 2px #f3f3f3,
                 -3px 3px #f3f3f3,
-                -4px 4px #f3f3f3
+                -4px 4px #f3f3f3;
 }
 
 .card-img-top:active {

@@ -1,6 +1,6 @@
 body {
-    margin-left: 10px;
-    width: 100%;
+    margin-left: 175px;
+    margin-right: 175px;
 }
 
 a {
@@ -36,6 +36,20 @@ a {
     padding-right: 10px;
 }
 
+.locationName {
+    font-style: italic;
+    margin-bottom: 25px;
+
+}
+
+.description {
+    padding-right: 10px;
+}
+
+.website {
+    text-decoration: underline;
+}
+
 #block_container {
     display: flex;
     justify-content: center;
@@ -49,18 +63,4 @@ a {
 #bloc2 {
     padding-top: 30px;
     padding-bottom: 50px;
-}
-
-.locationName {
-    font-style: italic;
-    margin-bottom: 25px;
-
-}
-
-.description {
-    padding-right: 10px;
-}
-
-.website {
-    text-decoration: underline;
 }

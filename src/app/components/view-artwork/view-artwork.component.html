@@ -12,11 +12,11 @@
             <p class="mb-4"> {{artwork.description}}</p>
             <p class="small mb-4"><b>Year:</b> {{artwork.yearCreated}}</p>
             <p class="small mb-4"><b># of Likes:</b> {{artwork.likes}}</p>
-            <p class="small mb-4"><b>Location:</b> {{artwork.location.locationName}}</p>
         </div>
     </div>
     <div class="cardsDiv">
         <app-artist-card [theArtist]="artwork.artist"></app-artist-card>
+        <app-location-card [theLocation]="artwork.location"></app-location-card>
     </div>
     
     <!-- <app-artist-works *ngIf="viewArtist" [worksOfArtist]="viewArtist"></app-artist-works> -->

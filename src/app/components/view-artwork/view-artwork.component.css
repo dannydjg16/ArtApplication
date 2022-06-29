@@ -1,6 +1,12 @@
+app-artist-card {
+    min-width: 200;
+}
+
 body {
+    margin-top: 100px;
     margin-left: 175px;
     margin-right: 175px;
+    margin-bottom: 100px;
 }
 
 a {
@@ -47,7 +53,7 @@ a {
 }
 
 #bloc2 {
-    padding-top: 30px;
+    padding-top: 0px;
     padding-bottom: 50px;
 }
 

@@ -1,7 +1,4 @@
 <body *ngIf="user" class="bodyContainer">
-    <!-- <div>
-        <a href="#" class="editArtist" *ngIf="userAddedArtist" [routerLink]="['/editartist', viewArtist.id]">Edit Artist</a>
-    </div> -->
 
     <div class="artworkInfo" id="block_container" *ngIf="artwork">
         <div class="introDetails" id="bloc1">
@@ -10,14 +7,14 @@
         <div class="description" id="bloc2">
             <h2 class="mt-0 mb-0 artworkName"> {{artwork.title}} </h2>
             <p class="mb-4"> {{artwork.description}}</p>
-            <p class="small mb-4"><b>Year:</b> {{artwork.yearCreated}}</p>
-            <p class="small mb-4"><b># of Likes:</b> {{artwork.likes}}</p>
+            <p class="small mb-4"><b>Year: </b> {{artwork.yearCreated}}</p>
+            <p class="small mb-4"><b># of Likes: </b> {{artwork.likes}}</p>
+            <p class="small mb-4"><b>Artist: </b> <a routerLink="/viewartist/artwork.artistId">{{artwork.artist.name}}</a></p>
+            <p class="small mb-4"><b>Location: </b> <a routerLink="/viewlocation/artwork.locationNow">{{artwork.location.locationName}}</a></p>
         </div>
     </div>
-    <div class="cardsDiv">
+    <!-- <div class="cardsDiv">
         <app-artist-card [theArtist]="artwork.artist"></app-artist-card>
         <app-location-card [theLocation]="artwork.location"></app-location-card>
-    </div>
-    
-    <!-- <app-artist-works *ngIf="viewArtist" [worksOfArtist]="viewArtist"></app-artist-works> -->
+    </div> -->
 </body>

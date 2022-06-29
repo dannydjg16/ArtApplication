@@ -6,11 +6,12 @@
     padding-top: 6px;
     border-radius: 10px;
     overflow: scroll;
-    max-height: 400px;
+    max-height: 333px;
     margin-bottom: 10px;
     margin-left: 50px;
     max-width: 275px;
     position: relative;
+    min-height: 333px;
 }
 
 h5 {

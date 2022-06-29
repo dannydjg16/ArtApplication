@@ -1,5 +1,5 @@
 import Artist from "./artist";
-import ArtType from "./arttype";
+import Location from "./location";
 
 export default interface Artwork{
     id: number;
@@ -14,4 +14,5 @@ export default interface Artwork{
     artworkAdderId: number;
 
     artist: Artist;
+    location: Location
 }

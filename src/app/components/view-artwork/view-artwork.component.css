@@ -39,7 +39,7 @@ a {
 
 .artworkName {
     font-style: italic;
-    margin-bottom: 25px;
+    margin-bottom: 18px;
 }
 
 #block_container {
@@ -55,9 +55,4 @@ a {
 #bloc2 {
     padding-top: 0px;
     padding-bottom: 50px;
-}
-
-.cardsDiv {
-    min-height: 410px;
-    margin-left: 30%;
 }

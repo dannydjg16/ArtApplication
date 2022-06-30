@@ -5,16 +5,15 @@
             <img src="{{artwork.fileName}}" alt="{{artwork.title}}" width="180" class="rounded mb-2 img-thumbnail">
         </div>
         <div class="description" id="bloc2">
-            <h2 class="mt-0 mb-0 artworkName"> {{artwork.title}} </h2>
+            <h2 class="mt-0 mb-0 artworkName"> {{artwork.title}}, {{artwork.yearCreated}}</h2>
+            <h5 class="mb-4">
+                <a routerLink="/viewartist/{{artwork.artistId}}">{{artwork.artist.name}}</a> | 
+                <a routerLink="/viewlocation/{{artwork.locationNow}}">{{artwork.location.locationName}}</a> |
+                {{artwork.medium.name}} 
+            </h5>
             <p class="mb-4"> {{artwork.description}}</p>
-            <p class="small mb-4"><b>Year: </b> {{artwork.yearCreated}}</p>
-            <p class="small mb-4"><b># of Likes: </b> {{artwork.likes}}</p>
-            <p class="small mb-4"><b>Artist: </b> <a routerLink="/viewartist/artwork.artistId">{{artwork.artist.name}}</a></p>
-            <p class="small mb-4"><b>Location: </b> <a routerLink="/viewlocation/artwork.locationNow">{{artwork.location.locationName}}</a></p>
-        </div>
+            <p class="small mb-4"><b>Likes: </b> {{artwork.likes}}</p>
+         </div>
     </div>
-    <!-- <div class="cardsDiv">
-        <app-artist-card [theArtist]="artwork.artist"></app-artist-card>
-        <app-location-card [theLocation]="artwork.location"></app-location-card>
-    </div> -->
+
 </body>

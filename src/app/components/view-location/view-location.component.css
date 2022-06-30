@@ -1,6 +1,7 @@
 body {
     margin-left: 175px;
     margin-right: 175px;
+    margin-bottom: 50px;
 }
 
 a {
@@ -44,10 +45,6 @@ a {
 
 .description {
     padding-right: 10px;
-}
-
-.website {
-    text-decoration: underline;
 }
 
 #block_container {

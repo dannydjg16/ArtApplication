@@ -40,6 +40,25 @@ a {
     margin-bottom: 25px;
 }
 
+.card-img-top {
+    transition:transform 0.25s ease;
+    border: solid 1px black;
+    box-shadow: -1px 1px #f3f3f3,
+                -2px 2px #f3f3f3,
+                -3px 3px #f3f3f3,
+                -4px 4px #f3f3f3;
+}
+
+.card-img-top:active {
+    -webkit-transform:scale(1.5); 
+    transform:scale(1.5);
+    overflow:visible;
+}
+
+.card-img-top:hover {
+    cursor: pointer;
+}
+
 #block_container {
     display: flex;
     justify-content: center;

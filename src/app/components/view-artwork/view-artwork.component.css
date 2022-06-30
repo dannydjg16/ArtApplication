@@ -42,6 +42,22 @@ a {
     margin-bottom: 18px;
 }
 
+.card-img-top {
+    transition:transform 0.25s ease;
+    border: solid 1px black;
+
+}
+
+.card-img-top:active {
+    -webkit-transform:scale(1.6); 
+    transform:scale(1.6);
+    overflow:visible;
+}
+
+.card-img-top:hover {
+    cursor: pointer;
+}
+
 #block_container {
     display: flex;
     justify-content: center;

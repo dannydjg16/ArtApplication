@@ -14,8 +14,8 @@ app-post-actions {
     max-height: 400px;
     margin-bottom: 10px;
     margin-left: 50px;
-    max-width: 275px;
     position: relative;
+    min-width: 250px;
 }
 
 .likedCard {

@@ -9,10 +9,11 @@
             <h5 class="mb-4">
                 <a routerLink="/viewartist/{{artwork.artistId}}">{{artwork.artist.name}}</a> | 
                 <a routerLink="/viewlocation/{{artwork.locationNow}}">{{artwork.location.locationName}}</a> |
-                {{artwork.medium.name}} 
+                {{artwork.medium.name}} | 
+                <a *ngIf=!hasUserLiked (click)="LikePost(artwork, user)">Add To Your Gallery</a> 
+                <a *ngIf=hasUserLiked (click)="UnlikePost(artwork, user)">Remove From Gallery</a>
             </h5>
             <p class="mb-4"> {{artwork.description}}</p>
-            <p class="small mb-4"><b>Likes: </b> {{artwork.likes}}</p>
          </div>
     </div>
 

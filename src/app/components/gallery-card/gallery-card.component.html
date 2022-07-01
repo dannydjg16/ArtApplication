@@ -16,7 +16,7 @@
 
 <!-- This is the div to show if the user has liked the artwork -->
 <div class="col-md-3 cardDiv likedCard" *ngIf=hasUserLiked>
-  <div class="card" style="width: 18rem;">
+  <div class="card" style="width: 18rem;" routerLink="/viewartwork/{{theArtwork.id}}">
     <app-post-actions *ngIf="hasUserLiked" [theArtwork]=theArtwork [theUser]=theUser [liked]=true></app-post-actions>
     <app-post-actions *ngIf="!hasUserLiked"[theArtwork]=theArtwork [theUser]=theUser [liked]=liked></app-post-actions>
     <img class="card-img-top" src="{{theArtwork.fileName}}" alt="Card image cap"

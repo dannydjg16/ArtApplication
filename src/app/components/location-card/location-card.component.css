@@ -55,7 +55,7 @@ app-post-actions {
     transition:transform 0.25s ease;
 }
 
-.card-img-top:active {
+.card-img-top:hover {
     -webkit-transform:scale(1.5); 
     transform:scale(1.5);
     overflow:visible;

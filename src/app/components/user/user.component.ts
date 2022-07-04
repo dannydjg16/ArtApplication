@@ -15,6 +15,7 @@ export class UserComponent implements OnInit {
   public isAuthenticated$!: Observable<boolean>;
   public user!: User;
   public gallery = 'likes';
+  userImage!: string;
 
   constructor(private userService: UserService, 
               private _oktaStateService: OktaAuthStateService) { }

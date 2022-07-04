@@ -27,7 +27,6 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
 import { UserArtworksComponent } from './components/user-artworks/user-artworks.component';
 import { EditArtworkComponent } from './components/edit-artwork/edit-artwork.component';
 import { ViewArtworkComponent } from './components/view-artwork/view-artwork.component';
-import { EmptyURLComponent } from './components/empty-url/empty-url.component';
 import { EditArtistComponent } from './components/edit-artist/edit-artist.component';
 import { FormsModule } from '@angular/forms';
 import { EditLocationComponent } from './components/edit-location/edit-location.component';
@@ -74,7 +73,6 @@ const oktaAuth = new OktaAuth({
     UserArtworksComponent,
     EditArtworkComponent,
     ViewArtworkComponent,
-    EmptyURLComponent,
     EditArtistComponent,
     EditLocationComponent,
     AddLocationTypeComponent,

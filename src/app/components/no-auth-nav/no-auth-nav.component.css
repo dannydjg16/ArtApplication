@@ -1,12 +1,12 @@
-#signInButton {
-    float: right;
-    color: rgb(76, 51, 117);
-}
-
 .appName {
     margin-left: 5px;
     margin-right: 10px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: xx-large;
+    color: rgb(76, 51, 117);
+}
+
+#signInButton {
+    float: right;
     color: rgb(76, 51, 117);
 }

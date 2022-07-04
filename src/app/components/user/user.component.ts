@@ -30,6 +30,11 @@ export class UserComponent implements OnInit {
     );
   }
 
+  setUserAndPicture(user: User){
+    this.user = user;
+    this.userImage = user.profilePicURL;
+  }
+
   showAdds(){
     this.gallery = "adds"
   }

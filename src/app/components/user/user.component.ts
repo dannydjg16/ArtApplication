@@ -22,7 +22,7 @@ export class UserComponent implements OnInit {
   
   ngOnInit(): void {
     // Getting the user from db using okta email and setting user var equal to that user
-    this._oktaStateService.authState$.subscribe(as => this.userService.getUserByEmail(as.accessToken?.claims.sub!).subscribe(u => this.user = u));
+    this._oktaStateService.authState$.subscribe(as => this.userService.getUserByEmail(as.accessToken?.claims.sub!).subscribe(u => this.setUserAndPicture(u)));
 
     this.isAuthenticated$ = this._oktaStateService.authState$.pipe(
       filter((s: AuthState) => !!s),

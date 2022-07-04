@@ -15,7 +15,7 @@ export class UserComponent implements OnInit {
   public isAuthenticated$!: Observable<boolean>;
   public user!: User;
   public gallery = 'likes';
-  userImage!: string;
+  userImage: string = "https://flyclipart.com/thumb2/clipart-smiley-face-clip-art-black-and-white-science-clipart-319527.png";
 
   constructor(private userService: UserService,
     private _oktaStateService: OktaAuthStateService) { }
@@ -34,7 +34,9 @@ export class UserComponent implements OnInit {
 
   setUserAndPicture(user: User) {
     this.user = user;
-    this.userImage = user.profilePicURL;
+    if (this.user.profilePicURL) {
+      this.userImage = user.profilePicURL;
+    }
   }
 
   showAdds() {

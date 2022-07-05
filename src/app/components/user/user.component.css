@@ -9,6 +9,11 @@ a {
     color: rgb(76, 51, 117);
 }
 
+
+img {
+    border-radius: 200px;
+}
+
 .profileDetails {
     display: table;
     margin-right: auto;
@@ -43,8 +48,4 @@ a {
 .editGallery {
     float: left;
     cursor: pointer;
-}
-
-img {
-    border-radius: 200px;
 }

@@ -1,3 +1,31 @@
+select {
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.deleteBtn {
+    float: right;
+    margin-right: 10px;
+}
+
+
+.form-outline {
+    margin-top: 2%;
+}
+
+.backBtn {
+    margin-left: 10px;
+}
+
+.picDiv {
+    text-align: center;
+}
+
 #editObjectForm {
     margin: 30px;
     margin-left: 18%;
@@ -10,34 +38,3 @@
     margin-right: 25%;
     margin-top: 2%;
 }
-
-.form-outline {
-    margin-top: 2%;
-}
-
-.backBtn {
-    margin-left: 10px;
-}
-
-h2 {
-    text-align: center;
-}
-
-.picDiv {
-    text-align: center;
-}
-
-select {
-    margin-bottom: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-.deleteBtn {
-    float: right;
-    margin-right: 10px;
-}
-
-
-
-

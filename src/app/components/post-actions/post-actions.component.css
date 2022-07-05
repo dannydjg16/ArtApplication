@@ -1,10 +1,9 @@
+a {
+    color: rgb(76, 51, 117);
+}
+
 .postAction {
     height: 30px;
     text-align: center;
     cursor: pointer;
 }
-
-a {
-    color: rgb(76, 51, 117);
-}
-

@@ -15,13 +15,16 @@ export class UserComponent implements OnInit {
   public isAuthenticated$!: Observable<boolean>;
   public user!: User;
   public gallery = 'likes';
+  userImage: string = "https://flyclipart.com/thumb2/clipart-smiley-face-clip-art-black-and-white-science-clipart-319527.png";
 
-  constructor(private userService: UserService, 
-              private _oktaStateService: OktaAuthStateService) { }
-  
+  constructor(private userService: UserService,
+    private _oktaStateService: OktaAuthStateService) { }
+
   ngOnInit(): void {
     // Getting the user from db using okta email and setting user var equal to that user
-    this._oktaStateService.authState$.subscribe(as => this.userService.getUserByEmail(as.accessToken?.claims.sub!).subscribe(u => this.user = u));
+    this._oktaStateService.authState$
+      .subscribe(as => this.userService.getUserByEmail(as.accessToken?.claims.sub!)
+        .subscribe(u => this.setUserAndPicture(u)));
 
     this.isAuthenticated$ = this._oktaStateService.authState$.pipe(
       filter((s: AuthState) => !!s),
@@ -29,11 +32,18 @@ export class UserComponent implements OnInit {
     );
   }
 
-  showAdds(){
+  setUserAndPicture(user: User) {
+    this.user = user;
+    if (this.user.profilePicURL) {
+      this.userImage = user.profilePicURL;
+    }
+  }
+
+  showAdds() {
     this.gallery = "adds"
   }
 
-  showLikes(){
+  showLikes() {
     this.gallery = "likes"
   }
 }

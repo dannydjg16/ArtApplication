@@ -1,10 +1,10 @@
 <!-- This is the div to show if the user has NOT liked the artwork -->
 <div class="col-md-3 cardDiv" *ngIf=!hasUserLiked;>
-  <div class="card" style="width: 18rem;" routerLink="/viewartwork/{{theArtwork.id}}">
+  <div class="card" style="width: 18rem;">
     <app-post-actions *ngIf="hasUserLiked" [theArtwork]=theArtwork [theUser]=theUser [liked]=true></app-post-actions>
     <app-post-actions *ngIf="!hasUserLiked"[theArtwork]=theArtwork [theUser]=theUser [liked]=liked></app-post-actions>
     <img class="card-img-top" src="{{theArtwork.fileName}}" alt="Card image cap"
-      style='height: 100%; width: 100%; object-fit: contain'>
+      style='height: 100%; width: 100%; object-fit: contain' routerLink="/viewartwork/{{theArtwork.id}}">
     <div class="card-body">
       <p class="card-title" routerLink="/viewartwork/{{theArtwork.id}}">{{theArtwork.title}}</p>
       <p class="card-text">{{theArtwork.yearCreated}}</p>
@@ -16,11 +16,11 @@
 
 <!-- This is the div to show if the user has liked the artwork -->
 <div class="col-md-3 cardDiv likedCard" *ngIf=hasUserLiked>
-  <div class="card" style="width: 18rem;" routerLink="/viewartwork/{{theArtwork.id}}">
+  <div class="card" style="width: 18rem;">
     <app-post-actions *ngIf="hasUserLiked" [theArtwork]=theArtwork [theUser]=theUser [liked]=true></app-post-actions>
     <app-post-actions *ngIf="!hasUserLiked"[theArtwork]=theArtwork [theUser]=theUser [liked]=liked></app-post-actions>
     <img class="card-img-top" src="{{theArtwork.fileName}}" alt="Card image cap"
-      style='height: 100%; width: 100%; object-fit: contain'>
+      style='height: 100%; width: 100%; object-fit: contain'routerLink="/viewartwork/{{theArtwork.id}}">
     <div class="card-body">
       <p class="card-title" routerLink="/viewartwork/{{theArtwork.id}}">{{theArtwork.title}}</p>
       <p class="card-text">{{theArtwork.yearCreated}}</p>

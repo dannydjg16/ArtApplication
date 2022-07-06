@@ -15,7 +15,7 @@ export class UserComponent implements OnInit {
   public isAuthenticated$!: Observable<boolean>;
   public user!: User;
   public gallery = 'likes';
-  userImage: string = "https://flyclipart.com/thumb2/clipart-smiley-face-clip-art-black-and-white-science-clipart-319527.png";
+  userImage: string = "https://thepowerofthedream.org/wp-content/uploads/2015/09/generic-profile-picture-300x300.jpg";
 
   constructor(private userService: UserService,
     private _oktaStateService: OktaAuthStateService) { }

@@ -33,7 +33,9 @@ export class EditProfileComponent implements OnInit {
 
   setUser(user: User){
     this.user = user;
-    this.userPictureURL = user.profilePicURL;
+    if (this.user.profilePicURL) {
+      this.userPictureURL = user.profilePicURL;
+    }
     this.signedIn = user
   }
 

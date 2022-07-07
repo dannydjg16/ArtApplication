@@ -27,7 +27,6 @@ export class EditArtworkComponent implements OnInit {
   public artists!: Artist[];
   public artTypes!: ArtType[];
   public locations!: Location[];
-  artworkLocation!: Location;
   artworkArtist!: Artist;
   artworkArttype!: ArtType;
 
@@ -54,7 +53,6 @@ export class EditArtworkComponent implements OnInit {
   }
 
   edit() {
-
     this._artworkService.editArtwork(this.artworkToEdit).subscribe(data => {
       console.log(data);
     });;
@@ -86,9 +84,8 @@ export class EditArtworkComponent implements OnInit {
       if (x.locationName > y.locationName) return 1;
       return 0;
     });
-    if (this.artworkToEdit.locationNow) {
-      this.artworkLocation = locations.find(location => location.id === this.artworkToEdit.locationNow)!;
-      this.locations = locations.filter(location => location !== this.artworkLocation);
+    if (this.artworkToEdit.location) {
+      this.locations = locations.filter(location => location !== this.artworkToEdit.location);
     }
   }
 

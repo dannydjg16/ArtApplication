@@ -1,7 +1,7 @@
 <ng-container *ngIf="user">
 
     <button routerLink="/profile" class="btn btn-primary backBtn">Go Back</button>
-    <button  class="btn btn-primary deleteBtn">Delete Artwork</button>
+    <button class="btn btn-primary deleteBtn">Delete Artwork</button>
 
     <div id="editObjectForm" *ngIf="artworkToEdit">
         <h2>Edit Artwork</h2>
@@ -12,27 +12,29 @@
 
         <!-- Title input -->
         <div class="form-outline mb-4">
-            <input type="text" id="form6Example3" class="form-control" placeholder="Title:" ngDefaultControl [(ngModel)]="artworkToEdit.title" />
+            <input type="text" id="form6Example3" class="form-control" placeholder="Title:" ngDefaultControl
+                [(ngModel)]="artworkToEdit.title" />
         </div>
 
         <!-- File URL input -->
         <div class="form-outline mb-4">
-            <input #url type="text" id="form6Example4" class="form-control" placeholder="URL: " ngDefaultControl [(ngModel)]="artworkToEdit.fileName"
-                (blur)="updateArtPicture(url.value)" />
+            <input #url type="text" id="form6Example4" class="form-control" placeholder="URL: " ngDefaultControl
+                [(ngModel)]="artworkToEdit.fileName" (blur)="updateArtPicture(url.value)" />
         </div>
 
         <!-- Year Created input -->
         <div class="form-outline mb-4">
-            <input type="number" id="form6Example6" class="form-control" placeholder="Year Created: " ngDefaultControl [(ngModel)]="artworkToEdit.yearCreated" />
+            <input type="number" id="form6Example6" class="form-control" placeholder="Year Created: " ngDefaultControl
+                [(ngModel)]="artworkToEdit.yearCreated" />
         </div>
 
         <!-- Description input -->
         <div class="form-outline mb-4">
-            <textarea class="form-control" id="form6Example7" rows="4"
-                placeholder="Description: " ngDefaultControl [(ngModel)]="artworkToEdit.description"></textarea>
+            <textarea class="form-control" id="form6Example7" rows="4" placeholder="Description: " ngDefaultControl
+                [(ngModel)]="artworkToEdit.description"></textarea>
         </div>
 
-        <div class="form-outline mb-4">
+        <div class="form-outline mb-4" *ngIf="artworkToEdit">
             <!-- Artist ID input -->
             <select name="artists" id="artistsDropdown" *ngIf="artworkArtist">
                 <option value="artworkToEdit.artistId">Select An Artist</option>
@@ -42,26 +44,30 @@
                 </option>
             </select>
             <!-- Medium ID input -->
-            <select name="arttypes" id="arttypesDropdown" *ngIf="artworkArttype">
-                <option ngDefaultControl [(ngModel)]="artworkToEdit.mediumId">Select A Medium</option>
-                <option value="artworkArttype.id" selected>{{artworkArttype.name}}</option>
-                <option *ngFor="let arttype of artTypes" ngDefaultControl [(ngModel)]="arttype.id">
+            <select #arttypes name="arttypes" id="arttypesDropdown" *ngIf="artworkArttype">
+                <option ngDefaultControl>Select A Medium</option>
+                <option value=3 selected>{{artworkArttype.name}}</option>
+                <option *ngFor="let arttype of artTypes"  value="arttype.id">
                     {{ arttype.name }}
                 </option>
             </select>
+
+            <!-- Medium ID Edited input -->
+            <!-- <select ng-init="artworkArttype.id = artworkArttype.id || artTypes[0].id" ng-model="artworkToEdit.mediumId" ng-options="arttype.id as arttype.name for arttype in artTypes">
+            </select> -->
+
             <!-- Location ID input -->
-            <select name="locations" id="locationsDropdown" *ngIf="artworkLocation">
-                <option ngDefaultControl [(ngModel)]="artworkToEdit.locationNow">Select A Location</option>
-                <option value="artworkLocation.id" selected>{{artworkLocation.locationName}}</option>
-                <option *ngFor="let location of locations" ngDefaultControl [(ngModel)]="location.id">
-                    {{ location.locationName }}
+            <select name="locations" id="locationsDropdown" [(ngModel)]="artworkToEdit.location">
+                <option ngDefaultControl [(ngModel)]="artworkToEdit.location">Select A Location</option>
+                <option [ngValue]="artworkToEdit.location" selected>{{artworkToEdit.location.locationName}}</option>
+                <option *ngFor="let oneLocation of locations" ngDefaultControl [ngValue]="oneLocation">
+                    {{ oneLocation.locationName }}
                 </option>
             </select>
         </div>
 
         <!-- Submit button -->
-        <button type="submit" class="btn btn-primary btn-block mb-4" id="editButton" 
-            (click)="edit()">Edit
+        <button type="submit" class="btn btn-primary btn-block mb-4" id="editButton" (click)="edit()">Edit
             Artwork
         </button>
     </div>

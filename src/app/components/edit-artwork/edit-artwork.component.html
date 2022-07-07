@@ -59,7 +59,7 @@
             <!-- Location ID input -->
             <select name="locations" id="locationsDropdown" [(ngModel)]="artworkToEdit.location">
                 <option ngDefaultControl [(ngModel)]="artworkToEdit.location">Select A Location</option>
-                <option value="artworkToEdit.location" selected>{{artworkToEdit.location.locationName}}</option>
+                <option [ngValue]="artworkToEdit.location" selected>{{artworkToEdit.location.locationName}}</option>
                 <option *ngFor="let oneLocation of locations" ngDefaultControl [ngValue]="oneLocation">
                     {{ oneLocation.locationName }}
                 </option>

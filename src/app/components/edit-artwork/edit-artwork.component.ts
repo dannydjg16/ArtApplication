@@ -27,8 +27,6 @@ export class EditArtworkComponent implements OnInit {
   public artists!: Artist[];
   public artTypes!: ArtType[];
   public locations!: Location[];
-  artworkArtist!: Artist;
-  artworkArttype!: ArtType;
 
   constructor(
     private userService: UserService,
@@ -100,8 +98,7 @@ export class EditArtworkComponent implements OnInit {
       return 0;
     });
     if (this.artworkToEdit.artistId) {
-      this.artworkArtist = artists.find(artist => artist.id === this.artworkToEdit.artistId)!;
-      this.artists = artists.filter(artist => artist.id !== this.artworkArtist.id);
+      this.artists = artists.filter(artist => artist.id !== this.artworkToEdit.artistId);
     }
   }
 
@@ -116,8 +113,7 @@ export class EditArtworkComponent implements OnInit {
       return 0;
     });
     if (this.artworkToEdit.mediumId) {
-      this.artworkArttype = arttypes.find(arttype => arttype.id === this.artworkToEdit.mediumId)!;
-      this.artTypes = arttypes.filter(arttype => arttype.id !== this.artworkArttype.id);
+      this.artTypes = arttypes.filter(arttype => arttype.id !== this.artworkToEdit.mediumId);
     }
   }
 

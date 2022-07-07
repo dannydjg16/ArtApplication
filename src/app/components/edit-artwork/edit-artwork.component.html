@@ -35,26 +35,24 @@
         </div>
 
         <div class="form-outline mb-4" *ngIf="artworkToEdit">
+            
             <!-- Artist ID input -->
-            <select name="artists" id="artistsDropdown" *ngIf="artworkArtist">
-                <option value="artworkToEdit.artistId">Select An Artist</option>
-                <option value="artworkArtist.id" selected>{{artworkArtist.name}}</option>
-                <option *ngFor="let artist of artists" ngDefaultControl [(ngModel)]="artist.id">
+            <select name="artists" id="artistsDropdown" [(ngModel)]="artworkToEdit.artist">
+                <option ngDefaultControl [(ngModel)]="artworkToEdit.artist">Select An Artist</option>
+                <option [ngValue]="artworkToEdit.artist" selected>{{artworkToEdit.artist.name}}</option>
+                <option *ngFor="let artist of artists" ngDefaultControl [ngValue]="artist">
                     {{ artist.name }}
                 </option>
             </select>
+
             <!-- Medium ID input -->
-            <select #arttypes name="arttypes" id="arttypesDropdown" *ngIf="artworkArttype">
-                <option ngDefaultControl>Select A Medium</option>
-                <option value=3 selected>{{artworkArttype.name}}</option>
-                <option *ngFor="let arttype of artTypes"  value="arttype.id">
+            <select #arttypes name="arttypes" id="arttypesDropdown" [(ngModel)]="artworkToEdit.medium">
+                <option ngDefaultControl [(ngModel)]="artworkToEdit.medium">Select A Medium</option>
+                <option [ngValue]="artworkToEdit.medium" selected>{{artworkToEdit.medium.name}}</option>
+                <option *ngFor="let arttype of artTypes" ngDefaultControl [ngValue]="arttype">
                     {{ arttype.name }}
                 </option>
             </select>
-
-            <!-- Medium ID Edited input -->
-            <!-- <select ng-init="artworkArttype.id = artworkArttype.id || artTypes[0].id" ng-model="artworkToEdit.mediumId" ng-options="arttype.id as arttype.name for arttype in artTypes">
-            </select> -->
 
             <!-- Location ID input -->
             <select name="locations" id="locationsDropdown" [(ngModel)]="artworkToEdit.location">

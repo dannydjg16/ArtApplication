@@ -24,7 +24,6 @@ export class AddArtComponent implements OnInit {
   public isAuthenticated$!: Observable<boolean>;
   public user!: User;
   public artists: any[] = [];
-  artist!: Artist;
   public artTypes!: ArtType[];
   public locations!: Location[];
   public artPictureURL = "https://cdn.pixabay.com/photo/2014/08/25/16/17/picture-frame-427233_960_720.jpg";
@@ -77,10 +76,6 @@ export class AddArtComponent implements OnInit {
       if (x.name > y.name) return 1;
       return 0;
     });
-    if (this.route.snapshot.params['id']) {
-      this.artist = artists.find(artist => artist.id === +this.route.snapshot.params['id'])!;
-      this.artists = artists.filter(artist => artist.id !== +this.route.snapshot.params['id'])!;
-    }
   }
 
   updateArtPicture(url: string) {

@@ -19,7 +19,7 @@ import { ViewArtworkComponent } from './components/view-artwork/view-artwork.com
 const routes: Routes = [
   { path: 'users', component: UserComponent },
   { path: 'login/callback', component: OktaCallbackComponent },
-  { path: 'addwork/:id', component: AddArtComponent },
+  { path: 'addwork', component: AddArtComponent },
   { path: 'gallery', component: GeneralGalleryComponent },
   { path: 'addartist', component: AddArtistComponent },
   { path: 'artists', component: ArtistGalleryComponent },

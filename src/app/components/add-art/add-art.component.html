@@ -32,12 +32,9 @@
         <div class="form-outline mb-4">
 
             <!-- Artist ID input -->
-            <select #addartist name="artists" id="artistsDropdown">
-                <option value="artist.id">Select An Artist (a-z)</option>
-                <option *ngIf="artist" name="addFromArtist" [(ngModel)]="artist.id" [value]="artist.id" selected>
-                    {{artist.name}}</option>
-                <option *ngFor="let iArtist of artists" ngDefaultControl name="artistArrayLoop"
-                    [(ngModel)]="iArtist.id">
+            <select #selectArtist name="selectArtist" id="artistsDropdown">
+                <option value="">Select An Artist</option>
+                <option *ngFor="let iArtist of artists" [value]="iArtist.id">
                     {{ iArtist.name }}
                 </option>
             </select>
@@ -74,7 +71,7 @@
 
         <!-- Submit button -->
         <button type="submit" class="btn btn-primary btn-block mb-4" id="addButton"
-            (click)="add(title.value, url.value, year.value, description.value, addartist.value, medium.value, location.value, user.id)">Add
+            (click)="add(title.value, url.value, year.value, description.value, selectArtist.value, medium.value, location.value, user.id)">Add
             Artwork
         </button>
     </form>

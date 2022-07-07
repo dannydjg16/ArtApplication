@@ -41,10 +41,12 @@ export class EditArtworkComponent implements OnInit {
     private _locationService: LocationService) { }
 
   ngOnInit(): void {
-    this._oktaStateService.authState$.subscribe(as => this.userService.getUserByEmail(as.accessToken?.claims.sub!).subscribe(u => this.user = u));
+    this._oktaStateService.authState$
+      .subscribe(as => this.userService.getUserByEmail(as.accessToken?.claims.sub!)
+        .subscribe(u => this.user = u));
 
     // Set Artwork Picture
-    this._artworkService.getArtworkById(this.route.snapshot.params['id']).subscribe({
+    this._artworkService.getFullArtworkById(this.route.snapshot.params['id']).subscribe({
       next: (aw) => this.setArtworkAndURL(aw),
       error: () => null,
       complete: () => this.createArrays()
@@ -52,6 +54,7 @@ export class EditArtworkComponent implements OnInit {
   }
 
   edit() {
+
     this._artworkService.editArtwork(this.artworkToEdit).subscribe(data => {
       console.log(data);
     });;
@@ -73,7 +76,7 @@ export class EditArtworkComponent implements OnInit {
     this.getArttypes();
   }
 
-    // Get locations then call the create array function
+  // Get locations then call the create array function
   getLocations() {
     this._locationService.getLocations().subscribe(locations => this.createLocationArray(locations));
   }
@@ -89,9 +92,9 @@ export class EditArtworkComponent implements OnInit {
     }
   }
 
-    // Get artists then call the create array function
+  // Get artists then call the create array function
   getArtists() {
-        this._artistService.getArtists().subscribe(artists => this.createArtistArray(artists));
+    this._artistService.getArtists().subscribe(artists => this.createArtistArray(artists));
   }
   createArtistArray(artists: Artist[]) {
     this.artists = artists.sort(function (x, y) {
@@ -100,8 +103,8 @@ export class EditArtworkComponent implements OnInit {
       return 0;
     });
     if (this.artworkToEdit.artistId) {
-    this.artworkArtist = artists.find(artist => artist.id === this.artworkToEdit.artistId)!;
-    this.artists = artists.filter(artist => artist.id !== this.artworkArtist.id);
+      this.artworkArtist = artists.find(artist => artist.id === this.artworkToEdit.artistId)!;
+      this.artists = artists.filter(artist => artist.id !== this.artworkArtist.id);
     }
   }
 
@@ -116,8 +119,8 @@ export class EditArtworkComponent implements OnInit {
       return 0;
     });
     if (this.artworkToEdit.mediumId) {
-    this.artworkArttype = arttypes.find(arttype => arttype.id === this.artworkToEdit.mediumId)!;
-    this.artTypes = arttypes.filter(arttype => arttype.id !== this.artworkArttype.id);
+      this.artworkArttype = arttypes.find(arttype => arttype.id === this.artworkToEdit.mediumId)!;
+      this.artTypes = arttypes.filter(arttype => arttype.id !== this.artworkArttype.id);
     }
   }
 

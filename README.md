@@ -1,5 +1,7 @@
 # ArtApplication
 
+See pictures of some of the application's functionality in the "Screenshots" folder at the root level!
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
 
 ## Development server

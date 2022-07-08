@@ -1,6 +1,16 @@
 # ArtApplication
+DGArt is an online collection of the most famous works from the most famous museums in the world
 
-See pictures of some of the application's functionality in the "Screenshots" folder!
+## Check It Out! 
+###### Use the below credentials to sign in
+Email: 
+- DGArtAppUser@gmail.com 
+
+Password: 
+- testuserpwd1
+
+Or, see pictures of some of the application's functionality in the "[Screenshots](https://github.com/dannydjg16/MuseumApp/tree/master/Screenshots)" folder!
+
 
 ## Project Generation
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.

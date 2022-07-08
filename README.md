@@ -9,7 +9,7 @@ Email:
 Password: 
 - testuserpwd1
 
-Or, see pictures of some of the application's functionality in the "[Screenshots](https://github.com/dannydjg16/MuseumApp/tree/master/Screenshots)" folder!
+Or, see pictures of some of the application's functionality in the "[Screenshots](https://github.com/dannydjg16/ArtApplication/tree/master/Screenshots)" folder!
 
 
 ## Project Generation

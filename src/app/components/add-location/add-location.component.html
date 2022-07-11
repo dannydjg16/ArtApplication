@@ -22,16 +22,16 @@
             <div class="locationLocation">
                 <h6 class="locationQuestion">Where Is This Located?</h6>
                 <!-- Location Country input -->
-                <input #url type="text" id="form6Example4" class="form-control" placeholder="Location Country" />
+                <input #country type="text" id="form6Example4" class="form-control" placeholder="Location Country" />
 
                 <!-- Location State/Province input -->
-                <input #url type="text" id="form6Example4" class="form-control" placeholder="Location State/Province" />
+                <input #stateProvince type="text" id="form6Example4" class="form-control" placeholder="Location State/Province" />
 
                 <!-- Location City input -->
-                <input #url type="text" id="form6Example4" class="form-control" placeholder="Location City" />
+                <input #city type="text" id="form6Example4" class="form-control" placeholder="Location City" />
 
                 <!-- Location Street Address input -->
-                <input #url type="text" id="form6Example4" class="form-control" placeholder="Location Street Address" />
+                <input #address type="text" id="form6Example4" class="form-control" placeholder="Location Street Address" />
             </div>
         </div>
 
@@ -48,7 +48,7 @@
 
         <!-- Submit button -->
         <button type="submit" class="btn btn-primary btn-block mb-4" id="addButton"
-            (click)="add(name.value, url.value, description.value, locationtype.value)">
+            (click)="add(name.value, url.value, description.value, locationtype.value, country.value, stateProvince.value, city.value, address.value)">
             Add Location
         </button>
     </form>

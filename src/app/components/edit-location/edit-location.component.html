@@ -1,6 +1,6 @@
 <ng-container *ngIf="user">
 
-    <button routerLink="/locations" class="btn btn-primary backBtn">Go Back</button>
+    <button (click)="goBack()" class="btn btn-primary backBtn">Go Back</button>
     <button class="btn btn-primary deleteBtn">Delete Location</button>
 
     <div id="editObjectForm" *ngIf="locationToEdit">
@@ -22,6 +22,27 @@
         <div class="form-outline mb-4">
             <textarea #description class="form-control" id="form6Example7" rows="4" placeholder="Description: "
                 [(ngModel)]="locationToEdit.description"></textarea>
+        </div>
+
+        <div class="form-outline mb-4">
+            <div class="locationLocation">
+                <h6 class="locationQuestion">Where Is This Located?</h6>
+                <!-- Location Country input -->
+                <input #country type="text" id="form6Example4" class="form-control" placeholder="Location Country"
+                    [(ngModel)]="locationToEdit.country" />
+
+                <!-- Location State/Province input -->
+                <input #stateProvince type="text" id="form6Example4" class="form-control"
+                    placeholder="Location State/Province" [(ngModel)]="locationToEdit.stateProvince" />
+
+                <!-- Location City input -->
+                <input #city type="text" id="form6Example4" class="form-control" placeholder="Location City"
+                    [(ngModel)]="locationToEdit.city" />
+
+                <!-- Location Street Address input -->
+                <input #address type="text" id="form6Example4" class="form-control"
+                    placeholder="Location Street Address" [(ngModel)]="locationToEdit.streetAddress" />
+            </div>
         </div>
 
         <!-- LocationTypeID input -->

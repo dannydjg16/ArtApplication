@@ -18,6 +18,23 @@
                 placeholder="Description"></textarea>
         </div>
 
+        <div class="form-outline mb-4">
+            <div class="locationLocation">
+                <h6 class="locationQuestion">Where Is This Located?</h6>
+                <!-- Location Country input -->
+                <input #country type="text" id="form6Example4" class="form-control" placeholder="Location Country" />
+
+                <!-- Location State/Province input -->
+                <input #stateProvince type="text" id="form6Example4" class="form-control" placeholder="Location State/Province" />
+
+                <!-- Location City input -->
+                <input #city type="text" id="form6Example4" class="form-control" placeholder="Location City" />
+
+                <!-- Location Street Address input -->
+                <input #address type="text" id="form6Example4" class="form-control" placeholder="Location Street Address" />
+            </div>
+        </div>
+
         <!-- LocationTypeID input -->
         <div class="form-outline mb-4">
             <select #locationtype name="locationtypes" id="locationtypesDropdown">
@@ -31,7 +48,7 @@
 
         <!-- Submit button -->
         <button type="submit" class="btn btn-primary btn-block mb-4" id="addButton"
-            (click)="add(name.value, url.value, description.value, locationtype.value)">
+            (click)="add(name.value, url.value, description.value, locationtype.value, country.value, stateProvince.value, city.value, address.value)">
             Add Location
         </button>
     </form>

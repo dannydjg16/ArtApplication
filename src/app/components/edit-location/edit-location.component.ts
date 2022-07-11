@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { OktaAuthStateService } from '@okta/okta-angular';
 import Location from 'src/app/interfaces/location';
 import LocationType from 'src/app/interfaces/locationtype';
@@ -20,12 +20,12 @@ export class EditLocationComponent implements OnInit {
   locationtypes!: LocationType[];
   locationType!: LocationType;
 
-
   constructor(private userService: UserService,
               private _oktaStateService: OktaAuthStateService,
               private _locationService: LocationService,
               private _locationtypeService: LocationTypeService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private _router: Router) { }
 
   ngOnInit(): void {
     this._oktaStateService.authState$.subscribe(as => this.userService.getUserByEmail(as.accessToken?.claims.sub!).subscribe(u => this.user = u));
@@ -57,6 +57,11 @@ export class EditLocationComponent implements OnInit {
       this.locationType = locationTypes.find(locType => locType.id === this.locationToEdit.typeId)!;
       this.locationtypes = locationTypes.filter(locType => locType.id !== this.locationToEdit.typeId);
     }
+  }
+
+  goBack() {
+    var id = this.route.snapshot.params['id'];
+    this._router.navigate(['viewlocation' + '/'+ `${id}`]);
   }
 }
 

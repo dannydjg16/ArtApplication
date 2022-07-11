@@ -7,6 +7,10 @@ export default interface Location{
     description: string;
     locationUrl: string;
     typeId: number;
+    country: string;
+    stateProvince: string;
+    city: string;
+    streetAddress: string;
     
     artworks: Artwork[];
 }

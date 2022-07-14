@@ -74,7 +74,7 @@ export class EditArtworkComponent implements OnInit {
 
   // Get locations then call the create array function
   getLocations() {
-    this._locationService.getLocations().subscribe(locations => this.createLocationArray(locations));
+    this._locationService.getLocationsABC().subscribe(locations => this.createLocationArray(locations));
   }
   createLocationArray(locations: Location[]) {
     this.locations = locations.sort(function (x, y) {

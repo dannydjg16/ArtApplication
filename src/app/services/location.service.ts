@@ -36,7 +36,7 @@ export class LocationService {
       Accept: 'application/json',
     };
 
-    return this.http.get<Location[]>(`${this.baseUrl}`+"abc", { headers: headers }).pipe(catchError((err) => {
+    return this.http.get<Location[]>(`${this.baseUrl}/abc`, { headers: headers }).pipe(catchError((err) => {
       console.error(err);
       throw err;
     }));

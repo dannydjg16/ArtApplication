@@ -77,11 +77,6 @@ export class EditArtworkComponent implements OnInit {
     this._locationService.getLocationsABC().subscribe(locations => this.createLocationArray(locations));
   }
   createLocationArray(locations: Location[]) {
-    this.locations = locations.sort(function (x, y) {
-      if (x.locationName < y.locationName) return -1;
-      if (x.locationName > y.locationName) return 1;
-      return 0;
-    });
     if (this.artworkToEdit.location) {
       this.locations = locations.filter(location => location !== this.artworkToEdit.location);
     }

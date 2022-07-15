@@ -84,14 +84,9 @@ export class EditArtworkComponent implements OnInit {
 
   // Get artists then call the create array function
   getArtists() {
-    this._artistService.getArtists().subscribe(artists => this.createArtistArray(artists));
+    this._artistService.getArtistsABC().subscribe(artists => this.createArtistArray(artists));
   }
   createArtistArray(artists: Artist[]) {
-    this.artists = artists.sort(function (x, y) {
-      if (x.name < y.name) return -1;
-      if (x.name > y.name) return 1;
-      return 0;
-    });
     if (this.artworkToEdit.artistId) {
       this.artists = artists.filter(artist => artist.id !== this.artworkToEdit.artistId);
     }

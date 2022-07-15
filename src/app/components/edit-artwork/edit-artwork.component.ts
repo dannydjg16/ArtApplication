@@ -94,14 +94,9 @@ export class EditArtworkComponent implements OnInit {
 
   // Get art types then call the create array function
   getArttypes() {
-    this._arttypeService.getArtTypes().subscribe(arttypes => this.createArttypeArray(arttypes));
+    this._arttypeService.getArtTypesABC().subscribe(arttypes => this.createArttypeArray(arttypes));
   }
   createArttypeArray(arttypes: ArtType[]) {
-    this.artTypes = arttypes.sort(function (x, y) {
-      if (x.name < y.name) return -1;
-      if (x.name > y.name) return 1;
-      return 0;
-    });
     if (this.artworkToEdit.mediumId) {
       this.artTypes = arttypes.filter(arttype => arttype.id !== this.artworkToEdit.mediumId);
     }

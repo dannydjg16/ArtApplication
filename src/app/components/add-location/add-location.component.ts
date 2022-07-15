@@ -36,12 +36,8 @@ export class AddLocationComponent implements OnInit {
 
     this._oktaStateService.authState$.subscribe(as => this._userService.getUserByEmail(as.accessToken?.claims.sub!).subscribe(u => this.user = u));
 
-    this._locationtypeService.getLocationTypes().subscribe(loctyps =>
-      this.locationtypes = loctyps.sort(function (x, y) {
-        if (x.name < y.name) return -1;
-        if (x.name > y.name) return 1;
-        return 0;
-      }));
+    this._locationtypeService.getLocationTypesABC()
+      .subscribe(loctyps => this.locationtypes = loctyps);
   }
 
   add(locationName: string, locationURL: string, description: string, locationTypeID: string,
@@ -58,17 +54,11 @@ export class AddLocationComponent implements OnInit {
 
   // Updating Select for Location Types when a new location type is added 
   updateLocationTypes(data: Object) {
-    this._locationtypeService.getLocationTypes().subscribe({
-      next: loctyps =>
-        this.locationtypes = loctyps.sort(function (x, y) {
-          if (x.name < y.name) return -1;
-          if (x.name > y.name) return 1;
-          return 0;
-        })
-    }),
-      { error: console.log(data) },
-      { complete: window.confirm("Location Type Added") };;
-    console.log(data);
+    this._locationtypeService.getLocationTypesABC().subscribe({
+      next: (locTypes) => this.locationtypes = locTypes,
+      error: (data) => console.log(data),
+      complete: () => window.confirm("Location Type Added")
+    });
   }
 
   // Output Event to AddArt Component

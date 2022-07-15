@@ -29,6 +29,19 @@ export class LocationService {
     }));
   }
 
+  getLocationsABC(): Observable<Location[]> {
+    const accessToken = this._oktaAuth.getAccessToken();
+    const headers = {
+      Authorization: 'Bearer ' + accessToken,
+      Accept: 'application/json',
+    };
+
+    return this.http.get<Location[]>(`${this.baseUrl}/abc`, { headers: headers }).pipe(catchError((err) => {
+      console.error(err);
+      throw err;
+    }));
+  }
+
   getLocationById(id: number): Observable<Location> {
     const accessToken = this._oktaAuth.getAccessToken();
     const headers = {

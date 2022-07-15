@@ -12,7 +12,6 @@ import { ArtistService } from 'src/app/services/artist.service';
 import { ArttypeService } from 'src/app/services/arttype.service';
 import { LocationService } from 'src/app/services/location.service';
 
-
 @Component({
   selector: 'app-edit-artwork',
   templateUrl: './edit-artwork.component.html',
@@ -74,14 +73,9 @@ export class EditArtworkComponent implements OnInit {
 
   // Get locations then call the create array function
   getLocations() {
-    this._locationService.getLocations().subscribe(locations => this.createLocationArray(locations));
+    this._locationService.getLocationsABC().subscribe(locations => this.createLocationArray(locations));
   }
   createLocationArray(locations: Location[]) {
-    this.locations = locations.sort(function (x, y) {
-      if (x.locationName < y.locationName) return -1;
-      if (x.locationName > y.locationName) return 1;
-      return 0;
-    });
     if (this.artworkToEdit.location) {
       this.locations = locations.filter(location => location !== this.artworkToEdit.location);
     }
@@ -89,14 +83,9 @@ export class EditArtworkComponent implements OnInit {
 
   // Get artists then call the create array function
   getArtists() {
-    this._artistService.getArtists().subscribe(artists => this.createArtistArray(artists));
+    this._artistService.getArtistsABC().subscribe(artists => this.createArtistArray(artists));
   }
   createArtistArray(artists: Artist[]) {
-    this.artists = artists.sort(function (x, y) {
-      if (x.name < y.name) return -1;
-      if (x.name > y.name) return 1;
-      return 0;
-    });
     if (this.artworkToEdit.artistId) {
       this.artists = artists.filter(artist => artist.id !== this.artworkToEdit.artistId);
     }
@@ -104,18 +93,11 @@ export class EditArtworkComponent implements OnInit {
 
   // Get art types then call the create array function
   getArttypes() {
-    this._arttypeService.getArtTypes().subscribe(arttypes => this.createArttypeArray(arttypes));
+    this._arttypeService.getArtTypesABC().subscribe(arttypes => this.createArttypeArray(arttypes));
   }
   createArttypeArray(arttypes: ArtType[]) {
-    this.artTypes = arttypes.sort(function (x, y) {
-      if (x.name < y.name) return -1;
-      if (x.name > y.name) return 1;
-      return 0;
-    });
     if (this.artworkToEdit.mediumId) {
       this.artTypes = arttypes.filter(arttype => arttype.id !== this.artworkToEdit.mediumId);
     }
   }
-
-
 }

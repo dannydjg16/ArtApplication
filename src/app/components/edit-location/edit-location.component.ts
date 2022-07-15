@@ -45,14 +45,9 @@ export class EditLocationComponent implements OnInit {
 
   // Get location types then call the create array function
   getLocationTypes() {
-      this._locationtypeService.getLocationTypes().subscribe(locTypes => this.createLocationTypeArray(locTypes));
+      this._locationtypeService.getLocationTypesABC().subscribe(locTypes => this.createLocationTypeArray(locTypes));
   }
   createLocationTypeArray(locationTypes: LocationType[]) {
-    this.locationtypes = locationTypes.sort(function (x, y) {
-      if (x.name < y.name) return -1;
-      if (x.name > y.name) return 1;
-      return 0;
-    });
     if (this.locationToEdit) {
       this.locationType = locationTypes.find(locType => locType.id === this.locationToEdit.typeId)!;
       this.locationtypes = locationTypes.filter(locType => locType.id !== this.locationToEdit.typeId);

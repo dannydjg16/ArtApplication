@@ -29,6 +29,20 @@ export class ArtistService {
     }));
   }
 
+
+  getArtistsABC(): Observable<Artist[]> {
+    const accessToken = this._oktaAuth.getAccessToken();
+    const headers = {
+      Authorization: 'Bearer ' + accessToken,
+      Accept: 'application/json'
+    };
+
+    return this.http.get<Artist[]>(`${this.baseUrl}/abc`, { headers: headers }).pipe(catchError((err) => {
+      console.error(err);
+      throw err;
+    }));
+  }
+
   getAnArtist(id: number): Observable<Artist> {
     const accessToken = this._oktaAuth.getAccessToken();
     const headers = {

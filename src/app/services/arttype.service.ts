@@ -28,6 +28,18 @@ export class ArttypeService {
     }));
   }
 
+  getArtTypesABC(): Observable<ArtType[]> {
+    const accessToken = this._oktaAuth.getAccessToken();
+    const headers = {
+      Authorization: 'Bearer ' + accessToken,
+      Accept: 'application/json',
+    };
+    return this.http.get<ArtType[]>(`${this.baseUrl}/abc`, { headers: headers }).pipe(catchError((err) => {
+      console.error(err);
+      throw err;
+    }));
+  }
+
   addArtType(arttype: ArtType) {
     const accessToken = this._oktaAuth.getAccessToken();
     const headers = {

@@ -12,7 +12,6 @@ import { ArtistService } from 'src/app/services/artist.service';
 import { ArttypeService } from 'src/app/services/arttype.service';
 import { LocationService } from 'src/app/services/location.service';
 
-
 @Component({
   selector: 'app-edit-artwork',
   templateUrl: './edit-artwork.component.html',

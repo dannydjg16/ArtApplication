@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { OktaAuthStateService } from '@okta/okta-angular';
 import { AuthState } from '@okta/okta-auth-js';
 import { filter, map, Observable } from 'rxjs';
-import Artist from 'src/app/interfaces/artist';
 import ArtType from 'src/app/interfaces/arttype';
 import User from 'src/app/interfaces/user';
 import { ArtistService } from 'src/app/services/artist.service';
@@ -68,15 +67,6 @@ export class AddArtComponent implements OnInit {
   }
 
   // Updating Select for Locations when a new location is added
-  // updateLocations(data: Object) {
-  //   this._locationService.getLocationsABC()
-  //     .subscribe({ next: allLocations => this.locations = allLocations }),
-  //     { error: console.log(data) },
-  //     { complete: window.confirm("Location Added") };
-  //   console.log(data);
-  // }
-
-  // Updating Select for Locations when a new location is added
   updateLocations(data: Object) {
     this._locationService.getLocationsABC().subscribe({
       next: (allLocations) => this.locations = allLocations,
@@ -87,21 +77,6 @@ export class AddArtComponent implements OnInit {
   }
 
   // Updating Select for Artists when a new artist is added 
-  // updateArtistsa(data: Object) {
-  //   this._artistService.getArtists().subscribe({
-  //     next: artists =>
-  //       this.artists = artists.sort(function (x, y) {
-  //         if (x.name < y.name) return -1;
-  //         if (x.name > y.name) return 1;
-  //         return 0;
-  //       })
-  //   }),
-  //     { error: console.log(data) },
-  //     { complete: window.confirm("Artist Added") };
-  //   console.log(data);
-  // }
-
-  // Updating Select for Artists when a new artist is added 
   updateArtists(data: Object) {
     this._artistService.getArtists().subscribe({
       next: (artists) => this.artists = artists,
@@ -109,23 +84,6 @@ export class AddArtComponent implements OnInit {
       complete: () => window.confirm("Artist Added")
     });
   }
-
-
-
-  // Updating Select for Art Types when a new art type is added 
-  // updateArtTypesa(data: Object) {
-  //   this._arttypeService.getArtTypes().subscribe({
-  //     next: arttypes =>
-  //       this.artTypes = arttypes.sort(function (x, y) {
-  //         if (x.name < y.name) return -1;
-  //         if (x.name > y.name) return 1;
-  //         return 0;
-  //       })
-  //   }),
-  //     { error: console.log(data) },
-  //     { complete: window.confirm("Art Type Added") };
-  //   console.log(data);
-  // }
 
   // Updating Select for Art Types when a new art type is added 
   updateArtTypes(data: Object) {

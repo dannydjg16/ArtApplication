@@ -34,8 +34,7 @@ export class AddArtComponent implements OnInit {
     private userService: UserService,
     private _artistService: ArtistService,
     private _arttypeService: ArttypeService,
-    private _locationService: LocationService,
-    private route: ActivatedRoute) { }
+    private _locationService: LocationService) { }
 
   ngOnInit(): void {
     this.isAuthenticated$ = this._oktaStateService.authState$.pipe(
@@ -44,19 +43,11 @@ export class AddArtComponent implements OnInit {
     );
 
     this._oktaStateService.authState$.subscribe(as => this.userService.getUserByEmail(as.accessToken?.claims.sub!).subscribe(u => this.user = u));
-    this._artistService.getArtists().subscribe(artists => this.setArtistArrayAndArtist(artists));
-    this._arttypeService.getArtTypes().subscribe(arttypes =>
-      this.artTypes = arttypes.sort(function (x, y) {
-        if (x.name < y.name) return -1;
-        if (x.name > y.name) return 1;
-        return 0;
-      }));
-    this._locationService.getLocations().subscribe(allLocations =>
-      this.locations = allLocations.sort(function (x, y) {
-        if (x.locationName < y.locationName) return -1;
-        if (x.locationName > y.locationName) return 1;
-        return 0;
-      }));
+    this._artistService.getArtistsABC().subscribe(artists => this.artists = artists);
+    this._arttypeService.getArtTypesABC()
+      .subscribe(arttypes => this.artTypes = arttypes);
+    this._locationService.getLocationsABC()
+      .subscribe(allLocations => this.locations = allLocations);
   }
 
   add(title: string, url: string, year: string, description: string, artist: string, medium: string, location: string, adder: number) {
@@ -70,57 +61,79 @@ export class AddArtComponent implements OnInit {
     });
   }
 
-  setArtistArrayAndArtist(artists: Artist[]) {
-    this.artists = artists.sort(function (x, y) {
-      if (x.name < y.name) return -1;
-      if (x.name > y.name) return 1;
-      return 0;
-    });
-  }
-
   updateArtPicture(url: string) {
-    if (url){
+    if (url) {
       this.artPictureURL = url;
     }
   }
 
   // Updating Select for Locations when a new location is added
+  // updateLocations(data: Object) {
+  //   this._locationService.getLocationsABC()
+  //     .subscribe({ next: allLocations => this.locations = allLocations }),
+  //     { error: console.log(data) },
+  //     { complete: window.confirm("Location Added") };
+  //   console.log(data);
+  // }
+
+  // Updating Select for Locations when a new location is added
   updateLocations(data: Object) {
-    this._locationService.getLocations().subscribe({next: allLocations =>
-      this.locations = allLocations.sort(function (x, y) {
-        if (x.locationName < y.locationName) return -1;
-        if (x.locationName > y.locationName) return 1;
-        return 0;
-      })}),
-      {error: console.log(data)},
-      {complete: window.confirm("Location Added")};
+    this._locationService.getLocationsABC().subscribe({
+      next: (allLocations) => this.locations = allLocations,
+      error: (data) => console.log(data),
+      complete: () => window.confirm("Location Added")
+    });
     console.log(data);
   }
 
   // Updating Select for Artists when a new artist is added 
+  // updateArtistsa(data: Object) {
+  //   this._artistService.getArtists().subscribe({
+  //     next: artists =>
+  //       this.artists = artists.sort(function (x, y) {
+  //         if (x.name < y.name) return -1;
+  //         if (x.name > y.name) return 1;
+  //         return 0;
+  //       })
+  //   }),
+  //     { error: console.log(data) },
+  //     { complete: window.confirm("Artist Added") };
+  //   console.log(data);
+  // }
+
+  // Updating Select for Artists when a new artist is added 
   updateArtists(data: Object) {
-    this._artistService.getArtists().subscribe({next: artists =>
-      this.artists = artists.sort(function (x, y) {
-        if (x.name < y.name) return -1;
-        if (x.name > y.name) return 1;
-        return 0;
-      })}), 
-      {error: console.log(data)},
-      {complete: window.confirm("Artist Added")};
-    console.log(data);
+    this._artistService.getArtists().subscribe({
+      next: (artists) => this.artists = artists,
+      error: (data) => console.log(data),
+      complete: () => window.confirm("Artist Added")
+    });
   }
+
+
+
+  // Updating Select for Art Types when a new art type is added 
+  // updateArtTypesa(data: Object) {
+  //   this._arttypeService.getArtTypes().subscribe({
+  //     next: arttypes =>
+  //       this.artTypes = arttypes.sort(function (x, y) {
+  //         if (x.name < y.name) return -1;
+  //         if (x.name > y.name) return 1;
+  //         return 0;
+  //       })
+  //   }),
+  //     { error: console.log(data) },
+  //     { complete: window.confirm("Art Type Added") };
+  //   console.log(data);
+  // }
 
   // Updating Select for Art Types when a new art type is added 
   updateArtTypes(data: Object) {
-    this._arttypeService.getArtTypes().subscribe({next: arttypes =>
-      this.artTypes = arttypes.sort(function (x, y) {
-        if (x.name < y.name) return -1;
-        if (x.name > y.name) return 1;
-        return 0;
-      })}),
-      {error: console.log(data)},
-      {complete: window.confirm("Art Type Added")};
-    console.log(data);
+    this._arttypeService.getArtTypes().subscribe({
+      next: (arttypes) => this.artTypes = arttypes,
+      error: (data) => console.log(data),
+      complete: () => window.confirm("Art Type Added")
+    })
   }
 
   // Show/Hide AddArtist

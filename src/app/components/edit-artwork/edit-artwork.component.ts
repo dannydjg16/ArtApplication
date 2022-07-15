@@ -101,6 +101,4 @@ export class EditArtworkComponent implements OnInit {
       this.artTypes = arttypes.filter(arttype => arttype.id !== this.artworkToEdit.mediumId);
     }
   }
-
-
 }

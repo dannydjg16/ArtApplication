@@ -45,7 +45,7 @@ h5 {
     cursor: pointer;
 }
 
-.card-img-top:hover {
+.card-img-top:active {
     -webkit-transform:scale(1.5); 
     transform:scale(1.5);
     overflow:visible;

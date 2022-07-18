@@ -13,6 +13,7 @@ export default interface Artwork{
     artistId: number;
     mediumId: number;
     artworkAdderId: number;
+    dateAdded: Date;
 
     artist: Artist;
     location: Location;

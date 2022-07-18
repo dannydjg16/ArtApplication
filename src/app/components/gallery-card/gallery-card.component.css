@@ -36,7 +36,7 @@ app-post-actions {
     color: rgb(76, 51, 117);
 }
 
-.card-title:hover {
+.card-title:active {
     text-decoration: underline ;
 }
 

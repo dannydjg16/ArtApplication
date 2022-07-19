@@ -15,7 +15,7 @@
   
   
           <div class="row cardDiv">
-            <div *ngFor="let artwork of locationWorks">
+            <div *ngFor="let artwork of artworks">
               <app-gallery-card [theArtwork]="artwork" [theUser]="signedInUser$" [liked]="2"></app-gallery-card>
             </div>
           </div>

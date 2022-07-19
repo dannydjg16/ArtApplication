@@ -1,10 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { OktaAuthStateService } from '@okta/okta-angular';
 import { AuthState } from '@okta/okta-auth-js';
 import { filter, map, Observable } from 'rxjs';
 import Artwork from 'src/app/interfaces/artwork';
 import Location from 'src/app/interfaces/location';
 import User from 'src/app/interfaces/user';
+import { ArtworkService } from 'src/app/services/artwork.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -21,10 +23,9 @@ export class LocationWorksComponent implements OnInit {
   @Input() locationWorks!: Artwork[]
 
   constructor(private _oktaStateService: OktaAuthStateService,
-    // private _artworkService: ArtworkService,
+    private _artworkService: ArtworkService,
     private _userService: UserService,
-    // private route: ActivatedRoute,
-    // private _router: Router
+    private route: ActivatedRoute
     ) { }
 
   ngOnInit(): void {
@@ -37,6 +38,13 @@ export class LocationWorksComponent implements OnInit {
     this._oktaStateService.authState$
       .subscribe(as => this._userService.getUserByEmail(as.accessToken?.claims.sub!)
         .subscribe(u => this.signedInUser$ = u));
+
+
+    this._artworkService.getArtworksByLocation(this.route.snapshot.params['id']).subscribe({
+      next: (artworks) => this.artworks = artworks,
+      error: () => null,
+      complete: () => null
+    });
   }
 
 }

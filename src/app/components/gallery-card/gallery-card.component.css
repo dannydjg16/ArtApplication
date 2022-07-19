@@ -54,7 +54,7 @@ app-post-actions {
                 -4px 4px #f3f3f3;
 }
 
-.card-img-top:hover {
+.card-img-top:active {
     -webkit-transform:scale(1.5); 
     transform:scale(1.5);
     overflow:visible;

@@ -68,6 +68,19 @@ export class ArtworkService {
     }));
   }
 
+  getArtworksByLocation(id: number): Observable<Artwork[]> {
+    const accessToken = this._oktaAuth.getAccessToken();
+    const headers = {
+      Authorization: 'Bearer ' + accessToken,
+      Accept: 'application/json',
+    };
+
+    return this.http.get<Artwork[]>(`${this.baseUrl}/location/${id}`, { headers: headers }).pipe(catchError((err) => {
+      console.error(err);
+      throw err;
+    }));
+  }
+
   getArtworksByArtist(id: number): Observable<Artwork[]> {
     const accessToken = this._oktaAuth.getAccessToken();
     const headers = {

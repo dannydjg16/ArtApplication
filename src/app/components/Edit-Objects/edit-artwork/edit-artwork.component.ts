@@ -5,7 +5,7 @@ import Artist from 'src/app/interfaces/artist';
 import ArtType from 'src/app/interfaces/arttype';
 import Artwork from 'src/app/interfaces/artwork';
 import User from 'src/app/interfaces/user';
-import Location from '../../interfaces/location';
+import Location from '../../../interfaces/location';
 import { ArtworkService } from 'src/app/services/artwork.service';
 import { UserService } from 'src/app/services/user.service';
 import { ArtistService } from 'src/app/services/artist.service';

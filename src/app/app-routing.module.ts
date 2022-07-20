@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
-import { UserComponent } from './components/user/user.component';
+import { UserComponent } from './components/View-Objects/user/user.component';
 import { Routes, RouterModule } from '@angular/router';
 import { OktaCallbackComponent } from '@okta/okta-angular';
-import { AddArtComponent } from './components/add-art/add-art.component';
-import { GeneralGalleryComponent } from './components/general-gallery/general-gallery.component';
-import { AddArtistComponent } from './components/add-artist/add-artist.component';
-import { ArtistGalleryComponent } from './components/artist-gallery/artist-gallery.component';
-import { AddLocationComponent } from './components/add-location/add-location.component';
-import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
-import { EditArtworkComponent } from './components/edit-artwork/edit-artwork.component';
-import { EditArtistComponent } from './components/edit-artist/edit-artist.component';
-import { EditLocationComponent } from './components/edit-location/edit-location.component';
-import { LocationGalleryComponent } from './components/location-gallery/location-gallery.component';
-import { ViewArtistComponent } from './components/view-artist/view-artist.component';
-import { ViewLocationComponent } from './components/view-location/view-location.component';
-import { ViewArtworkComponent } from './components/view-artwork/view-artwork.component';
+import { AddArtComponent } from './components/Add-Objects/add-art/add-art.component';
+import { GeneralGalleryComponent } from './components/Galleries/general-gallery/general-gallery.component';
+import { AddArtistComponent } from './components/Add-Objects/add-artist/add-artist.component';
+import { ArtistGalleryComponent } from './components/Galleries/artist-gallery/artist-gallery.component';
+import { AddLocationComponent } from './components/Add-Objects/add-location/add-location.component';
+import { EditProfileComponent } from './components/Edit-Objects/edit-profile/edit-profile.component';
+import { EditArtworkComponent } from './components/Edit-Objects/edit-artwork/edit-artwork.component';
+import { EditArtistComponent } from './components/Edit-Objects/edit-artist/edit-artist.component';
+import { EditLocationComponent } from './components/Edit-Objects/edit-location/edit-location.component';
+import { LocationGalleryComponent } from './components/Galleries/location-gallery/location-gallery.component';
+import { ViewArtistComponent } from './components/View-Objects/view-artist/view-artist.component';
+import { ViewLocationComponent } from './components/View-Objects/view-location/view-location.component';
+import { ViewArtworkComponent } from './components/View-Objects/view-artwork/view-artwork.component';
 
 const routes: Routes = [
   { path: 'users', component: UserComponent },

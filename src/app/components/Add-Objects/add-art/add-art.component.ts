@@ -10,8 +10,8 @@ import { ArttypeService } from 'src/app/services/arttype.service';
 import { ArtworkService } from 'src/app/services/artwork.service';
 import { LocationService } from 'src/app/services/location.service';
 import { UserService } from 'src/app/services/user.service';
-import Artwork from '../../interfaces/artwork';
-import Location from '../../interfaces/location';
+import Artwork from '../../../interfaces/artwork';
+import Location from '../../../interfaces/location';
 
 @Component({
   selector: 'app-add-art',

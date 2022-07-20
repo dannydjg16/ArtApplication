@@ -8,7 +8,7 @@ import User from 'src/app/interfaces/user';
 import { LocationService } from 'src/app/services/location.service';
 import { LocationTypeService } from 'src/app/services/locationtype.service';
 import { UserService } from 'src/app/services/user.service';
-import Location from '../../interfaces/location';
+import Location from '../../../interfaces/location';
 
 @Component({
   selector: 'app-add-location',

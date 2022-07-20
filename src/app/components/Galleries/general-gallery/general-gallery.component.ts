@@ -38,4 +38,8 @@ export class GeneralGalleryComponent implements OnInit {
 
     this._artworkService.getArtworks().subscribe(aws => this.artworkss = aws);
   }
+
+  orderArtByYear() {
+    this._artworkService.getArtOrderByYear().subscribe(aws => this.artworkss = aws);
+  }
 }

@@ -29,6 +29,19 @@ export class ArtworkService {
     }));
   }
 
+  getArtOrderByYear(title?: string): Observable<Artwork[]> {
+    const accessToken = this._oktaAuth.getAccessToken();
+    const headers = {
+      Authorization: 'Bearer ' + accessToken,
+      Accept: 'application/json',
+    };
+
+    return this.http.get<Artwork[]>(`${this.baseUrl}/orderByYear`, { headers: headers }).pipe(catchError((err) => {
+      console.error(err);
+      throw err;
+    }));
+  }
+
   getArtworkById(id: number): Observable<Artwork> {
     const accessToken = this._oktaAuth.getAccessToken();
     const headers = {

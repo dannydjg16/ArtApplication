@@ -1,5 +1,5 @@
 # File: .github/workflows/workflow.yml
-name: JavaScript CI
+name: Build and Deploy Application to Azure App Service
 
 on: [push]
 

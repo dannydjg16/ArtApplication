@@ -1,6 +1,8 @@
 # ArtApplication
 DGArt is an online collection of the most famous works from the most famous museums in the world
 
+[![Build and Deploy to Azure App Service](https://github.com/dannydjg16/ArtApplication/actions/workflows/master_dgart.yml/badge.svg)](https://github.com/dannydjg16/ArtApplication/actions/workflows/master_dgart.yml)
+
 ## Check It Out! 
 ###### Use the below credentials to sign in
 Email: 

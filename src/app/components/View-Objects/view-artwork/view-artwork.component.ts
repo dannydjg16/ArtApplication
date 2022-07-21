@@ -19,7 +19,6 @@ export class ViewArtworkComponent implements OnInit {
   public artworkPictureURL = "https://cdn.pixabay.com/photo/2014/08/25/16/17/picture-frame-427233_960_720.jpg";
   hasUserLiked!: boolean;
 
-
   constructor(private userService: UserService,
     private _oktaStateService: OktaAuthStateService,
     private route: ActivatedRoute,

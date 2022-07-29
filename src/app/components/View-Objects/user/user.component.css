@@ -1,6 +1,4 @@
 body {
-    /* margin-left: 10px;
-    width: 100%; */
     margin-left: 250px;
     margin-right: 250px;
 }
@@ -31,7 +29,6 @@ img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 25%;
     height: auto; 
     width: auto; 
     max-width: 150px; 

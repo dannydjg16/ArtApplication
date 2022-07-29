@@ -53,10 +53,6 @@ export class EditArtistComponent implements OnInit {
     this.artistPictureURL = url;
   }
 
-  deleteArtist() {
-    
-  }
-
   goBack() {
     this.location.back();
   }

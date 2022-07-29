@@ -38,8 +38,8 @@ export class AppComponent implements OnInit {
       if (this.isAuthenticated) {
         this.userService.getUserByEmail(as.accessToken?.claims.sub!)
           .subscribe({
-            next: (user) => this.navigateToGallery(),
-            error: (err) => this.userService.addUser({
+            next: (_user) => this.navigateToGallery(),
+            error: (_err) => this.userService.addUser({
               id: 0,
               email: as.accessToken?.claims.sub!,
               name: as.accessToken?.claims.name!,
@@ -47,7 +47,7 @@ export class AppComponent implements OnInit {
               profilePicURL: ''
             }).subscribe({
                 next: (a) => a,
-                error: (error) => 1 + 1
+                error: (_error) => 1 + 1
               })
           })
       }

@@ -55,7 +55,7 @@ export class EditLocationComponent implements OnInit {
   }
 
   goBack() {
-    var id = this.route.snapshot.params['id'];
+    let id = this.route.snapshot.params['id'];
     this._router.navigate(['viewlocation' + '/'+ `${id}`]);
   }
 }

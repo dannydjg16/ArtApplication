@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { OktaAuthStateService } from '@okta/okta-angular';
-import { Observable } from 'rxjs';
 import Artist from 'src/app/interfaces/artist';
 import User from 'src/app/interfaces/user';
 import { ArtistService } from 'src/app/services/artist.service';

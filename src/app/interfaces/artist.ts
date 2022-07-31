@@ -1,5 +1,3 @@
-import Artwork from './artwork';
-
 export default interface Artist{
     id: number;
     name: string;

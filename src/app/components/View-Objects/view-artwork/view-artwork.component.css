@@ -49,9 +49,6 @@ a {
     -webkit-transform:scale(1.6); 
     transform:scale(1.6);
     overflow:visible;
-}
-
-.card-img-top:hover {
     cursor: pointer;
 }
 

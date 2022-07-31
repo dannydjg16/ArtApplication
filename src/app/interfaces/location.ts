@@ -1,5 +1,4 @@
 import Artwork from "./artwork";
-import LocationType from "./locationtype";
 
 export default interface Location{
     id: number;

@@ -37,13 +37,13 @@ export class ViewArtworkComponent implements OnInit {
       .subscribe({
         next: artwork => this.setArtworkAndUrl(artwork),
         error: () => null,
-        complete: () => this.checkIfUserLiked(this.user)
+        complete: () => this.checkIfUserLiked()
       })   
   }
 
-  checkIfUserLiked(user: User) {
+  checkIfUserLiked() {
     if (this.user.likes?.length) {
-      for (var i = 0; i <= this.user.likes!.length-1; i++) {
+      for (let i = 0; i <= this.user.likes!.length-1; i++) {
           if (this.user.likes[i].artId == this.artwork.id) {
             this.hasUserLiked = true;
           }

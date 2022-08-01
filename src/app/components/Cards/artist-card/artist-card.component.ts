@@ -9,9 +9,12 @@ export class ArtistCardComponent implements OnInit {
 
   @Input() theArtist : any;
 
-  constructor() { }
+  constructor() {
+    // Intentionally Empty
+   }
 
   ngOnInit(): void {
+    // Intentionally Empty
   }
 
 }

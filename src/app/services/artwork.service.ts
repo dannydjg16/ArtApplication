@@ -16,7 +16,7 @@ export class ArtworkService {
   constructor(private http: HttpClient, 
               @Inject(OKTA_AUTH) private _oktaAuth: OktaAuth) { }
 
-  getArtworks(title?: string): Observable<Artwork[]> {
+  getArtworks(_title?: string): Observable<Artwork[]> {
     const accessToken = this._oktaAuth.getAccessToken();
     const headers = {
       Authorization: 'Bearer ' + accessToken,
@@ -29,7 +29,7 @@ export class ArtworkService {
     }));
   }
 
-  getArtOrderByYear(title?: string): Observable<Artwork[]> {
+  getArtOrderByYear(_title?: string): Observable<Artwork[]> {
     const accessToken = this._oktaAuth.getAccessToken();
     const headers = {
       Authorization: 'Bearer ' + accessToken,

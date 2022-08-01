@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotAuthComponent implements OnInit {
 
-  constructor() { }
+  constructor() { 
+    // Intentionally Empty
+  }
 
   ngOnInit(): void {
+    // Intentionally Empty
   }
 
 }

@@ -52,7 +52,7 @@ export class EditArtworkComponent implements OnInit {
   edit() {
     this._artworkService.editArtwork(this.artworkToEdit).subscribe(data => {
       console.log(data);
-    });;
+    });
   }
 
   setArtworkAndURL(artwork: Artwork) {

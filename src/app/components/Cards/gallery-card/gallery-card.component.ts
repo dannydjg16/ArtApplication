@@ -25,13 +25,13 @@ export class GalleryCardComponent implements OnInit {
       .subscribe({
         next: (user) => this.user = user,
         error: () => null,
-        complete: () => this.checkIfUserLiked(this.user)
+        complete: () => this.checkIfUserLiked()
       }));
   }
 
-  checkIfUserLiked(user: User) {
+  checkIfUserLiked() {
     if (this.user.likes?.length) {
-      for (var i = 0; i <= this.user.likes!.length-1; i++) {
+      for (let i = 0; i <= this.user.likes!.length-1; i++) {
         if (this.liked != 3) {
           if (this.user.likes[i].artId == this.theArtwork.id) {
             this.hasUserLiked = true;

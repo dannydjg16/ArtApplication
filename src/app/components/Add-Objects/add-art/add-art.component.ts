@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { OktaAuthStateService } from '@okta/okta-angular';
 import { AuthState } from '@okta/okta-auth-js';
 import { filter, map, Observable } from 'rxjs';
@@ -70,7 +69,7 @@ export class AddArtComponent implements OnInit {
   updateLocations(data: Object) {
     this._locationService.getLocationsABC().subscribe({
       next: (allLocations) => this.locations = allLocations,
-      error: (data) => console.log(data),
+      error: (err) => console.log(err),
       complete: () => window.confirm("Location Added")
     });
     console.log(data);
@@ -80,7 +79,7 @@ export class AddArtComponent implements OnInit {
   updateArtists(data: Object) {
     this._artistService.getArtistsABC().subscribe({
       next: (artists) => this.artists = artists,
-      error: (data) => console.log(data),
+      error: (err) => console.log(err),
       complete: () => window.confirm("Artist Added")
     });
   }
@@ -89,7 +88,7 @@ export class AddArtComponent implements OnInit {
   updateArtTypes(data: Object) {
     this._arttypeService.getArtTypesABC().subscribe({
       next: (arttypes) => this.artTypes = arttypes,
-      error: (data) => console.log(data),
+      error: (err) => console.log(err),
       complete: () => window.confirm("Art Type Added")
     })
   }

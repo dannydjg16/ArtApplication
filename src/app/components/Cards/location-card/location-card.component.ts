@@ -10,9 +10,12 @@ export class LocationCardComponent implements OnInit {
   @Input() theLocation : any;
   @Input() liked: any;
 
-  constructor() { }
+  constructor() {
+    // Intentionally Empty
+   }
 
   ngOnInit(): void {
+    // Intentionally Empty
   }
 
 }

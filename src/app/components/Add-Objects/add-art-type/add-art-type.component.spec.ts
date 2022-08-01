@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { AddArtTypeComponent } from './add-art-type.component';
 
 describe('AddArtTypeComponent', () => {

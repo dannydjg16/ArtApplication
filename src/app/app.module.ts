@@ -16,7 +16,6 @@ import { GalleryCardComponent } from './components/Cards/gallery-card/gallery-ca
 import { NotAuthComponent } from './components/not-auth/not-auth.component';
 import { AddArtComponent } from './components/Add-Objects/add-art/add-art.component';
 import { AddArtistComponent } from './components/Add-Objects/add-artist/add-artist.component';
-import { ArtTypeComponent } from './components/Add-Objects/art-type/art-type.component';
 import { ArtistGalleryComponent } from './components/Galleries/artist-gallery/artist-gallery.component';
 import { ArtistCardComponent } from './components/Cards/artist-card/artist-card.component';
 import { AddLocationComponent } from './components/Add-Objects/add-location/add-location.component';
@@ -62,7 +61,6 @@ const oktaAuth = new OktaAuth({
     NotAuthComponent,
     AddArtComponent,
     AddArtistComponent,
-    ArtTypeComponent,
     ArtistGalleryComponent,
     ArtistCardComponent,
     AddLocationComponent,

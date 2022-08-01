@@ -20,6 +20,7 @@ export class PostActionsComponent implements OnInit {
   constructor(private _likeService: LikeService) { }
 
   ngOnInit(): void {
+    // Intentionally Empty
   }
 
   public LikePost(art: Artwork, user: User) {

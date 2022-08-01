@@ -12,6 +12,7 @@ export class NoAuthNavComponent implements OnInit {
   constructor(@Inject(OKTA_AUTH) private _oktaAuth: OktaAuth) { }
 
   ngOnInit(): void {
+    // Intentionally Empty
   }
 
   public signIn() {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OktaAuthStateService } from '@okta/okta-angular';
 import { AuthState } from '@okta/okta-auth-js';
 import { filter, map, Observable } from 'rxjs';
+import Artist from 'src/app/interfaces/artist';
 import ArtType from 'src/app/interfaces/arttype';
 import User from 'src/app/interfaces/user';
 import { ArtistService } from 'src/app/services/artist.service';
@@ -21,11 +22,12 @@ export class AddArtComponent implements OnInit {
 
   public isAuthenticated$!: Observable<boolean>;
   public user!: User;
-  public artists: any[] = [];
+  public artists: Artist[] = [];
   public artTypes!: ArtType[];
   public locations!: Location[];
   public artPictureURL = "https://cdn.pixabay.com/photo/2014/08/25/16/17/picture-frame-427233_960_720.jpg";
   public whatToAdd = "None"
+  public artToAdd!: Artwork;
 
   constructor(private _oktaStateService: OktaAuthStateService,
     private _artworkService: ArtworkService,
@@ -40,23 +42,32 @@ export class AddArtComponent implements OnInit {
       map((s: AuthState) => s.isAuthenticated ?? false)
     );
 
-    this._oktaStateService.authState$.subscribe(as => this.userService.getUserByEmail(as.accessToken?.claims.sub!).subscribe(u => this.user = u));
+    // this._oktaStateService.authState$
+    //   .subscribe(as => this.userService.getUserByEmail(as.accessToken?.claims.sub!)
+    //     .subscribe(u => this.user = u));
+
+    this._oktaStateService.authState$
+      .subscribe(as => this.userService.getUserByEmail(as.accessToken?.claims.sub!)
+        .subscribe({
+          next: (u) => this.user = u,
+          error: () => null,
+          complete: () => this.createArrays()
+        }));
+  }
+
+  add() {
+    this._artworkService.addArtwork(this.artToAdd).subscribe(data => {
+      console.log(data);
+    });
+  }
+
+
+  createArrays() {
     this._artistService.getArtistsABC().subscribe(artists => this.artists = artists);
     this._arttypeService.getArtTypesABC()
       .subscribe(arttypes => this.artTypes = arttypes);
     this._locationService.getLocationsABC()
       .subscribe(allLocations => this.locations = allLocations);
-  }
-
-  add(title: string, url: string, year: string, description: string, artist: string, medium: string, location: string, adder: number) {
-    const artwork = {
-      title: title, filename: url, yearCreated: Number(year), description: description, locationNow: Number(location),
-      artistId: Number(artist), mediumID: Number(medium), artworkAdderID: adder
-    }
-
-    this._artworkService.addArtwork(artwork as unknown as Artwork).subscribe(data => {
-      console.log(data);
-    });
   }
 
   updateArtPicture(url: string) {

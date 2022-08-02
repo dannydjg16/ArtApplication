@@ -64,7 +64,7 @@ export class EditArtworkComponent implements OnInit {
     this.artPictureURL = url;
   }
 
-  // This method creates all of the Arrays for the Select stmts.
+  // This method creates all of the Arrays for the Select elements.
   createArrays() {
     this.getLocations();
     this.getArtists();

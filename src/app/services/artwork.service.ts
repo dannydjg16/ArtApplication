@@ -5,6 +5,7 @@ import { OktaAuth } from '@okta/okta-auth-js';
 import { catchError, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import Artwork from '../interfaces/artwork';
+import ArtworkAdd from '../interfaces/ArtworkAdd';
 
 @Injectable({
   providedIn: 'root'
@@ -107,7 +108,7 @@ export class ArtworkService {
     }));
   }
 
-  addArtwork(artWork: Artwork) {
+  addArtwork(artWork: ArtworkAdd) {
     const accessToken = this._oktaAuth.getAccessToken();
     const headers = {
       Authorization: 'Bearer ' + accessToken,

@@ -4,7 +4,7 @@ import { AuthState } from '@okta/okta-auth-js';
 import { filter, map, Observable } from 'rxjs';
 import Artist from 'src/app/interfaces/artist';
 import ArtType from 'src/app/interfaces/arttype';
-import ArtworkAdd from 'src/app/interfaces/ArtworkAdd';
+import ArtworkAdd from 'src/app/interfaces/artworkAdd';
 import User from 'src/app/interfaces/user';
 import { ArtistService } from 'src/app/services/artist.service';
 import { ArttypeService } from 'src/app/services/arttype.service';

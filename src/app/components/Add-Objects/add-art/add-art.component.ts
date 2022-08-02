@@ -76,7 +76,7 @@ export class AddArtComponent implements OnInit {
   }
 
   // Updating Select for Artists when a new artist is added 
-  updateArtists(data: Object) {
+  updateArtists(_data: Object) {
     this._artistService.getArtistsABC().subscribe({
       next: (artists) => this.artists = artists,
       error: (err) => console.log(err),
@@ -85,7 +85,7 @@ export class AddArtComponent implements OnInit {
   }
 
   // Updating Select for Art Types when a new art type is added 
-  updateArtTypes(data: Object) {
+  updateArtTypes(_data: Object) {
     this._arttypeService.getArtTypesABC().subscribe({
       next: (arttypes) => this.artTypes = arttypes,
       error: (err) => console.log(err),

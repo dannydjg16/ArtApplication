@@ -43,7 +43,7 @@ export class ViewArtworkComponent implements OnInit {
 
   checkIfUserLiked() {
     if (this.user.likes?.length) {
-      for (let i = 0; i <= this.user.likes!.length-1; i++) {
+      for (let i = 0; i <= this.user.likes.length-1; i++) {
           if (this.user.likes[i].artId == this.artwork.id) {
             this.hasUserLiked = true;
           }

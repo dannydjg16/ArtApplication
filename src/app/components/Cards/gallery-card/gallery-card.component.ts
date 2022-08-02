@@ -31,7 +31,7 @@ export class GalleryCardComponent implements OnInit {
 
   checkIfUserLiked() {
     if (this.user.likes?.length) {
-      for (let i = 0; i <= this.user.likes!.length-1; i++) {
+      for (let i = 0; i <= this.user.likes.length-1; i++) {
         if (this.liked != 3) {
           if (this.user.likes[i].artId == this.theArtwork.id) {
             this.hasUserLiked = true;

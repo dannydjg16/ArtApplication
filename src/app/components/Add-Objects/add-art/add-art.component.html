@@ -9,34 +9,34 @@
 
         <!-- Title input -->
         <div class="form-outline mb-4">
-            <input #title type="text" id="form6Example3" class="form-control" placeholder="Art Work Title"
+            <input #title type="text" id="form6Example3" class="form-control" placeholder="Art Work Title" name="title"
                 ngDefaultControl [(ngModel)]="artToAdd.title" />
         </div>
 
         <!-- File URL input -->
         <div class="form-outline mb-4">
             <input #url type="text" id="form6Example4" class="form-control" placeholder="URL" ngDefaultControl
-                [(ngModel)]="artToAdd.fileName" (blur)="updateArtPicture(url.value)" />
+                name="fileURL" [(ngModel)]="artToAdd.fileName" (blur)="updateArtPicture(url.value)" />
         </div>
 
         <!-- Year Created input -->
         <div class="form-outline mb-4">
-            <input #year type="number" id="form6Example6" class="form-control" placeholder="Year Created"
+            <input #year type="number" id="form6Example6" class="form-control" placeholder="Year Created" name="artYear"
                 ngDefaultControl [(ngModel)]="artToAdd.yearCreated" />
         </div>
 
         <!-- Description input -->
         <div class="form-outline mb-4">
-            <textarea #description class="form-control" id="form6Example7" rows="4" ngDefaultControl
+            <textarea #description class="form-control" id="form6Example7" rows="4" name="description" ngDefaultControl
                 [(ngModel)]="artToAdd.description" placeholder="Description"></textarea>
         </div>
 
-        <div class="form-outline mb-4" >
+        <div class="form-outline mb-4">
 
             <!-- Artist ID input -->
-            <select name="artists" id="artistsDropdown" [(ngModel)]="artToAdd.artist" >
-                <option ngDefaultControl>Select An Artist</option>
-                <option *ngFor="let artist of artists" ngDefaultControl [ngValue]="artist">
+            <select #selectArtist name="artists" id="artistsDropdown">
+                <option selected>Select An Artist</option>
+                <option *ngFor="let artist of artists" ngDefaultControl [ngValue]="artist.id">
                     {{ artist.name }}
                 </option>
             </select>
@@ -46,9 +46,9 @@
             </div>
 
             <!-- Medium ID input -->
-            <select #arttypes name="arttypes" id="arttypesDropdown" [(ngModel)]="artToAdd.medium">
-                <option ngDefaultControl>Select A Medium</option>
-                <option *ngFor="let arttype of artTypes" ngDefaultControl [ngValue]="arttype">
+            <select #medium name="arttypes" id="arttypesDropdown">
+                <option value="" selected>Select A Medium</option>
+                <option *ngFor="let arttype of artTypes" ngDefaultControl [ngValue]="arttype.id">
                     {{ arttype.name }}
                 </option>
             </select>
@@ -58,9 +58,9 @@
             </div>
 
             <!-- Location ID input -->
-            <select name="locations" id="locationsDropdown" [(ngModel)]="artToAdd.location">
-                <option ngDefaultControl [(ngModel)]="artToAdd.location">Select A Location</option>
-                <option *ngFor="let oneLocation of locations" ngDefaultControl [ngValue]="oneLocation">
+            <select #location name="locations" id="locationsDropdown">
+                <option value="" selected>Select A Location</option>
+                <option *ngFor="let oneLocation of locations" ngDefaultControl [ngValue]="oneLocation.id">
                     {{ oneLocation.locationName }}
                 </option>
             </select>
@@ -72,7 +72,8 @@
         </div>
 
         <!-- Submit button -->
-        <button type="submit" class="btn btn-primary btn-block mb-4" id="addButton" (click)="add()">Add
+        <button type="submit" class="btn btn-primary btn-block mb-4" id="addButton"
+            (click)="add(selectArtist.value, medium.value, location.value, user.id)">Add
             Artwork
         </button>
     </form>

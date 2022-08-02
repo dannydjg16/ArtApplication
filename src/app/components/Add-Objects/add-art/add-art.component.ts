@@ -4,13 +4,13 @@ import { AuthState } from '@okta/okta-auth-js';
 import { filter, map, Observable } from 'rxjs';
 import Artist from 'src/app/interfaces/artist';
 import ArtType from 'src/app/interfaces/arttype';
+import ArtworkAdd from 'src/app/interfaces/ArtworkAdd';
 import User from 'src/app/interfaces/user';
 import { ArtistService } from 'src/app/services/artist.service';
 import { ArttypeService } from 'src/app/services/arttype.service';
 import { ArtworkService } from 'src/app/services/artwork.service';
 import { LocationService } from 'src/app/services/location.service';
 import { UserService } from 'src/app/services/user.service';
-import Artwork from '../../../interfaces/artwork';
 import Location from '../../../interfaces/location';
 
 @Component({
@@ -27,7 +27,7 @@ export class AddArtComponent implements OnInit {
   public locations!: Location[];
   public artPictureURL = "https://cdn.pixabay.com/photo/2014/08/25/16/17/picture-frame-427233_960_720.jpg";
   public whatToAdd = "None"
-  public artToAdd!: Artwork;
+  public artToAdd: ArtworkAdd = {};
 
   constructor(private _oktaStateService: OktaAuthStateService,
     private _artworkService: ArtworkService,
@@ -55,15 +55,20 @@ export class AddArtComponent implements OnInit {
         }));
   }
 
-  add() {
+  add(artist: string, medium: string, location: string, adder: number) {
+    this.artToAdd.artistId = Number(artist);
+    this.artToAdd.mediumId = Number(medium);
+    this.artToAdd.locationNow = Number(location);
+    this.artToAdd.artworkAdderId = adder;
+
     this._artworkService.addArtwork(this.artToAdd).subscribe(data => {
       console.log(data);
     });
   }
 
-
   createArrays() {
-    this._artistService.getArtistsABC().subscribe(artists => this.artists = artists);
+    this._artistService.getArtistsABC()
+      .subscribe(artists => this.artists = artists);
     this._arttypeService.getArtTypesABC()
       .subscribe(arttypes => this.artTypes = arttypes);
     this._locationService.getLocationsABC()

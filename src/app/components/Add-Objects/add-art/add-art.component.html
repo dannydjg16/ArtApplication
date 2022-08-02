@@ -36,7 +36,7 @@
             <!-- Artist ID input -->
             <select #selectArtist name="artists" id="artistsDropdown">
                 <option selected>Select An Artist</option>
-                <option *ngFor="let artist of artists" ngDefaultControl [ngValue]="artist.id">
+                <option *ngFor="let artist of artists" ngDefaultControl [value]="artist.id">
                     {{ artist.name }}
                 </option>
             </select>
@@ -48,7 +48,7 @@
             <!-- Medium ID input -->
             <select #medium name="arttypes" id="arttypesDropdown">
                 <option value="" selected>Select A Medium</option>
-                <option *ngFor="let arttype of artTypes" ngDefaultControl [ngValue]="arttype.id">
+                <option *ngFor="let arttype of artTypes" ngDefaultControl [value]="arttype.id">
                     {{ arttype.name }}
                 </option>
             </select>
@@ -60,7 +60,7 @@
             <!-- Location ID input -->
             <select #location name="locations" id="locationsDropdown">
                 <option value="" selected>Select A Location</option>
-                <option *ngFor="let oneLocation of locations" ngDefaultControl [ngValue]="oneLocation.id">
+                <option *ngFor="let oneLocation of locations" ngDefaultControl [value]="oneLocation.id">
                     {{ oneLocation.locationName }}
                 </option>
             </select>

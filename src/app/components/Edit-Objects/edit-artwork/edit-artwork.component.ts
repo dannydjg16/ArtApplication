@@ -57,6 +57,9 @@ export class EditArtworkComponent implements OnInit {
 
   delete() {
     // delete artwork
+    this._artworkService.deleteArtwork(this.artworkToEdit.id).subscribe(data => {
+      console.log(data);
+    })
   }
 
   setArtworkAndURL(artwork: Artwork) {

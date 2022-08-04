@@ -55,6 +55,10 @@ export class EditArtworkComponent implements OnInit {
     });
   }
 
+  delete() {
+    // delete artwork
+  }
+
   setArtworkAndURL(artwork: Artwork) {
     this.artworkToEdit = artwork;
     this.artPictureURL = artwork.fileName;

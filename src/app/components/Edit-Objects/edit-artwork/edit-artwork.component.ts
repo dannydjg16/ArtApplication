@@ -11,6 +11,8 @@ import { UserService } from 'src/app/services/user.service';
 import { ArtistService } from 'src/app/services/artist.service';
 import { ArttypeService } from 'src/app/services/arttype.service';
 import { LocationService } from 'src/app/services/location.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogOverviewExampleDialog } from '../../Dialog-Popup/DialogOverViewExampleDialog';
 
 @Component({
   selector: 'app-edit-artwork',
@@ -34,7 +36,8 @@ export class EditArtworkComponent implements OnInit {
     private route: ActivatedRoute,
     private _artistService: ArtistService,
     private _arttypeService: ArttypeService,
-    private _locationService: LocationService) { }
+    private _locationService: LocationService,
+    public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this._oktaStateService.authState$
@@ -59,6 +62,14 @@ export class EditArtworkComponent implements OnInit {
     this._artworkService.deleteArtwork(this.artworkToEdit.id).subscribe(data => {
       console.log(data);
     })
+  }
+
+  // Open Dialog View
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+      width: '250px',
+      data: null
+    });
   }
 
   setArtworkAndURL(artwork: Artwork) {

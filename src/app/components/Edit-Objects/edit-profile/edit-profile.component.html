@@ -25,6 +25,23 @@
             <textarea #fromLocation rows="1" type="text" id="form6Example4" class="form-control" placeholder="From: " [(ngModel)]="user.fromLocation"></textarea>
         </div>
 
+        <div class="form-outline mb-4">
+            <div class="userLocation">
+                <h6 class="locationQuestion">Where Are You Currently?</h6>
+                <!-- Location Country input -->
+                <input #country type="text" id="" class="form-control" placeholder="Country: "
+                    [(ngModel)]="user.currentCountry" />
+
+                <!-- Location State/Province input -->
+                <input #stateProvince type="text" id="" class="form-control"
+                    placeholder="State/Province:" [(ngModel)]="user.currentStateProvince" />
+
+                <!-- Location City input -->
+                <input #city type="text" id="" class="form-control" placeholder="City: "
+                    [(ngModel)]="user.currentCity" />
+            </div>
+        </div>
+
         <!-- Email input -->
         <div class="form-outline mb-4">
 

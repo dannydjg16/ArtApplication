@@ -18,6 +18,21 @@ h2 {
     margin-left: 10px;
 }
 
+.locationQuestion {
+    text-decoration: underline;
+}
+
+.userLocation {
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-bottom: 30px;
+}
+
+.userLocation>input {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
 #editObjectForm {
     margin: 30px;
     margin-left: 18%;

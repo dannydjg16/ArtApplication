@@ -6,5 +6,8 @@ export default interface User{
     name: string;
     fromLocation: string;
     profilePicURL: string;
+    currentCity: string;
+    currentCountry: string;
+    currentStateProvince: string;
     likes?: Like[];
 }

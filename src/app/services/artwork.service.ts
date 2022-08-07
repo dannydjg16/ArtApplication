@@ -5,7 +5,7 @@ import { OktaAuth } from '@okta/okta-auth-js';
 import { catchError, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import Artwork from '../interfaces/artwork';
-import ArtworkAdd from '../interfaces/ArtworkAdd';
+import ArtworkAdd from '../interfaces/artworkAdd';
 
 @Injectable({
   providedIn: 'root'

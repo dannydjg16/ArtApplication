@@ -12,7 +12,7 @@ import { ArtistService } from 'src/app/services/artist.service';
 import { ArttypeService } from 'src/app/services/arttype.service';
 import { LocationService } from 'src/app/services/location.service';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogOverviewExampleDialog } from '../../Dialog-Popup/DialogOverViewExampleDialog';
+// import { DialogOverviewExampleDialog } from '../../Dialog-Popup/DialogOverViewExampleDialog';
 
 @Component({
   selector: 'app-edit-artwork',
@@ -65,12 +65,12 @@ export class EditArtworkComponent implements OnInit {
   }
 
   // Open Dialog View
-  openDialog(): void {
-    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
-      width: '250px',
-      data: null
-    });
-  }
+  // openDialog(): void {
+  //   const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+  //     width: '250px',
+  //     data: null
+  //   });
+  // }
 
   setArtworkAndURL(artwork: Artwork) {
     this.artworkToEdit = artwork;

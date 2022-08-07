@@ -44,7 +44,10 @@ export class AppComponent implements OnInit {
               email: as.accessToken?.claims.sub!,
               name: as.accessToken?.claims.name!,
               fromLocation: '',
-              profilePicURL: ''
+              profilePicURL: '',
+              currentCity: '',
+              currentCountry: '',
+              currentStateProvince: ''
             }).subscribe({
                 next: (a) => a,
                 error: (_error) => 1 + 1

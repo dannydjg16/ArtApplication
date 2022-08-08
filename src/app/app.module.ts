@@ -37,6 +37,7 @@ import { ArtistWorksComponent } from './components/Galleries/artist-works/artist
 import { ViewLocationComponent } from './components/View-Objects/view-location/view-location.component';
 import { LocationWorksComponent } from './components/Galleries/location-works/location-works.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const oktaAuth = new OktaAuth({
   issuer: 'https://dev-7824301.okta.com/oauth2/default',
@@ -46,7 +47,6 @@ const oktaAuth = new OktaAuth({
   scopes: ['openid'],
   postLogoutRedirectUri: window.location.origin,
 });
-
 
 @NgModule({
   declarations: [
@@ -88,7 +88,8 @@ const oktaAuth = new OktaAuth({
     FormsModule,
     MDBBootstrapModule.forRoot(),
     NgbDropdownModule,
-    MatDialogModule
+    MatDialogModule,
+    BrowserAnimationsModule
   ],
   providers: [{ provide: OKTA_CONFIG, useValue: {oktaAuth}}],
   bootstrap: [AppComponent]

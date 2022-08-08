@@ -59,9 +59,11 @@ export class EditArtworkComponent implements OnInit {
   }
 
   delete() {
-    this._artworkService.deleteArtwork(this.artworkToEdit.id).subscribe(data => {
-      console.log(data);
-    })
+    if(confirm("Confirm Delete?")) {
+      this._artworkService.deleteArtwork(this.artworkToEdit.id).subscribe(data => {
+        console.log(data);
+      })
+    }    
   }
 
   // Open Dialog View
@@ -70,6 +72,9 @@ export class EditArtworkComponent implements OnInit {
       width: '250px',
       data: null
     });
+
+    // What to do after the dialog is closed. Will probably put delete artwork here
+    dialogRef.afterClosed().subscribe(() => null);
   }
 
   setArtworkAndURL(artwork: Artwork) {

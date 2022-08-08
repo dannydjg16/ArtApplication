@@ -70,6 +70,8 @@ export class EditArtworkComponent implements OnInit {
       width: '250px',
       data: null
     });
+
+    dialogRef.afterClosed().subscribe(() => null);
   }
 
   setArtworkAndURL(artwork: Artwork) {

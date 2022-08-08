@@ -36,6 +36,7 @@ import { ViewArtistComponent } from './components/View-Objects/view-artist/view-
 import { ArtistWorksComponent } from './components/Galleries/artist-works/artist-works.component';
 import { ViewLocationComponent } from './components/View-Objects/view-location/view-location.component';
 import { LocationWorksComponent } from './components/Galleries/location-works/location-works.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const oktaAuth = new OktaAuth({
   issuer: 'https://dev-7824301.okta.com/oauth2/default',
@@ -86,7 +87,8 @@ const oktaAuth = new OktaAuth({
     OktaAuthModule,
     FormsModule,
     MDBBootstrapModule.forRoot(),
-    NgbDropdownModule
+    NgbDropdownModule,
+    MatDialogModule
   ],
   providers: [{ provide: OKTA_CONFIG, useValue: {oktaAuth}}],
   bootstrap: [AppComponent]

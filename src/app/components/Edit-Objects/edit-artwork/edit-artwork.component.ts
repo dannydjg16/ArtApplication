@@ -71,6 +71,7 @@ export class EditArtworkComponent implements OnInit {
       data: null
     });
 
+    // What to do after the dialog is closed. Will probably put delete artwork here
     dialogRef.afterClosed().subscribe(() => null);
   }
 

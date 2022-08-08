@@ -37,7 +37,6 @@ import { ArtistWorksComponent } from './components/Galleries/artist-works/artist
 import { ViewLocationComponent } from './components/View-Objects/view-location/view-location.component';
 import { LocationWorksComponent } from './components/Galleries/location-works/location-works.component';
 
-
 const oktaAuth = new OktaAuth({
   issuer: 'https://dev-7824301.okta.com/oauth2/default',
   clientId: '0oa41j4h92rnKJ2Xr5d7',

@@ -39,7 +39,6 @@ import { LocationWorksComponent } from './components/Galleries/location-works/lo
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
 const oktaAuth = new OktaAuth({
   issuer: 'https://dev-7824301.okta.com/oauth2/default',
   clientId: '0oa41j4h92rnKJ2Xr5d7',
@@ -48,7 +47,6 @@ const oktaAuth = new OktaAuth({
   scopes: ['openid'],
   postLogoutRedirectUri: window.location.origin,
 });
-
 
 @NgModule({
   declarations: [

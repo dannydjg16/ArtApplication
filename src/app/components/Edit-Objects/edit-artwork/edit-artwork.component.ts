@@ -59,9 +59,11 @@ export class EditArtworkComponent implements OnInit {
   }
 
   delete() {
-    this._artworkService.deleteArtwork(this.artworkToEdit.id).subscribe(data => {
-      console.log(data);
-    })
+    if(confirm("Confirm Delete")) {
+      this._artworkService.deleteArtwork(this.artworkToEdit.id).subscribe(data => {
+        console.log(data);
+      })
+    }    
   }
 
   // Open Dialog View

@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { NoAuthNavComponent } from './no-auth-nav.component';
 
 describe('NoAuthNavComponent', () => {

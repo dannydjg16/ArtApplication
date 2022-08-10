@@ -14,5 +14,4 @@ export class NotAuthComponent implements OnInit {
   ngOnInit(): void {
     // Intentionally Empty
   }
-
 }

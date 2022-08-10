@@ -27,7 +27,7 @@ import { UserArtworksComponent } from './components/Galleries/user-artworks/user
 import { EditArtworkComponent } from './components/Edit-Objects/edit-artwork/edit-artwork.component';
 import { ViewArtworkComponent } from './components/View-Objects/view-artwork/view-artwork.component';
 import { EditArtistComponent } from './components/Edit-Objects/edit-artist/edit-artist.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { EditLocationComponent } from './components/Edit-Objects/edit-location/edit-location.component';
 import { AddLocationTypeComponent } from './components/Add-Objects/add-location-type/add-location-type.component';
 import { AddArtTypeComponent } from './components/Add-Objects/add-art-type/add-art-type.component';
@@ -38,6 +38,7 @@ import { ViewLocationComponent } from './components/View-Objects/view-location/v
 import { LocationWorksComponent } from './components/Galleries/location-works/location-works.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ConfirmationDialog } from './components/confirm-dialog/confirmation-dialog';
 
 const oktaAuth = new OktaAuth({
   issuer: 'https://dev-7824301.okta.com/oauth2/default',
@@ -78,7 +79,8 @@ const oktaAuth = new OktaAuth({
     ViewArtistComponent,
     ArtistWorksComponent,
     ViewLocationComponent,
-    LocationWorksComponent
+    LocationWorksComponent,
+    ConfirmationDialog
   ],
   imports: [
     BrowserModule,
@@ -89,7 +91,9 @@ const oktaAuth = new OktaAuth({
     MDBBootstrapModule.forRoot(),
     NgbDropdownModule,
     MatDialogModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [{ provide: OKTA_CONFIG, useValue: {oktaAuth}}],
   bootstrap: [AppComponent]

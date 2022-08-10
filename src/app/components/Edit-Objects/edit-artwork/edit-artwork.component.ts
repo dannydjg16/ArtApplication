@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { OktaAuthStateService } from '@okta/okta-angular';
 import Artist from 'src/app/interfaces/artist';
@@ -11,15 +11,16 @@ import { UserService } from 'src/app/services/user.service';
 import { ArtistService } from 'src/app/services/artist.service';
 import { ArttypeService } from 'src/app/services/arttype.service';
 import { LocationService } from 'src/app/services/location.service';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { DialogOverviewExampleDialog } from '../../Dialog-Popup/DialogOverViewExampleDialog';
+import { ConfirmationDialog } from '../../confirm-dialog/confirmation-dialog';
 
 @Component({
   selector: 'app-edit-artwork',
   templateUrl: './edit-artwork.component.html',
   styleUrls: ['./edit-artwork.component.css']
 })
-export class EditArtworkComponent implements OnInit {
+export class EditArtworkComponent implements OnInit, AfterViewInit {
 
   public user!: User;
   public artPictureURL = "https://cdn.pixabay.com/photo/2014/08/25/16/17/picture-frame-427233_960_720.jpg";
@@ -28,6 +29,7 @@ export class EditArtworkComponent implements OnInit {
   public artists!: Artist[];
   public artTypes!: ArtType[];
   public locations!: Location[];
+  dialogRef: MatDialogRef<ConfirmationDialog> | undefined;
 
   constructor(
     private userService: UserService,
@@ -38,6 +40,10 @@ export class EditArtworkComponent implements OnInit {
     private _arttypeService: ArttypeService,
     private _locationService: LocationService,
     public dialog: MatDialog) { }
+
+  ngAfterViewInit(): void {
+    throw new Error('Method not implemented.');
+  }
 
   ngOnInit(): void {
     this._oktaStateService.authState$
@@ -58,24 +64,19 @@ export class EditArtworkComponent implements OnInit {
     });
   }
 
-  delete() {
-    if(confirm("Confirm Delete?")) {
-      this._artworkService.deleteArtwork(this.artworkToEdit.id).subscribe(data => {
-        console.log(data);
-      })
-    }    
-  }
-
-  // Open Dialog View
-  openDialog(): void {
-    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
-      width: '250px',
-      data: null
+  openConfirmationDialog() {
+    this.dialogRef = this.dialog.open(ConfirmationDialog, {
+      disableClose: false
     });
+    this.dialogRef.componentInstance.confirmMessage = "Are you sure you want to delete?"
 
-    // What to do after the dialog is closed. Will probably put delete artwork here
-    dialogRef.afterClosed().subscribe(() => null);
-  }
+    this.dialogRef.afterClosed().subscribe(result => {
+      if(result) {
+        // do confirmation actions
+      }
+    });
+  } 
+
 
   setArtworkAndURL(artwork: Artwork) {
     this.artworkToEdit = artwork;

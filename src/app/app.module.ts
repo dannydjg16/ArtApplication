@@ -85,9 +85,7 @@ const oktaAuth = new OktaAuth({
     OktaAuthModule,
     FormsModule,
     MDBBootstrapModule.forRoot(),
-    NgbDropdownModule,
-    MatDialogModule,
-    BrowserAnimationsModule
+    NgbDropdownModule
   ],
   providers: [{ provide: OKTA_CONFIG, useValue: {oktaAuth}}],
   bootstrap: [AppComponent]

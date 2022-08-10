@@ -65,17 +65,6 @@ export class EditArtworkComponent implements OnInit {
     }    
   }
 
-  // Open Dialog View
-  openDialog(): void {
-    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
-      width: '250px',
-      data: null
-    });
-
-    // What to do after the dialog is closed. Will probably put delete artwork here
-    dialogRef.afterClosed().subscribe(() => null);
-  }
-
   setArtworkAndURL(artwork: Artwork) {
     this.artworkToEdit = artwork;
     this.artPictureURL = artwork.fileName;

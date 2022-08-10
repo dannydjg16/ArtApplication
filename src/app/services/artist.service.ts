@@ -29,7 +29,6 @@ export class ArtistService {
     }));
   }
 
-
   getArtistsABC(): Observable<Artist[]> {
     const accessToken = this._oktaAuth.getAccessToken();
     const headers = {

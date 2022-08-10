@@ -20,7 +20,7 @@ import { ConfirmationDialog } from '../../confirm-dialog/confirmation-dialog';
   templateUrl: './edit-artwork.component.html',
   styleUrls: ['./edit-artwork.component.css']
 })
-export class EditArtworkComponent implements OnInit, AfterViewInit {
+export class EditArtworkComponent implements OnInit {
 
   public user!: User;
   public artPictureURL = "https://cdn.pixabay.com/photo/2014/08/25/16/17/picture-frame-427233_960_720.jpg";
@@ -40,10 +40,6 @@ export class EditArtworkComponent implements OnInit, AfterViewInit {
     private _arttypeService: ArttypeService,
     private _locationService: LocationService,
     public dialog: MatDialog) { }
-
-  ngAfterViewInit(): void {
-    throw new Error('Method not implemented.');
-  }
 
   ngOnInit(): void {
     this._oktaStateService.authState$

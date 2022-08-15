@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { OktaAuthStateService } from '@okta/okta-angular';
 import { AuthState } from '@okta/okta-auth-js';
 import { filter, map, Observable } from 'rxjs';
@@ -35,7 +36,8 @@ export class AddArtComponent implements OnInit {
     private userService: UserService,
     private _artistService: ArtistService,
     private _arttypeService: ArttypeService,
-    private _locationService: LocationService) { }
+    private _locationService: LocationService,
+    private _router: Router) { }
 
   ngOnInit(): void {
     this.isAuthenticated$ = this._oktaStateService.authState$.pipe(
@@ -56,7 +58,7 @@ export class AddArtComponent implements OnInit {
         }));
   }
 
-  add(artist: string, medium: string, location: string, adder: number, form: NgForm) {
+  add(artist: string, medium: string, location: string, adder: number) {
     this.artToAdd.artistId = Number(artist);
     this.artToAdd.mediumId = Number(medium);
     this.artToAdd.locationNow = Number(location);
@@ -65,12 +67,12 @@ export class AddArtComponent implements OnInit {
     this._artworkService.addArtwork(this.artToAdd).subscribe({
       next: (data) => console.log(data),
       error: () => null,
-      complete: () => this.postAddActions(form)
+      complete: () => null
     })
   }
 
-  postAddActions(form: NgForm) {
-    form.resetForm();
+  afterArtAdd(){
+    this._router.navigate(['gallery']);
   }
 
   createArrays() {
@@ -93,9 +95,15 @@ export class AddArtComponent implements OnInit {
     this._locationService.getLocationsABC().subscribe({
       next: (allLocations) => this.locations = allLocations,
       error: (err) => console.log(err),
-      complete: () => window.confirm("Location Added!!")
+      complete: () => this.afterLocationAdd()
     });
     console.log(data);
+  }
+
+  // What to do after adding Location
+  afterLocationAdd(){
+    window.confirm("Location Added!!");
+    this.whatToAdd == "None"
   }
 
   // Updating Select for Artists when a new artist is added 
@@ -103,17 +111,27 @@ export class AddArtComponent implements OnInit {
     this._artistService.getArtistsABC().subscribe({
       next: (artists) => this.artists = artists,
       error: (err) => console.log(err),
-      complete: () => window.confirm("Artist Added!!")
+      complete: () => this.afterArtistAdd()
     });
   }
+    // What to do after adding Location
+    afterArtistAdd(){
+      window.confirm("Artist Added!!");
+      this.whatToAdd == "None"
+    }
 
   // Updating Select for Art Types when a new art type is added 
   updateArtTypes(_data: Object) {
     this._arttypeService.getArtTypesABC().subscribe({
       next: (arttypes) => this.artTypes = arttypes,
       error: (err) => console.log(err),
-      complete: () => window.confirm("Art Type Added!!")
+      complete: () => this.afterArtTypeAdd()
     })
+  }
+  // What to do after adding Location
+  afterArtTypeAdd(){
+    window.confirm("Art Type Added!!");
+    this.whatToAdd == "None"
   }
 
   // Show/Hide AddArtist

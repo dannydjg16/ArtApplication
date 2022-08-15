@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { OktaAuthStateService } from '@okta/okta-angular';
 import { AuthState } from '@okta/okta-auth-js';
 import { filter, map, Observable } from 'rxjs';
@@ -55,15 +56,21 @@ export class AddArtComponent implements OnInit {
         }));
   }
 
-  add(artist: string, medium: string, location: string, adder: number) {
+  add(artist: string, medium: string, location: string, adder: number, form: NgForm) {
     this.artToAdd.artistId = Number(artist);
     this.artToAdd.mediumId = Number(medium);
     this.artToAdd.locationNow = Number(location);
     this.artToAdd.artworkAdderId = adder;
 
-    this._artworkService.addArtwork(this.artToAdd).subscribe(data => {
-      console.log(data);
-    });
+    this._artworkService.addArtwork(this.artToAdd).subscribe({
+      next: (data) => console.log(data),
+      error: () => null,
+      complete: () => this.postAddActions(form)
+    })
+  }
+
+  postAddActions(form: NgForm) {
+    form.resetForm();
   }
 
   createArrays() {

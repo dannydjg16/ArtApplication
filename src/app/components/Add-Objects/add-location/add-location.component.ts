@@ -57,7 +57,7 @@ export class AddLocationComponent implements OnInit {
     this._locationtypeService.getLocationTypesABC().subscribe({
       next: (locTypes) => this.locationtypes = locTypes,
       error: (err) => console.log(err),
-      complete: () => window.confirm("Location Type Added")
+      complete: () => window.confirm("Location Type Added!!")
     });
   }
 

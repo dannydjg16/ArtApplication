@@ -67,7 +67,7 @@ export class AddArtComponent implements OnInit {
     this._artworkService.addArtwork(this.artToAdd).subscribe({
       next: (data) => console.log(data),
       error: () => null,
-      complete: () => null
+      complete: () => this.afterArtAdd()
     })
   }
 

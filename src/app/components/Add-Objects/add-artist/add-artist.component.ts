@@ -48,7 +48,10 @@ export class AddArtistComponent implements OnInit {
     if (this._router.url === '/addwork') {
       this.updateArtistsEvent.emit(data)
     } else {
+      // Run this if on the addLocation component
       console.log(data)
+      window.confirm("Artist Added!!");
+      this._router.navigate(['artists']);
     }
   }
 

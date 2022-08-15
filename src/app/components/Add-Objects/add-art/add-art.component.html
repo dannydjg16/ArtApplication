@@ -1,6 +1,6 @@
 <ng-container *ngIf="user">
 
-    <form id="addArtForm">
+    <form id="addArtForm" #addForm="ngForm">
         <h2>Add To Our Gallery</h2>
         <!-- 2 column grid layout with text inputs for the first and last names -->
         <div class="artImage">
@@ -73,7 +73,7 @@
 
         <!-- Submit button -->
         <button type="submit" class="btn btn-primary btn-block mb-4" id="addButton"
-            (click)="add(selectArtist.value, medium.value, location.value, user.id)">Add
+            (click)="add(selectArtist.value, medium.value, location.value, user.id, addForm)">Add
             Artwork
         </button>
     </form>

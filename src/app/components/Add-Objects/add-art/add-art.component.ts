@@ -72,6 +72,7 @@ export class AddArtComponent implements OnInit {
   }
 
   afterArtAdd(){
+    window.confirm("Art Work Added!!");
     this._router.navigate(['gallery']);
   }
 
@@ -103,7 +104,7 @@ export class AddArtComponent implements OnInit {
   // What to do after adding Location
   afterLocationAdd(){
     window.confirm("Location Added!!");
-    this.whatToAdd == "None"
+    this.whatToAdd = "None";
   }
 
   // Updating Select for Artists when a new artist is added 
@@ -117,7 +118,7 @@ export class AddArtComponent implements OnInit {
     // What to do after adding Location
     afterArtistAdd(){
       window.confirm("Artist Added!!");
-      this.whatToAdd == "None"
+      this.whatToAdd = "None";
     }
 
   // Updating Select for Art Types when a new art type is added 
@@ -131,33 +132,33 @@ export class AddArtComponent implements OnInit {
   // What to do after adding Location
   afterArtTypeAdd(){
     window.confirm("Art Type Added!!");
-    this.whatToAdd == "None"
+    this.whatToAdd = "None";
   }
 
   // Show/Hide AddArtist
   popUpArtist() {
     if (this.whatToAdd == "Artist") {
-      this.whatToAdd = "None"
+      this.whatToAdd = "None";
     } else {
-      this.whatToAdd = "Artist"
+      this.whatToAdd = "Artist";
     }
   }
 
   // Show/Hide AddMedium
   popUpMedium() {
     if (this.whatToAdd == "Medium") {
-      this.whatToAdd = "None"
+      this.whatToAdd = "None";
     } else {
-      this.whatToAdd = "Medium"
+      this.whatToAdd = "Medium";
     }
   }
 
   // Show/Hide AddLocation
   popUpLocation() {
     if (this.whatToAdd == "Location") {
-      this.whatToAdd = "None"
+      this.whatToAdd = "None";
     } else {
-      this.whatToAdd = "Location"
+      this.whatToAdd = "Location";
     }
   }
 }

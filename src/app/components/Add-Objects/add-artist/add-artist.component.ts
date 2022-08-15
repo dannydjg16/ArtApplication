@@ -20,10 +20,10 @@ export class AddArtistComponent implements OnInit {
   @Output() updateArtistsEvent = new EventEmitter<Object>();
   public user!: User;
 
-  constructor(private _oktaStateService: OktaAuthStateService, 
-              private _artistService: ArtistService,
-              private _router: Router,
-              private userService: UserService) { }
+  constructor(private _oktaStateService: OktaAuthStateService,
+    private _artistService: ArtistService,
+    private _router: Router,
+    private userService: UserService) { }
 
   ngOnInit(): void {
     this.isAuthenticated$ = this._oktaStateService.authState$.pipe(
@@ -50,13 +50,17 @@ export class AddArtistComponent implements OnInit {
     } else {
       // Run this if on the addLocation component
       console.log(data)
-      window.confirm("Artist Added!!");
-      this._router.navigate(['artists']);
+      this.addArtistFromAddArtist();
     }
+  }
+  // Method to run after adding artist on the AddArtist component
+  addArtistFromAddArtist() {
+    window.confirm("Artist Added!!");
+    this._router.navigate(['artists']);
   }
 
   updateArtistPicture(url: string) {
-    if (url){
+    if (url) {
       this.artistPictureURL = url;
     }
   }

@@ -86,7 +86,7 @@ export class AddArtComponent implements OnInit {
     this._locationService.getLocationsABC().subscribe({
       next: (allLocations) => this.locations = allLocations,
       error: (err) => console.log(err),
-      complete: () => window.confirm("Location Added")
+      complete: () => window.confirm("Location Added!!")
     });
     console.log(data);
   }
@@ -96,7 +96,7 @@ export class AddArtComponent implements OnInit {
     this._artistService.getArtistsABC().subscribe({
       next: (artists) => this.artists = artists,
       error: (err) => console.log(err),
-      complete: () => window.confirm("Artist Added")
+      complete: () => window.confirm("Artist Added!!")
     });
   }
 
@@ -105,7 +105,7 @@ export class AddArtComponent implements OnInit {
     this._arttypeService.getArtTypesABC().subscribe({
       next: (arttypes) => this.artTypes = arttypes,
       error: (err) => console.log(err),
-      complete: () => window.confirm("Art Type Added")
+      complete: () => window.confirm("Art Type Added!!")
     })
   }
 

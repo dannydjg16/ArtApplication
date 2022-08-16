@@ -66,7 +66,14 @@ export class AddLocationComponent implements OnInit {
     if (this._router.url === '/addwork') {
       this.updateLocationsEvent.emit(data)
     } else {
-      console.log(data)
+      // Run this if on the AddLocation component
+      console.log(data);
+      this.addLocationFromAddLocation();
     }
+  }
+  // Method to run after adding location on the AddLocation component
+  addLocationFromAddLocation() {
+    window.confirm("Location Added!!");
+    this._router.navigate(['locations']);
   }
 }

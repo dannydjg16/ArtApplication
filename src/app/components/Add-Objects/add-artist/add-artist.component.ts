@@ -45,14 +45,16 @@ export class AddArtistComponent implements OnInit {
   }
 
   updateArtists(data: Object) {
+    // Run this if on the addArtwork Component
     if (this._router.url === '/addwork') {
       this.updateArtistsEvent.emit(data)
     } else {
-      // Run this if on the addLocation component
+      // Run this if on the AddArtist component
       console.log(data)
       this.addArtistFromAddArtist();
     }
   }
+
   // Method to run after adding artist on the AddArtist component
   addArtistFromAddArtist() {
     window.confirm("Artist Added!!");

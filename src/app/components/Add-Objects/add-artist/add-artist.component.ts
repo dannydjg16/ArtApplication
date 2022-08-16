@@ -20,17 +20,19 @@ export class AddArtistComponent implements OnInit {
   @Output() updateArtistsEvent = new EventEmitter<Object>();
   public user!: User;
 
-  constructor(private _oktaStateService: OktaAuthStateService, 
-              private _artistService: ArtistService,
-              private _router: Router,
-              private userService: UserService) { }
+  constructor(private _oktaStateService: OktaAuthStateService,
+    private _artistService: ArtistService,
+    private _router: Router,
+    private userService: UserService) { }
 
   ngOnInit(): void {
     this.isAuthenticated$ = this._oktaStateService.authState$.pipe(
       filter((s: AuthState) => !!s),
       map((s: AuthState) => s.isAuthenticated ?? false)
     );
-    this._oktaStateService.authState$.subscribe(as => this.userService.getUserByEmail(as.accessToken?.claims.sub!).subscribe(u => this.user = u));
+    this._oktaStateService.authState$
+      .subscribe(as => this.userService.getUserByEmail(as.accessToken?.claims.sub!)
+        .subscribe(u => this.user = u));
 
   }
 
@@ -45,15 +47,24 @@ export class AddArtistComponent implements OnInit {
   }
 
   updateArtists(data: Object) {
+    // Run this if on the addArtwork Component
     if (this._router.url === '/addwork') {
       this.updateArtistsEvent.emit(data)
     } else {
+      // Run this if on the AddArtist component
       console.log(data)
+      this.addArtistFromAddArtist();
     }
   }
 
+  // Method to run after adding artist on the AddArtist component
+  addArtistFromAddArtist() {
+    window.confirm("Artist Added!!");
+    this._router.navigate(['artists']);
+  }
+
   updateArtistPicture(url: string) {
-    if (url){
+    if (url) {
       this.artistPictureURL = url;
     }
   }

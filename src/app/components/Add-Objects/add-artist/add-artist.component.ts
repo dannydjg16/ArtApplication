@@ -30,7 +30,9 @@ export class AddArtistComponent implements OnInit {
       filter((s: AuthState) => !!s),
       map((s: AuthState) => s.isAuthenticated ?? false)
     );
-    this._oktaStateService.authState$.subscribe(as => this.userService.getUserByEmail(as.accessToken?.claims.sub!).subscribe(u => this.user = u));
+    this._oktaStateService.authState$
+      .subscribe(as => this.userService.getUserByEmail(as.accessToken?.claims.sub!)
+        .subscribe(u => this.user = u));
 
   }
 

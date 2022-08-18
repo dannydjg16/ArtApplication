@@ -7,4 +7,5 @@ export default interface Artist{
     born: number;
     died: number;
     artistAdderId: number;
+    artworkCount?: number;
 }

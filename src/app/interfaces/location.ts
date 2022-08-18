@@ -10,6 +10,7 @@ export default interface Location{
     stateProvince: string;
     city: string;
     streetAddress: string;
+    artworkCount?: number;
     
     artworks: Artwork[];
 }

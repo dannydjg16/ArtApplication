@@ -38,7 +38,8 @@ export class AddArtistComponent implements OnInit {
 
   add(name: string, url: string, bornLocation: string, born: string, died: string, biography: string, adder: number) {
     const artist = {
-      name: name, pictureURL: url, bornLocation: bornLocation, born: born, died: died, biography: biography, artistAdderID: adder
+      name: name, pictureURL: url, bornLocation: bornLocation, born: born, died: died, 
+      biography: biography, artistAdderID: adder, artworkCount: 0
     }
 
     this._artistService.addArtist(artist as unknown as Artist).subscribe(data => {

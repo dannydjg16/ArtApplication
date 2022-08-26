@@ -24,6 +24,7 @@ export class ArtistGalleryComponent implements OnInit {
       map((s: AuthState) => s.isAuthenticated ?? false)
     );
 
+    // Search by author name
     this._artistService.getArtists().subscribe(arts => this.artists = arts);
   }
 

@@ -35,7 +35,7 @@ export class GeneralGalleryComponent implements OnInit {
         error: () => null,
         complete: () => null
       }));
-
+      // Change this to function with search 
     this._artworkService.getArtworks().subscribe(aws => this.artworkss = aws);
   }
 

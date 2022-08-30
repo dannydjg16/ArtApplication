@@ -82,6 +82,7 @@ export class AddArtComponent implements OnInit {
   }
 
   updateArtPicture(url: string) {
+    url = url.trim();
     if (url) {
       this.artPictureURL = url;
     }

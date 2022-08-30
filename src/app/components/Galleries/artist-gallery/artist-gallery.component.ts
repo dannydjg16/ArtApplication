@@ -26,5 +26,4 @@ export class ArtistGalleryComponent implements OnInit {
 
     this._artistService.getArtists().subscribe(arts => this.artists = arts);
   }
-
 }

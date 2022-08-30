@@ -38,6 +38,7 @@ export class ArtistWorksComponent implements OnInit {
       .subscribe(as => this._userService.getUserByEmail(as.accessToken?.claims.sub!)
         .subscribe(u => this.signedInUser$ = u));
 
+        // search artworks
     this._artworkService.getArtworksByArtist(this.route.snapshot.params['id'])
       .subscribe(aws => this.artworkss = aws);
   }

@@ -28,6 +28,7 @@ export class UserArtworksComponent implements OnInit {
     );
 
     // Get the User from okta, from db, then get users added artworks
+    // Search artwork
     this._oktaStateService.authState$.subscribe(as => this._userService.getUserByEmail(as.accessToken?.claims.sub!)
     .subscribe(u => this._artworkService.getArtworksByAdder(u.id).subscribe(addedWorks => this.addedArtworks = addedWorks)));
   }
